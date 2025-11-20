@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}About - Parking Citation Appeal Assistant{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2 class="mb-3">About This Application</h2>
+
+            <div class="alert alert-info">
+                <strong>Important:</strong> This tool is for informational purposes only and does not constitute legal advice.
+                Always review generated appeals carefully and consult with a legal professional for serious cases.
+            </div>
+
+            <h3 class="mt-3 mb-2">What is the Parking Citation Appeal Assistant?</h3>
+            <p>
+                The Parking Citation Appeal Assistant is an AI-powered web application designed to help individuals
+                create professional, legally-informed parking citation appeal letters. Using Google's advanced Gemini 2.0 Pro
+                AI model, the application analyzes your specific situation and generates compelling appeals tailored
+                to your jurisdiction.
+            </p>
+
+            <h3 class="mt-3 mb-2">Key Features</h3>
+            <ul style="line-height: 2; color: var(--text-dark);">
+                <li><strong>AI-Powered Generation:</strong> Utilizes Google Gemini 2.0 Pro for intelligent appeal creation</li>
+                <li><strong>Multi-Angle Analysis:</strong> Identifies and pursues up to 9 different appeal strategies</li>
+                <li><strong>Jurisdiction-Aware:</strong> Adapts to different cities and states with specific regulations</li>
+                <li><strong>Evidence Evaluation:</strong> Assesses the strength of your case based on available evidence</li>
+                <li><strong>Professional Format:</strong> Generates formal business letters ready for submission</li>
+                <li><strong>Case Analysis:</strong> Provides AI-powered insights into your appeal's likelihood of success</li>
+            </ul>
+
+            <h3 class="mt-3 mb-2">Supported Appeal Angles</h3>
+            <div class="feature-grid mt-2">
+                <div class="feature-card">
+                    <h3>Procedural Error</h3>
+                    <p>Citation issued incorrectly or with missing/incorrect information</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Inadequate Signage</h3>
+                    <p>Parking restrictions not clearly posted or signs were confusing</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Meter Malfunction</h3>
+                    <p>Parking meter or payment system was not working properly</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Emergency Circumstances</h3>
+                    <p>Violation due to medical emergency, breakdown, or safety concern</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Payment Display Issue</h3>
+                    <p>Valid payment made but receipt not properly displayed</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Zone Confusion</h3>
+                    <p>Zone boundaries or time restrictions were unclear</p>
+                </div>
+                <div class="feature-card">
+                    <h3>First-Time Leniency</h3>
+                    <p>Request for reduced penalty based on clean parking record</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Disability Accommodation</h3>
+                    <p>Issues related to disability parking or accommodation needs</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Time Discrepancy</h3>
+                    <p>Citation time is incorrect or conflicts with actual circumstances</p>
+                </div>
+            </div>
+
+            <h3 class="mt-3 mb-2">Supported Jurisdictions</h3>
+            <p>The application has detailed support for the following jurisdictions:</p>
+            <ul style="line-height: 2; color: var(--text-dark);">
+                <li><strong>California:</strong> San Francisco, Los Angeles</li>
+                <li><strong>New York:</strong> New York City</li>
+                <li><strong>Texas:</strong> Houston</li>
+                <li><strong>Florida:</strong> Miami</li>
+                <li><strong>Illinois:</strong> Chicago</li>
+            </ul>
+            <p>
+                The application also provides general support for all 50 US states using common parking law principles.
+            </p>
+
+            <h3 class="mt-3 mb-2">How to Use</h3>
+            <ol style="line-height: 2; color: var(--text-dark);">
+                <li>Click "Create Appeal" to access the appeal form</li>
+                <li>Enter your citation details (number, date, location, violation type)</li>
+                <li>Select your state and city (if applicable)</li>
+                <li>Check all boxes that apply to your situation</li>
+                <li>Indicate what evidence you have available</li>
+                <li>Provide any additional relevant information</li>
+                <li>Click "Generate Appeal" and wait 30-60 seconds for AI processing</li>
+                <li>Review your appeal letter and AI case analysis</li>
+                <li>Copy the appeal and submit it to your local parking authority</li>
+            </ol>
+
+            <h3 class="mt-3 mb-2">Tips for Success</h3>
+            <ul style="line-height: 2; color: var(--text-dark);">
+                <li>Be truthful - only claim what you can support with evidence</li>
+                <li>Gather comprehensive photo evidence before leaving the parking spot</li>
+                <li>Act quickly - most jurisdictions have 21-30 day appeal deadlines</li>
+                <li>Review and customize the generated appeal to match your tone</li>
+                <li>Include all referenced evidence when submitting your appeal</li>
+                <li>Keep copies of everything you submit</li>
+                <li>Follow up if you don't receive a response within the expected timeframe</li>
+            </ul>
+
+            <h3 class="mt-3 mb-2">Technology Stack</h3>
+            <ul style="line-height: 2; color: var(--text-dark);">
+                <li><strong>Backend:</strong> Python, Flask</li>
+                <li><strong>AI Engine:</strong> Google Gemini 2.0 Pro</li>
+                <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Data:</strong> Comprehensive jurisdiction database</li>
+            </ul>
+
+            <h3 class="mt-3 mb-2">Legal Disclaimer</h3>
+            <div class="alert alert-warning">
+                <p style="margin-bottom: 0.5rem;">
+                    <strong>This application is for informational purposes only and does not constitute legal advice.</strong>
+                </p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Generated appeals should be reviewed and customized before submission</li>
+                    <li>We do not guarantee the success of any appeal</li>
+                    <li>For complex or serious cases, consult with a legal professional</li>
+                    <li>Users are responsible for verifying all information and claims</li>
+                    <li>Appeal deadlines and procedures vary by jurisdiction - verify locally</li>
+                </ul>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="/form" class="btn btn-primary btn-large">Create Your Appeal</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

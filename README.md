@@ -78,6 +78,26 @@ This will:
 5. Generate comprehensive appeal letters
 6. Save everything to files
 
+### Web Interface (NEW!)
+
+Launch the web application for a user-friendly browser experience:
+
+```bash
+cd web
+python app.py
+```
+
+Then open your browser to `http://localhost:5000`
+
+Features:
+- Modern, responsive design
+- Interactive form with real-time validation
+- AI-powered appeal generation
+- Copy-to-clipboard functionality
+- Beautiful landing page with feature showcase
+
+See `web/README.md` for detailed documentation.
+
 ### Quick Mode
 
 For simple appeals or testing:

@@ -1,0 +1,324 @@
+{% extends "base.html" %}
+
+{% block title %}Create Appeal - Parking Citation Appeal Assistant{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2 class="mb-3">Create Your Parking Citation Appeal</h2>
+
+            <div id="alertContainer"></div>
+
+            <form id="appealForm">
+                <!-- Basic Citation Information -->
+                <h3 class="mb-2">Citation Information</h3>
+
+                <div class="form-group">
+                    <label for="citation_number">Citation Number *</label>
+                    <input type="text" id="citation_number" name="citation_number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="citation_date">Citation Date *</label>
+                    <input type="date" id="citation_date" name="citation_date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="citation_time">Citation Time</label>
+                    <input type="time" id="citation_time" name="citation_time">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location (Street Address) *</label>
+                    <input type="text" id="location" name="location" placeholder="123 Main Street, City" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="violation_type">Violation Type *</label>
+                    <input type="text" id="violation_type" name="violation_type" placeholder="e.g., Expired Meter, No Parking Zone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fine_amount">Fine Amount</label>
+                    <input type="text" id="fine_amount" name="fine_amount" placeholder="$75">
+                </div>
+
+                <!-- Jurisdiction -->
+                <h3 class="mb-2 mt-3">Jurisdiction</h3>
+
+                <div class="form-group">
+                    <label for="state">State *</label>
+                    <select id="state" name="state" required>
+                        <option value="">Select State</option>
+                        <option value="CA">California</option>
+                        <option value="NY">New York</option>
+                        <option value="TX">Texas</option>
+                        <option value="FL">Florida</option>
+                        <option value="IL">Illinois</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City (Optional)</label>
+                    <input type="text" id="city" name="city" placeholder="e.g., San Francisco, New York City">
+                    <small style="color: var(--text-light);">Leave blank if not a major city</small>
+                </div>
+
+                <!-- Situation Details -->
+                <h3 class="mb-2 mt-3">Your Situation</h3>
+                <p style="color: var(--text-light); margin-bottom: 1rem;">
+                    Select all that apply to help us identify the strongest appeal angles:
+                </p>
+
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="first_violation" name="first_violation">
+                        <label for="first_violation">This is my first parking violation in this jurisdiction</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="unclear_signage" name="unclear_signage">
+                        <label for="unclear_signage">Parking signs were unclear, missing, or confusing</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="meter_malfunction" name="meter_malfunction">
+                        <label for="meter_malfunction">Parking meter or payment system was not working</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="paid_for_parking" name="paid_for_parking">
+                        <label for="paid_for_parking">I paid for parking</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="paid_not_displayed" name="paid_not_displayed">
+                        <label for="paid_not_displayed">Payment receipt was not properly displayed</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="emergency_situation" name="emergency_situation">
+                        <label for="emergency_situation">This was due to an emergency situation</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="time_incorrect" name="time_incorrect">
+                        <label for="time_incorrect">The citation time is incorrect</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="has_disability_placard" name="has_disability_placard">
+                        <label for="has_disability_placard">I have a disability placard/plate</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="incorrect_vehicle_info" name="incorrect_vehicle_info">
+                        <label for="incorrect_vehicle_info">Citation has incorrect vehicle information</label>
+                    </div>
+                </div>
+
+                <!-- Emergency Description -->
+                <div class="form-group mt-3" id="emergency_desc_group" style="display: none;">
+                    <label for="emergency_description">Emergency Description</label>
+                    <textarea id="emergency_description" name="emergency_description"
+                              placeholder="Briefly describe the emergency situation"></textarea>
+                </div>
+
+                <!-- Evidence -->
+                <h3 class="mb-2 mt-3">Available Evidence</h3>
+                <p style="color: var(--text-light); margin-bottom: 1rem;">
+                    Select all types of evidence you have:
+                </p>
+
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="photos_of_parking_location_and_signage">
+                        <label>Photos of parking location and signage</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="photos_of_citation">
+                        <label>Photos of the citation itself</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="parking_receipt">
+                        <label>Parking receipt or payment confirmation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="meter_photos">
+                        <label>Photos of meter (showing malfunction, etc.)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="payment_records">
+                        <label>Credit card/bank statement showing payment</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="medical_documentation">
+                        <label>Medical documentation (for emergency)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="evidence" value="witness_statements">
+                        <label>Witness statements</label>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="evidence_description">Evidence Description</label>
+                    <textarea id="evidence_description" name="evidence_description"
+                              placeholder="Briefly describe your evidence and what it shows"></textarea>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-group">
+                    <label for="additional_info">Additional Information</label>
+                    <textarea id="additional_info" name="additional_info"
+                              placeholder="Any other relevant information about your citation"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-large">Generate Appeal</button>
+                </div>
+            </form>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Generating your appeal with AI... This may take 30-60 seconds.</p>
+            </div>
+
+            <!-- Results -->
+            <div id="resultsContainer" class="hidden">
+                <h2 class="mb-3 mt-3">Your Appeal Results</h2>
+
+                <div id="analysisContainer" class="analysis-box hidden">
+                    <h3>AI Case Analysis</h3>
+                    <div id="analysisText"></div>
+                </div>
+
+                <div id="appealContainer" class="appeal-box">
+                    <h3>Your Appeal Letter</h3>
+                    <div id="appealText" class="appeal-text"></div>
+                </div>
+
+                <div id="anglesUsed" class="mb-3"></div>
+
+                <div class="text-center">
+                    <button onclick="copyAppeal()" class="btn btn-primary">Copy to Clipboard</button>
+                    <button onclick="resetForm()" class="btn btn-secondary">Create Another Appeal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Show/hide emergency description
+    document.getElementById('emergency_situation').addEventListener('change', function() {
+        const emergencyGroup = document.getElementById('emergency_desc_group');
+        emergencyGroup.style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Form submission
+    document.getElementById('appealForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Show loading, hide form and results
+        document.getElementById('appealForm').classList.add('hidden');
+        document.getElementById('loadingState').classList.remove('hidden');
+        document.getElementById('resultsContainer').classList.add('hidden');
+        document.getElementById('alertContainer').innerHTML = '';
+
+        // Gather form data
+        const formData = new FormData(this);
+        const data = {
+            citation_number: formData.get('citation_number'),
+            citation_date: formData.get('citation_date'),
+            citation_time: formData.get('citation_time'),
+            location: formData.get('location'),
+            violation_type: formData.get('violation_type'),
+            fine_amount: formData.get('fine_amount'),
+            state: formData.get('state'),
+            city: formData.get('city'),
+            first_violation: formData.get('first_violation') === 'on',
+            unclear_signage: formData.get('unclear_signage') === 'on',
+            meter_malfunction: formData.get('meter_malfunction') === 'on',
+            paid_for_parking: formData.get('paid_for_parking') === 'on',
+            paid_not_displayed: formData.get('paid_not_displayed') === 'on',
+            emergency_situation: formData.get('emergency_situation') === 'on',
+            emergency_description: formData.get('emergency_description'),
+            time_incorrect: formData.get('time_incorrect') === 'on',
+            has_disability_placard: formData.get('has_disability_placard') === 'on',
+            incorrect_vehicle_info: formData.get('incorrect_vehicle_info') === 'on',
+            evidence: formData.getAll('evidence'),
+            evidence_description: formData.get('evidence_description'),
+            additional_info: formData.get('additional_info'),
+            include_analysis: true
+        };
+
+        try {
+            const response = await fetch('/api/generate-appeal', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Show results
+                document.getElementById('appealText').textContent = result.appeal;
+
+                if (result.analysis) {
+                    document.getElementById('analysisText').textContent = result.analysis;
+                    document.getElementById('analysisContainer').classList.remove('hidden');
+                }
+
+                if (result.angles_used && result.angles_used.length > 0) {
+                    document.getElementById('anglesUsed').innerHTML =
+                        '<strong>Appeal angles used:</strong> ' + result.angles_used.join(', ');
+                }
+
+                document.getElementById('resultsContainer').classList.remove('hidden');
+                document.getElementById('loadingState').classList.add('hidden');
+            } else {
+                throw new Error(result.error || 'Failed to generate appeal');
+            }
+        } catch (error) {
+            document.getElementById('loadingState').classList.add('hidden');
+            document.getElementById('appealForm').classList.remove('hidden');
+            showAlert('Error: ' + error.message, 'danger');
+        }
+    });
+
+    function showAlert(message, type) {
+        const alertHTML = `
+            <div class="alert alert-${type}">
+                ${message}
+            </div>
+        `;
+        document.getElementById('alertContainer').innerHTML = alertHTML;
+        window.scrollTo(0, 0);
+    }
+
+    function copyAppeal() {
+        const appealText = document.getElementById('appealText').textContent;
+        navigator.clipboard.writeText(appealText).then(function() {
+            showAlert('Appeal copied to clipboard!', 'success');
+        }, function(err) {
+            showAlert('Failed to copy: ' + err, 'danger');
+        });
+    }
+
+    function resetForm() {
+        document.getElementById('resultsContainer').classList.add('hidden');
+        document.getElementById('appealForm').classList.remove('hidden');
+        document.getElementById('appealForm').reset();
+        window.scrollTo(0, 0);
+    }
+</script>
+{% endblock %}
