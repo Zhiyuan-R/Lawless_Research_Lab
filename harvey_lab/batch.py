@@ -11,6 +11,7 @@ State lives in harvey_lab/batch_state.json so the batch survives restarts.
 """
 
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -81,6 +82,9 @@ def main() -> None:
                  n_passed=scores["n_passed"], n_criteria=scores["n_criteria"], all_pass=scores["all_pass"],
                  n_grading_errors=scores["n_grading_errors"])
         save(state)
+        # Scored: drop the agent's scratch workspace (can be 500 MB for DMS tasks);
+        # deliverables, logs, scores and audits stay.
+        shutil.rmtree(Path(s["run_dir"]) / "workspace", ignore_errors=True)
         print(out.strip().splitlines()[0], "| judge audit clean:", a["clean"], a["violations"][:3])
     elif cmd == "fail":
         task, reason = rest

@@ -54,7 +54,7 @@ def audit(role: str, transcript: Path, run_dir: Path) -> dict:
     """Violations: anything that could reach the rubric, another run, or the network.
     Warnings: other host activity (helper files written outside the sandbox / judge dir)."""
     violations, warnings, counts = [], [], {}
-    results_root = run_dir.parents[3]  # .../results
+    results_root = next(p for p in run_dir.parents if p.name == "results")  # task ids nest 2-4 levels
     tasks_root = results_root.parent / "tasks"
     judge_root = Path("/tmp/lab-judging")
     if role == "agent":
@@ -109,7 +109,7 @@ def audit(role: str, transcript: Path, run_dir: Path) -> dict:
                 check_path(path, "Bash")
             if role == "agent" and SBX not in cmd:
                 warnings.append(f"host Bash without sbx.sh: {cmd[:120]}")
-        elif name not in ("TodoWrite", "TaskCreate", "TaskUpdate", "TaskList"):
+        elif name not in ("TodoWrite", "TaskCreate", "TaskUpdate", "TaskList", "StructuredOutput"):
             warnings.append(f"unexpected tool: {name}")
 
     result = {"role": role, "clean": not violations, "violations": violations,
