@@ -89,6 +89,22 @@ uv run python -m lab_core.evaluation.compare --area corporate-ma
 
 配置好 key 以后，执行 `run_task.sh` 就能出第一份真实分数。
 
+### 会话模式结果（Claude Code 子 agent 做任务，另一个独立子 agent 当裁判）
+
+| 任务 | 标准通过 | all-pass | 文档覆盖 | 用时 | 结果目录 |
+|---|---|---|---|---|---|
+| `corporate-ma/review-data-room-red-flag-review` | **45/50（90%）** | 0（FAIL） | 13/13 | agent 约 20 分钟，sandbox 命令 53 条 | `session_results/corporate-ma/review-data-room-red-flag-review/claude-code-session/20261015-065804/` |
+
+没有通过的 5 条标准：
+
+- C-030：接受了 $1.8M 石棉清理的 add-back，没有质疑它是否真的是一次性项目
+- C-032：把 Wyoming 许可证到期这个干扰项列成了 HIGH 风险
+- C-041：缺少“看似有问题、实际已排除”的事项清单
+- C-045：没有提到 2025-01-24 的投资委员会会议
+- C-046：漏了 Consolidated Mining 占 11.4%（$14.5M）和 DOE 的 $24.4M
+
+另外，裁判标出了 5 条判得偏宽松的通过项（C-010、C-011、C-016、C-047、C-050）。按最严格的读法，这几条也可能判为不通过。
+
 ## 注意事项
 
 - **成本**：一个任务一般要几十万输入 token，再加上每条标准 × 2 个裁判的评分调用。跑全量 2,010 个任务之前，先用 `--dry-run` 估算规模。
