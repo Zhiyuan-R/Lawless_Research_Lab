@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories/claude-code-session/20261015-121925</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories/claude-code-session/20261015-121925</strong> &nbsp;&middot;&nbsp;
+  Task: white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">55/57</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">14/14</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 2</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (55 passed, 2 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Identifies Whitford phone factory reset as spoliation concern</span>
+    <span style="font-size:0.8rem;color:#999">C-001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies Jan. 20, 2025 factory reset six days after Jan. 14 service as a preservation incident with obstruction exposure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Identifies Signal and WhatsApp not collected from Whitford</span>
+    <span style="font-size:0.8rem;color:#999">C-002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States Whitford Signal and WhatsApp data are unrecoverable/not collected due to the reset.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Recommends disclosure of Whitford phone reset to USAO</span>
+    <span style="font-size:0.8rem;color:#999">C-003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends prompt counsel-to-counsel disclosure to AUSA Navarro of the reset.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Links Whitford phone gap to Category 15 deficiency</span>
+    <span style="font-size:0.8rem;color:#999">C-004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Request 15 row lists Whitford reset and lost Signal/WhatsApp; Req. 15 rated RED/partial.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Marcus Webb email raising VeriScan Pro testing concerns</span>
+    <span style="font-size:0.8rem;color:#999">C-005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies Aug. 14, 2021 Webb email to Cheng-Rourke on VeriScan Pro testing accuracy.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Webb email as incorrectly coded non-responsive</span>
+    <span style="font-size:0.8rem;color:#999">C-006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States the Webb email was collected and coded non-responsive.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Connects Webb email to Category 9 (whistleblower/complaints)</span>
+    <span style="font-size:0.8rem;color:#999">C-007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Ties Webb email to Request 9 and calls the zero production indefensible.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Flags risk of obstruction or bad faith from Webb email non-production</span>
+    <span style="font-size:0.8rem;color:#999">C-008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Warns the Government would read the coding guide narrowing that caused non-production as deliberate narrowing and a QC failure to explain; risk assessment present.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Notes coding guide's narrow definition of Category 9 as cause</span>
+    <span style="font-size:0.8rem;color:#999">C-009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies coding guide's formal-channel limitation as the cause and inconsistent with 'whether formal or informal' subpoena text.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Identifies 2,385 privileged documents not yet on privilege log</span>
+    <span style="font-size:0.8rem;color:#999">C-010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">4,232 privileged, 1,847 logged, 2,385 unlogged.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Flags privilege log incompleteness as protocol non-compliance</span>
+    <span style="font-size:0.8rem;color:#999">C-011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Flags non-compliance with Protocol paras 5.2-5.3 and Subpoena Instr. IV.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Flags privilege waiver risk from incomplete logging</span>
+    <span style="font-size:0.8rem;color:#999">C-012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Notes failure to log may result in waiver.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004: Flags Category 11 — 100% withholding as over-inclusive</span>
+    <span style="font-size:0.8rem;color:#999">C-013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 11 zero produced, 1,247 privileged, 100% withheld flagged as over-designation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004: Notes business advice or deal logistics may not be privileged</span>
+    <span style="font-size:0.8rem;color:#999">C-014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Notes many ACS emails are logistical/facts and not privileged, predominant-purpose test.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004: Recommends privilege log review or in camera inspection risk</span>
+    <span style="font-size:0.8rem;color:#999">C-015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends thread-level re-review and notes in camera testing risk.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Q3 2021 and Q1 2022 board minutes as missing from production</span>
+    <span style="font-size:0.8rem;color:#999">C-016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Specifies Q3 2021 and Q1 2022 minutes missing.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies separate SharePoint site as source of missing board minutes</span>
+    <span style="font-size:0.8rem;color:#999">C-017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies the uncollected MedCore Board Corporate Secretary SharePoint site.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_005: Notes Q3 2021 board minutes significance re Webb email timing</span>
+    <span style="font-size:0.8rem;color:#999">C-018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Notes Q3 2021 meeting discussed VeriScan Pro testing data validation weeks after the Webb email.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_005: Notes board packages may be responsive to other categories</span>
+    <span style="font-size:0.8rem;color:#999">C-019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">SharePoint gap listed as affecting Requests 7 and also 2, 3, 8, 14, 18.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Identifies Dr. Anand's personal Gmail not collected</span>
+    <span style="font-size:0.8rem;color:#999">C-020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies Anand personal Gmail uncollected pending counsel response.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Identifies multiple categories affected by Anand Gmail gap</span>
+    <span style="font-size:0.8rem;color:#999">C-021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Lists Requests 2, 3, 7, 8, 9, 14, 15 affected.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007: Identifies Dr. Anand's personal phone not collected</span>
+    <span style="font-size:0.8rem;color:#999">C-022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Anand phone not collected, separate counsel unresponsive, Req. 15 gap.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Flags Category 16 zero-document response as implausible</span>
+    <span style="font-size:0.8rem;color:#999">C-023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Calls Req. 16 zero facially implausible with zero produced/privileged.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Notes legal hold documents necessarily exist</span>
+    <span style="font-size:0.8rem;color:#999">C-024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Mentions HRK January 2025 hold notices treated as responsive and not to be silently omitted, plus any earlier holds.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Connects Whitford's prior Cromdale Consulting Aldwyn employment to Category 6 analysis</span>
+    <span style="font-size:0.8rem;color:#999">C-025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 6 row notes Whitford's prior Cromdale employment makes communications sensitive and flags lost Whitford-Cromdale WhatsApp group.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Flags completeness of fee arrangement production in Category 6</span>
+    <span style="font-size:0.8rem;color:#999">C-026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 6 calls for confirming engagement letter, fee/tail/minimum-fee terms and amendments are produced.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_009: Notes government focus on fee structures as motive evidence</span>
+    <span style="font-size:0.8rem;color:#999">C-027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 6 discussion confirms fee/tail terms are produced but never discusses Government interest in banker fee structures as motive evidence (motive is raised only for Req. 14 compensation).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_010: Flags that multi-category tagging may inflate perceived coverage</span>
+    <span style="font-size:0.8rem;color:#999">C-028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes 1,015 multi-tagged documents but does not discuss the risk that multi-tagging inflates perceived category coverage (e.g., Category 5's 2,847).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_011: Flags Category 3 FDA materials as insufficient (241 docs)</span>
+    <span style="font-size:0.8rem;color:#999">C-029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 3 only 241 docs for two pending 510(k)s (MC-510k-2021-04, MC-510k-2022-01) rated insufficient.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_011: Notes MedCore regulatory files not fully collected</span>
+    <span style="font-size:0.8rem;color:#999">C-030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies uncollected Documentum and regulatory shares and recommends export.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_012: Flags intersection of Categories 3, 4, and 9 re VeriScan Pro</span>
+    <span style="font-size:0.8rem;color:#999">C-031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Ties Webb email to Requests 9, 3 and 4 and links CIM VeriScan data sheet and FDA materials to the Government's core VeriScan misrepresentation theory.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_012: Notes incomplete Cat 3 undermines good faith re investigation core</span>
+    <span style="font-size:0.8rem;color:#999">C-032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Bottom line links Req. 3 insufficiency to the categories that matter most to the Government's VeriScan/FDA theory and priority designation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo includes executive summary section</span>
+    <span style="font-size:0.8rem;color:#999">C-033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Bottom Line section summarizes key findings.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo includes priority action items section</span>
+    <span style="font-size:0.8rem;color:#999">C-034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Remediation Plan with phased prioritized actions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo organized by request category number</span>
+    <span style="font-size:0.8rem;color:#999">C-035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Request-by-request table numbered 1-18.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">All 18 request categories addressed in the analysis</span>
+    <span style="font-size:0.8rem;color:#999">C-036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">All 18 requests addressed.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 1 document counts approximately accurate</span>
+    <span style="font-size:0.8rem;color:#999">C-037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 1: 2,134 produced, 87 privileged.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 1 characterized as substantially complete</span>
+    <span style="font-size:0.8rem;color:#999">C-038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 1 rated Comprehensive/GREEN with caveats.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 5 accurately characterized with document counts</span>
+    <span style="font-size:0.8rem;color:#999">C-039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 5: 2,847 produced, 156 privileged.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 9 correctly identified as zero-production category</span>
+    <span style="font-size:0.8rem;color:#999">C-040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 9 Prod 0, Priv 0.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 16 correctly identified as zero-production category</span>
+    <span style="font-size:0.8rem;color:#999">C-041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 16 Prod 0, Priv 0.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations include supplemental collection from MedCore systems</span>
+    <span style="font-size:0.8rem;color:#999">C-042</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends Documentum export and MedCore shares collection.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations include supplemental collection from SharePoint</span>
+    <span style="font-size:0.8rem;color:#999">C-043</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends collecting SharePoint board minutes.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations include re-review of Webb email coding</span>
+    <span style="font-size:0.8rem;color:#999">C-044</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends re-coding/producing Webb email and amending Req. 9 coding.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations include completing privilege log before final production</span>
+    <span style="font-size:0.8rem;color:#999">C-045</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends completing log for all 2,385 by May 2.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations include resolving Dr. Anand Gmail and phone collection</span>
+    <span style="font-size:0.8rem;color:#999">C-046</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends letter to Solano with firm deadline on Gmail and phone.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations include reviewing Category 11 privilege designations</span>
+    <span style="font-size:0.8rem;color:#999">C-047</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends thread-level ACS re-review and production of non-privileged items.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Correctly identifies Category 7 as partial coverage</span>
+    <span style="font-size:0.8rem;color:#999">C-048</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 7: 487 produced, 22 privileged, rated partial/RED.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 15 characterized as partial coverage</span>
+    <span style="font-size:0.8rem;color:#999">C-049</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 15: 1,203 produced, partial/RED.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 15 identifies Whitford Signal/WhatsApp gap</span>
+    <span style="font-size:0.8rem;color:#999">C-050</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Whitford Signal/WhatsApp gap listed in Req. 15 row.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Category 15 identifies Anand phone non-collection gap</span>
+    <span style="font-size:0.8rem;color:#999">C-051</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Anand phone gap listed in Req. 15 row.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo references the June 30, 2025 final production deadline</span>
+    <span style="font-size:0.8rem;color:#999">C-052</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">References June 30, 2025 final deadline and keys plan to it.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo identifies production as RC-PROD-001 through RC-PROD-014872</span>
+    <span style="font-size:0.8rem;color:#999">C-053</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States RC-PROD-001 through RC-PROD-014872, 14,872 docs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommendations are prioritized by urgency level</span>
+    <span style="font-size:0.8rem;color:#999">C-054</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Phase 1 Immediate / Phase 2 / Phase 3 tiers.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Whitford spoliation as highest-priority or immediate item</span>
+    <span style="font-size:0.8rem;color:#999">C-055</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Whitford reset is item 1 of Bottom Line and Phase 1 action 1.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Considers whether Webb email triggered compliance review</span>
+    <span style="font-size:0.8rem;color:#999">C-056</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Req. 16 lists any review of Webb concerns; Appendix B ties it to Requests 9 and 16.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Krell interview re Adler Connolly communications as mixed</span>
+    <span style="font-size:0.8rem;color:#999">C-057</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Uses Krell interview: many ACS emails logistical, 'lines got blurry'.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

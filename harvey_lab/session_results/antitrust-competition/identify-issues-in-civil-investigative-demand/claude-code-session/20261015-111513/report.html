@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — antitrust-competition/identify-issues-in-civil-investigative-demand/claude-code-session/20261015-111513</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>antitrust-competition/identify-issues-in-civil-investigative-demand/claude-code-session/20261015-111513</strong> &nbsp;&middot;&nbsp;
+  Task: antitrust-competition/identify-issues-in-civil-investigative-demand &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">1.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">53/53</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">9/9</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-allpass">ALL PASS</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (53 passed, 0 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies petition deadline of October 24, 2024 (20 days from service)</span>
+    <span style="font-size:0.8rem;color:#999">C-001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states the 15 U.S.C. § 1314(b) petition deadline is Thursday, October 24, 2024, 20 days after the October 4 service.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Flags urgency: only 9 days remain from October 15 memo date to petition deadline</span>
+    <span style="font-size:0.8rem;color:#999">C-002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Oct. 24 deadline is bolded in the executive summary. The 72-hour action list requires contacting DOJ by Oct. 18 to address the petition deadline in writing and preparing a protective petition in parallel, so the short window is treated as needing immediate action.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies overbreadth of DMD Specification 3 (pricing documents)</span>
+    <span style="font-size:0.8rem;color:#999">C-003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Spec. 3 is called the largest cost driver (hundreds of thousands of hits, ~1.2M documents overall), with the 'to the present' period and the product-definition breadth also noted. The memo proposes narrowing it.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommends Specification 3 overbreadth as grounds for petition to modify</span>
+    <span style="font-size:0.8rem;color:#999">C-004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Overbreadth of Spec. 3 and the other specs is tied to modification: a negotiated modification letter, with a protective § 1314(b) petition stating each ground as the fallback.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Hollister-Felding June 14, 2022 text as critical substantive risk</span>
+    <span style="font-size:0.8rem;color:#999">C-005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Entry 23 (June 14, 2022, 'move prices up in July... You seeing the same thing?') is shown as the key pre-increase message before the July 1 increase and is treated as central per se Section 1 exposure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Notes Hollister-Felding communications are largely personal and not privileged</span>
+    <span style="font-size:0.8rem;color:#999">C-006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo says the CEO-to-CEO communications are not privileged and acknowledges the genuine personal content and the personal/business/mixed split.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies failure to issue litigation hold as critical issue</span>
+    <span style="font-size:0.8rem;color:#999">C-007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states that no litigation hold has issued 12 days after service, calls this the most time-sensitive issue, and says a hold must issue today.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Slack 90-day auto-deletion as spoliation risk</span>
+    <span style="font-size:0.8rem;color:#999">C-008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo says the Slack 90-day purge destroyed nearly all 2022-2023 content and that it must be disclosed. It flags spoliation risk if the preservation trigger came earlier.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommends immediate issuance of litigation hold</span>
+    <span style="font-size:0.8rem;color:#999">C-009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo says to 'Issue a written litigation hold today.'</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies March 15, 2024 server failure as data loss relevant to CID</span>
+    <span style="font-size:0.8rem;color:#999">C-010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The March 15, 2024 Raleigh server failure (about two weeks of backup lost) is identified and tied to Interrogatory 8(f) disclosure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Ridgeline report as likely not privileged</span>
+    <span style="font-size:0.8rem;color:#999">C-011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo concludes the Ridgeline report is neither privileged nor work product, because it had a business purpose and the GC's role was vendor-contract management.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Notes Ridgeline engagement letter lacks legal purpose or at-direction-of-counsel language</span>
+    <span style="font-size:0.8rem;color:#999">C-012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes the engagement letter states a business purpose, that Ridgeline is 'not a legal representative', and that Ridgeline was not assisting counsel in giving legal advice, which is the substance of the missing counsel-direction language.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies damaging content in Ridgeline report (±3% price parity recommendation)</span>
+    <span style="font-size:0.8rem;color:#999">C-013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The ±3% price-parity corridor with TinyHarvest (NourishCo's brand) is identified as damaging content.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Ridgeline report as responsive to DMD Specification 11</span>
+    <span style="font-size:0.8rem;color:#999">C-014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states the report and related materials are responsive to Spec. 11 and must be produced.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Discusses Kovel doctrine or third-party consultant privilege requirements</span>
+    <span style="font-size:0.8rem;color:#999">C-015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo discusses Kovel and explains why it does not apply, along with the primary-purpose test from Kellogg Brown & Root.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies common interest agreement scope limitation to labeling litigation</span>
+    <span style="font-size:0.8rem;color:#999">C-016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states the CIA covers only counsel-to-counsel communications on defense of the Labeling Litigation, and that pricing and competitive-dynamics exchanges fall outside that scope.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies absence of termination clause in common interest agreement</span>
+    <span style="font-size:0.8rem;color:#999">C-017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo acknowledges there is no termination clause, notes the § 5 withdrawal right, and addresses the survival of protection for materials shared before settlement.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Analyzes whether common interest privilege survived settlement of labeling litigation</span>
+    <span style="font-size:0.8rem;color:#999">C-018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo analyzes that the common legal interest ended with the April 30, 2023 settlement and that communications after that date are not protected.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies CID signature authority issue (delegation from AAG)</span>
+    <span style="font-size:0.8rem;color:#999">C-019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the CID as signed by a Senior Trial Attorney 'by authority of' the AAG under § 1312(a) and recommends confirming the delegation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Correctly characterizes signature authority issue as weak or secondary ground</span>
+    <span style="font-size:0.8rem;color:#999">C-020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo characterizes the delegation point as unlikely to help and as an objection to preserve rather than lead with.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies email migration data loss (~14,800 emails, 4%)</span>
+    <span style="font-size:0.8rem;color:#999">C-021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies ~14,800 of ~370,000 messages (4%) failing to migrate because of formatting and corruption errors.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies obligation to disclose migration data gap to DOJ</span>
+    <span style="font-size:0.8rem;color:#999">C-022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states the data losses must be disclosed under Interrogatory 8, Instructions 4 and 8, and Topic D, and recommends proactive disclosure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Google Workspace decommissioning as complicating recovery of unmigrated emails</span>
+    <span style="font-size:0.8rem;color:#999">C-023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes the Oct. 1, 2023 decommissioning against Cloudbridge's advice made the emails unrecoverable and recovery unlikely.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommends engaging vendor to attempt recovery of unmigrated emails</span>
+    <span style="font-size:0.8rem;color:#999">C-024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends an immediate, documented recovery request to Google, obtaining Cloudbridge's failure logs, and identifying alternative sources, so a recovery effort is recommended.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies oral testimony scheduling conflict (Nov 22 vs. Nov 18 return date)</span>
+    <span style="font-size:0.8rem;color:#999">C-025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags that testimony four days after the Nov. 18 return date leaves no time to prepare on the produced record.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommends requesting modification of oral testimony date</span>
+    <span style="font-size:0.8rem;color:#999">C-026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends seeking postponement of the testimony until after substantial production.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies OINTA Pricing Index Database as potential collusion-facilitating mechanism</span>
+    <span style="font-size:0.8rem;color:#999">C-027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The OINTA Pricing Index is analyzed as an information-exchange risk based on actual transaction prices, the lag, high/low values and summit discussion.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Discusses legal framework for competitor information exchanges via trade associations</span>
+    <span style="font-size:0.8rem;color:#999">C-028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo cites Container Corp., Gypsum and Todd v. Exxon, discusses the withdrawn DOJ/FTC safety zones, and covers the data-age and aggregation factors.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies need to collect from personal devices for Hollister-Felding communications</span>
+    <span style="font-size:0.8rem;color:#999">C-029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the personal iPhone and Gmail sources and recommends forensic collection through an independent vendor.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Notes CID obligations extend to documents in company's possession, custody, or control including personal devices</span>
+    <span style="font-size:0.8rem;color:#999">C-030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states the communications are within the Company's possession, custody or control and that the CID expressly reaches personal devices used for business.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Does not flag parallel pricing alone as evidence of antitrust violation</span>
+    <span style="font-size:0.8rem;color:#999">C-031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states that parallel price movement alone is lawful conscious parallelism under Twombly and relies on the communications as plus factors.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Deadline summary includes petition deadline of October 24, 2024</span>
+    <span style="font-size:0.8rem;color:#999">C-032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Critical Deadlines table lists Oct. 24, 2024.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Deadline summary includes document/interrogatory return date of November 18, 2024</span>
+    <span style="font-size:0.8rem;color:#999">C-033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Critical Deadlines table lists the Nov. 18, 2024 return date.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Deadline summary includes oral testimony date of November 22, 2024</span>
+    <span style="font-size:0.8rem;color:#999">C-034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Critical Deadlines table lists the Nov. 22, 2024 oral testimony.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Includes assessment of grounds for petitioning to modify or set aside the CID — overbreadth of specifications</span>
+    <span style="font-size:0.8rem;color:#999">C-035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo assesses overbreadth in the petition context, citing the Morton Salt standard and the heavy burden, and concludes overbreadth is better resolved by negotiation, with a protective petition as the fallback.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Includes assessment of grounds for petitioning to modify or set aside the CID — oral testimony scheduling</span>
+    <span style="font-size:0.8rem;color:#999">C-036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">In its statutory/procedural grounds discussion, the memo calls the 45-day return date with testimony four days later unreasonable under § 1312(b)(2)(B) and a strong ground for an extension.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Includes privilege log strategy for Ridgeline report</span>
+    <span style="font-size:0.8rem;color:#999">C-037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo says not to withhold the report but to produce it, logging only narrow legal-advice communications, and notes the Instruction 5 logging consequences.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Includes privilege log strategy for common interest agreement materials</span>
+    <span style="font-size:0.8rem;color:#999">C-038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends reviewing the counsel communications, assessing scope, handling the § 4.3 consent and § 4.4 notice to F&A, and asserting privilege where valid.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Preservation plan includes issuance of litigation hold</span>
+    <span style="font-size:0.8rem;color:#999">C-039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The preservation plan includes issuing a written litigation hold today.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Preservation plan includes suspending auto-deletion policies</span>
+    <span style="font-size:0.8rem;color:#999">C-040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The plan includes written confirmation that the email purge and Teams/chat auto-deletion have been suspended.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Preservation plan includes assessing/recovering unmigrated emails from Cloudbridge migration</span>
+    <span style="font-size:0.8rem;color:#999">C-041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo's actions include obtaining the per-mailbox failure logs, a recovery request to Google, and identifying alternative sources.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Assigns critical or highest severity to litigation hold failure</span>
+    <span style="font-size:0.8rem;color:#999">C-042</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Preservation is called 'the most time-sensitive issue', with 'Highest urgency' and action required 'today'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Assigns critical or highest severity to Hollister-Felding smoking gun text</span>
+    <span style="font-size:0.8rem;color:#999">C-043</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Hollister-Felding communications, including the June 14 text, are ranked #1 as 'the central substantive risk'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Assigns critical or highest severity to petition deadline urgency</span>
+    <span style="font-size:0.8rem;color:#999">C-044</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The petition deadline is bolded in the executive summary and the critical-deadlines table, and addressing it is among the 72-hour immediate actions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">References specific CID specifications by number</span>
+    <span style="font-size:0.8rem;color:#999">C-045</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo cites Specs. 3, 7, 9, 11 and 14, among others.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">References specific source documents by name or number</span>
+    <span style="font-size:0.8rem;color:#999">C-046</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo references all nine source documents.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">References Sherman Act Sections 1 and 2 or 15 U.S.C. §§ 1, 2</span>
+    <span style="font-size:0.8rem;color:#999">C-047</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo references Sherman Act §§ 1 and 2 and 15 U.S.C. § 1.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommends coordination with or notification to Fielding & Acosta regarding common interest agreement</span>
+    <span style="font-size:0.8rem;color:#999">C-048</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends analyzing and giving § 4.4 notice to F&A and a formal written withdrawal from the CIA.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies that Hollister-Felding communications are responsive to CID demands</span>
+    <span style="font-size:0.8rem;color:#999">C-049</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo ties the communications to Interrogatory 4, Spec. 7 and Spec. 9.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies BYOD or personal device policy review as needed</span>
+    <span style="font-size:0.8rem;color:#999">C-050</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags the absence of a BYOD/MDM policy, recommends interviewing custodians about personal-device use, and calls for a forensic collection protocol.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Notes the pattern of four near-identical parallel price increases</span>
+    <span style="font-size:0.8rem;color:#999">C-051</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo describes all four increase dates and the $1.42 to $1.99 progression.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Discusses defensibility of pre-CID Slack deletions under routine retention policy</span>
+    <span style="font-size:0.8rem;color:#999">C-052</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo says pre-CID Slack purging was routine and 'likely defensible if no earlier duty existed', while flagging the risk of post-service deletion.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommends engaging e-discovery vendor or resources for document review</span>
+    <span style="font-size:0.8rem;color:#999">C-053</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo references ~1.2M documents, $2M+ in vendor cost, TAR and search terms, and an independent vendor.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

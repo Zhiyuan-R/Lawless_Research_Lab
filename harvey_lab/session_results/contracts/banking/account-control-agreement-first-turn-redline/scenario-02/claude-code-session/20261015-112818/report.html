@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — contracts/banking/account-control-agreement-first-turn-redline/scenario-02/claude-code-session/20261015-112818</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>contracts/banking/account-control-agreement-first-turn-redline/scenario-02/claude-code-session/20261015-112818</strong> &nbsp;&middot;&nbsp;
+  Task: contracts/banking/account-control-agreement-first-turn-redline/scenario-02 &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">30/36</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">7/7</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 6</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (30 passed, 6 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note identifies Whitfield Greer & Associates LLP as the sending firm</span>
+    <span style="font-size:0.8rem;color:#999">C001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cover note letterhead and signature block name Whitfield Greer & Associates LLP.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note identifies Orion Capital Lending, LLC as the client on whose behalf the letter is sent</span>
+    <span style="font-size:0.8rem;color:#999">C002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Opens 'On behalf of our client, Orion Capital Lending, LLC'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note is addressed to Sandra M. Fleiss</span>
+    <span style="font-size:0.8rem;color:#999">C003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Addressed to Sandra M. Fleiss, Esq. (and James Norwood).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note identifies Brannock Hale Rivers LLP as the recipient firm</span>
+    <span style="font-size:0.8rem;color:#999">C004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recipient block lists Brannock Hale Rivers LLP.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">All 10 categories of Tidewater's changes are addressed across the deliverables</span>
+    <span style="font-size:0.8rem;color:#999">C005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cover note addresses Sections 2, 3, 4, 5, 6, 8, 10, 12, 14 and 15.3 in turn.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 2 — Rejects or substantially modifies Pledgor countersignature requirement on entitlement orders</span>
+    <span style="font-size:0.8rem;color:#999">C006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Countersignature narrowed to an operational pre-NEC procedure, 'without further consent' restored, deemed-consent rejected; a substantial modification.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Section 2 — Preserves Orion's unqualified right to originate entitlement orders for UCC control</span>
+    <span style="font-size:0.8rem;color:#999">C007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Redline 2.1 and Exhibit B still let Tidewater require Pledgor countersignature on Orion orders before an NEC, leaving the kind of pre-NEC condition the criterion says fails.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 3 — Rejects the 5-business-day Pledgor cure period after Notice of Exclusive Control</span>
+    <span style="font-size:0.8rem;color:#999">C008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">5-Business-Day cure period/Cure Notice rejected; NEC effective on receipt with no cure period.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Section 4 — Rejects 'senior' characterization of Tidewater's fee-related claims over Orion's security interest</span>
+    <span style="font-size:0.8rem;color:#999">C009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Redline 4.1 keeps the Custodian Lien 'senior to the security interest of the Secured Party' for capped custodial fees, so the senior language is left in place.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 4 — Any permitted custodial-fee carve-out is capped in amount</span>
+    <span style="font-size:0.8rem;color:#999">C010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Carve-out capped at $175,000 Priority Cap.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Section 4 — Any permitted custodial-fee carve-out is expressly subordinated to Orion's security interest</span>
+    <span style="font-size:0.8rem;color:#999">C011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The permitted custodial-fee carve-out is expressly senior to Orion's interest, not subordinated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 6 — Rejects Tidewater's proposed liability cap (lesser of 12-month fees or $500,000)</span>
+    <span style="font-size:0.8rem;color:#999">C012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Lesser-of-fees-or-$500,000 cap rejected.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 6 — Counter-proposes a liability cap of at least $2,000,000</span>
+    <span style="font-size:0.8rem;color:#999">C013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Counter-proposes greater of 12-month fees or $2,500,000.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 6 — Rejects one-sided consequential-damages waiver running only in Tidewater's favor</span>
+    <span style="font-size:0.8rem;color:#999">C014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">One-sided waiver not accepted; made mutual.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 6 — Proposes a mutual consequential-damages waiver applicable to all parties</span>
+    <span style="font-size:0.8rem;color:#999">C015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 6.3 waiver applies to 'any party hereto' as to 'any other party'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8 — Rejects joint and several indemnification by Orion alongside Halcyon</span>
+    <span style="font-size:0.8rem;color:#999">C016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Joint and several indemnity rejected; Secured Party indemnity several and not joint.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8 — Orion's indemnification obligation limited to losses caused by Orion's own actions</span>
+    <span style="font-size:0.8rem;color:#999">C017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Orion indemnity limited to losses from Tidewater's compliance with Orion's own entitlement orders/NECs, secondary to Pledgor, excluding Pledgor instructions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 10 — Rejects Tidewater's unilateral termination right on 30 calendar days' notice without cause</span>
+    <span style="font-size:0.8rem;color:#999">C018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">30-day termination replaced by 90-day notice, effective only on transfer to a successor.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 10 — Counter-proposes a 90-day notice period for any termination</span>
+    <span style="font-size:0.8rem;color:#999">C019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">90 days' notice proposed (30-day minimum only for legal/sanctions cause).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 10 — Counter-proposes a replacement-intermediary transition period</span>
+    <span style="font-size:0.8rem;color:#999">C020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Resignation effective only after transfer to a successor intermediary under a replacement control agreement.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 12 — Restores New York as governing law, rejecting Maryland</span>
+    <span style="font-size:0.8rem;color:#999">C021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 12.1 restores New York governing law.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Section 5 — Rejects monthly account statement frequency</span>
+    <span style="font-size:0.8rem;color:#999">C022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cover note expressly 'accepts monthly statements'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Section 5 — Proposes account statements no less frequently than bi-weekly</span>
+    <span style="font-size:0.8rem;color:#999">C023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Account statements remain monthly; only weekly copies of existing reports are added, so statements are not bi-weekly.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 5 — Proposes electronic portal access to account activity</span>
+    <span style="font-size:0.8rem;color:#999">C024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">New 5.4 provides read-only ClientView portal access.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note references UCC §§ 8-106 and/or 9-106</span>
+    <span style="font-size:0.8rem;color:#999">C025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cover note cites UCC Sections 8-106 and 9-106.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">UCC control standard cited as basis for Orion's positions on entitlement order / exclusive control provisions</span>
+    <span style="font-size:0.8rem;color:#999">C026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">UCC 8-106(d)(2)/9-106 control is the stated rationale for the Section 2.1 and 3.1 positions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Deliverables identify Securities Account No. 4491-7283-01</span>
+    <span style="font-size:0.8rem;color:#999">C027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Securities Account No. 4491-7283-01 identified.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Deliverables identify Tidewater National Trust Company as custodian of the pledged account</span>
+    <span style="font-size:0.8rem;color:#999">C028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Tidewater identified as securities intermediary maintaining the Account.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note references June 2, 2025 funding date or closing timeline to convey urgency</span>
+    <span style="font-size:0.8rem;color:#999">C029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cover note references the June 2, 2025 initial funding and asks for responses by May 16 to stay on track.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 14 — Addresses Tidewater's deletion of no-other-control-agreement representation</span>
+    <span style="font-size:0.8rem;color:#999">C030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 14.1(e) deletion addressed in the cover note and redline.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 14 — Seeks to restore or replace the no-other-control-agreement representation</span>
+    <span style="font-size:0.8rem;color:#999">C031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Representation restored with a knowledge qualifier and a notice covenant.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Section 12 — Restores jurisdiction to SDNY or New York courts, rejecting District of Maryland</span>
+    <span style="font-size:0.8rem;color:#999">C032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 12.2 makes jurisdiction non-exclusive in both New York and Maryland courts, keeping D. Md., which the criterion says fails.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 6 — Addresses Tidewater's replacement of 'ordinary care' with 'gross negligence or willful misconduct' exculpation</span>
+    <span style="font-size:0.8rem;color:#999">C033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Gross negligence standard countered with negligence/Applicable Standard of Care (GN only for reporting).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note identifies Orion Capital Lending, LLC as Secured Party / Administrative Agent</span>
+    <span style="font-size:0.8rem;color:#999">C034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Orion identified as Administrative Agent and 'Secured Party'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note identifies Halcyon Biosciences, Inc. as Pledgor / Account Holder</span>
+    <span style="font-size:0.8rem;color:#999">C035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Halcyon Biosciences, Inc. identified as the 'Pledgor'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note identifies Tidewater National Trust Company as Securities Intermediary</span>
+    <span style="font-size:0.8rem;color:#999">C036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cover note names Tidewater National Trust Company and refers to its securities-intermediary duties and the securities intermediary's jurisdiction.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+{
+ "labels": [
+  {
+   "key": "missed",
+   "short": "漏点",
+   "label": "漏掉了某个具体问题或分析角度",
+   "desc": "相关领域分析了，但专家期望的某一个具体点没写到。例如没把 MTCA 三倍赔偿和合同的“倍数损害”排除条款联系起来，没分析新加坡的军事最终用途规则，没提到被诉人承认审查过对方代码库。这类最多，说明问题不在“不会”，而在“没想全”。"
+  },
+  {
+   "key": "quant",
+   "short": "没量化",
+   "label": "该算的数没算，或没给市场基准",
+   "desc": "指出了问题，但没有给出专家期望的金额估算或市场参照：例如医疗任务没估算 $2.61M 影像收入风险和约 $30M 总敞口，房地产任务没写陈述保证存续期的市场区间（6–12 个月），破产任务漏了 KERP 没收后的 $1.77M。资深律师会主动把风险换算成数字。"
+  },
+  {
+   "key": "position",
+   "short": "立场",
+   "label": "立场或建议与专家预期不同",
+   "desc": "agent 做了判断，但和评分标准预设的立场不一样。最典型的是合同修订任务：标准要求坚决拒绝对方的“优先权”和马里兰管辖，agent 选择了有条件让步。这类往往取决于委托人的谈判策略，而案卷里没给 playbook。"
+  },
+  {
+   "key": "severity",
+   "short": "轻重",
+   "label": "轻重判断与专家不同",
+   "desc": "把干扰项当成高风险（并购任务的怀俄明许可证），把小差异评成 High（10-Q 的股数差异），或把实质问题标成“符合”（风电租约的受让人门槛）。这正对应初级和资深律师之间最难教的“重要性判断”。"
+  },
+  {
+   "key": "format",
+   "short": "格式",
+   "label": "结构或格式要求没满足",
+   "desc": "缺少专家要求的固定部分：“已排除事项”清单（两个任务都漏了）、HIPAA/GDPR 对照表、投资委员会会议的语境、正确的落款日期。容易补，但 all-pass 规则下同样致命。"
+  },
+  {
+   "key": "disputed",
+   "short": "可商榷",
+   "label": "疑似评分标准本身可商榷",
+   "desc": "agent 给出了有理有据的不同结论，而且很可能是对的或至少站得住。见下方“值得留意的几件事”。这类失分不一定代表能力不足。"
+  }
+ ],
+ "assign": {
+  "corporate-ma/review-data-room-red-flag-review|C-030": "missed",
+  "corporate-ma/review-data-room-red-flag-review|C-032": "severity",
+  "corporate-ma/review-data-room-red-flag-review|C-041": "format",
+  "corporate-ma/review-data-room-red-flag-review|C-045": "format",
+  "corporate-ma/review-data-room-red-flag-review|C-046": "quant",
+  "arbitration-international-dispute-resolution/draft-emergency-arbitrator-application|C-032": "format",
+  "arbitration-international-dispute-resolution/draft-emergency-arbitrator-application|C-058": "position",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-012": "disputed",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-018": "missed",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-023": "missed",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-029": "missed",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-030": "quant",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-031": "quant",
+  "bankruptcy-restructuring/draft-plan-effective-date-checklist|C-054": "quant",
+  "capital-markets/review-form-10|C-032": "severity",
+  "capital-markets/review-form-10|C-038": "missed",
+  "contracts/banking/account-control-agreement-first-turn-redline/scenario-02|C007": "position",
+  "contracts/banking/account-control-agreement-first-turn-redline/scenario-02|C009": "position",
+  "contracts/banking/account-control-agreement-first-turn-redline/scenario-02|C011": "position",
+  "contracts/banking/account-control-agreement-first-turn-redline/scenario-02|C022": "position",
+  "contracts/banking/account-control-agreement-first-turn-redline/scenario-02|C023": "position",
+  "contracts/banking/account-control-agreement-first-turn-redline/scenario-02|C032": "position",
+  "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act|C-038": "missed",
+  "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act|C-045": "quant",
+  "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act|C-047": "disputed",
+  "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act|C-052": "severity",
+  "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act|C-063": "position",
+  "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement|C-051": "format",
+  "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement|C-052": "format",
+  "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement|C-003": "missed",
+  "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement|C-038": "severity",
+  "energy-natural-resources/extract-land-option-agreement-terms|C-059": "missed",
+  "energy-natural-resources/extract-land-option-agreement-terms|C-060": "position",
+  "energy-natural-resources/extract-land-option-agreement-terms|C-065": "severity",
+  "energy-natural-resources/extract-land-option-agreement-terms|C-067": "missed",
+  "energy-natural-resources/extract-land-option-agreement-terms|C-075": "severity",
+  "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement|C-037": "quant",
+  "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement|C-044": "missed",
+  "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement|C-047": "missed",
+  "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement|C-048": "missed",
+  "firm-knowledge/tasks/175|C-006": "severity",
+  "funds-asset-management/respond-to-lp-comment-letter|C-010": "position",
+  "funds-asset-management/respond-to-lp-comment-letter|C-012": "quant",
+  "funds-asset-management/respond-to-lp-comment-letter|C-015": "missed",
+  "funds-asset-management/respond-to-lp-comment-letter|C-016": "missed",
+  "funds-asset-management/respond-to-lp-comment-letter|C-033": "missed",
+  "funds-asset-management/respond-to-lp-comment-letter|C-036": "missed",
+  "funds-asset-management/respond-to-lp-comment-letter|C-037": "missed",
+  "funds-asset-management/respond-to-lp-comment-letter|C-038": "missed",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-005": "disputed",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-009": "disputed",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-016": "quant",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-018": "missed",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-022": "quant",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-024": "missed",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-026": "quant",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-031": "missed",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-043": "quant",
+  "healthcare-life-sciences/identify-stark-law-compliance-issues|C-046": "position",
+  "immigration/identify-h1b-qualification-issues|C-029": "format",
+  "insurance/identify-issues-in-coverage-denial-letter|C-009": "missed",
+  "insurance/identify-issues-in-coverage-denial-letter|C-019": "missed",
+  "intellectual-property/identify-tech-license-term-sheet-issues|C-012": "missed",
+  "intellectual-property/identify-tech-license-term-sheet-issues|C-026": "missed",
+  "international-trade-sanctions/draft-export-license-application|C-009": "missed",
+  "international-trade-sanctions/draft-export-license-application|C-010": "missed",
+  "international-trade-sanctions/draft-export-license-application|C-011": "missed",
+  "international-trade-sanctions/draft-export-license-application|C-023": "quant",
+  "international-trade-sanctions/draft-export-license-application|C-033": "missed",
+  "international-trade-sanctions/draft-export-license-application|C-034": "missed",
+  "international-trade-sanctions/draft-export-license-application|C-041": "disputed",
+  "litigation-dispute-resolution/extract-key-admissions-from-deposition-transcript|C-011": "missed",
+  "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement|C-006": "quant",
+  "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement|C-008": "quant",
+  "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement|C-010": "missed",
+  "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement|C-023": "missed",
+  "structured-finance-securitization/draft-account-control-agreement|C-032": "missed",
+  "structured-finance-securitization/draft-account-control-agreement|C-055": "position",
+  "trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement|C-038": "position",
+  "white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories|C-027": "missed",
+  "white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories|C-028": "missed"
+ },
+ "notes": [
+  {
+   "title": "疑似评分标准本身可商榷",
+   "items": [
+    "贸易制裁 C-041：标准要求写“新加坡属于 A:1 国家组”。A:1 是瓦森纳安排成员国组，而新加坡不是瓦森纳成员；agent 写的是 A:6 和 B，并明确指出 A:1 的说法不对。",
+    "破产 C-012：标准要求董事会指定截止日为 2 月 11 日；agent 把 2 月 17 日总统日算作非营业日，得出 2 月 10 日，并明确写“不是 2 月 11 日”。",
+    "医疗 C-005 / C-009：agent 把运营费用折算进去后认为 ClearView 租金约 $30/sf，落在评估区间内；标准认定它显著低于市场价。属于专业判断分歧。",
+    "公司治理 C-047：agent 发现 $485,500 这个首年合规预算本身算错了（应为约 $614K），标准却要求报告原数字。"
+   ]
+  },
+  {
+   "title": "数据集本身的问题",
+   "items": [
+    "白领犯罪任务的 14 份案卷里，有 6 份属于另一个案子（Aldersgate/Thornfield，传票号 0438），我用 pandoc 核实过。agent 发现后把它们隔离并建议通知对方。不清楚这是有意设置的干扰，还是批量生成时混进来的。",
+    "合同修订任务没有提供谈判 playbook，但评分标准按特定立场打分（例如对账单至少两周一次），agent 只能按信贷协议推断立场，6 条失分全在这里。",
+    "律所知识库任务只有 6 条标准，一条失误通过率就掉到 83%；它的唯一失分是把未完成的交易也算进了“符合条件”的清单。",
+    "尽调（diligence）领域的 11 个任务每个都有 2,600–4,000 份文件、400–1,100 条标准，单个子 agent 一晚跑不完，所以没有抽样。"
+   ]
+  }
+ ]
+}

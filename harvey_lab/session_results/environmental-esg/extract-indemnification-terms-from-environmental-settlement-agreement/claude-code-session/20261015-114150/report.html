@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement/claude-code-session/20261015-114150</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement/claude-code-session/20261015-114150</strong> &nbsp;&middot;&nbsp;
+  Task: environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">51/55</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">5/5</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 4</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (51 passed, 4 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.1 — Cascadia indemnifies Northshore</span>
+    <span style="font-size:0.8rem;color:#999">C-001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Part III.A: 8.1 Cascadia indemnifies Northshore for Losses incl. Third-Party Claims from Cascadia's/Puget's Remedial Actions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.1 cap correctly stated as $10 million</span>
+    <span style="font-size:0.8rem;color:#999">C-002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.1 cap stated as $10,000,000 aggregate.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.1 basket correctly identified as true deductible of $250,000</span>
+    <span style="font-size:0.8rem;color:#999">C-003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.1 basket stated as $250,000 aggregate true deductible, Cascadia liable only for excess.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.2 — Northshore indemnifies Cascadia</span>
+    <span style="font-size:0.8rem;color:#999">C-004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.2 Northshore indemnifies Cascadia for Losses from historical supply of Hazardous Substances 1978-2003.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.2 cap correctly stated as $7.952M</span>
+    <span style="font-size:0.8rem;color:#999">C-005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.2 cap stated as $7,952,000, equal to Northshore's Cost Share.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.2 basket correctly identified as tipping basket of $150,000</span>
+    <span style="font-size:0.8rem;color:#999">C-006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.2 basket stated as $150,000 tipping threshold, liable from first dollar once reached.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.3 — Puget Metalworks indemnifies both parties</span>
+    <span style="font-size:0.8rem;color:#999">C-007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.3 Puget indemnifies Cascadia and Northshore for Undisclosed Pre-Acquisition Conditions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.3 has no cap and no basket</span>
+    <span style="font-size:0.8rem;color:#999">C-008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Catalog states 8.3 cap None and basket None.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.3 — Cascadia guarantees Puget Metalworks obligations</span>
+    <span style="font-size:0.8rem;color:#999">C-009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.3(d) Cascadia unconditional guarantee of Puget's 8.3 obligations stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.4 — Government Cost Recovery cross-indemnification</span>
+    <span style="font-size:0.8rem;color:#999">C-010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.4 mutual cross-indemnity for Ecology/EPA cost recovery exceeding decree scope, proportional 62/28/10.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.4 has no cap and no basket</span>
+    <span style="font-size:0.8rem;color:#999">C-011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.4 stated with no cap (8.4(b)) and no basket (8.4(c)).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.5 — NRD indemnification at 60/40 split</span>
+    <span style="font-size:0.8rem;color:#999">C-012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.5: Northshore indemnifies Cascadia 40%, Cascadia bears 60%.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.5 NRD cap for Northshore correctly stated as $5M</span>
+    <span style="font-size:0.8rem;color:#999">C-013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Northshore NRD cap stated as $5,000,000 aggregate.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.6 exclusions (at least 3 of 4 categories)</span>
+    <span style="font-size:0.8rem;color:#999">C-014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">All four 8.6 exclusions listed (gross negligence/willful misconduct, other sites, punitive, inter-party).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.7 — indemnification reduced dollar-for-dollar by insurance proceeds received</span>
+    <span style="font-size:0.8rem;color:#999">C-015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.7 dollar-for-dollar reduction by insurance proceeds actually received stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.7 — indemnified party must pursue insurance before seeking indemnification</span>
+    <span style="font-size:0.8rem;color:#999">C-016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.7(b) commercially reasonable efforts to pursue insurance before seeking indemnification stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.7 — indemnified party not required to litigate against insurer</span>
+    <span style="font-size:0.8rem;color:#999">C-017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States litigation/arbitration against insurer not required (SA 8.7(c)); no duty to sue insurer.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.8 survival — Sections 8.1 and 8.2 survive 12 years (through February 1, 2037)</span>
+    <span style="font-size:0.8rem;color:#999">C-018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.1/8.2 survive 12 years through Feb. 1, 2037.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.8 survival — Section 8.4 survives 20 years (through February 1, 2045)</span>
+    <span style="font-size:0.8rem;color:#999">C-019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.4 survives 20 years through Feb. 1, 2045.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Section 8.8 survival — Section 8.3 survives indefinitely</span>
+    <span style="font-size:0.8rem;color:#999">C-020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.3 survival stated as indefinite (8.8(c)).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Section 8.9 assignment restrictions</span>
+    <span style="font-size:0.8rem;color:#999">C-021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">8.9 described: no assignment without consent; rights assignable on sale of substantially all assets if assignee assumes obligations.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Side Letter — Tideflats Neighborhood Association claim terms</span>
+    <span style="font-size:0.8rem;color:#999">C-022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">TNA claim filed Oct. 3, 2023, ~$2.3M, Northshore 35%, $805,000 cap.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Side Letter — Salish Seafood Cooperative claim terms</span>
+    <span style="font-size:0.8rem;color:#999">C-023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">SSC claim filed Mar. 17, 2024, ~$1.8M, Northshore 50%, $900,000 cap.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Side Letter — Commencement Bay Marina claim terms</span>
+    <span style="font-size:0.8rem;color:#999">C-024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Marina claim filed June 22, 2024, ~$4.1M, Cascadia 100%.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Side Letter stated as independent of Article VIII obligations</span>
+    <span style="font-size:0.8rem;color:#999">C-025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">SL 4: obligations independent of and in addition to Article VIII stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Side Letter survival period correctly stated as 12 years</span>
+    <span style="font-size:0.8rem;color:#999">C-026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">SL survival to Feb. 1, 2037 (12 years) stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Exhibit D notice requirement — 30 business days</span>
+    <span style="font-size:0.8rem;color:#999">C-027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Claim Notice within 30 Business Days after actual receipt stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Exhibit D — late notice does not forfeit rights unless indemnifying party is prejudiced</span>
+    <span style="font-size:0.8rem;color:#999">C-028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Late notice does not forfeit rights unless indemnitor proves material prejudice.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Exhibit D — defense assumption within 20 business days</span>
+    <span style="font-size:0.8rem;color:#999">C-029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Defense Notice within 20 Business Days after receipt of Claim Notice stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Exhibit D — settlement control and consent requirements</span>
+    <span style="font-size:0.8rem;color:#999">C-030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Exh. D 3.2(c): indemnitor may not settle with injunctive relief, admission, etc. without indemnified party consent.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Exhibit D — cooperation obligation</span>
+    <span style="font-size:0.8rem;color:#999">C-031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Cooperation obligation incl. documents and personnel stated (Exh. D 4.1).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Escrow Agreement Section 6 — joint and several indemnification of Ridgeway Escrow</span>
+    <span style="font-size:0.8rem;color:#999">C-032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">EA 6.1 joint and several indemnity of escrow agent, excepting agent's gross negligence/willful misconduct.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Identifies Ridgeway Escrow liability cap at total fees received ($92,500)</span>
+    <span style="font-size:0.8rem;color:#999">C-033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">EA 6.2 agent liability capped at fees received, projected $92,500 over 5 years.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Flags Cascadia's effective 72% cost exposure ($20.448M)</span>
+    <span style="font-size:0.8rem;color:#999">C-034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Flags effective 72% ($20,448,000) share due to dormant Puget and guarantee.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Flags circular indemnification under Section 8.3</span>
+    <span style="font-size:0.8rem;color:#999">C-035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Explicitly flags 8.3 indemnity as circular since Cascadia would guarantee payment to itself.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002a: Distinguishes Section 8.1 true deductible from Section 8.2 tipping basket</span>
+    <span style="font-size:0.8rem;color:#999">C-036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Explicitly distinguishes $250K true deductible from $150K tipping threshold with different mechanics.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_002b: Illustrates practical impact of asymmetric basket mechanics</span>
+    <span style="font-size:0.8rem;color:#999">C-037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">No numerical example comparing deductible vs tipping outcomes for the same claim size; only qualitative 'owes less and recovers more'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Flags NRD 60/40 allocation deviates from general 62/28/10 shares</span>
+    <span style="font-size:0.8rem;color:#999">C-038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">D-3 flags NRD 60/40 split as departing from 62/28/10 with Puget's share absorbed; deviation is identified.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Flags Puget Metalworks excluded from NRD indemnification</span>
+    <span style="font-size:0.8rem;color:#999">C-039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States Puget 0% for NRD and its 10% absorbed.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004: Identifies cross-reference error in Exhibit D (Article IX vs. Article XI)</span>
+    <span style="font-size:0.8rem;color:#999">C-040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">PD-3 flags Exh. D 'Article IX' reference; Article IX is Remediation Work Standards, dispute resolution in Article XI.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_005: Flags no cap on Commencement Bay Marina indemnification</span>
+    <span style="font-size:0.8rem;color:#999">C-041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Flags Marina indemnity as uncapped incl. increases, contrasted with capped TNA/SSC indemnities.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Flags assignment clause gap for mergers/change of control</span>
+    <span style="font-size:0.8rem;color:#999">C-042</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">R-24 flags no change-of-control trigger in 8.9 and recommends change-of-control/successor assumption, particularly for Northshore.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007a: Flags ambiguity in Section 8.7 insurance coordination sequencing</span>
+    <span style="font-size:0.8rem;color:#999">C-043</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">I-8 flags insurer-first/ripeness requirement can delay indemnitor's payment indefinitely and proposes a long-stop deadline.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_007b: Flags unclear boundaries of insurer litigation carve-out</span>
+    <span style="font-size:0.8rem;color:#999">C-044</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo does not flag unclear boundaries of what efforts short of litigation against insurer are required.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Flags missing survival period for NRD claims (Section 8.5)</span>
+    <span style="font-size:0.8rem;color:#999">C-045</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Flags no survival period for 8.5, ambiguity (indefinite vs SOL), and that NRD claims are asserted late.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Flags disproportionate exposure from joint and several escrow indemnification</span>
+    <span style="font-size:0.8rem;color:#999">C-046</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Flags joint and several uncapped escrow indemnity, agent may recover 100% from either party, no Cascadia-Northshore contribution.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_010: Flags MTCA strict/joint/several liability may undermine 'arising from' triggers</span>
+    <span style="font-size:0.8rem;color:#999">C-047</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Mentions MTCA joint and several liability and causation disputes but does not tie MTCA strict liability to failure of 'arising from' triggers in 8.1/8.2.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_011: Flags punitive/multiplied damages exclusion may conflict with MTCA treble damages</span>
+    <span style="font-size:0.8rem;color:#999">C-048</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">No discussion of MTCA treble damages/penalties being excluded as 'multiplied damages' under 8.6(c).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Calculates Cascadia's total maximum indemnification exposure broken down by obligation</span>
+    <span style="font-size:0.8rem;color:#999">C-049</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Part IV.B table breaks down exposure by obligation incl. 8.1 $10M, 8.3 guarantee, 8.4, 8.5 NRD, Marina, EA 6.1.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cost allocation percentages correctly stated (62%/28%/10%)</span>
+    <span style="font-size:0.8rem;color:#999">C-050</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">62/28/10 correctly stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cost allocation dollar amounts correctly stated totaling $28.4M</span>
+    <span style="font-size:0.8rem;color:#999">C-051</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">$17,608,000 / $7,952,000 / $2,840,000 totaling $28.4M stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">PLL insurance policy details correctly stated</span>
+    <span style="font-size:0.8rem;color:#999">C-052</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">PLL policy $15M aggregate, $500K SIR, Jan. 1, 2023-Jan. 1, 2028 stated and analyzed vs 8.7.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">References all four source documents</span>
+    <span style="font-size:0.8rem;color:#999">C-053</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">SA, Exhibit D, Side Letter and Escrow Agreement all analyzed.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo includes risks/gaps/recommendations section</span>
+    <span style="font-size:0.8rem;color:#999">C-054</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Dedicated gap analysis, risk register and recommendations sections present.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Effective date correctly stated as February 1, 2025</span>
+    <span style="font-size:0.8rem;color:#999">C-055</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Effective Date Feb. 1, 2025 stated, distinguished from execution and entry dates.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

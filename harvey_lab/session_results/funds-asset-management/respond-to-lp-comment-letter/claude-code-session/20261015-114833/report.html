@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — funds-asset-management/respond-to-lp-comment-letter/claude-code-session/20261015-114833</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>funds-asset-management/respond-to-lp-comment-letter/claude-code-session/20261015-114833</strong> &nbsp;&middot;&nbsp;
+  Task: funds-asset-management/respond-to-lp-comment-letter &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">52/60</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">8/8</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 8</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (52 passed, 8 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Identifies 25bp fee reduction request (1.75% vs 2.0%)</span>
+    <span style="font-size:0.8rem;color:#999">C-001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states Meridian asks for 1.75% during the Investment Period, a 25bp cut from 2.0%.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Flags internal inconsistency between GP's 15bp analysis and LP's actual 25bp request</span>
+    <span style="font-size:0.8rem;color:#999">C-002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags that the internal term sheet models 15bp while Meridian asks for 25bp.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Notes 1.75% is below Fund III precedent of 1.85% for Osprey</span>
+    <span style="font-size:0.8rem;color:#999">C-003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo cites Osprey's Fund III 1.85% rate on $150M as the floor, against the 1.75% ask.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Corrects MFN cascade to use 25bp, yielding ~$13.875M impact</span>
+    <span style="font-size:0.8rem;color:#999">C-004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recalculates the MFN cascade at 25bp ($9.0M over the IP on a corrected $600M base) and states the term sheet misstates the exposure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Identifies no-fault removal reduction from 75% to 60%</span>
+    <span style="font-size:0.8rem;color:#999">C-005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the 75% to 60% no-fault removal request.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Notes prior reduction from Fund III's 80% to Fund IV's 75%</span>
+    <span style="font-size:0.8rem;color:#999">C-006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes Fund IV already moved from Fund III's 80% to 75% at anchor-LP request.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Flags that first-close LPs could form removal bloc at 60%</span>
+    <span style="font-size:0.8rem;color:#999">C-007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo includes coalition math showing five LPs ($725M) could exceed 60% after first close plus Meridian.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Identifies carried interest reduction from 20% to 15%</span>
+    <span style="font-size:0.8rem;color:#999">C-008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the 20% to 15% carry request.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Identifies catch-up formula conflict with 15% carry</span>
+    <span style="font-size:0.8rem;color:#999">C-009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags that the markup changes carry to 15% but leaves the 80/20 catch-up running to 20%, an unconformed waterfall.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_003: Recommends catch-up formula fix (e.g., 75/25 or reference 15%)</span>
+    <span style="font-size:0.8rem;color:#999">C-010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo only rejects carry and points out the inconsistency; it proposes no revised catch-up (e.g., 75/25 or a 15% reference).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004: Identifies gross clawback request removing 45% tax assumption</span>
+    <span style="font-size:0.8rem;color:#999">C-011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the gross-basis clawback request against the existing 45% net-of-tax clawback and rejects a gross-up.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_004: References ILPA best practices on net-of-tax clawback as market standard</span>
+    <span style="font-size:0.8rem;color:#999">C-012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">No reference to ILPA principles or market practice supporting net-of-tax clawback; ILPA is mentioned only for reporting format.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004: Suggests carry escrow as compromise position</span>
+    <span style="font-size:0.8rem;color:#999">C-013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo proposes a 30% carry escrow (Vandermeer precedent) as the compromise.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_005: Identifies subscription line exclusion from fee base request</span>
+    <span style="font-size:0.8rem;color:#999">C-014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the #10 request to exclude facility-funded capital from the fee base.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_005: Flags ambiguity — fees on commitments, not drawn capital</span>
+    <span style="font-size:0.8rem;color:#999">C-015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo does not explain that the IP fee is charged on aggregate commitments, which makes the request redundant or a proration problem.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_005: Suggests LP likely intends sub-line interest cost offset</span>
+    <span style="font-size:0.8rem;color:#999">C-016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes SL §14's offset request but does not suggest that this is Meridian's likely intent behind #10.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Identifies overbroad FOIA carve-out removing GP notice-and-challenge rights</span>
+    <span style="font-size:0.8rem;color:#999">C-017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags 'any and all Fund information' with no notice, no protective treatment and no limit on scope.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Acknowledges FOIA carve-out is necessary for public pension LP</span>
+    <span style="font-size:0.8rem;color:#999">C-018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo concedes the FOIA carve-out as necessary and recommends a compromise, not rejection.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Recommends notice-and-consult procedure (e.g., 10 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C-019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends notice within 5 business days, at least 10 business days before disclosure, and a 15-business-day window to seek protection.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007: Identifies ROFO on co-investments exceeding $25M</span>
+    <span style="font-size:0.8rem;color:#999">C-020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the ROFO at $25M or more.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007: Flags conflict with first-close LPs' pro-rata co-invest rights at $50M</span>
+    <span style="font-size:0.8rem;color:#999">C-021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes Osprey, Eastbridge and Pinnacle hold pro-rata rights above $50M and that the ROFO would pre-empt them and force renegotiation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007: Notes $25M threshold captures most co-investment opportunities</span>
+    <span style="font-size:0.8rem;color:#999">C-022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo analyzes the threshold against deal sizes: it would capture every $25-50M deal and in practice every deal when measured on aggregate equity.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Identifies provision-by-provision MFN cherry-picking request</span>
+    <span style="font-size:0.8rem;color:#999">C-023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the provision-by-provision MFN request against the whole-letter requirement.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Flags 'super side letter' risk from cherry-picking</span>
+    <span style="font-size:0.8rem;color:#999">C-024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags that cherry-picking across letters would unravel negotiated packages and remove the cascade brake, which is the super-side-letter risk.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Recommends limiting MFN cherry-picking (cap or exclusions)</span>
+    <span style="font-size:0.8rem;color:#999">C-025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends rejecting it and retaining whole-letter election with exclusions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Identifies fund-wide placement agent disclosure request</span>
+    <span style="font-size:0.8rem;color:#999">C-026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the fund-wide aggregate compensation and introduced-LP identity requests as going beyond MPRSTA.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Notes Meridian STRS was not introduced by Calderbank</span>
+    <span style="font-size:0.8rem;color:#999">C-027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states Meridian was not introduced by Calderbank and no placement fee is attributable to it.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Flags confidentiality risk of disclosing other LPs' placement agent relationships</span>
+    <span style="font-size:0.8rem;color:#999">C-028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags the confidentiality of other LPs' identities and placement-agent relationships (MPRSTA §210(a)(iv)).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_010: Identifies Key Person modification adding Osei and Marchetti</span>
+    <span style="font-size:0.8rem;color:#999">C-029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo names Osei and Marchetti as proposed additions, making four Key Persons.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_010: Identifies that 'any two of four' trigger weakens protection vs. current 'either of two'</span>
+    <span style="font-size:0.8rem;color:#999">C-030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo explains the any-two-of-four trigger lets Thornfield or Hayworth leave alone without triggering an event, weakening protection.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_010: Notes LP likely intended to strengthen, recommends hybrid fix</span>
+    <span style="font-size:0.8rem;color:#999">C-031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo notes the 'broader team coverage' framing and proposes a hybrid fallback: keep the either-of-two trigger and add a supplemental trigger for the sector heads.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_011: Identifies annual in-person LP meeting request</span>
+    <span style="font-size:0.8rem;color:#999">C-032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies the annual all-LP meeting request (#16, new §9.2(e)).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_011: Flags side letter cannot bind GP to convene meetings of non-consenting LPs</span>
+    <span style="font-size:0.8rem;color:#999">C-033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo does not discuss that a side letter cannot bind the GP to convene meetings of other, non-consenting LPs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_011: Recommends compromise (enhanced reporting or voluntary LP conference)</span>
+    <span style="font-size:0.8rem;color:#999">C-034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo proposes a best-efforts non-contractual investor day and a bilateral review as the compromise.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_012: Identifies excuse rights for tobacco, firearms, thermal coal, private prisons</span>
+    <span style="font-size:0.8rem;color:#999">C-035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo identifies tobacco, firearms, thermal coal and private prisons.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_012: Flags rebalancing/shortfall risk if 6.94% LP is excused</span>
+    <span style="font-size:0.8rem;color:#999">C-036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo does not analyze rebalancing or shortfall funding by other LPs when Meridian is excused.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_012: Notes interaction with concentration limit</span>
+    <span style="font-size:0.8rem;color:#999">C-037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo does not discuss the interaction between excuse rights and the concentration limit.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_012: Discusses ERISA benefit plan investor threshold risk</span>
+    <span style="font-size:0.8rem;color:#999">C-038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">No ERISA or 25% benefit plan investor discussion.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">DISTRACTOR_001: Quarterly reporting treated as standard/acceptable</span>
+    <span style="font-size:0.8rem;color:#999">C-039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo accepts ILPA-format quarterly reporting and notes Meridian had quarterly reporting in Fund III.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">DISTRACTOR_002: Transfer consent request treated as standard</span>
+    <span style="font-size:0.8rem;color:#999">C-040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo accepts transfer consent not unreasonably withheld via side letter on the Fund III terms.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">DISTRACTOR_003: Tax distribution request identified as having no practical impact</span>
+    <span style="font-size:0.8rem;color:#999">C-041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo handles #8 as a brief clarification of existing LPA Tax Distributions for a tax-exempt §115 entity with an opt-out, not as a significant issue.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">DISTRACTOR_004: Sovereign immunity reservation treated as standard</span>
+    <span style="font-size:0.8rem;color:#999">C-042</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo accepts the sovereign immunity reservation (Eastbridge precedent).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo addressed from Dara Kessler to Rebecca Yardley</span>
+    <span style="font-size:0.8rem;color:#999">C-043</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Header identifies Rebecca Yardley as Partner and Dara Kessler as Associate, with roles not reversed, although the memo is addressed to the client.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo includes accept/reject/compromise recommendation for each comment</span>
+    <span style="font-size:0.8rem;color:#999">C-044</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Every comment has an Accept, Accept w/ Modifications, Compromise or Reject disposition.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo includes risk prioritization (High/Medium/Low) for comments</span>
+    <span style="font-size:0.8rem;color:#999">C-045</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo tiers the comments into Priority Issues (Section IV, with red lines marked) and Other Comments (Section V), a substantially equivalent prioritization.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo distinguishes LPA comments from side letter comments</span>
+    <span style="font-size:0.8rem;color:#999">C-046</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo distinguishes LPA comments from side-letter-only items and sets out which instrument applies to each.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo includes separate aggregate economic impact section with MFN cascade</span>
+    <span style="font-size:0.8rem;color:#999">C-047</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section IV.B is a dedicated economics section with a fee and carry sensitivity table that includes the MFN cascade and the full fee ask.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Economic section correctly states Meridian STRS commitment as $125M / 6.94% of target</span>
+    <span style="font-size:0.8rem;color:#999">C-048</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states $125M, 6.94% of the $1.8B target.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Comment tracker spreadsheet produced with required columns</span>
+    <span style="font-size:0.8rem;color:#999">C-049</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Tracker has ID, LPA section, LP request summary, disposition and recommendation, a priority (High/Low) column, an MFN/economic risk column and A&L notes, which are substantially equivalent.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Comment tracker includes all planted issues as line items</span>
+    <span style="font-size:0.8rem;color:#999">C-050</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Tracker covers all 12 topics (rows 3, 18, 1, 7, 10, 20, 5, 13, 12, 2/17, 16, 4).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo correctly identifies Fund IV first close at $980M from 14 LPs</span>
+    <span style="font-size:0.8rem;color:#999">C-051</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo states the March 15, 2025 first close at $980M from 14 LPs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Fee reduction classified as High risk</span>
+    <span style="font-size:0.8rem;color:#999">C-052</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The fee is treated as a Priority Issue (top tier) with extensive MFN cascade analysis; it is not low-tiered.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Recommends rejection or limited compromise on 60% removal threshold</span>
+    <span style="font-size:0.8rem;color:#999">C-053</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo recommends rejecting and holding at 75%.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Carry reduction classified as High risk</span>
+    <span style="font-size:0.8rem;color:#999">C-054</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Carry is a Priority Issue and an explicit red line, the highest tier.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo references Fund III relationship and Meridian STRS's $75M Fund III commitment</span>
+    <span style="font-size:0.8rem;color:#999">C-055</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo references Meridian as a $75M Fund III LP.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Notes Calderbank sensitivity about disclosure per GP email</span>
+    <span style="font-size:0.8rem;color:#999">C-056</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo reflects the client's instruction not to identify Calderbank-introduced LPs (red line) and requires Calderbank's consent before any disclosure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo suitable for client sharing after partner review</span>
+    <span style="font-size:0.8rem;color:#999">C-057</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Professional, structured legal memo suitable for the client after review.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: MFN impact flagged as Y for fee reduction in tracker</span>
+    <span style="font-size:0.8rem;color:#999">C-058</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Tracker row #3's MFN column affirmatively describes the MFN cascade ($9.0M over the IP).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Potential lender covenant conflict flagged</span>
+    <span style="font-size:0.8rem;color:#999">C-059</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags the potential lender covenant on removal and notes the facility documents must be confirmed.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Aggregate economic impact section includes both direct and MFN cascade figures</span>
+    <span style="font-size:0.8rem;color:#999">C-060</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section IV.B gives both Meridian direct figures and MFN cascade figures.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

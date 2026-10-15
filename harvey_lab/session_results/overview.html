@@ -1,0 +1,337 @@
+<title>Harvey LAB 批量测评</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column, styled like a case file. Verdict first, then the 26-task dot plot, failure patterns, judge reliability, and the full per-task ledger. */
+:root {
+  --paper: #f6f7f5;
+  --sheet: #ffffff;
+  --ink: #1d2422;
+  --muted: #5d6965;
+  --faint: #8a9591;
+  --rule: #dfe3e0;
+  --grid: #e9ecea;
+  --accent: #23565a;
+  --series: #2a78d6;
+  --good: #0ca30c;
+  --good-ink: #1f6b36;
+  --good-bg: #e6f2ea;
+  --fail: #b23a3a;
+  --fail-bg: #f8e7e5;
+  --warn: #9a6a12;
+  --warn-bg: #f6eed9;
+  --display: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121716; --sheet: #1a2120; --ink: #e4ebe8; --muted: #9aa8a3; --faint: #75827d; --rule: #2c3634; --grid: #252e2c;
+    --accent: #7fc4c4; --series: #3987e5; --good: #0ca30c; --good-ink: #6cc790; --good-bg: #1d3426;
+    --fail: #f08a84; --fail-bg: #3a2120; --warn: #e2b562; --warn-bg: #3a2f17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121716; --sheet: #1a2120; --ink: #e4ebe8; --muted: #9aa8a3; --faint: #75827d; --rule: #2c3634; --grid: #252e2c;
+  --accent: #7fc4c4; --series: #3987e5; --good: #0ca30c; --good-ink: #6cc790; --good-bg: #1d3426;
+  --fail: #f08a84; --fail-bg: #3a2120; --warn: #e2b562; --warn-bg: #3a2f17; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 920px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 44px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(26px, 5vw, 38px); font-weight: 900; line-height: 1.25; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { margin: 0; font-size: 16px; }
+p { margin: 0; }
+section { display: grid; gap: 16px; min-width: 0; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--muted); font-weight: 500; }
+.lede { color: var(--muted); max-width: 64ch; }
+.mono { font-family: var(--mono); font-size: 12.5px; }
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+
+/* Stat row */
+.stats { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.stat { background: var(--sheet); padding: 18px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.stat .v { font-family: var(--body); font-weight: 700; font-size: 30px; line-height: 1.1; }
+.stat .v.hero { font-size: clamp(44px, 9vw, 56px); }
+.stat .v small { font-size: .45em; color: var(--muted); font-weight: 500; }
+.stat .l { font-size: 13px; color: var(--muted); }
+@media (max-width: 720px) { .stats { grid-template-columns: 1fr 1fr; } .stat:first-child { grid-column: 1 / -1; } }
+
+.pill { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; font-weight: 700; padding: 1px 9px; border-radius: 999px; white-space: nowrap; }
+.pill.good { color: var(--good-ink); background: var(--good-bg); }
+.pill.fail { color: var(--fail); background: var(--fail-bg); }
+.pill.warn { color: var(--warn); background: var(--warn-bg); }
+
+/* Charts */
+.chart { padding: 16px 16px 8px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; height: auto; min-width: 560px; }
+.chart text { fill: var(--ink); font-family: var(--body); font-size: 12px; }
+.chart .tick { fill: var(--faint); font-size: 11px; font-family: var(--mono); }
+.chart .gl { stroke: var(--grid); stroke-width: 1; }
+.chart .axis { stroke: var(--rule); stroke-width: 1; }
+.chart .stem { stroke: var(--series); stroke-width: 2; stroke-linecap: round; opacity: .35; }
+.chart .dot { fill: var(--series); stroke: var(--sheet); stroke-width: 2; }
+.chart .dot.pilot { fill: var(--sheet); stroke: var(--series); stroke-width: 2; }
+.chart .hit { fill: transparent; cursor: pointer; }
+.chart .hit:hover + .dot, .chart .hit:focus + .dot { stroke: var(--ink); }
+.chart .val { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+.chart .ok { fill: var(--good-ink); font-weight: 700; font-size: 11.5px; }
+.chart .bar { fill: var(--series); }
+.chart .bar:hover { opacity: .85; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); padding: 0 16px 12px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.tip { position: fixed; pointer-events: none; z-index: 10; background: var(--sheet); color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font-size: 13px; box-shadow: 0 4px 16px rgba(0,0,0,.12); max-width: 300px; }
+.tip b { font-size: 15px; }
+
+/* Categories */
+.cats { display: grid; gap: 10px; }
+.cat { padding: 14px 16px; display: grid; gap: 6px; }
+.cat header { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; }
+.cat .n { font-family: var(--mono); color: var(--muted); }
+.cat p { color: var(--muted); font-size: 14px; }
+.cat ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); display: grid; gap: 2px; }
+
+/* Notes */
+.notes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.note { padding: 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.note ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); display: grid; gap: 6px; }
+@media (max-width: 720px) { .notes { grid-template-columns: 1fr; } }
+
+/* Ledger */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: inherit; font-size: 14px; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--sheet); }
+.filters button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ledger .row { border-top: 1px solid var(--rule); }
+.ledger .row:first-child { border-top: 0; }
+.ledger summary { list-style: none; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: 92px 1fr auto auto; gap: 12px; align-items: baseline; }
+.ledger summary::-webkit-details-marker { display: none; }
+.ledger .area { font-size: 12.5px; color: var(--muted); }
+.ledger .t { min-width: 0; }
+.ledger .t small { display: block; color: var(--faint); font-size: 12px; overflow-wrap: anywhere; }
+.ledger .score { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.ledger .body { padding: 0 16px 16px 120px; display: grid; gap: 10px; }
+.ledger .meta { font-size: 13px; color: var(--muted); }
+.ledger .f { display: grid; grid-template-columns: 62px auto 1fr; gap: 10px; align-items: baseline; font-size: 13.5px; }
+.ledger .f .why { grid-column: 3; color: var(--muted); font-size: 13px; }
+@media (max-width: 640px) {
+  .ledger summary { grid-template-columns: 1fr auto; }
+  .ledger summary .area { grid-column: 1 / -1; }
+  .ledger .body { padding-left: 16px; }
+  .ledger .f { grid-template-columns: 56px 1fr; }
+  .ledger .f .chip { grid-column: 2; }
+  .ledger .f .why, .ledger .f .ft { grid-column: 1 / -1; }
+}
+.chip { font-size: 11.5px; padding: 0 7px; border-radius: 3px; background: var(--grid); color: var(--muted); white-space: nowrap; }
+
+.method { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.method .card { padding: 16px; display: grid; gap: 6px; align-content: start; }
+.method .card p { color: var(--muted); font-size: 14px; }
+.method .eyebrow { color: var(--accent); }
+@media (max-width: 720px) { .method { grid-template-columns: 1fr; } }
+.caveats { font-size: 14px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 8px; }
+@media (prefers-reduced-motion: no-preference) { .chart .dot { transition: stroke .15s; } }
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:12px">
+    <div class="eyebrow">HARVEY LEGAL AGENT BENCHMARK · v1.2.0 · 2026-10-15</div>
+    <h1>Claude 在 26 个法律任务上的表现</h1>
+    <p class="lede">从 Harvey LAB 的 27 个执业领域里各抽一个任务（尽调领域任务过大，未纳入），加上之前跑过的并购任务，共 26 个。每个任务由一个 Claude 子 agent 在断网沙箱里完成，另一个独立的 Claude 子 agent 按专家写的标准逐条判卷。</p>
+  </header>
+
+  <section aria-label="总览">
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section aria-labelledby="plot-h">
+    <h2 id="plot-h">每个任务的标准通过率</h2>
+    <p class="lede">横轴从 80% 开始。全部标准都通过才算 all-pass，图中用对勾标出。悬停或点按圆点可看具体数字，下方总表里能看到每个任务没过的标准。</p>
+    <div class="card">
+      <div class="chart" id="dotplot"></div>
+      <div class="legend"><span><i style="background:var(--series)"></i>批量任务</span><span><i style="border:2px solid var(--series);background:var(--sheet)"></i>之前单独跑的并购任务</span><span style="color:var(--good-ink);font-weight:700">✓ 全部通过</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cat-h">
+    <h2 id="cat-h">没过的标准都是哪一类</h2>
+    <p class="lede" id="cat-lede"></p>
+    <div class="card"><div class="chart" id="catbars"></div></div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section aria-labelledby="notes-h">
+    <h2 id="notes-h">值得留意的几件事</h2>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <section aria-labelledby="judge-h">
+    <h2 id="judge-h">裁判靠不靠得住</h2>
+    <div class="card note" id="judge"></div>
+  </section>
+
+  <section aria-labelledby="ledger-h">
+    <h2 id="ledger-h">逐个任务</h2>
+    <div class="filters" role="group" aria-label="筛选">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">全部</button>
+      <button type="button" id="f-pass" data-f="pass" aria-pressed="false">全部通过</button>
+      <button type="button" id="f-fail" data-f="fail" aria-pressed="false">有未通过</button>
+    </div>
+    <div class="card ledger" id="ledger"></div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">怎么跑的</h2>
+    <div class="method">
+      <div class="card"><span class="eyebrow">做题</span><b>Claude 子 agent</b><p>在 Harvey 官方的断网 podman 沙箱里工作，只能看到案卷文件，看不到评分标准。所有命令经由日志脚本执行。</p></div>
+      <div class="card"><span class="eyebrow">判卷</span><b>另一个独立的 Claude 子 agent</b><p>在单独的目录里只拿到交付物文本和评分标准，按 Harvey 官方的逐条 prompt 判 pass 或 fail。</p></div>
+      <div class="card"><span class="eyebrow">计分与审计</span><b>官方代码 + 自动审计</b><p>分数由官方 evaluate_run 生成。每次运行后，审计脚本检查两个子 agent 的全部工具调用，确认没有碰评分标准、别的任务或网络。</p></div>
+    </div>
+    <div class="caveats" id="caveats"></div>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const D = {"tasks": [{"task": "corporate-ma/review-data-room-red-flag-review", "area": "并购", "name": "数据室 red flag 审查", "title": "Review Data Room for Acquisition Red Flags — M&A Due Diligence Memo", "work_type": "review", "n": 50, "p": 45, "all_pass": false, "docs": 13, "docs_read": 13, "minutes": 20.4, "pilot": true, "deliverables": ["red-flag-memo.docx", "red-flag-tracker.xlsx"], "failed": [{"id": "C-030", "title": "ISSUE_013: Scrutinizes $1.8M asbestos abatement wind-down add-back", "cat": "missed", "reason": "The $1.8M asbestos add-back is expressly 'accepted in base case' and 'accepted as non-recurring'. The memo does not call it the largest adjustment or question whether it is truly one-time; it only flags tail liabilities separately."}, {"id": "C-032", "title": "DISTRACTOR_001: Does not flag Wyoming permit as a red flag", "cat": "severity", "reason": "ENV-03 rates the Wyoming permit expiration a HIGH red flag, questions whether the renewal was timely, and recommends a closing condition and Wyoming counsel."}, {"id": "C-041", "title": "Memo includes non-issue / cleared items section", "cat": "format", "reason": "No section identifies items that look concerning but are cleared or standard."}, {"id": "C-045", "title": "Memo addressed to correct parties for investment committee", "cat": "format", "reason": "Addressed to Naomi Vance and Sycamore (Elaine Whitford) from Thornfield, but makes no reference to the January 24, 2025 investment committee meeting."}, {"id": "C-046", "title": "Correct identification of top customer concentration figures", "cat": "quant", "reason": "States top-10 at 67% and DOE at 19.2%, but never gives Consolidated Mining's 11.4% ($14.5M) or DOE's $24.4M."}]}, {"task": "antitrust-competition/identify-issues-in-civil-investigative-demand", "area": "反垄断", "name": "司法部民事调查令（CID）问题识别", "title": "Identify Issues in Civil Investigative Demand — Issue Memorandum for Organic Baby Food Antitrust Investigation", "work_type": "analyze", "n": 53, "p": 53, "all_pass": true, "docs": 9, "docs_read": 9, "minutes": 12.4, "pilot": false, "deliverables": ["cid-issue-memorandum.docx"], "failed": []}, {"task": "arbitration-international-dispute-resolution/draft-emergency-arbitrator-application", "area": "国际仲裁", "name": "起草 ICC 紧急仲裁员申请书", "title": "Draft Emergency Arbitrator Application Under ICC Rules for Trade Secret Misappropriation and Non-Compete Breach", "work_type": "draft", "n": 58, "p": 56, "all_pass": false, "docs": 8, "docs_read": 8, "minutes": 14.1, "pilot": false, "deliverables": ["emergency-arbitrator-application.docx"], "failed": [{"id": "C-032", "title": "Correct filing date (May 20, 2025)", "cat": "format", "reason": "Application is dated '[21] May 2025', not May 20, 2025."}, {"id": "C-058", "title": "Notes simultaneous filing of Request for Arbitration", "cat": "position", "reason": "States no Request for Arbitration has been filed; only undertakes to file within ten days, not simultaneously or prior."}]}, {"task": "banking-finance/draft-closing-legal-opinion-for-secured-credit-facility", "area": "银行融资", "name": "起草担保信贷交割法律意见书", "title": "Draft Closing Legal Opinion Letter for $175M Senior Secured Revolving Credit Facility", "work_type": "draft", "n": 78, "p": 78, "all_pass": true, "docs": 11, "docs_read": 11, "minutes": 20.1, "pilot": false, "deliverables": ["closing-legal-opinion.docx", "opinion-issues-memo.docx"], "failed": []}, {"task": "bankruptcy-restructuring/draft-plan-effective-date-checklist", "area": "破产重组", "name": "重整计划生效日核对清单", "title": "Draft Plan Effective Date Conditions Precedent Checklist for Chapter 11 Reorganization", "work_type": "draft", "n": 57, "p": 50, "all_pass": false, "docs": 8, "docs_read": 8, "minutes": 15.0, "pilot": false, "deliverables": ["effective-date-checklist.docx"], "failed": [{"id": "C-012", "title": "ISSUE_002: Notes imminent February 11, 2025 deadline for board designation", "cat": "disputed", "reason": "Output computes the board designation deadline as Monday Feb. 10 and expressly rejects Feb. 11 ('not Feb. 11'); it does not identify Feb. 11 as the deadline the criterion requires."}, {"id": "C-018", "title": "ISSUE_004: Notes potential approval or notice requirement for D&O tail premium", "cat": "missed", "reason": "No mention that the $1.35M D&O tail premium may need Court approval or notice to the Committee as a non-ordinary-course item; the output only notes it is payable as an administrative expense."}, {"id": "C-023", "title": "ISSUE_007: Identifies MIP term sheet as practical risk", "cat": "missed", "reason": "MIP is mentioned only as a non-condition, a share-capacity issue and a post-ED item; the output does not flag the unagreed MIP term sheet as a practical risk tied to CEO Harwick's cooperation."}, {"id": "C-029", "title": "Identifies KERP participant resignations and forfeitures", "cat": "missed", "reason": "The Thomas Hadley and Priya Nair resignations and KERP forfeitures are not mentioned; the output assumes all 14 participants and $2.15M."}, {"id": "C-030", "title": "States reduced KERP obligation of $1,770,000", "cat": "quant", "reason": "The reduced KERP obligation of $1,770,000 is not stated; the output uses $2,150,000 throughout."}, {"id": "C-031", "title": "ISSUE_010: Recommends updating cash flow projections for KERP savings", "cat": "quant", "reason": "No recommendation to reflect $380K of KERP savings in the cash projections or to reallocate them; the output says only 'less any forfeitures'."}, {"id": "C-054", "title": "KERP forfeiture math is correct ($225K + $155K = $380K; $2.15M - $380K = $1.77M)", "cat": "quant", "reason": "The KERP forfeiture figures ($225K, $155K, $380K, $1.77M) are absent."}]}, {"task": "capital-markets/review-form-10", "area": "资本市场", "name": "审阅 10-Q 草稿与附件清单", "title": "Review Draft Form 10-Q for SEC Filing Deficiencies and Prepare Compliance Memorandum", "work_type": "review", "n": 38, "p": 36, "all_pass": false, "docs": 4, "docs_read": 4, "minutes": 13.4, "pilot": false, "deliverables": ["form-check-compliance-memo.docx"], "failed": [{"id": "C-032", "title": "Classifies share count discrepancy as Minor", "cat": "severity", "reason": "The share count discrepancy (Finding 3) is rated High, not Minor/Low (the lowest tier)."}, {"id": "C-038", "title": "Notes the subsequent events note contradiction regarding dividend", "cat": "missed", "reason": "Finding 22 says only that the subsequent events conclusion must be refreshed (confirm the dividend payment). It never points out the contradiction between the 'no events require disclosure' statement and the undisclosed $0.16 dividend."}]}, {"task": "contracts/banking/account-control-agreement-first-turn-redline/scenario-02", "area": "合同", "name": "账户控制协议第二轮修订稿", "title": "Redline Account Control Agreement First Turn", "work_type": "contract", "n": 36, "p": 30, "all_pass": false, "docs": 7, "docs_read": 7, "minutes": 20.1, "pilot": false, "deliverables": ["counter-turn-redline.docx", "cover-note.docx"], "failed": [{"id": "C007", "title": "Section 2 — Preserves Orion's unqualified right to originate entitlement orders for UCC control", "cat": "position", "reason": "Redline 2.1 and Exhibit B still let Tidewater require Pledgor countersignature on Orion orders before an NEC, leaving the kind of pre-NEC condition the criterion says fails."}, {"id": "C009", "title": "Section 4 — Rejects 'senior' characterization of Tidewater's fee-related claims over Orion's security interest", "cat": "position", "reason": "Redline 4.1 keeps the Custodian Lien 'senior to the security interest of the Secured Party' for capped custodial fees, so the senior language is left in place."}, {"id": "C011", "title": "Section 4 — Any permitted custodial-fee carve-out is expressly subordinated to Orion's security interest", "cat": "position", "reason": "The permitted custodial-fee carve-out is expressly senior to Orion's interest, not subordinated."}, {"id": "C022", "title": "Section 5 — Rejects monthly account statement frequency", "cat": "position", "reason": "Cover note expressly 'accepts monthly statements'."}, {"id": "C023", "title": "Section 5 — Proposes account statements no less frequently than bi-weekly", "cat": "position", "reason": "Account statements remain monthly; only weekly copies of existing reports are added, so statements are not bi-weekly."}, {"id": "C032", "title": "Section 12 — Restores jurisdiction to SDNY or New York courts, rejecting District of Maryland", "cat": "position", "reason": "Section 12.2 makes jurisdiction non-exclusive in both New York and Maryland courts, keeping D. Md., which the criterion says fails."}]}, {"task": "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act", "area": "公司治理", "name": "新州工资盗窃法合规时间表", "title": "Assess Compliance Timeline for New Illinois Wage Theft Prevention Act — Regulatory Compliance Memorandum", "work_type": "analyze", "n": 63, "p": 58, "all_pass": false, "docs": 8, "docs_read": 8, "minutes": 11.0, "pilot": false, "deliverables": ["compliance-timeline-memorandum.docx"], "failed": [{"id": "C-038", "title": "Identifies WARN Act risk if IC drivers are terminated instead of reclassified", "cat": "missed", "reason": "No discussion of WARN Act risk from terminating the 740 IC relationships."}, {"id": "C-045", "title": "Reports total theoretical maximum annual penalty exposure ~$52.45M", "cat": "quant", "reason": "No aggregate total of ~$52.45M (pay stubs + wage notices + IC penalties) is reported."}, {"id": "C-047", "title": "Reports first-year compliance cost (excl. IC reclassification) ~$485,500", "cat": "disputed", "reason": "Memo rejects $485,500 and presents its own estimate of ~$560,000-$614,350, materially different from the expected figure."}, {"id": "C-052", "title": "Assigns risk severity ratings to identified compliance gaps", "cat": "severity", "reason": "No tiered risk severity ratings assigned to compliance gaps; only timeline status labels (Critical/Due/Track) on milestones."}, {"id": "C-063", "title": "Recommends utilizing safe harbor if full compliance by Phase 1 or Phase 2 deadlines is not achievable", "cat": "position", "reason": "Memo expressly advises against treating the safe harbor as a fallback ('stops treating the statutory safe harbor as a fallback', 'not planned for in advance') rather than recommending it as a fallback."}]}, {"task": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement", "area": "数据隐私", "name": "分析对方对 DPA 的修订", "title": "Analyze Counterparty Markup of Data Processing Agreement — Deviation Report", "work_type": "analyze", "n": 59, "p": 57, "all_pass": false, "docs": 5, "docs_read": 5, "minutes": 14.7, "pilot": false, "deliverables": ["dpa-deviation-report.docx"], "failed": [{"id": "C-051", "title": "Report includes regulatory cross-reference table referencing HIPAA", "cat": "format", "reason": "No regulatory cross-reference table/matrix mapping deviations to HIPAA; tables map to playbook topics and MSA, regulatory references are only in narrative analysis."}, {"id": "C-052", "title": "Report includes regulatory cross-reference table referencing GDPR", "cat": "format", "reason": "No regulatory cross-reference table/matrix mapping deviations to GDPR; only MSA and playbook concordance tables are provided."}]}, {"task": "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement", "area": "创投", "name": "股权转让协议问题识别", "title": "Identify Issues in Stock Transfer Agreement — Issue Memorandum for Secondary Stock Sale", "work_type": "review", "n": 41, "p": 39, "all_pass": false, "docs": 9, "docs_read": 9, "minutes": 8.6, "pilot": false, "deliverables": ["issue-memorandum.docx"], "failed": [{"id": "C-003", "title": "ISSUE_001: Explains risk of untimely ROFR waiver", "cat": "missed", "reason": "Memo calls the late waiver 'harmless' (Company deemed to decline) and does not explain risk of deemed exercise or invalidation of the waiver."}, {"id": "C-038", "title": "ISSUE_001 severity rated critical or high", "cat": "severity", "reason": "The Company waiver timing issue (Issue 10) is rated Medium, not critical or high."}]}, {"task": "employment-labor/draft-markup-of-executive-employment-agreement", "area": "劳动雇佣", "name": "高管雇佣协议修订意见", "title": "Draft Markup of Executive Employment Agreement — Redlined Agreement with Commentary", "work_type": "review", "n": 55, "p": 55, "all_pass": true, "docs": 5, "docs_read": 5, "minutes": 24.9, "pilot": false, "deliverables": ["redline-markup-commentary.docx"], "failed": []}, {"task": "energy-natural-resources/extract-land-option-agreement-terms", "area": "能源", "name": "风电土地期权协议条款提取", "title": "Extract Key Terms from Land Option Agreement for Wind Farm Project", "work_type": "analyze", "n": 78, "p": 73, "all_pass": false, "docs": 5, "docs_read": 5, "minutes": 12.5, "pilot": false, "deliverables": ["key-terms-extraction-memo.docx"], "failed": [{"id": "C-059", "title": "ISSUE_003: Abandonment exclusions could prevent trigger from ever activating", "cat": "missed", "reason": "Memo extracts the abandonment exclusions but marks them 'Conforms' and never flags that uncapped exclusions such as grid curtailment could stop the 24-month trigger from ever being met."}, {"id": "C-060", "title": "ISSUE_003: Recommends adding cap on abandonment exclusions", "cat": "position", "reason": "No recommendation to cap or set an outer time limit on the abandonment exclusions."}, {"id": "C-065", "title": "ISSUE_006: Qualified Transferee provision undermines consent right", "cat": "severity", "reason": "Memo describes the Section 14.3 thresholds as conforming and does not flag that they are low and effectively negate the landowner's consent right."}, {"id": "C-067", "title": "ISSUE_007: References Oregon common law disfavoring restraints on alienation", "cat": "missed", "reason": "Memo says a court could view the restriction as an unreasonable restraint on alienation but does not reference Oregon common law disfavoring restraints as the legal basis."}, {"id": "C-075", "title": "ISSUE_011: Escalator applies only to fixed payments, not production royalty", "cat": "severity", "reason": "Memo notes the royalty % does not escalate but marks it 'Conforms' and does not flag that in royalty-prong years the landowner gets no escalation or inflation protection."}]}, {"task": "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement", "area": "环境", "name": "环境和解协议赔偿条款提取", "title": "Extract Indemnification Terms from Environmental Settlement Agreement — Indemnification Summary Memorandum", "work_type": "analyze", "n": 55, "p": 51, "all_pass": false, "docs": 5, "docs_read": 5, "minutes": 14.3, "pilot": false, "deliverables": ["indemnification-summary-memo.docx"], "failed": [{"id": "C-037", "title": "ISSUE_002b: Illustrates practical impact of asymmetric basket mechanics", "cat": "quant", "reason": "No numerical example comparing deductible vs tipping outcomes for the same claim size; only qualitative 'owes less and recovers more'."}, {"id": "C-044", "title": "ISSUE_007b: Flags unclear boundaries of insurer litigation carve-out", "cat": "missed", "reason": "Memo does not flag unclear boundaries of what efforts short of litigation against insurer are required."}, {"id": "C-047", "title": "ISSUE_010: Flags MTCA strict/joint/several liability may undermine 'arising from' triggers", "cat": "missed", "reason": "Mentions MTCA joint and several liability and causation disputes but does not tie MTCA strict liability to failure of 'arising from' triggers in 8.1/8.2."}, {"id": "C-048", "title": "ISSUE_011: Flags punitive/multiplied damages exclusion may conflict with MTCA treble damages", "cat": "missed", "reason": "No discussion of MTCA treble damages/penalties being excluded as 'multiplied damages' under 8.6(c)."}]}, {"task": "firm-knowledge/tasks/175", "area": "律所知识库", "name": "在 9,288 份文件中检索补强收购案", "title": "Portfolio-Company Add-On Acquisitions", "work_type": "contract", "n": 6, "p": 5, "all_pass": false, "docs": 9288, "docs_read": 283, "minutes": 17.4, "pilot": false, "deliverables": ["response.md"], "failed": [{"id": "C-006", "title": "Qualifying set — precision", "cat": "severity", "reason": "The output lists 10 qualifying matters, including 1006-00003, 1007-00002, 1011-00005 and 1008-00008, which are outside the permitted set. It does mark three of them as not consummated, but it still counts them as qualifying add-on matters."}]}, {"task": "funds-asset-management/respond-to-lp-comment-letter", "area": "基金", "name": "回复 LP 对 LPA 的意见函", "title": "Prepare LP Comment Response Memo — Side Letter and LPA Markup for Fund IV", "work_type": "analyze", "n": 60, "p": 52, "all_pass": false, "docs": 8, "docs_read": 8, "minutes": 19.6, "pilot": false, "deliverables": ["comment-tracker.xlsx", "lp-comment-response-memo.docx"], "failed": [{"id": "C-010", "title": "ISSUE_003: Recommends catch-up formula fix (e.g., 75/25 or reference 15%)", "cat": "position", "reason": "Memo only rejects carry and points out the inconsistency; it proposes no revised catch-up (e.g., 75/25 or a 15% reference)."}, {"id": "C-012", "title": "ISSUE_004: References ILPA best practices on net-of-tax clawback as market standard", "cat": "quant", "reason": "No reference to ILPA principles or market practice supporting net-of-tax clawback; ILPA is mentioned only for reporting format."}, {"id": "C-015", "title": "ISSUE_005: Flags ambiguity — fees on commitments, not drawn capital", "cat": "missed", "reason": "Memo does not explain that the IP fee is charged on aggregate commitments, which makes the request redundant or a proration problem."}, {"id": "C-016", "title": "ISSUE_005: Suggests LP likely intends sub-line interest cost offset", "cat": "missed", "reason": "Memo notes SL §14's offset request but does not suggest that this is Meridian's likely intent behind #10."}, {"id": "C-033", "title": "ISSUE_011: Flags side letter cannot bind GP to convene meetings of non-consenting LPs", "cat": "missed", "reason": "Memo does not discuss that a side letter cannot bind the GP to convene meetings of other, non-consenting LPs."}, {"id": "C-036", "title": "ISSUE_012: Flags rebalancing/shortfall risk if 6.94% LP is excused", "cat": "missed", "reason": "Memo does not analyze rebalancing or shortfall funding by other LPs when Meridian is excused."}, {"id": "C-037", "title": "ISSUE_012: Notes interaction with concentration limit", "cat": "missed", "reason": "Memo does not discuss the interaction between excuse rights and the concentration limit."}, {"id": "C-038", "title": "ISSUE_012: Discusses ERISA benefit plan investor threshold risk", "cat": "missed", "reason": "No ERISA or 25% benefit plan investor discussion."}]}, {"task": "healthcare-life-sciences/identify-stark-law-compliance-issues", "area": "医疗健康", "name": "Stark 法合规问题识别", "title": "Stark Law Compliance Program Review — Issue Identification Memorandum", "work_type": "analyze", "n": 53, "p": 43, "all_pass": false, "docs": 15, "docs_read": 15, "minutes": 19.3, "pilot": false, "deliverables": ["stark-law-issues-memorandum.docx"], "failed": [{"id": "C-005", "title": "ISSUE_002: Identifies ClearView lease as below fair market value", "cat": "disputed", "reason": "Memo concludes ClearView rent is likely defensible on a gross-equivalent basis (~$30/sf) rather than identifying it as significantly below FMV."}, {"id": "C-009", "title": "ISSUE_002: States FMV requirement of rental exception is not satisfied", "cat": "disputed", "reason": "Memo states ClearView FMV is likely satisfied under 411.357(a), not that the FMV requirement fails."}, {"id": "C-016", "title": "ISSUE_006: Identifies Dr. Stein's medical director compensation as above FMV", "cat": "quant", "reason": "Flags $1,250/hr rate as high but never cites the MGMA $85,000-$105,000 benchmark range."}, {"id": "C-018", "title": "ISSUE_006: Cites personal services/management contracts exception", "cat": "missed", "reason": "Memo analyzes the MDA under AKS 1001.952(d) and says Stark risk is secondary; it does not apply the 411.357(d) personal services exception to it."}, {"id": "C-022", "title": "ISSUE_007: Estimates imaging revenue exposure (~$2.61M)", "cat": "quant", "reason": "Notes ~30% of imaging reads but gives no dollar exposure estimate (~$2.61M)."}, {"id": "C-024", "title": "ISSUE_008: Notes writing requirement for Stark exceptions", "cat": "missed", "reason": "Memo states the employment exception has no writing requirement, contrary to the criterion."}, {"id": "C-026", "title": "ISSUE_009: Estimates lab services exposure at unsupervised satellites (~$1.9M)", "cat": "quant", "reason": "Satellite lab volume explicitly 'not quantified'; no ~$1.9M estimate."}, {"id": "C-031", "title": "ISSUE_010: Identifies absence of self-disclosure protocol", "cat": "missed", "reason": "Does not identify that the compliance plan lacks a Stark self-disclosure/refund protocol."}, {"id": "C-043", "title": "Memorandum identifies total estimated Medicare exposure (~$30M)", "cat": "quant", "reason": "Memo expressly declines to provide an aggregate exposure estimate; no ~$30M figure."}, {"id": "C-046", "title": "Memorandum recommends executing a written agreement with Dr. Wellford", "cat": "position", "reason": "Notes Wellford expiry but does not recommend executing a new written agreement with him; only a general inventory."}]}, {"task": "immigration/identify-h1b-qualification-issues", "area": "移民", "name": "H-1B 申请资格问题识别", "title": "H-1B Qualification Review — Issue Identification Memorandum for Senior Machine Learning Engineer Petition", "work_type": "review", "n": 39, "p": 38, "all_pass": false, "docs": 10, "docs_read": 10, "minutes": 7.5, "pilot": false, "deliverables": ["h1b-issue-memo.docx"], "failed": [{"id": "C-029", "title": "Non-issues section: Identifies at least one non-issue with explanation", "cat": "format", "reason": "No discussion of items that appear problematic but are acceptable with explanation; only notes basic employer data consistent."}]}, {"task": "insurance/identify-issues-in-coverage-denial-letter", "area": "保险", "name": "拒赔函问题识别", "title": "Identify Issues in Insurance Coverage Denial Letter for Chemical Plant Explosion", "work_type": "analyze", "n": 32, "p": 30, "all_pass": false, "docs": 9, "docs_read": 9, "minutes": 13.2, "pilot": false, "deliverables": ["coverage-analysis-memorandum.docx"], "failed": [{"id": "C-009", "title": "ISSUE_004d: Identifies 27-day proof of loss is within the 60-day policy deadline", "cat": "missed", "reason": "Memo measures the April 10 proof of loss against the 90-day proof-of-loss deadline and never argues that the 27-day period falls within the 60-day notice requirement."}, {"id": "C-019", "title": "ISSUE_009a: Identifies 72-hour BI waiting period was satisfied by 48-day shutdown", "cat": "missed", "reason": "Memo treats the waiting period only as a deduction from the BI claim; it never argues the 72-hour period was satisfied or that the letter failed to acknowledge this."}]}, {"task": "intellectual-property/identify-tech-license-term-sheet-issues", "area": "知识产权", "name": "技术许可条款书问题识别", "title": "Identify Material Issues in AI Diagnostics Platform Exclusive License Term Sheet", "work_type": "analyze", "n": 41, "p": 39, "all_pass": false, "docs": 7, "docs_read": 7, "minutes": 10.7, "pilot": false, "deliverables": ["issue-identification-memo.docx"], "failed": [{"id": "C-012", "title": "ISSUE_004: Flags 'irrevocable' data license as problematic", "cat": "missed", "reason": "Memo treats the irrevocable data license as a valuable asset to protect and does not flag irrevocability as problematic if de-identification proves inadequate."}, {"id": "C-026", "title": "ISSUE_012: Identifies MFL clause metric mismatch (per-image vs. flat fees)", "cat": "missed", "reason": "MFL analysis notes per-image fees are undefined but does not identify that licensees pay flat annual fees making the per-image comparison a metric mismatch."}]}, {"task": "international-trade-sanctions/draft-export-license-application", "area": "贸易制裁", "name": "起草出口许可申请", "title": "Draft BIS Export License Application (Form BIS-748P) for Controlled Infrared Imaging Components to Singapore", "work_type": "draft", "n": 46, "p": 39, "all_pass": false, "docs": 8, "docs_read": 8, "minutes": 9.8, "pilot": false, "deliverables": ["draft-application-narrative.docx", "issues-memorandum.docx"], "failed": [{"id": "C-009", "title": "ISSUE_004: Addresses Part 744 military end-use analysis", "cat": "missed", "reason": "744.21 is cited only for Burma's status; neither deliverable analyzes the military end-use rule for Singapore or concludes that it imposes no extra license requirement."}, {"id": "C-010", "title": "ISSUE_004: Correctly concludes § 744.21 does not apply to Singapore", "cat": "missed", "reason": "No deliverable ties Singapore's Country Group status to 744.21 to conclude that no additional license obligation arises under that section."}, {"id": "C-011", "title": "ISSUE_005: Addresses WMD/proliferation catch-all provisions", "cat": "missed", "reason": "General Prohibition 10 is mentioned only for the Myanmar inquiry; there is no WMD/proliferation catch-all analysis and no statement that the applicant has no knowledge of WMD use."}, {"id": "C-023", "title": "ISSUE_011: Notes BIS IVL typical 24-month validity period", "cat": "quant", "reason": "Neither deliverable states that individual validated licenses have a typical 2-year validity period or that later orders would require a new license; only D-598712's dates are listed."}, {"id": "C-033", "title": "Narrative: Addresses Anti-Terrorism (AT) reason for control", "cat": "missed", "reason": "AT is only listed as a reason for control; there is no explanation of why it does not bar approval."}, {"id": "C-034", "title": "Narrative: Addresses Part 744 end-use/end-user concerns", "cat": "missed", "reason": "The narrative contains no discussion of the Part 744 military end-use or WMD catch-all controls."}, {"id": "C-041", "title": "Narrative: Mentions Singapore's Country Group A:1 status", "cat": "disputed", "reason": "The narrative says Singapore is in Country Groups A:6 and B, not A:1."}]}, {"task": "litigation-dispute-resolution/extract-key-admissions-from-deposition-transcript", "area": "诉讼", "name": "从证人证词中提取关键承认", "title": "Extract Key Admissions from Deposition Transcript — Admission Summary Memorandum", "work_type": "analyze", "n": 46, "p": 45, "all_pass": false, "docs": 7, "docs_read": 7, "minutes": 10.0, "pilot": false, "deliverables": ["admission-summary-memo.docx"], "failed": [{"id": "C-011", "title": "ISSUE_004b: Identifies Yoon's admission of reviewing MillEdge Pro codebase", "cat": "missed", "reason": "Memo cites commits and architecture review but does not identify an admission of reviewing the MillEdge Pro codebase or flagging inefficiencies in it."}]}, {"task": "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement", "area": "房地产", "name": "分析对方对买卖合同的修订", "title": "Analyze Seller's Counsel Markup of Multifamily Purchase and Sale Agreement — Prepare Issues Memorandum", "work_type": "analyze", "n": 46, "p": 42, "all_pass": false, "docs": 4, "docs_read": 4, "minutes": 11.7, "pilot": false, "deliverables": ["psa-markup-issues-memo.docx"], "failed": [{"id": "C-006", "title": "Analysis: 3-month R&W survival is below market standard", "cat": "quant", "reason": "Criticizes the 3-month period as covering less than one operating quarter but never compares it to a market-standard range such as 6-12 months."}, {"id": "C-008", "title": "Analysis: $500K R&W cap is ~0.87% of $57.2M purchase price", "cat": "quant", "reason": "Gives the 0.87% figure but no market benchmark such as 2-5%; it only says 'market-level percentage', with no number."}, {"id": "C-010", "title": "Analysis: Legal significance of 'actual knowledge without inquiry' vs. 'knowledge'", "cat": "missed", "reason": "Contrasts it with the form's 'after reasonable inquiry' standard and says the reps would cover almost nothing, but never explains the legal distinction (Seller can claim ignorance even where inquiry would have revealed the issue, versus constructive knowledge)."}, {"id": "C-023", "title": "Analysis: Prorations impact on delinquent rents at 93.6% occupancy", "cat": "missed", "reason": "The prorations analysis never refers to the 93.6% occupancy or delinquent units; occupancy comes up only in the MAC issue."}]}, {"task": "structured-finance-securitization/draft-account-control-agreement", "area": "结构化融资", "name": "起草证券化账户控制协议", "title": "Draft Account Control Agreement for Equipment Lease Receivables Securitization", "work_type": "draft", "n": 60, "p": 58, "all_pass": false, "docs": 5, "docs_read": 5, "minutes": 12.3, "pilot": false, "deliverables": ["aca-cover-memo.docx", "account-control-agreement.docx"], "failed": [{"id": "C-032", "title": "ISSUE_010: Cover memo explains reversal of successor approval right", "cat": "missed", "reason": "Memo item 6 identifies deletion of Sovereign's 'reasonably acceptable' right and that Crestline appoints, but gives no rationale for why the secured party/noteholder representative should control successor selection."}, {"id": "C-055", "title": "ACA provides Servicer pre-ECN authority to instruct deposits into Collection Account", "cat": "position", "reason": "Permitted Servicer Instructions (Sec. 3.4) cover investments, Collection-to-Distribution transfers, Servicer Fee and reserve releases; nothing gives the Servicer pre-ECN authority to instruct deposits into the Collection Account."}]}, {"task": "trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement", "area": "信托遗产", "name": "起草 GRAT 信托协议", "title": "Draft Grantor Retained Annuity Trust (GRAT) Agreement for Biotech Executive's Private Company Shares", "work_type": "draft", "n": 49, "p": 48, "all_pass": false, "docs": 7, "docs_read": 7, "minutes": 14.2, "pilot": false, "deliverables": ["grat-agreement.docx", "issues-memorandum.docx"], "failed": [{"id": "C-038", "title": "GRAT Agreement: Spendthrift clause applies only to remainder beneficiaries, not grantor", "cat": "position", "reason": "Section 10.1 applies to the interest of 'any beneficiary', which includes the grantor's annuity interest, and contains no exclusion of the grantor's interest from creditor protection (it only preserves her release and substitution powers)."}]}, {"task": "white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories", "area": "白领犯罪", "name": "对照传票核查文件出示缺口", "title": "Gap Analysis Memorandum: Document Production Set vs. Grand Jury Subpoena Request Categories", "work_type": "analyze", "n": 57, "p": 55, "all_pass": false, "docs": 14, "docs_read": 14, "minutes": 12.8, "pilot": false, "deliverables": ["gap-analysis-memo.docx"], "failed": [{"id": "C-027", "title": "ISSUE_009: Notes government focus on fee structures as motive evidence", "cat": "missed", "reason": "Req. 6 discussion confirms fee/tail terms are produced but never discusses Government interest in banker fee structures as motive evidence (motive is raised only for Req. 14 compensation)."}, {"id": "C-028", "title": "ISSUE_010: Flags that multi-category tagging may inflate perceived coverage", "cat": "missed", "reason": "Memo notes 1,015 multi-tagged documents but does not discuss the risk that multi-tagging inflates perceived category coverage (e.g., Category 5's 2,847)."}]}], "totals": {"n_tasks": 25, "all_pass": 3, "criteria": 1256, "criteria_passed": 1175, "pooled_pass_rate": 0.9355, "mean_task_pass_rate": 0.93, "audits_clean": 25}, "agreement": {"criteria_compared": 455, "agreement": 0.9934, "a_pass_b_fail": 2, "a_fail_b_pass": 1, "all_pass_agreement": 7, "tasks": [{"task": "antitrust-competition/identify-issues-in-civil-investigative-demand", "n": 53, "a_pass": 53, "b_pass": 52, "agree": 52, "a_all_pass": true, "b_all_pass": false, "flips": [{"id": "C-004", "a": "pass", "b": "fail", "a_reason": "Overbreadth of Spec. 3 and the other specs is tied to modification: a negotiated modification letter, with a protective § 1314(b) petition stating each ground as the fallback.", "b_reason": "Memo ties Spec. 3 overbreadth to negotiated modification only, states overbreadth arguments are better resolved by negotiation, and does not recommend it as a petition ground."}]}, {"task": "banking-finance/draft-closing-legal-opinion-for-secured-credit-facility", "n": 78, "a_pass": 78, "b_pass": 78, "agree": 78, "a_all_pass": true, "b_all_pass": true, "flips": []}, {"task": "capital-markets/review-form-10", "n": 38, "a_pass": 36, "b_pass": 36, "agree": 38, "a_all_pass": false, "b_all_pass": false, "flips": []}, {"task": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement", "n": 59, "a_pass": 57, "b_pass": 56, "agree": 58, "a_all_pass": false, "b_all_pass": false, "flips": [{"id": "C-018", "a": "pass", "b": "fail", "a_reason": "Return period classified Red (not Green/unclassified), as part of a compound return/deletion cluster with deletion and certificate Red items; criterion permits Red.", "b_reason": "Report classifies the 60-day return period Red on the stated basis that the playbook makes anything beyond 45 days Red, rather than the expected Yellow or a compounding-factor justification."}]}, {"task": "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement", "n": 41, "a_pass": 39, "b_pass": 39, "agree": 41, "a_all_pass": false, "b_all_pass": false, "flips": []}, {"task": "employment-labor/draft-markup-of-executive-employment-agreement", "n": 55, "a_pass": 55, "b_pass": 55, "agree": 55, "a_all_pass": true, "b_all_pass": true, "flips": []}, {"task": "energy-natural-resources/extract-land-option-agreement-terms", "n": 78, "a_pass": 73, "b_pass": 73, "agree": 78, "a_all_pass": false, "b_all_pass": false, "flips": []}, {"task": "healthcare-life-sciences/identify-stark-law-compliance-issues", "n": 53, "a_pass": 43, "b_pass": 44, "agree": 52, "a_all_pass": false, "b_all_pass": false, "flips": [{"id": "C-043", "a": "fail", "b": "pass", "a_reason": "Memo expressly declines to provide an aggregate exposure estimate; no ~$30M figure.", "b_reason": "Memo cites relator's >$30M tainted Medicare claims for 2023 as aggregate exposure and notes exposure could be larger; within range."}]}]}, "categories": [{"key": "missed", "short": "漏点", "label": "漏掉了某个具体问题或分析角度", "desc": "相关领域分析了，但专家期望的某一个具体点没写到。例如没把 MTCA 三倍赔偿和合同的“倍数损害”排除条款联系起来，没分析新加坡的军事最终用途规则，没提到被诉人承认审查过对方代码库。这类最多，说明问题不在“不会”，而在“没想全”。"}, {"key": "quant", "short": "没量化", "label": "该算的数没算，或没给市场基准", "desc": "指出了问题，但没有给出专家期望的金额估算或市场参照：例如医疗任务没估算 $2.61M 影像收入风险和约 $30M 总敞口，房地产任务没写陈述保证存续期的市场区间（6–12 个月），破产任务漏了 KERP 没收后的 $1.77M。资深律师会主动把风险换算成数字。"}, {"key": "position", "short": "立场", "label": "立场或建议与专家预期不同", "desc": "agent 做了判断，但和评分标准预设的立场不一样。最典型的是合同修订任务：标准要求坚决拒绝对方的“优先权”和马里兰管辖，agent 选择了有条件让步。这类往往取决于委托人的谈判策略，而案卷里没给 playbook。"}, {"key": "severity", "short": "轻重", "label": "轻重判断与专家不同", "desc": "把干扰项当成高风险（并购任务的怀俄明许可证），把小差异评成 High（10-Q 的股数差异），或把实质问题标成“符合”（风电租约的受让人门槛）。这正对应初级和资深律师之间最难教的“重要性判断”。"}, {"key": "format", "short": "格式", "label": "结构或格式要求没满足", "desc": "缺少专家要求的固定部分：“已排除事项”清单（两个任务都漏了）、HIPAA/GDPR 对照表、投资委员会会议的语境、正确的落款日期。容易补，但 all-pass 规则下同样致命。"}, {"key": "disputed", "short": "可商榷", "label": "疑似评分标准本身可商榷", "desc": "agent 给出了有理有据的不同结论，而且很可能是对的或至少站得住。见下方“值得留意的几件事”。这类失分不一定代表能力不足。"}], "notes": [{"title": "疑似评分标准本身可商榷", "items": ["贸易制裁 C-041：标准要求写“新加坡属于 A:1 国家组”。A:1 是瓦森纳安排成员国组，而新加坡不是瓦森纳成员；agent 写的是 A:6 和 B，并明确指出 A:1 的说法不对。", "破产 C-012：标准要求董事会指定截止日为 2 月 11 日；agent 把 2 月 17 日总统日算作非营业日，得出 2 月 10 日，并明确写“不是 2 月 11 日”。", "医疗 C-005 / C-009：agent 把运营费用折算进去后认为 ClearView 租金约 $30/sf，落在评估区间内；标准认定它显著低于市场价。属于专业判断分歧。", "公司治理 C-047：agent 发现 $485,500 这个首年合规预算本身算错了（应为约 $614K），标准却要求报告原数字。"]}, {"title": "数据集本身的问题", "items": ["白领犯罪任务的 14 份案卷里，有 6 份属于另一个案子（Aldersgate/Thornfield，传票号 0438），我用 pandoc 核实过。agent 发现后把它们隔离并建议通知对方。不清楚这是有意设置的干扰，还是批量生成时混进来的。", "合同修订任务没有提供谈判 playbook，但评分标准按特定立场打分（例如对账单至少两周一次），agent 只能按信贷协议推断立场，6 条失分全在这里。", "律所知识库任务只有 6 条标准，一条失误通过率就掉到 83%；它的唯一失分是把未完成的交易也算进了“符合条件”的清单。", "尽调（diligence）领域的 11 个任务每个都有 2,600–4,000 份文件、400–1,100 条标准，单个子 agent 一晚跑不完，所以没有抽样。"]}]};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pct = (p, n) => (100 * p / n);
+const fmt = x => x.toFixed(1) + "%";
+const T = D.totals, A = D.agreement;
+
+// Stats
+const ge95 = D.tasks.filter(t => pct(t.p, t.n) >= 95).length;
+$("stats").innerHTML = `
+  <div class="stat"><span class="l">全部标准通过（LAB 主指标）</span><span class="v hero">${T.all_pass}<small> / ${T.n_tasks} 个任务</small></span><span class="l">漏一条就算失败，所以很严</span></div>
+  <div class="stat"><span class="l">标准通过率（合并计算）</span><span class="v">${(100*T.pooled_pass_rate).toFixed(1)}%</span><span class="l">${T.criteria_passed.toLocaleString()} / ${T.criteria.toLocaleString()} 条</span></div>
+  <div class="stat"><span class="l">通过率 ≥ 95% 的任务</span><span class="v">${ge95}<small> / ${T.n_tasks}</small></span><span class="l">差一两条就 all-pass</span></div>
+  <div class="stat"><span class="l">隔离审计</span><span class="v">${T.audits_clean}<small> / ${T.n_tasks}</small></span><span class="l">全部无越界访问</span></div>`;
+
+// Tooltip
+const tip = $("tip");
+function showTip(e, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = (e.target.getBoundingClientRect ? e.target.getBoundingClientRect() : {left: e.clientX, top: e.clientY, width: 0});
+  const x = Math.min(window.innerWidth - tip.offsetWidth - 8, (e.clientX || r.left + r.width / 2) + 12);
+  const y = Math.max(8, (e.clientY || r.top) - tip.offsetHeight - 12);
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+
+// Dot plot
+(function () {
+  const rows = [...D.tasks].sort((a, b) => pct(b.p, b.n) - pct(a.p, a.n) || b.n - a.n);
+  const W = 860, L = 250, R = 70, top = 28, rowH = 24, H = top + rows.length * rowH + 14;
+  const x0 = 80, x1 = 100, X = v => L + (v - x0) / (x1 - x0) * (W - L - R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="每个任务的标准通过率点图">`;
+  for (let v = 80; v <= 100; v += 5) {
+    s += `<line class="gl" x1="${X(v)}" x2="${X(v)}" y1="${top - 8}" y2="${H - 10}"/>`;
+    s += `<text class="tick" x="${X(v)}" y="${top - 14}" text-anchor="middle">${v}%</text>`;
+  }
+  rows.forEach((t, i) => {
+    const y = top + i * rowH + rowH / 2, v = pct(t.p, t.n);
+    s += `<text x="${L - 12}" y="${y + 4}" text-anchor="end">${esc(t.area)} · ${esc(t.name.length > 13 ? t.name.slice(0, 13) + "…" : t.name)}</text>`;
+    s += `<line class="stem" x1="${X(x0)}" x2="${X(v)}" y1="${y}" y2="${y}"/>`;
+    s += `<rect class="hit" x="${X(v) - 12}" y="${y - 12}" width="24" height="24" tabindex="0" data-i="${D.tasks.indexOf(t)}"/>`;
+    s += `<circle class="dot${t.pilot ? " pilot" : ""}" cx="${X(v)}" cy="${y}" r="5"/>`;
+    s += t.all_pass ? `<text class="ok" x="${X(v) + 12}" y="${y + 4}">✓</text>`
+                    : `<text class="val" x="${X(v) + 12}" y="${y + 4}">${t.p}/${t.n}</text>`;
+  });
+  s += `</svg>`;
+  $("dotplot").innerHTML = s;
+  $("dotplot").querySelectorAll(".hit").forEach(el => {
+    const t = D.tasks[+el.dataset.i];
+    const html = `<b>${fmt(pct(t.p, t.n))}</b> · ${t.p}/${t.n} 条<br>${esc(t.area)}：${esc(t.name)}${t.all_pass ? "<br>✓ 全部通过" : `<br>未通过 ${t.n - t.p} 条`}`;
+    el.addEventListener("pointermove", e => showTip(e, html));
+    el.addEventListener("pointerleave", hideTip);
+    el.addEventListener("focus", e => { const r = el.getBoundingClientRect(); showTip({clientX: r.right, clientY: r.top, target: el}, html); });
+    el.addEventListener("blur", hideTip);
+    el.addEventListener("click", () => openRow(t.task));
+  });
+})();
+
+// Failure categories
+(function () {
+  const all = D.tasks.flatMap(t => t.failed.map(f => ({...f, task: t})));
+  const counts = D.categories.map(c => ({...c, items: all.filter(f => f.cat === c.key)})).filter(c => c.items.length);
+  counts.sort((a, b) => b.items.length - a.items.length);
+  $("cat-lede").textContent = `${D.tasks.length} 个任务一共有 ${all.length} 条标准没过。下面按“它到底错在哪”粗分成几类，归类是我逐条看裁判理由后人工做的，属于判断，不是官方分类。`;
+  const W = 860, L = 250, R = 50, rowH = 30, top = 10, H = top + counts.length * rowH + 22;
+  const max = Math.max(...counts.map(c => c.items.length));
+  const step = max > 20 ? 10 : 5, xmax = Math.ceil(max / step) * step;
+  const X = v => L + v / xmax * (W - L - R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="未通过标准的类别分布">`;
+  for (let v = 0; v <= xmax; v += step) {
+    s += `<line class="gl" x1="${X(v)}" x2="${X(v)}" y1="${top}" y2="${H - 18}"/><text class="tick" x="${X(v)}" y="${H - 4}" text-anchor="middle">${v}</text>`;
+  }
+  counts.forEach((c, i) => {
+    const y = top + i * rowH, w = X(c.items.length) - X(0), h = 18;
+    s += `<text x="${L - 12}" y="${y + 14}" text-anchor="end">${esc(c.label)}</text>`;
+    s += `<path class="bar" data-k="${c.key}" d="M${X(0)},${y} h${w - 4} a4,4 0 0 1 4,4 v${h - 8} a4,4 0 0 1 -4,4 h-${w - 4} z"/>`;
+    s += `<text class="val" x="${X(c.items.length) + 8}" y="${y + 14}">${c.items.length}</text>`;
+  });
+  s += `</svg>`;
+  $("catbars").innerHTML = s;
+  $("catbars").querySelectorAll(".bar").forEach(el => {
+    const c = counts.find(c => c.key === el.dataset.k);
+    const html = `<b>${c.items.length}</b> 条<br>${esc(c.label)}<br>涉及 ${new Set(c.items.map(f => f.task.task)).size} 个任务`;
+    el.addEventListener("pointermove", e => showTip(e, html)); el.addEventListener("pointerleave", hideTip);
+  });
+  $("cats").innerHTML = counts.map(c => `
+    <article class="card cat"><header><h3>${esc(c.label)}</h3><span class="n">${c.items.length} 条 · ${new Set(c.items.map(f => f.task.task)).size} 个任务</span></header>
+      <p>${esc(c.desc)}</p>
+      <ul>${c.items.slice(0, 4).map(f => `<li>${esc(f.task.area)}：${esc(f.title)}</li>`).join("")}${c.items.length > 4 ? `<li>……另外 ${c.items.length - 4} 条见下方总表</li>` : ""}</ul>
+    </article>`).join("");
+})();
+
+// Notes
+$("notes").innerHTML = D.notes.map(n => `<div class="card note"><h3>${esc(n.title)}</h3><ul>${n.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+
+// Judge agreement
+(function () {
+  if (!A) { $("judge").innerHTML = "<p>未做双裁判复核。</p>"; return; }
+  const flips = A.tasks.flatMap(t => t.flips.map(f => ({...f, task: t.task})));
+  const nm = k => { const t = D.tasks.find(t => t.task === k); return t ? `${t.area}` : k; };
+  $("judge").innerHTML = `
+    <p>为了检查裁判稳不稳，我让第二个独立的 Claude 裁判（全新上下文，看不到第一个裁判的结论）把其中 ${A.tasks.length} 个任务重新判了一遍，包括全部 3 个 all-pass 任务。</p>
+    <ul>
+      <li><b>${A.criteria_compared} 条标准里，两个裁判结论一致的有 ${A.criteria_compared - flips.length} 条（${(100 * A.agreement).toFixed(1)}%）。</b></li>
+      <li>不一致的 ${flips.length} 条，第一个裁判在报告里都已经自己标成“擦边”的判定：${flips.map(f => `${nm(f.task)} ${f.id}（A 判 ${f.a === "pass" ? "过" : "不过"}，B 判 ${f.b === "pass" ? "过" : "不过"}）`).join("；")}。</li>
+      <li>all-pass 结论在 ${A.all_pass_agreement} / ${A.tasks.length} 个任务上一致。唯一的分歧是反垄断任务：第二个裁判卡掉了 C-004，这个任务就从“全部通过”变成“失败”。这说明 all-pass 这个指标对单条边界判定非常敏感。</li>
+      <li>两个裁判是同一个模型，所以这只能说明“同一模型判两次很稳定”，不能排除它和被测 agent 有同样的偏好。</li>
+    </ul>`;
+})();
+
+// Ledger
+const catLabel = Object.fromEntries(D.categories.map(c => [c.key, c.short]));
+$("ledger").innerHTML = [...D.tasks].sort((a, b) => pct(b.p, b.n) - pct(a.p, a.n)).map(t => `
+  <details class="row" id="row-${esc(t.task.replace(/[^a-z0-9]/gi, "-"))}" data-s="${t.all_pass ? "pass" : "fail"}">
+    <summary><span class="area">${esc(t.area)}${t.pilot ? " · 试点" : ""}</span><span class="t">${esc(t.name)}<small>${esc(t.task)}</small></span>
+      <span class="score">${t.p}/${t.n}</span>${t.all_pass ? `<span class="pill good">✓ 全部通过</span>` : `<span class="pill fail">差 ${t.n - t.p} 条</span>`}</summary>
+    <div class="body">
+      <p class="meta">${t.docs} 份案卷文件，读了 ${t.docs_read} 份${t.minutes ? ` · 用时约 ${Math.round(t.minutes)} 分钟` : ""} · 交付物：${t.deliverables.map(esc).join("、") || "—"}</p>
+      ${t.failed.length ? t.failed.map(f => `<div class="f"><span class="mono">${esc(f.id)}</span><span class="chip">${esc(catLabel[f.cat] || "其他")}</span><span class="ft">${esc(f.title)}</span><span class="why">裁判：${esc(f.reason)}</span></div>`).join("") : `<p class="meta">所有标准都通过了。</p>`}
+    </div>
+  </details>`).join("");
+function setFilter(f) {
+  document.querySelectorAll(".filters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  document.querySelectorAll(".ledger .row").forEach(r => { r.hidden = !(f === "all" || r.dataset.s === f); });
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => setFilter(b.dataset.f)));
+function openRow(task) {
+  setFilter("all");
+  const r = document.getElementById("row-" + task.replace(/[^a-z0-9]/gi, "-"));
+  r.open = true;
+  r.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center"});
+}
+
+$("caveats").innerHTML = `
+  <p><b>不能和 Harvey 公布的成绩直接比。</b>官方裁判是 Sonnet 4.6 + GPT-5.5 双裁判；这里的裁判是本会话的 Claude。做题和判卷也是同一个模型。</p>
+  <p><b>样本小。</b>26 个任务只占全部 2,010 个任务的 1.3%，每个领域只有一个任务，单个领域的分数主要反映那一道题的难度。</p>
+  <p><b>会话模式与官方 harness 有差别。</b>官方 agent 只有 7 个工具，按轮次调用 API；这里的 agent 是 Claude Code 子 agent，通过日志脚本在同一个沙箱里执行命令，token 数无法统计。沙箱镜像是基于 Ubuntu 的等价版本（官方镜像在此环境拉不到）。</p>`;
+</script>

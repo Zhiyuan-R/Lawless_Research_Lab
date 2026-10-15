@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — intellectual-property/identify-tech-license-term-sheet-issues/claude-code-session/20261015-120319</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>intellectual-property/identify-tech-license-term-sheet-issues/claude-code-session/20261015-120319</strong> &nbsp;&middot;&nbsp;
+  Task: intellectual-property/identify-tech-license-term-sheet-issues &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">39/41</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">7/7</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 2</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (39 passed, 2 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Identifies Voss DLA Section 4.3 sublicensing restriction conflict</span>
+    <span style="font-size:0.8rem;color:#999">C-001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 2 identifies DLA 4.3(b) bar on Derivative Access to Derivative Models for any third party with >25 Hospital Facilities absent Voss prior written consent.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Notes Kaelen's 43 hospitals exceed Voss DLA 25-facility threshold</span>
+    <span style="font-size:0.8rem;color:#999">C-002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Explicitly states Kaelen operates 43 hospitals, well above the 25-facility threshold.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Recommends obtaining Voss consent or other mitigation</span>
+    <span style="font-size:0.8rem;color:#999">C-003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends submitting Voss consent request by May 2, 2025 and making Voss consent a condition precedent; also alternate data sources.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_001: Identifies DLA breach/termination risk to Atherton's data supply</span>
+    <span style="font-size:0.8rem;color:#999">C-004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Notes pilot/deployment without consent risks breach of 4.3(b), Voss audit, 60-day cure/termination right, and loss of the data feed.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Identifies Voss DLA expiration vs. Kaelen license term mismatch</span>
+    <span style="font-size:0.8rem;color:#999">C-005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies DLA expiry 12/31/2027 (max 12/31/2030 on renewal) versus Kaelen term to 6/30/2032 (up to 2038), showing the gap.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_002: Notes impact on model update obligations and training capability</span>
+    <span style="font-size:0.8rem;color:#999">C-006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Explains Atherton could not retrain/update with Voss data post-expiry while bound to quarterly updates and performance obligations.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003a: Identifies Section 7.4 investor consent requirement for exclusive licenses exceeding 3 years or covering >30% of a market segment</span>
+    <span style="font-size:0.8rem;color:#999">C-007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies IRA 7.4 prior written consent of Lead Investor Director Samir Okafor for exclusive licenses >3 years or >30% of a Defined Market Segment.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003b: Identifies that the proposed 7-year Kaelen license triggers the Ridgeline consent requirement</span>
+    <span style="font-size:0.8rem;color:#999">C-008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States trigger (i) is clearly met by the 7-year Initial Term.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_003: Notes consent has not been formally obtained</span>
+    <span style="font-size:0.8rem;color:#999">C-009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States consent is not in hand, informal briefing does not satisfy 7.4, and describes material breach of IRA and injunctive/specific performance remedies.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004a: Identifies HIPAA de-identification standard is unspecified in term sheet</span>
+    <span style="font-size:0.8rem;color:#999">C-010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 11 notes 'De-identified' and 'in accordance with applicable law' are undefined for the perpetual, irrevocable, worldwide data license.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_004b: References HIPAA de-identification methods (Safe Harbor or Expert Determination)</span>
+    <span style="font-size:0.8rem;color:#999">C-011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">References Safe Harbor or Expert Determination methods under 45 C.F.R. 164.514(b).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_004: Flags 'irrevocable' data license as problematic</span>
+    <span style="font-size:0.8rem;color:#999">C-012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo treats the irrevocable data license as a valuable asset to protect and does not flag irrevocability as problematic if de-identification proves inadequate.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_005: Identifies antitrust/competition concerns with 30-mile exclusivity radius</span>
+    <span style="font-size:0.8rem;color:#999">C-013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 25 flags antitrust sensitivity of up-to-13-year territorial restraint around 43 facilities, rule-of-reason scrutiny and private claims.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_005: Notes overlapping radii could block entire metropolitan areas</span>
+    <span style="font-size:0.8rem;color:#999">C-014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 8 notes 43 overlapping 30-mile circles across nine states would cover many major metropolitan markets including Atherton's home market.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Identifies conflict with Pinnacle 'no impairment' clause</span>
+    <span style="font-size:0.8rem;color:#999">C-015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies Pinnacle 9.2 no-impairment covenant (with cure/termination/refund remedy) and update-parity risk from Kaelen-specific terms and possible Voss impairment as issues the deal must respect.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_006: Recommends mitigation for Pinnacle conflict</span>
+    <span style="font-size:0.8rem;color:#999">C-016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends update parity across licensees, grandfathering existing licensees, and ensuring Kaelen terms don't restrict updates to others.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007: Identifies undefined concordance methodology in Performance Threshold</span>
+    <span style="font-size:0.8rem;color:#999">C-017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies Kaelen selects the validation dataset, Kaelen radiologists as ground truth, and undefined protocol (case mix, stratification, exclusions).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_007: Notes this creates unilateral termination risk for Kaelen</span>
+    <span style="font-size:0.8rem;color:#999">C-018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States the threshold is effectively a Kaelen option to exit since Kaelen controls the inputs and benefits from failure.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Identifies perpetual royalty-free improvement license surviving termination</span>
+    <span style="font-size:0.8rem;color:#999">C-019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 5 identifies the perpetual, royalty-free license to Improvements surviving termination, letting Kaelen use the platform free forever.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_008: Identifies compound risk with source code escrow provisions</span>
+    <span style="font-size:0.8rem;color:#999">C-020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Connects penalty-free performance termination with retention of the perpetual Improvements license (Issues 5 and 9) and escrow release via breach triggers.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Identifies SOC 2 Type II certification gap</span>
+    <span style="font-size:0.8rem;color:#999">C-021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies Type I only (Greystone, Aug 10, 2024), Type II requires an observation period and is expected Q3 2025, creating Day-1 breach at July 1, 2025.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_009: Recommends grace period or condition precedent for SOC 2 Type II</span>
+    <span style="font-size:0.8rem;color:#999">C-022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends grace period with Type I plus bridge letter, phased compliance, CP fallback, and remedy carve-outs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_010: Identifies FDA 510(k) clearance scope vs. deployment model tension</span>
+    <span style="font-size:0.8rem;color:#999">C-023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies K223847 clears a CADe assistive tool not for autonomous diagnosis; 'primary diagnostic screening' risks new 510(k)/De Novo and termination trigger.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_011: Identifies source code escrow overbreadth — model weights and training pipelines</span>
+    <span style="font-size:0.8rem;color:#999">C-024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies escrow includes model weights and training pipelines, Atherton's highest-tier trade secrets, enabling Kaelen to retrain and replicate ClearSight AI.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_011: Notes escrow release of model weights may violate Voss DLA</span>
+    <span style="font-size:0.8rem;color:#999">C-025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States depositing/releasing weights (a Derivative Model) to Kaelen conflicts with DLA 4.3(a)-(b) and needs Voss consent.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">ISSUE_012: Identifies MFL clause metric mismatch (per-image vs. flat fees)</span>
+    <span style="font-size:0.8rem;color:#999">C-026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">MFL analysis notes per-image fees are undefined but does not identify that licensees pay flat annual fees making the per-image comparison a metric mismatch.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_012: Identifies retroactive adjustment / cash-flow risk</span>
+    <span style="font-size:0.8rem;color:#999">C-027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies retroactive repricing creating refund liability exceeding the liability cap.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_013: Identifies cumulative update rejection and platform divergence risk</span>
+    <span style="font-size:0.8rem;color:#999">C-028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 15 notes unlimited update rejection with indefinite support of whatever version is in production, causing version fragmentation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_013: Notes downstream impacts of divergence (support, improvements, performance)</span>
+    <span style="font-size:0.8rem;color:#999">C-029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Identifies burden of supporting legacy versions, cost and regulatory/cybersecurity risk.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_014: Identifies payment terms / cash-flow mismatch with deployment timeline</span>
+    <span style="font-size:0.8rem;color:#999">C-030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Notes Year 1 front-loaded deployment costs for 43 sites paid quarterly in arrears net-60, first payment ~5 months after Effective Date.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">ISSUE_014: Recommends milestone payments or accelerated payment terms</span>
+    <span style="font-size:0.8rem;color:#999">C-031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends non-refundable deployment fee at signing/milestones and fees in advance, net-30.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo uses severity/priority classification system</span>
+    <span style="font-size:0.8rem;color:#999">C-032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Uses Critical/High/Medium/Low severity classification.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Voss DLA sublicensing conflict rated as Critical or highest severity</span>
+    <span style="font-size:0.8rem;color:#999">C-033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Voss 4.3 consent issue rated CRITICAL - GATING.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Ridgeline investor consent rated as Critical or highest severity</span>
+    <span style="font-size:0.8rem;color:#999">C-034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Ridgeline consent rated CRITICAL - GATING.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo correctly identifies the deal as a 7-year exclusive license of ClearSight AI from Atherton to Kaelen</span>
+    <span style="font-size:0.8rem;color:#999">C-035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Correctly describes a 7-year exclusive license of ClearSight AI from Atherton to Kaelen Health Corporation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo correctly states Kaelen's 43-hospital network</span>
+    <span style="font-size:0.8rem;color:#999">C-036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States 43-hospital network.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo correctly states approximately $45M minimum commitment</span>
+    <span style="font-size:0.8rem;color:#999">C-037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">States $45.0 million minimum commitment.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Memo identifies Atherton as the client whose interests are being protected</span>
+    <span style="font-size:0.8rem;color:#999">C-038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Written for Atherton's GC/Board, advocating Atherton-favorable positions.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">SOC 2 Type II gap rated as Critical or High severity</span>
+    <span style="font-size:0.8rem;color:#999">C-039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">SOC 2 Type II gap rated CRITICAL.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Perpetual improvement license + escrow compound risk rated Critical or High</span>
+    <span style="font-size:0.8rem;color:#999">C-040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Perpetual Improvements license rated CRITICAL.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Source code escrow overbreadth rated Critical or High severity</span>
+    <span style="font-size:0.8rem;color:#999">C-041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Escrow of weights/training pipelines rated CRITICAL.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

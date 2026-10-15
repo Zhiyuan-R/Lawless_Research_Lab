@@ -1,0 +1,337 @@
+<title>Harvey LAB 批量测评</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column, styled like a case file. Verdict first, then the 26-task dot plot, failure patterns, judge reliability, and the full per-task ledger. */
+:root {
+  --paper: #f6f7f5;
+  --sheet: #ffffff;
+  --ink: #1d2422;
+  --muted: #5d6965;
+  --faint: #8a9591;
+  --rule: #dfe3e0;
+  --grid: #e9ecea;
+  --accent: #23565a;
+  --series: #2a78d6;
+  --good: #0ca30c;
+  --good-ink: #1f6b36;
+  --good-bg: #e6f2ea;
+  --fail: #b23a3a;
+  --fail-bg: #f8e7e5;
+  --warn: #9a6a12;
+  --warn-bg: #f6eed9;
+  --display: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121716; --sheet: #1a2120; --ink: #e4ebe8; --muted: #9aa8a3; --faint: #75827d; --rule: #2c3634; --grid: #252e2c;
+    --accent: #7fc4c4; --series: #3987e5; --good: #0ca30c; --good-ink: #6cc790; --good-bg: #1d3426;
+    --fail: #f08a84; --fail-bg: #3a2120; --warn: #e2b562; --warn-bg: #3a2f17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121716; --sheet: #1a2120; --ink: #e4ebe8; --muted: #9aa8a3; --faint: #75827d; --rule: #2c3634; --grid: #252e2c;
+  --accent: #7fc4c4; --series: #3987e5; --good: #0ca30c; --good-ink: #6cc790; --good-bg: #1d3426;
+  --fail: #f08a84; --fail-bg: #3a2120; --warn: #e2b562; --warn-bg: #3a2f17; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 920px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 44px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(26px, 5vw, 38px); font-weight: 900; line-height: 1.25; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { margin: 0; font-size: 16px; }
+p { margin: 0; }
+section { display: grid; gap: 16px; min-width: 0; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--muted); font-weight: 500; }
+.lede { color: var(--muted); max-width: 64ch; }
+.mono { font-family: var(--mono); font-size: 12.5px; }
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+
+/* Stat row */
+.stats { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.stat { background: var(--sheet); padding: 18px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.stat .v { font-family: var(--body); font-weight: 700; font-size: 30px; line-height: 1.1; }
+.stat .v.hero { font-size: clamp(44px, 9vw, 56px); }
+.stat .v small { font-size: .45em; color: var(--muted); font-weight: 500; }
+.stat .l { font-size: 13px; color: var(--muted); }
+@media (max-width: 720px) { .stats { grid-template-columns: 1fr 1fr; } .stat:first-child { grid-column: 1 / -1; } }
+
+.pill { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; font-weight: 700; padding: 1px 9px; border-radius: 999px; white-space: nowrap; }
+.pill.good { color: var(--good-ink); background: var(--good-bg); }
+.pill.fail { color: var(--fail); background: var(--fail-bg); }
+.pill.warn { color: var(--warn); background: var(--warn-bg); }
+
+/* Charts */
+.chart { padding: 16px 16px 8px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; height: auto; min-width: 560px; }
+.chart text { fill: var(--ink); font-family: var(--body); font-size: 12px; }
+.chart .tick { fill: var(--faint); font-size: 11px; font-family: var(--mono); }
+.chart .gl { stroke: var(--grid); stroke-width: 1; }
+.chart .axis { stroke: var(--rule); stroke-width: 1; }
+.chart .stem { stroke: var(--series); stroke-width: 2; stroke-linecap: round; opacity: .35; }
+.chart .dot { fill: var(--series); stroke: var(--sheet); stroke-width: 2; }
+.chart .dot.pilot { fill: var(--sheet); stroke: var(--series); stroke-width: 2; }
+.chart .hit { fill: transparent; cursor: pointer; }
+.chart .hit:hover + .dot, .chart .hit:focus + .dot { stroke: var(--ink); }
+.chart .val { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+.chart .ok { fill: var(--good-ink); font-weight: 700; font-size: 11.5px; }
+.chart .bar { fill: var(--series); }
+.chart .bar:hover { opacity: .85; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); padding: 0 16px 12px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.tip { position: fixed; pointer-events: none; z-index: 10; background: var(--sheet); color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font-size: 13px; box-shadow: 0 4px 16px rgba(0,0,0,.12); max-width: 300px; }
+.tip b { font-size: 15px; }
+
+/* Categories */
+.cats { display: grid; gap: 10px; }
+.cat { padding: 14px 16px; display: grid; gap: 6px; }
+.cat header { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; }
+.cat .n { font-family: var(--mono); color: var(--muted); }
+.cat p { color: var(--muted); font-size: 14px; }
+.cat ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); display: grid; gap: 2px; }
+
+/* Notes */
+.notes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.note { padding: 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.note ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); display: grid; gap: 6px; }
+@media (max-width: 720px) { .notes { grid-template-columns: 1fr; } }
+
+/* Ledger */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: inherit; font-size: 14px; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--sheet); }
+.filters button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ledger .row { border-top: 1px solid var(--rule); }
+.ledger .row:first-child { border-top: 0; }
+.ledger summary { list-style: none; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: 92px 1fr auto auto; gap: 12px; align-items: baseline; }
+.ledger summary::-webkit-details-marker { display: none; }
+.ledger .area { font-size: 12.5px; color: var(--muted); }
+.ledger .t { min-width: 0; }
+.ledger .t small { display: block; color: var(--faint); font-size: 12px; overflow-wrap: anywhere; }
+.ledger .score { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.ledger .body { padding: 0 16px 16px 120px; display: grid; gap: 10px; }
+.ledger .meta { font-size: 13px; color: var(--muted); }
+.ledger .f { display: grid; grid-template-columns: 62px auto 1fr; gap: 10px; align-items: baseline; font-size: 13.5px; }
+.ledger .f .why { grid-column: 3; color: var(--muted); font-size: 13px; }
+@media (max-width: 640px) {
+  .ledger summary { grid-template-columns: 1fr auto; }
+  .ledger summary .area { grid-column: 1 / -1; }
+  .ledger .body { padding-left: 16px; }
+  .ledger .f { grid-template-columns: 56px 1fr; }
+  .ledger .f .chip { grid-column: 2; }
+  .ledger .f .why, .ledger .f .ft { grid-column: 1 / -1; }
+}
+.chip { font-size: 11.5px; padding: 0 7px; border-radius: 3px; background: var(--grid); color: var(--muted); white-space: nowrap; }
+
+.method { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.method .card { padding: 16px; display: grid; gap: 6px; align-content: start; }
+.method .card p { color: var(--muted); font-size: 14px; }
+.method .eyebrow { color: var(--accent); }
+@media (max-width: 720px) { .method { grid-template-columns: 1fr; } }
+.caveats { font-size: 14px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 8px; }
+@media (prefers-reduced-motion: no-preference) { .chart .dot { transition: stroke .15s; } }
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:12px">
+    <div class="eyebrow">HARVEY LEGAL AGENT BENCHMARK · v1.2.0 · 2026-10-15</div>
+    <h1>Claude 在 26 个法律任务上的表现</h1>
+    <p class="lede">从 Harvey LAB 的 27 个执业领域里各抽一个任务（尽调领域任务过大，未纳入），加上之前跑过的并购任务，共 26 个。每个任务由一个 Claude 子 agent 在断网沙箱里完成，另一个独立的 Claude 子 agent 按专家写的标准逐条判卷。</p>
+  </header>
+
+  <section aria-label="总览">
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section aria-labelledby="plot-h">
+    <h2 id="plot-h">每个任务的标准通过率</h2>
+    <p class="lede">横轴从 80% 开始。全部标准都通过才算 all-pass，图中用对勾标出。悬停或点按圆点可看具体数字，下方总表里能看到每个任务没过的标准。</p>
+    <div class="card">
+      <div class="chart" id="dotplot"></div>
+      <div class="legend"><span><i style="background:var(--series)"></i>批量任务</span><span><i style="border:2px solid var(--series);background:var(--sheet)"></i>之前单独跑的并购任务</span><span style="color:var(--good-ink);font-weight:700">✓ 全部通过</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cat-h">
+    <h2 id="cat-h">没过的标准都是哪一类</h2>
+    <p class="lede" id="cat-lede"></p>
+    <div class="card"><div class="chart" id="catbars"></div></div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section aria-labelledby="notes-h">
+    <h2 id="notes-h">值得留意的几件事</h2>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <section aria-labelledby="judge-h">
+    <h2 id="judge-h">裁判靠不靠得住</h2>
+    <div class="card note" id="judge"></div>
+  </section>
+
+  <section aria-labelledby="ledger-h">
+    <h2 id="ledger-h">逐个任务</h2>
+    <div class="filters" role="group" aria-label="筛选">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">全部</button>
+      <button type="button" id="f-pass" data-f="pass" aria-pressed="false">全部通过</button>
+      <button type="button" id="f-fail" data-f="fail" aria-pressed="false">有未通过</button>
+    </div>
+    <div class="card ledger" id="ledger"></div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">怎么跑的</h2>
+    <div class="method">
+      <div class="card"><span class="eyebrow">做题</span><b>Claude 子 agent</b><p>在 Harvey 官方的断网 podman 沙箱里工作，只能看到案卷文件，看不到评分标准。所有命令经由日志脚本执行。</p></div>
+      <div class="card"><span class="eyebrow">判卷</span><b>另一个独立的 Claude 子 agent</b><p>在单独的目录里只拿到交付物文本和评分标准，按 Harvey 官方的逐条 prompt 判 pass 或 fail。</p></div>
+      <div class="card"><span class="eyebrow">计分与审计</span><b>官方代码 + 自动审计</b><p>分数由官方 evaluate_run 生成。每次运行后，审计脚本检查两个子 agent 的全部工具调用，确认没有碰评分标准、别的任务或网络。</p></div>
+    </div>
+    <div class="caveats" id="caveats"></div>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const D = __DATA__;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pct = (p, n) => (100 * p / n);
+const fmt = x => x.toFixed(1) + "%";
+const T = D.totals, A = D.agreement;
+
+// Stats
+const ge95 = D.tasks.filter(t => pct(t.p, t.n) >= 95).length;
+$("stats").innerHTML = `
+  <div class="stat"><span class="l">全部标准通过（LAB 主指标）</span><span class="v hero">${T.all_pass}<small> / ${T.n_tasks} 个任务</small></span><span class="l">漏一条就算失败，所以很严</span></div>
+  <div class="stat"><span class="l">标准通过率（合并计算）</span><span class="v">${(100*T.pooled_pass_rate).toFixed(1)}%</span><span class="l">${T.criteria_passed.toLocaleString()} / ${T.criteria.toLocaleString()} 条</span></div>
+  <div class="stat"><span class="l">通过率 ≥ 95% 的任务</span><span class="v">${ge95}<small> / ${T.n_tasks}</small></span><span class="l">差一两条就 all-pass</span></div>
+  <div class="stat"><span class="l">隔离审计</span><span class="v">${T.audits_clean}<small> / ${T.n_tasks}</small></span><span class="l">全部无越界访问</span></div>`;
+
+// Tooltip
+const tip = $("tip");
+function showTip(e, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = (e.target.getBoundingClientRect ? e.target.getBoundingClientRect() : {left: e.clientX, top: e.clientY, width: 0});
+  const x = Math.min(window.innerWidth - tip.offsetWidth - 8, (e.clientX || r.left + r.width / 2) + 12);
+  const y = Math.max(8, (e.clientY || r.top) - tip.offsetHeight - 12);
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+
+// Dot plot
+(function () {
+  const rows = [...D.tasks].sort((a, b) => pct(b.p, b.n) - pct(a.p, a.n) || b.n - a.n);
+  const W = 860, L = 250, R = 70, top = 28, rowH = 24, H = top + rows.length * rowH + 14;
+  const x0 = 80, x1 = 100, X = v => L + (v - x0) / (x1 - x0) * (W - L - R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="每个任务的标准通过率点图">`;
+  for (let v = 80; v <= 100; v += 5) {
+    s += `<line class="gl" x1="${X(v)}" x2="${X(v)}" y1="${top - 8}" y2="${H - 10}"/>`;
+    s += `<text class="tick" x="${X(v)}" y="${top - 14}" text-anchor="middle">${v}%</text>`;
+  }
+  rows.forEach((t, i) => {
+    const y = top + i * rowH + rowH / 2, v = pct(t.p, t.n);
+    s += `<text x="${L - 12}" y="${y + 4}" text-anchor="end">${esc(t.area)} · ${esc(t.name.length > 13 ? t.name.slice(0, 13) + "…" : t.name)}</text>`;
+    s += `<line class="stem" x1="${X(x0)}" x2="${X(v)}" y1="${y}" y2="${y}"/>`;
+    s += `<rect class="hit" x="${X(v) - 12}" y="${y - 12}" width="24" height="24" tabindex="0" data-i="${D.tasks.indexOf(t)}"/>`;
+    s += `<circle class="dot${t.pilot ? " pilot" : ""}" cx="${X(v)}" cy="${y}" r="5"/>`;
+    s += t.all_pass ? `<text class="ok" x="${X(v) + 12}" y="${y + 4}">✓</text>`
+                    : `<text class="val" x="${X(v) + 12}" y="${y + 4}">${t.p}/${t.n}</text>`;
+  });
+  s += `</svg>`;
+  $("dotplot").innerHTML = s;
+  $("dotplot").querySelectorAll(".hit").forEach(el => {
+    const t = D.tasks[+el.dataset.i];
+    const html = `<b>${fmt(pct(t.p, t.n))}</b> · ${t.p}/${t.n} 条<br>${esc(t.area)}：${esc(t.name)}${t.all_pass ? "<br>✓ 全部通过" : `<br>未通过 ${t.n - t.p} 条`}`;
+    el.addEventListener("pointermove", e => showTip(e, html));
+    el.addEventListener("pointerleave", hideTip);
+    el.addEventListener("focus", e => { const r = el.getBoundingClientRect(); showTip({clientX: r.right, clientY: r.top, target: el}, html); });
+    el.addEventListener("blur", hideTip);
+    el.addEventListener("click", () => openRow(t.task));
+  });
+})();
+
+// Failure categories
+(function () {
+  const all = D.tasks.flatMap(t => t.failed.map(f => ({...f, task: t})));
+  const counts = D.categories.map(c => ({...c, items: all.filter(f => f.cat === c.key)})).filter(c => c.items.length);
+  counts.sort((a, b) => b.items.length - a.items.length);
+  $("cat-lede").textContent = `${D.tasks.length} 个任务一共有 ${all.length} 条标准没过。下面按“它到底错在哪”粗分成几类，归类是我逐条看裁判理由后人工做的，属于判断，不是官方分类。`;
+  const W = 860, L = 250, R = 50, rowH = 30, top = 10, H = top + counts.length * rowH + 22;
+  const max = Math.max(...counts.map(c => c.items.length));
+  const step = max > 20 ? 10 : 5, xmax = Math.ceil(max / step) * step;
+  const X = v => L + v / xmax * (W - L - R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="未通过标准的类别分布">`;
+  for (let v = 0; v <= xmax; v += step) {
+    s += `<line class="gl" x1="${X(v)}" x2="${X(v)}" y1="${top}" y2="${H - 18}"/><text class="tick" x="${X(v)}" y="${H - 4}" text-anchor="middle">${v}</text>`;
+  }
+  counts.forEach((c, i) => {
+    const y = top + i * rowH, w = X(c.items.length) - X(0), h = 18;
+    s += `<text x="${L - 12}" y="${y + 14}" text-anchor="end">${esc(c.label)}</text>`;
+    s += `<path class="bar" data-k="${c.key}" d="M${X(0)},${y} h${w - 4} a4,4 0 0 1 4,4 v${h - 8} a4,4 0 0 1 -4,4 h-${w - 4} z"/>`;
+    s += `<text class="val" x="${X(c.items.length) + 8}" y="${y + 14}">${c.items.length}</text>`;
+  });
+  s += `</svg>`;
+  $("catbars").innerHTML = s;
+  $("catbars").querySelectorAll(".bar").forEach(el => {
+    const c = counts.find(c => c.key === el.dataset.k);
+    const html = `<b>${c.items.length}</b> 条<br>${esc(c.label)}<br>涉及 ${new Set(c.items.map(f => f.task.task)).size} 个任务`;
+    el.addEventListener("pointermove", e => showTip(e, html)); el.addEventListener("pointerleave", hideTip);
+  });
+  $("cats").innerHTML = counts.map(c => `
+    <article class="card cat"><header><h3>${esc(c.label)}</h3><span class="n">${c.items.length} 条 · ${new Set(c.items.map(f => f.task.task)).size} 个任务</span></header>
+      <p>${esc(c.desc)}</p>
+      <ul>${c.items.slice(0, 4).map(f => `<li>${esc(f.task.area)}：${esc(f.title)}</li>`).join("")}${c.items.length > 4 ? `<li>……另外 ${c.items.length - 4} 条见下方总表</li>` : ""}</ul>
+    </article>`).join("");
+})();
+
+// Notes
+$("notes").innerHTML = D.notes.map(n => `<div class="card note"><h3>${esc(n.title)}</h3><ul>${n.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+
+// Judge agreement
+(function () {
+  if (!A) { $("judge").innerHTML = "<p>未做双裁判复核。</p>"; return; }
+  const flips = A.tasks.flatMap(t => t.flips.map(f => ({...f, task: t.task})));
+  const nm = k => { const t = D.tasks.find(t => t.task === k); return t ? `${t.area}` : k; };
+  $("judge").innerHTML = `
+    <p>为了检查裁判稳不稳，我让第二个独立的 Claude 裁判（全新上下文，看不到第一个裁判的结论）把其中 ${A.tasks.length} 个任务重新判了一遍，包括全部 3 个 all-pass 任务。</p>
+    <ul>
+      <li><b>${A.criteria_compared} 条标准里，两个裁判结论一致的有 ${A.criteria_compared - flips.length} 条（${(100 * A.agreement).toFixed(1)}%）。</b></li>
+      <li>不一致的 ${flips.length} 条，第一个裁判在报告里都已经自己标成“擦边”的判定：${flips.map(f => `${nm(f.task)} ${f.id}（A 判 ${f.a === "pass" ? "过" : "不过"}，B 判 ${f.b === "pass" ? "过" : "不过"}）`).join("；")}。</li>
+      <li>all-pass 结论在 ${A.all_pass_agreement} / ${A.tasks.length} 个任务上一致。唯一的分歧是反垄断任务：第二个裁判卡掉了 C-004，这个任务就从“全部通过”变成“失败”。这说明 all-pass 这个指标对单条边界判定非常敏感。</li>
+      <li>两个裁判是同一个模型，所以这只能说明“同一模型判两次很稳定”，不能排除它和被测 agent 有同样的偏好。</li>
+    </ul>`;
+})();
+
+// Ledger
+const catLabel = Object.fromEntries(D.categories.map(c => [c.key, c.short]));
+$("ledger").innerHTML = [...D.tasks].sort((a, b) => pct(b.p, b.n) - pct(a.p, a.n)).map(t => `
+  <details class="row" id="row-${esc(t.task.replace(/[^a-z0-9]/gi, "-"))}" data-s="${t.all_pass ? "pass" : "fail"}">
+    <summary><span class="area">${esc(t.area)}${t.pilot ? " · 试点" : ""}</span><span class="t">${esc(t.name)}<small>${esc(t.task)}</small></span>
+      <span class="score">${t.p}/${t.n}</span>${t.all_pass ? `<span class="pill good">✓ 全部通过</span>` : `<span class="pill fail">差 ${t.n - t.p} 条</span>`}</summary>
+    <div class="body">
+      <p class="meta">${t.docs} 份案卷文件，读了 ${t.docs_read} 份${t.minutes ? ` · 用时约 ${Math.round(t.minutes)} 分钟` : ""} · 交付物：${t.deliverables.map(esc).join("、") || "—"}</p>
+      ${t.failed.length ? t.failed.map(f => `<div class="f"><span class="mono">${esc(f.id)}</span><span class="chip">${esc(catLabel[f.cat] || "其他")}</span><span class="ft">${esc(f.title)}</span><span class="why">裁判：${esc(f.reason)}</span></div>`).join("") : `<p class="meta">所有标准都通过了。</p>`}
+    </div>
+  </details>`).join("");
+function setFilter(f) {
+  document.querySelectorAll(".filters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  document.querySelectorAll(".ledger .row").forEach(r => { r.hidden = !(f === "all" || r.dataset.s === f); });
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => setFilter(b.dataset.f)));
+function openRow(task) {
+  setFilter("all");
+  const r = document.getElementById("row-" + task.replace(/[^a-z0-9]/gi, "-"));
+  r.open = true;
+  r.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center"});
+}
+
+$("caveats").innerHTML = `
+  <p><b>不能和 Harvey 公布的成绩直接比。</b>官方裁判是 Sonnet 4.6 + GPT-5.5 双裁判；这里的裁判是本会话的 Claude。做题和判卷也是同一个模型。</p>
+  <p><b>样本小。</b>26 个任务只占全部 2,010 个任务的 1.3%，每个领域只有一个任务，单个领域的分数主要反映那一道题的难度。</p>
+  <p><b>会话模式与官方 harness 有差别。</b>官方 agent 只有 7 个工具，按轮次调用 API；这里的 agent 是 Claude Code 子 agent，通过日志脚本在同一个沙箱里执行命令，token 数无法统计。沙箱镜像是基于 Ubuntu 的等价版本（官方镜像在此环境拉不到）。</p>`;
+</script>

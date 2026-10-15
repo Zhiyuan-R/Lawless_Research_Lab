@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement/claude-code-session/20261015-121633</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement/claude-code-session/20261015-121633</strong> &nbsp;&middot;&nbsp;
+  Task: trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-15
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">48/49</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">7/7</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 1</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (48 passed, 1 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Identifies $13.50 post-discount per-share value from Ridgeline valuation</span>
+    <span style="font-size:0.8rem;color:#999">C-001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 1 states Ridgeline's FMV conclusion is $13.50 per share (minority, non-marketable) after 25% DLOM and 10% DLOC applied to $20.00.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Flags discrepancy between $20.00 and $13.50 per-share values across source documents</span>
+    <span style="font-size:0.8rem;color:#999">C-002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo flags that intake, engagement letter, estate plan summary and Silveroak use $20.00 ($8,000,000) while Ridgeline FMV yields $5,400,000 for 400,000 shares.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Explains impact of valuation discrepancy on annuity amount</span>
+    <span style="font-size:0.8rem;color:#999">C-003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo ties the value discrepancy to funding value and zeroing annuity ($2,981,810 on $8.0M vs $2,012,722 on $5.4M) and to the fixed $2.85M annuity being ~53% of true value.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Flags staleness of March 31 valuation for July 1 funding</span>
+    <span style="font-size:0.8rem;color:#999">C-004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 2 flags that the March 31, 2025 valuation is stale, holds only as of that date, and recommends an appraisal as of the actual Funding Date for gift tax purposes.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Notes Paramount licensing deal as material intervening event</span>
+    <span style="font-size:0.8rem;color:#999">C-005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 2 cites the May 8, 2025 $22 million Paramount Therapeutics licensing agreement as post-valuation and affecting value.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Recommends updated or supplemental valuation</span>
+    <span style="font-size:0.8rem;color:#999">C-006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recommends engaging an independent qualified appraiser for a gift-tax appraisal as of the actual Funding Date.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Identifies Helios transfer restrictions / board consent requirement</span>
+    <span style="font-size:0.8rem;color:#999">C-007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issues 7-9 identify the Section 4.2(a) Board consent requirement (Trust Transfer Request, 30-day review, silence = denial) as a precondition to funding.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Identifies Helios 30-day ROFR and its implications</span>
+    <span style="font-size:0.8rem;color:#999">C-008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo discusses the Company's 30-day ROFR at appraised Fair Market Value Per Share under 4.2(b)-(c) and the need for waiver or lapse before funding, with timeline impact.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Flags incorrect $2,850,000 annuity in financial projections</span>
+    <span style="font-size:0.8rem;color:#999">C-009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 4 flags Silveroak's $2,850,000 annuity / 2.807 factor as wrong, producing a ~$353,638 gift rather than $0.72.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Provides correct annuity calculation or methodology</span>
+    <span style="font-size:0.8rem;color:#999">C-010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo gives the zeroing annuity of ~$2,981,810 (within $1,000 of $2,981,276) and the factor methodology (1-1.058^-3)/0.058 = 2.682934.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Addresses in-kind distribution valuation timing</span>
+    <span style="font-size:0.8rem;color:#999">C-011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 19 states in-kind payments must use FMV on the payment date, not funding-date value, with an independent appraisal for every payment.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Notes strategic concern of in-kind payment with appreciated shares</span>
+    <span style="font-size:0.8rem;color:#999">C-012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 19 notes that paying with appreciated shares returns more value to the grantor and reduces the remainder.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Addresses Section 7520 rate election optionality</span>
+    <span style="font-size:0.8rem;color:#999">C-013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 5 explains the 7520(a) election of the transfer month or two preceding months and that the percentage must be recomputed/fixed and a different elected rate changes the gift.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Addresses grantor-trustee power limitation concerns</span>
+    <span style="font-size:0.8rem;color:#999">C-014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issues 10 and 13 and the design table limit the grantor-trustee to ministerial functions and vest valuation, investment and discretion in Wheatley, citing IRC 2036(a)(2), 2036(b) and 2038.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Recitals identify Dr. Chandrasekaran as grantor</span>
+    <span style="font-size:0.8rem;color:#999">C-015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Preamble names Dr. Priya Chandrasekaran as Grantor.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Recitals reference IRC §2702 or qualified annuity interest</span>
+    <span style="font-size:0.8rem;color:#999">C-016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recital A references a qualified annuity interest under Section 2702(b)(1) and Reg. 25.2702-3.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Trust named appropriately</span>
+    <span style="font-size:0.8rem;color:#999">C-017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Trust named 'Priya Chandrasekaran 2025 Grantor Retained Annuity Trust'.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Specifies irrevocable trust</span>
+    <span style="font-size:0.8rem;color:#999">C-018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 1.2 states the Agreement and Trust are irrevocable.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Trust funding provision specifies 400,000 Helios shares</span>
+    <span style="font-size:0.8rem;color:#999">C-019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Recital B, definitions and Schedule A specify 400,000 shares of Helios Biosciences, Inc. common stock.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Specifies 3-year GRAT term</span>
+    <span style="font-size:0.8rem;color:#999">C-020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Annuity Term is defined as a fixed 3-year term from the Funding Date to its third anniversary; no incorrect dates are stated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Fixed annuity amount specified</span>
+    <span style="font-size:0.8rem;color:#999">C-021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.1 fixes the annuity as a bracketed percentage (37.2726%) of initial FMV, with a note that it is subject to recomputation for final value and 7520 rate, and expressly rejects $2,850,000.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Annual annuity payment schedule specified</span>
+    <span style="font-size:0.8rem;color:#999">C-022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Annuity is payable annually in arrears on each anniversary of the Funding Date.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Permits in-kind annuity payments</span>
+    <span style="font-size:0.8rem;color:#999">C-023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.4 permits payment in cash, in kind, or both.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: In-kind annuity payments valued at FMV on distribution date</span>
+    <span style="font-size:0.8rem;color:#999">C-024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.4 requires in-kind property to be valued at FMV on the date of distribution via independent appraisal.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Prohibition on additional contributions</span>
+    <span style="font-size:0.8rem;color:#999">C-025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 2.3 prohibits additional contributions after the Funding Date.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Anti-commutation provision</span>
+    <span style="font-size:0.8rem;color:#999">C-026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.8 states the annuity interest may not be commuted or prepaid; 11.2(e) repeats it.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Prohibition on notes/debt instruments for annuity satisfaction</span>
+    <span style="font-size:0.8rem;color:#999">C-027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.5 prohibits payment by note, debt instrument, option or similar arrangement per Reg. 25.2702-3(d)(6).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Grantor death during GRAT term provision</span>
+    <span style="font-size:0.8rem;color:#999">C-028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Article IV addresses death during the term: annuity continues to estate, includible portion under Section 2036/Reg. 20.2036-1(c)(2), balance to remainder beneficiaries.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Identifies Dr. Chandrasekaran as initial individual trustee</span>
+    <span style="font-size:0.8rem;color:#999">C-029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 6.1 names Dr. Priya Chandrasekaran as initial Individual Trustee.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Identifies Wheatley National Bank & Trust as independent co-trustee</span>
+    <span style="font-size:0.8rem;color:#999">C-030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Wheatley National Bank & Trust is named as Independent Trustee serving with the Individual Trustee, i.e., the independent co-trustee.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Vikram as successor individual trustee</span>
+    <span style="font-size:0.8rem;color:#999">C-031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 6.5 names Vikram Chandrasekaran as successor Individual Trustee.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Limits grantor-trustee to administrative/ministerial powers</span>
+    <span style="font-size:0.8rem;color:#999">C-032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 6.3 confines the Individual Trustee to ministerial, non-discretionary powers; 6.2 bars her from Reserved Powers.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Independent co-trustee holds exclusive valuation/investment authority</span>
+    <span style="font-size:0.8rem;color:#999">C-033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 6.2 vests valuation, investment, voting and in-kind decisions exclusively in the Independent Trustee.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Remainder distribution to three children equally</span>
+    <span style="font-size:0.8rem;color:#999">C-034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Article V divides the remainder into equal shares for the three named children, distributed outright.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Per stirpes contingency for predeceased remainder beneficiary</span>
+    <span style="font-size:0.8rem;color:#999">C-035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Sections 5.1-5.2 pass a deceased child's share to descendants per stirpes; a child dying without descendants drops out so survivors take equally.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Grantor trust provisions under IRC §§671-679</span>
+    <span style="font-size:0.8rem;color:#999">C-036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Article IX states grantor trust intent under Sections 671-677 with all income reported by the Grantor, plus a 675(4)(C) substitution power.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Spendthrift clause included</span>
+    <span style="font-size:0.8rem;color:#999">C-037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Article X contains a spendthrift clause covering creditor and divorce claims.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">GRAT Agreement: Spendthrift clause applies only to remainder beneficiaries, not grantor</span>
+    <span style="font-size:0.8rem;color:#999">C-038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 10.1 applies to the interest of 'any beneficiary', which includes the grantor's annuity interest, and contains no exclusion of the grantor's interest from creditor protection (it only preserves her release and substitution powers).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Connecticut governing law specified</span>
+    <span style="font-size:0.8rem;color:#999">C-039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 12.1 specifies Connecticut governing law and situs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: References IRC §2702 compliance</span>
+    <span style="font-size:0.8rem;color:#999">C-040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Agreement references Section 2702 and Reg. 25.2702-3 throughout, including Article XI.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Tax reporting provisions</span>
+    <span style="font-size:0.8rem;color:#999">C-041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Includes tax-related provisions: grantor reports all income items (9.2), Individual Trustee furnishes tax reporting information, 7520 election on the gift tax return, and Form 709 in Schedule B.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Addresses Helios transfer restrictions or board consent</span>
+    <span style="font-size:0.8rem;color:#999">C-042</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 2.2 conditions funding on Board consent under SA 4.2(a), ROFR waiver/expiry under 4.2(b) and joinders; Article VIII binds trustees to the SA.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Signature blocks for grantor and trustees</span>
+    <span style="font-size:0.8rem;color:#999">C-043</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Signature blocks for Dr. Chandrasekaran as Grantor and Individual Trustee and for Wheatley as Independent Trustee.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Wheatley trustee fee addressed</span>
+    <span style="font-size:0.8rem;color:#999">C-044</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 6.9 provides Wheatley compensation at 0.35% per annum with $8,500 minimum.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Both deliverables produced</span>
+    <span style="font-size:0.8rem;color:#999">C-045</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Two distinct documents produced: grat-agreement.docx and issues-memorandum.docx.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues Memo: Addresses mortality risk / estate inclusion under §2036</span>
+    <span style="font-size:0.8rem;color:#999">C-046</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 21 discusses inclusion in her estate if she dies during the term under Reg. 20.2036-1(c)(2), possibly most of the trust.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Annuity payable to grantor only</span>
+    <span style="font-size:0.8rem;color:#999">C-047</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Sections 3.1 and 3.8 make the annuity payable to the Grantor (or her estate after death) and bar distributions to anyone else during the term.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Remainder distribution is outright (not in further trust)</span>
+    <span style="font-size:0.8rem;color:#999">C-048</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 5.2 distributes each living child's share outright.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">GRAT Agreement: Savings clause for §2702 qualification</span>
+    <span style="font-size:0.8rem;color:#999">C-049</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 11.1 requires construction and administration consistent with qualified annuity interest status under 2702 and Reg. 25.2702-3.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

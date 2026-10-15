@@ -1,0 +1,388 @@
+{
+  "score": 0.0,
+  "max_score": 1.0,
+  "summary": "57/59 criteria passed.  Missed 2 \u2014 task FAIL.",
+  "all_pass": false,
+  "n_criteria": 59,
+  "n_passed": 57,
+  "n_grading_errors": 0,
+  "pandoc_version": "3.11",
+  "criteria_results": [
+    {
+      "id": "C-001",
+      "title": "ISSUE_001: Identifies sub-processor consent changed to general authorization",
+      "verdict": "pass",
+      "reasoning": "D-11 identifies change from prior specific written consent to general written authorisation."
+    },
+    {
+      "id": "C-002",
+      "title": "ISSUE_001: Identifies sub-processor notice period halved from 30 to 15 days",
+      "verdict": "pass",
+      "reasoning": "D-12 states advance notice cut from 30 to 15 days."
+    },
+    {
+      "id": "C-003",
+      "title": "ISSUE_001: Identifies removal of right to object/terminate re sub-processors",
+      "verdict": "pass",
+      "reasoning": "D-13 states right to object and penalty-free termination replaced with 'raise reasonable concerns'."
+    },
+    {
+      "id": "C-004",
+      "title": "ISSUE_001: Classifies sub-processor consent change as Red",
+      "verdict": "pass",
+      "reasoning": "D-11 classified RED, P1 Critical."
+    },
+    {
+      "id": "C-005",
+      "title": "ISSUE_002: Identifies breach notification extended from 24 to 72 hours",
+      "verdict": "pass",
+      "reasoning": "D-19: 24 hours becomes 72 hours."
+    },
+    {
+      "id": "C-006",
+      "title": "ISSUE_002: Identifies trigger change from 'becoming aware' to 'confirming'",
+      "verdict": "pass",
+      "reasoning": "Flags trigger change from 'becoming aware' to 'confirming', noting confirmation gate has no outer limit and could exhaust Stratton's window."
+    },
+    {
+      "id": "C-007",
+      "title": "ISSUE_002: Identifies removal of breach notification content requirements",
+      "verdict": "pass",
+      "reasoning": "D-20 notes removal of approximate number of data subjects and measures taken or proposed."
+    },
+    {
+      "id": "C-008",
+      "title": "ISSUE_002: Classifies breach notification timing as Red",
+      "verdict": "pass",
+      "reasoning": "D-19 classified RED."
+    },
+    {
+      "id": "C-009",
+      "title": "ISSUE_002: References playbook 36-hour Red threshold for breach notification",
+      "verdict": "pass",
+      "reasoning": "Section 4.6 states Red for 'a window beyond 36 hours (72 hours)' and Yellow fallback up to 36 hours."
+    },
+    {
+      "id": "C-010",
+      "title": "ISSUE_003: Identifies on-site audit rights replaced with paper-based reviews",
+      "verdict": "pass",
+      "reasoning": "D-22/D-23 describe on-site audit replaced by annual SOC 2 Type II/ISO 27001 reports with on-site only after material breach."
+    },
+    {
+      "id": "C-011",
+      "title": "ISSUE_003: Classifies audit restriction as Red",
+      "verdict": "pass",
+      "reasoning": "Audit deviations D-22 to D-25 classified RED."
+    },
+    {
+      "id": "C-012",
+      "title": "ISSUE_003: Identifies 30 business day notice period exceeds playbook threshold",
+      "verdict": "pass",
+      "reasoning": "Flags 30 business days' notice as exceeding the 20 business day playbook limit (Red: notice above 20 business days; Yellow fallback up to 20)."
+    },
+    {
+      "id": "C-013",
+      "title": "ISSUE_004: Identifies Mumbai/India added as processing location",
+      "verdict": "pass",
+      "reasoning": "Identifies Mumbai, India added as Approved Processing Location via Peregrine."
+    },
+    {
+      "id": "C-014",
+      "title": "ISSUE_004: Identifies no transfer mechanism referenced for India",
+      "verdict": "pass",
+      "reasoning": "States India has no adequacy decision and no SCCs/IDTA/TIA referenced."
+    },
+    {
+      "id": "C-015",
+      "title": "ISSUE_004: Classifies India processing without transfer mechanism as Red",
+      "verdict": "pass",
+      "reasoning": "India transfer items classified RED, 'firm Red'."
+    },
+    {
+      "id": "C-016",
+      "title": "ISSUE_005: Identifies HIPAA BAA chain requirement for Peregrine",
+      "verdict": "pass",
+      "reasoning": "Cites 45 CFR 164.502(e)/164.504(e), need for HIPAA subcontractor BAA for Peregrine, and that telemedicine logs can contain PHI."
+    },
+    {
+      "id": "C-017",
+      "title": "ISSUE_006: Identifies data return period extended from 30 to 60 days",
+      "verdict": "pass",
+      "reasoning": "D-32: return period extended from 30 to 60 days."
+    },
+    {
+      "id": "C-018",
+      "title": "ISSUE_006: Classifies data return period change as Yellow",
+      "verdict": "pass",
+      "reasoning": "Return period classified Red (not Green/unclassified), as part of a compound return/deletion cluster with deletion and certificate Red items; criterion permits Red."
+    },
+    {
+      "id": "C-019",
+      "title": "ISSUE_006: Identifies data deletion period extended from 45 to 120 days",
+      "verdict": "pass",
+      "reasoning": "D-33: deletion period extended from 45 to 120 days."
+    },
+    {
+      "id": "C-020",
+      "title": "ISSUE_006: Classifies data deletion period change as Red",
+      "verdict": "pass",
+      "reasoning": "D-33 classified RED noting Red above 90 days."
+    },
+    {
+      "id": "C-021",
+      "title": "ISSUE_006: Identifies removal of written certification of destruction",
+      "verdict": "pass",
+      "reasoning": "D-35: officer-signed certificate replaced with 'confirm deletion upon reasonable request'."
+    },
+    {
+      "id": "C-022",
+      "title": "ISSUE_007: Identifies liability cap at 1x annual fees ($18.6M)",
+      "verdict": "pass",
+      "reasoning": "Identifies 1x annual fee cap of $18.6M."
+    },
+    {
+      "id": "C-023",
+      "title": "ISSUE_007: Identifies playbook minimum is 3x annual fees ($55.8M)",
+      "verdict": "pass",
+      "reasoning": "States 3x floor of $55.8M."
+    },
+    {
+      "id": "C-024",
+      "title": "ISSUE_007: Classifies liability cap as Red",
+      "verdict": "pass",
+      "reasoning": "D-26 classified RED."
+    },
+    {
+      "id": "C-025",
+      "title": "ISSUE_007: Identifies missing data protection carve-out from cap",
+      "verdict": "pass",
+      "reasoning": "D-27 notes no carve-out for data protection while confidentiality (5.4) and IP are carved out."
+    },
+    {
+      "id": "C-026",
+      "title": "ISSUE_007: Calculates or references the $37.2M shortfall",
+      "verdict": "pass",
+      "reasoning": "Calculates $37.2M shortfall (-66.7%)."
+    },
+    {
+      "id": "C-027",
+      "title": "ISSUE_008: Identifies indemnification changed to mutual",
+      "verdict": "pass",
+      "reasoning": "D-28 identifies change to mutual indemnity."
+    },
+    {
+      "id": "C-028",
+      "title": "ISSUE_008: Identifies heightened fault standard (gross negligence/willful misconduct)",
+      "verdict": "pass",
+      "reasoning": "Identifies gross negligence/wilful misconduct trigger."
+    },
+    {
+      "id": "C-029",
+      "title": "ISSUE_008: Identifies scope limited to direct damages only",
+      "verdict": "pass",
+      "reasoning": "Identifies limitation to direct damages."
+    },
+    {
+      "id": "C-030",
+      "title": "ISSUE_008: Identifies explicit exclusion of regulatory fines",
+      "verdict": "pass",
+      "reasoning": "Identifies regulatory fines expressly excluded."
+    },
+    {
+      "id": "C-031",
+      "title": "ISSUE_008: Classifies indemnification changes as Red",
+      "verdict": "pass",
+      "reasoning": "D-28 classified RED."
+    },
+    {
+      "id": "C-032",
+      "title": "ISSUE_009: Identifies HITRUST CSF certification removed",
+      "verdict": "pass",
+      "reasoning": "D-30 and 4.13 identify HITRUST deletion with ISO 27001 and SOC 2 Type II retained."
+    },
+    {
+      "id": "C-033",
+      "title": "ISSUE_009: Classifies HITRUST removal as Yellow",
+      "verdict": "pass",
+      "reasoning": "Classified Red (compound) with justification: no 12-month commitment and compound with reporting change; criterion accepts justified Red."
+    },
+    {
+      "id": "C-034",
+      "title": "ISSUE_009: Identifies annual certification reporting changed to 'upon request'",
+      "verdict": "pass",
+      "reasoning": "D-31: annual delivery becomes 'upon reasonable request'."
+    },
+    {
+      "id": "C-035",
+      "title": "ISSUE_010: Identifies DSR assistance timeline extended from 5 to 15 business days",
+      "verdict": "pass",
+      "reasoning": "D-17: 5 to 15 business days."
+    },
+    {
+      "id": "C-036",
+      "title": "ISSUE_010: Classifies DSR timeline as Yellow or higher",
+      "verdict": "pass",
+      "reasoning": "Classified RED, noting Red above 10 business days."
+    },
+    {
+      "id": "C-037",
+      "title": "ISSUE_010: Identifies new fee provision for DSR requests exceeding 10/month",
+      "verdict": "pass",
+      "reasoning": "D-18 flags reimbursement for requests above 10 per month."
+    },
+    {
+      "id": "C-038",
+      "title": "ISSUE_011: Identifies governing law changed from Delaware to England and Wales",
+      "verdict": "pass",
+      "reasoning": "D-40: Delaware replaced by England and Wales law and London courts."
+    },
+    {
+      "id": "C-039",
+      "title": "ISSUE_011: Classifies governing law change as Red",
+      "verdict": "pass",
+      "reasoning": "D-40 classified RED."
+    },
+    {
+      "id": "C-040",
+      "title": "ISSUE_012: Identifies new anonymization/aggregation rights (Section 14.3)",
+      "verdict": "pass",
+      "reasoning": "D-29 identifies new RL 14.3 anonymise/aggregate right for service improvement, benchmarking and R&D."
+    },
+    {
+      "id": "C-041",
+      "title": "ISSUE_012: Identifies missing safeguards in anonymization clause",
+      "verdict": "pass",
+      "reasoning": "Lists no Controller consent, no retention limit, no re-identification prohibition."
+    },
+    {
+      "id": "C-042",
+      "title": "ISSUE_012: Identifies GDPR purpose limitation or HIPAA concerns",
+      "verdict": "pass",
+      "reasoning": "Discusses processing for CloudNest's own purposes without lawful basis (purpose limitation, Topic 16) and HIPAA impermissible use."
+    },
+    {
+      "id": "C-043",
+      "title": "ISSUE_013: Identifies HIPAA de-identification standards not met",
+      "verdict": "pass",
+      "reasoning": "States data not de-identified under 45 CFR 164.514(b) remains PHI; references Safe Harbor/Expert Determination standard."
+    },
+    {
+      "id": "C-044",
+      "title": "ISSUE_014: Identifies security obligations diluted to commercially reasonable efforts",
+      "verdict": "pass",
+      "reasoning": "D-09/D-10 flag 'commercially reasonable efforts' and industry-standards safe harbour."
+    },
+    {
+      "id": "C-045",
+      "title": "ISSUE_014: Identifies risk given sensitive data types (PHI, biometrics, PCI)",
+      "verdict": "pass",
+      "reasoning": "Ties the efforts standard to HIPAA satisfactory assurances for PHI and PCI DSS obligations for card data, and Annex 2 HSM/patient data controls."
+    },
+    {
+      "id": "C-046",
+      "title": "ISSUE_015: Identifies DPA term decoupled from MSA",
+      "verdict": "pass",
+      "reasoning": "D-36 identifies one-year auto-renewals, 180-day notice, decoupling from MSA."
+    },
+    {
+      "id": "C-047",
+      "title": "ISSUE_015: Identifies operational risk of misaligned terms",
+      "verdict": "pass",
+      "reasoning": "Discusses DPA outliving MSA and terminating before MSA, leaving PHI processed without BAA."
+    },
+    {
+      "id": "C-048",
+      "title": "ISSUE_016: Identifies deletion of cyber insurance requirement",
+      "verdict": "pass",
+      "reasoning": "D-37 identifies deletion of $50M/$100M cyber insurance."
+    },
+    {
+      "id": "C-049",
+      "title": "ISSUE_016: Connects insurance deletion to liability cap issue",
+      "verdict": "pass",
+      "reasoning": "Section 7 and 4.3 connect insurance deletion with 1x $18.6M cap, leaving Stratton largely self-insured."
+    },
+    {
+      "id": "C-050",
+      "title": "DISTRACTOR_003: Does not flag expanded Personal Data definition as a problem",
+      "verdict": "pass",
+      "reasoning": "Personal Data definition expansion classified Green, accept, described as protective."
+    },
+    {
+      "id": "C-051",
+      "title": "Report includes regulatory cross-reference table referencing HIPAA",
+      "verdict": "fail",
+      "reasoning": "No regulatory cross-reference table/matrix mapping deviations to HIPAA; tables map to playbook topics and MSA, regulatory references are only in narrative analysis."
+    },
+    {
+      "id": "C-052",
+      "title": "Report includes regulatory cross-reference table referencing GDPR",
+      "verdict": "fail",
+      "reasoning": "No regulatory cross-reference table/matrix mapping deviations to GDPR; only MSA and playbook concordance tables are provided."
+    },
+    {
+      "id": "C-053",
+      "title": "Report includes recommended responses for each deviation",
+      "verdict": "pass",
+      "reasoning": "Every deviation in the register and untracked table has a recommendation."
+    },
+    {
+      "id": "C-054",
+      "title": "Correctly identifies parties throughout report",
+      "verdict": "pass",
+      "reasoning": "Stratton Health Technologies, Inc. as controller and CloudNest Infrastructure Services Ltd. as processor consistently."
+    },
+    {
+      "id": "C-055",
+      "title": "Identifies Peregrine Data Analytics as the Mumbai sub-processor",
+      "verdict": "pass",
+      "reasoning": "Names Peregrine Data Analytics Pvt. Ltd., Mumbai, for log analytics and performance monitoring."
+    },
+    {
+      "id": "C-056",
+      "title": "ISSUE_011: Notes impact of English law on liability/indemnification provisions",
+      "verdict": "pass",
+      "reasoning": "Notes English law reads indemnities narrowly and may enforce caps more readily, undermining Topics 6 and 7."
+    },
+    {
+      "id": "C-057",
+      "title": "Report identifies compounding/interrelated risks across deviations",
+      "verdict": "pass",
+      "reasoning": "Integrated risk assessment of cap + indemnity + insurance; HITRUST loss with audit cuts; etc."
+    },
+    {
+      "id": "C-058",
+      "title": "Correct MSA annual fee figure used in liability analysis",
+      "verdict": "pass",
+      "reasoning": "Uses $18.6M annual fee."
+    },
+    {
+      "id": "C-059",
+      "title": "ISSUE_010: Notes that 10 requests/month threshold may be frequently exceeded",
+      "verdict": "pass",
+      "reasoning": "States with ~2.3M US and ~14,000 EU/UK patients more than 10 requests/month is ordinary volume so fee would apply routinely."
+    }
+  ],
+  "run_id": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement/claude-code-session/20261015-113010",
+  "task": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement",
+  "judge_model": "claude-code-session-judge",
+  "scored_at": "2026-10-15T11:48:00.167450+00:00",
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_clock_seconds": 879.7
+  },
+  "doc_coverage": {
+    "documents_read": 5,
+    "total_documents": 5,
+    "documents_skipped": 0,
+    "documents_read_list": [
+      "barrington-reeves-cover-email.eml",
+      "cloudnest-redlined-dpa.docx",
+      "msa-commercial-terms-summary.docx",
+      "stratton-health-dpa-playbook.docx",
+      "stratton-health-dpa-template.docx"
+    ],
+    "documents_skipped_list": []
+  }
+}

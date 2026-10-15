@@ -1,0 +1,282 @@
+{
+  "score": 0.0,
+  "max_score": 1.0,
+  "summary": "39/41 criteria passed.  Missed 2 \u2014 task FAIL.",
+  "all_pass": false,
+  "n_criteria": 41,
+  "n_passed": 39,
+  "n_grading_errors": 0,
+  "pandoc_version": "3.11",
+  "criteria_results": [
+    {
+      "id": "C-001",
+      "title": "ISSUE_001: Identifies Voss DLA Section 4.3 sublicensing restriction conflict",
+      "verdict": "pass",
+      "reasoning": "Issue 2 identifies DLA 4.3(b) bar on Derivative Access to Derivative Models for any third party with >25 Hospital Facilities absent Voss prior written consent."
+    },
+    {
+      "id": "C-002",
+      "title": "ISSUE_001: Notes Kaelen's 43 hospitals exceed Voss DLA 25-facility threshold",
+      "verdict": "pass",
+      "reasoning": "Explicitly states Kaelen operates 43 hospitals, well above the 25-facility threshold."
+    },
+    {
+      "id": "C-003",
+      "title": "ISSUE_001: Recommends obtaining Voss consent or other mitigation",
+      "verdict": "pass",
+      "reasoning": "Recommends submitting Voss consent request by May 2, 2025 and making Voss consent a condition precedent; also alternate data sources."
+    },
+    {
+      "id": "C-004",
+      "title": "ISSUE_001: Identifies DLA breach/termination risk to Atherton's data supply",
+      "verdict": "pass",
+      "reasoning": "Notes pilot/deployment without consent risks breach of 4.3(b), Voss audit, 60-day cure/termination right, and loss of the data feed."
+    },
+    {
+      "id": "C-005",
+      "title": "ISSUE_002: Identifies Voss DLA expiration vs. Kaelen license term mismatch",
+      "verdict": "pass",
+      "reasoning": "Identifies DLA expiry 12/31/2027 (max 12/31/2030 on renewal) versus Kaelen term to 6/30/2032 (up to 2038), showing the gap."
+    },
+    {
+      "id": "C-006",
+      "title": "ISSUE_002: Notes impact on model update obligations and training capability",
+      "verdict": "pass",
+      "reasoning": "Explains Atherton could not retrain/update with Voss data post-expiry while bound to quarterly updates and performance obligations."
+    },
+    {
+      "id": "C-007",
+      "title": "ISSUE_003a: Identifies Section 7.4 investor consent requirement for exclusive licenses exceeding 3 years or covering >30% of a market segment",
+      "verdict": "pass",
+      "reasoning": "Identifies IRA 7.4 prior written consent of Lead Investor Director Samir Okafor for exclusive licenses >3 years or >30% of a Defined Market Segment."
+    },
+    {
+      "id": "C-008",
+      "title": "ISSUE_003b: Identifies that the proposed 7-year Kaelen license triggers the Ridgeline consent requirement",
+      "verdict": "pass",
+      "reasoning": "States trigger (i) is clearly met by the 7-year Initial Term."
+    },
+    {
+      "id": "C-009",
+      "title": "ISSUE_003: Notes consent has not been formally obtained",
+      "verdict": "pass",
+      "reasoning": "States consent is not in hand, informal briefing does not satisfy 7.4, and describes material breach of IRA and injunctive/specific performance remedies."
+    },
+    {
+      "id": "C-010",
+      "title": "ISSUE_004a: Identifies HIPAA de-identification standard is unspecified in term sheet",
+      "verdict": "pass",
+      "reasoning": "Issue 11 notes 'De-identified' and 'in accordance with applicable law' are undefined for the perpetual, irrevocable, worldwide data license."
+    },
+    {
+      "id": "C-011",
+      "title": "ISSUE_004b: References HIPAA de-identification methods (Safe Harbor or Expert Determination)",
+      "verdict": "pass",
+      "reasoning": "References Safe Harbor or Expert Determination methods under 45 C.F.R. 164.514(b)."
+    },
+    {
+      "id": "C-012",
+      "title": "ISSUE_004: Flags 'irrevocable' data license as problematic",
+      "verdict": "fail",
+      "reasoning": "Memo treats the irrevocable data license as a valuable asset to protect and does not flag irrevocability as problematic if de-identification proves inadequate."
+    },
+    {
+      "id": "C-013",
+      "title": "ISSUE_005: Identifies antitrust/competition concerns with 30-mile exclusivity radius",
+      "verdict": "pass",
+      "reasoning": "Issue 25 flags antitrust sensitivity of up-to-13-year territorial restraint around 43 facilities, rule-of-reason scrutiny and private claims."
+    },
+    {
+      "id": "C-014",
+      "title": "ISSUE_005: Notes overlapping radii could block entire metropolitan areas",
+      "verdict": "pass",
+      "reasoning": "Issue 8 notes 43 overlapping 30-mile circles across nine states would cover many major metropolitan markets including Atherton's home market."
+    },
+    {
+      "id": "C-015",
+      "title": "ISSUE_006: Identifies conflict with Pinnacle 'no impairment' clause",
+      "verdict": "pass",
+      "reasoning": "Identifies Pinnacle 9.2 no-impairment covenant (with cure/termination/refund remedy) and update-parity risk from Kaelen-specific terms and possible Voss impairment as issues the deal must respect."
+    },
+    {
+      "id": "C-016",
+      "title": "ISSUE_006: Recommends mitigation for Pinnacle conflict",
+      "verdict": "pass",
+      "reasoning": "Recommends update parity across licensees, grandfathering existing licensees, and ensuring Kaelen terms don't restrict updates to others."
+    },
+    {
+      "id": "C-017",
+      "title": "ISSUE_007: Identifies undefined concordance methodology in Performance Threshold",
+      "verdict": "pass",
+      "reasoning": "Identifies Kaelen selects the validation dataset, Kaelen radiologists as ground truth, and undefined protocol (case mix, stratification, exclusions)."
+    },
+    {
+      "id": "C-018",
+      "title": "ISSUE_007: Notes this creates unilateral termination risk for Kaelen",
+      "verdict": "pass",
+      "reasoning": "States the threshold is effectively a Kaelen option to exit since Kaelen controls the inputs and benefits from failure."
+    },
+    {
+      "id": "C-019",
+      "title": "ISSUE_008: Identifies perpetual royalty-free improvement license surviving termination",
+      "verdict": "pass",
+      "reasoning": "Issue 5 identifies the perpetual, royalty-free license to Improvements surviving termination, letting Kaelen use the platform free forever."
+    },
+    {
+      "id": "C-020",
+      "title": "ISSUE_008: Identifies compound risk with source code escrow provisions",
+      "verdict": "pass",
+      "reasoning": "Connects penalty-free performance termination with retention of the perpetual Improvements license (Issues 5 and 9) and escrow release via breach triggers."
+    },
+    {
+      "id": "C-021",
+      "title": "ISSUE_009: Identifies SOC 2 Type II certification gap",
+      "verdict": "pass",
+      "reasoning": "Identifies Type I only (Greystone, Aug 10, 2024), Type II requires an observation period and is expected Q3 2025, creating Day-1 breach at July 1, 2025."
+    },
+    {
+      "id": "C-022",
+      "title": "ISSUE_009: Recommends grace period or condition precedent for SOC 2 Type II",
+      "verdict": "pass",
+      "reasoning": "Recommends grace period with Type I plus bridge letter, phased compliance, CP fallback, and remedy carve-outs."
+    },
+    {
+      "id": "C-023",
+      "title": "ISSUE_010: Identifies FDA 510(k) clearance scope vs. deployment model tension",
+      "verdict": "pass",
+      "reasoning": "Identifies K223847 clears a CADe assistive tool not for autonomous diagnosis; 'primary diagnostic screening' risks new 510(k)/De Novo and termination trigger."
+    },
+    {
+      "id": "C-024",
+      "title": "ISSUE_011: Identifies source code escrow overbreadth \u2014 model weights and training pipelines",
+      "verdict": "pass",
+      "reasoning": "Identifies escrow includes model weights and training pipelines, Atherton's highest-tier trade secrets, enabling Kaelen to retrain and replicate ClearSight AI."
+    },
+    {
+      "id": "C-025",
+      "title": "ISSUE_011: Notes escrow release of model weights may violate Voss DLA",
+      "verdict": "pass",
+      "reasoning": "States depositing/releasing weights (a Derivative Model) to Kaelen conflicts with DLA 4.3(a)-(b) and needs Voss consent."
+    },
+    {
+      "id": "C-026",
+      "title": "ISSUE_012: Identifies MFL clause metric mismatch (per-image vs. flat fees)",
+      "verdict": "fail",
+      "reasoning": "MFL analysis notes per-image fees are undefined but does not identify that licensees pay flat annual fees making the per-image comparison a metric mismatch."
+    },
+    {
+      "id": "C-027",
+      "title": "ISSUE_012: Identifies retroactive adjustment / cash-flow risk",
+      "verdict": "pass",
+      "reasoning": "Identifies retroactive repricing creating refund liability exceeding the liability cap."
+    },
+    {
+      "id": "C-028",
+      "title": "ISSUE_013: Identifies cumulative update rejection and platform divergence risk",
+      "verdict": "pass",
+      "reasoning": "Issue 15 notes unlimited update rejection with indefinite support of whatever version is in production, causing version fragmentation."
+    },
+    {
+      "id": "C-029",
+      "title": "ISSUE_013: Notes downstream impacts of divergence (support, improvements, performance)",
+      "verdict": "pass",
+      "reasoning": "Identifies burden of supporting legacy versions, cost and regulatory/cybersecurity risk."
+    },
+    {
+      "id": "C-030",
+      "title": "ISSUE_014: Identifies payment terms / cash-flow mismatch with deployment timeline",
+      "verdict": "pass",
+      "reasoning": "Notes Year 1 front-loaded deployment costs for 43 sites paid quarterly in arrears net-60, first payment ~5 months after Effective Date."
+    },
+    {
+      "id": "C-031",
+      "title": "ISSUE_014: Recommends milestone payments or accelerated payment terms",
+      "verdict": "pass",
+      "reasoning": "Recommends non-refundable deployment fee at signing/milestones and fees in advance, net-30."
+    },
+    {
+      "id": "C-032",
+      "title": "Memo uses severity/priority classification system",
+      "verdict": "pass",
+      "reasoning": "Uses Critical/High/Medium/Low severity classification."
+    },
+    {
+      "id": "C-033",
+      "title": "Voss DLA sublicensing conflict rated as Critical or highest severity",
+      "verdict": "pass",
+      "reasoning": "Voss 4.3 consent issue rated CRITICAL - GATING."
+    },
+    {
+      "id": "C-034",
+      "title": "Ridgeline investor consent rated as Critical or highest severity",
+      "verdict": "pass",
+      "reasoning": "Ridgeline consent rated CRITICAL - GATING."
+    },
+    {
+      "id": "C-035",
+      "title": "Memo correctly identifies the deal as a 7-year exclusive license of ClearSight AI from Atherton to Kaelen",
+      "verdict": "pass",
+      "reasoning": "Correctly describes a 7-year exclusive license of ClearSight AI from Atherton to Kaelen Health Corporation."
+    },
+    {
+      "id": "C-036",
+      "title": "Memo correctly states Kaelen's 43-hospital network",
+      "verdict": "pass",
+      "reasoning": "States 43-hospital network."
+    },
+    {
+      "id": "C-037",
+      "title": "Memo correctly states approximately $45M minimum commitment",
+      "verdict": "pass",
+      "reasoning": "States $45.0 million minimum commitment."
+    },
+    {
+      "id": "C-038",
+      "title": "Memo identifies Atherton as the client whose interests are being protected",
+      "verdict": "pass",
+      "reasoning": "Written for Atherton's GC/Board, advocating Atherton-favorable positions."
+    },
+    {
+      "id": "C-039",
+      "title": "SOC 2 Type II gap rated as Critical or High severity",
+      "verdict": "pass",
+      "reasoning": "SOC 2 Type II gap rated CRITICAL."
+    },
+    {
+      "id": "C-040",
+      "title": "Perpetual improvement license + escrow compound risk rated Critical or High",
+      "verdict": "pass",
+      "reasoning": "Perpetual Improvements license rated CRITICAL."
+    },
+    {
+      "id": "C-041",
+      "title": "Source code escrow overbreadth rated Critical or High severity",
+      "verdict": "pass",
+      "reasoning": "Escrow of weights/training pipelines rated CRITICAL."
+    }
+  ],
+  "run_id": "intellectual-property/identify-tech-license-term-sheet-issues/claude-code-session/20261015-120319",
+  "task": "intellectual-property/identify-tech-license-term-sheet-issues",
+  "judge_model": "claude-code-session-judge",
+  "scored_at": "2026-10-15T12:17:05.964374+00:00",
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_clock_seconds": 639.6
+  },
+  "doc_coverage": {
+    "documents_read": 7,
+    "total_documents": 7,
+    "documents_skipped": 0,
+    "documents_read_list": [
+      "atherton-gc-email.eml",
+      "clearsight-ai-product-overview.pptx",
+      "investors-rights-agreement-s7.docx",
+      "kaelen-atherton-term-sheet.docx",
+      "pinnacle-license-key-provisions.docx",
+      "technical-specifications-side-letter.docx",
+      "voss-dla-excerpts.docx"
+    ],
+    "documents_skipped_list": []
+  }
+}
