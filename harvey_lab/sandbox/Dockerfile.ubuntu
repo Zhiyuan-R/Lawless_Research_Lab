@@ -1,0 +1,78 @@
+# Fallback sandbox image for Harvey LAB agent runs.
+#
+# Upstream builds lab-sandbox:latest FROM python:3.12-slim (Debian). Use this
+# file only when neither ghcr.io/harveyai/lab-sandbox nor deb.debian.org is
+# reachable (e.g. Claude Code cloud sessions). It installs the same tools on
+# ubuntu:24.04, whose Python is also 3.12. setup.sh builds it as
+# lab-sandbox:latest, so the harness picks it up without changes.
+#
+# Build context must contain install_pandoc.sh and parse_doc.py (copied from
+# the pinned harvey-labs checkout by setup.sh). An optional proxy-ca.crt is
+# trusted during the build only, for TLS-intercepting egress proxies.
+
+FROM docker.io/library/ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+COPY proxy-ca.crt /tmp/proxy-ca.crt
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        bash \
+        ca-certificates \
+        coreutils \
+        curl \
+        file \
+        findutils \
+        gawk \
+        gcc \
+        g++ \
+        git \
+        grep \
+        procps \
+        jq \
+        libreoffice \
+        nodejs \
+        npm \
+        poppler-utils \
+        python3 \
+        python3-pip \
+        python-is-python3 \
+        ripgrep \
+        sed \
+        tesseract-ocr \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY install_pandoc.sh /tmp/install_pandoc.sh
+RUN if [ -s /tmp/proxy-ca.crt ]; then export CURL_CA_BUNDLE=/tmp/proxy-ca.crt; fi && \
+    sh /tmp/install_pandoc.sh && rm /tmp/install_pandoc.sh
+
+RUN if [ -s /tmp/proxy-ca.crt ]; then export PIP_CERT=/tmp/proxy-ca.crt; fi && \
+    pip install --no-cache-dir --break-system-packages \
+        defusedxml \
+        diff-match-patch \
+        docxtpl \
+        lxml \
+        markitdown \
+        openpyxl \
+        pandas \
+        pdf2image \
+        pdfplumber \
+        pillow \
+        pypdf \
+        python-docx \
+        python-pptx
+
+RUN if [ -s /tmp/proxy-ca.crt ]; then export NODE_EXTRA_CA_CERTS=/tmp/proxy-ca.crt; fi && \
+    npm install -g docx pptxgenjs && \
+    echo "export NODE_PATH=$(npm root -g)" >> /etc/profile.d/node-path.sh
+ENV NODE_PATH=/usr/local/lib/node_modules
+
+COPY parse_doc.py /usr/local/bin/parse-doc
+RUN chmod +x /usr/local/bin/parse-doc
+
+RUN rm -f /tmp/proxy-ca.crt && mkdir -p /workspace/documents /workspace/output
+WORKDIR /workspace
+
+CMD ["sleep", "infinity"]
