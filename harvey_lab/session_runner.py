@@ -40,6 +40,7 @@ HERE = Path(__file__).resolve().parent
 SBX = HERE / "sbx.sh"
 DEFAULT_AGENT_LABEL = "claude-code-session"
 DEFAULT_JUDGE_LABEL = "claude-code-session-judge"
+JUDGE_ROOT = Path("/tmp/lab-judging")
 
 
 def _run_dir(run_id: str) -> Path:
@@ -95,7 +96,9 @@ Your only workspace is a sandbox container. Run every command through:
 It runs the command inside the container (cwd /workspace, no network) and logs it.
 Do not touch any host path other than this brief — in particular never read task.json,
 anything under tasks/ or results/ on the host, or other runs: the rubric lives there
-and reading it disqualifies the run. Read documents with `parse-doc <file>` or the
+and reading it disqualifies the run. Do not create files on the host either: write any
+helper scripts inside the sandbox (e.g. a heredoc through sbx.sh). Do not use web search,
+web fetch, or any other tool that reaches the internet; the benchmark is offline. Read documents with `parse-doc <file>` or the
 Python libraries inside the container. Write deliverables to /workspace/output/.
 There is no `finish` tool: when every deliverable is written, stop and reply with a
 short summary and the list of files you produced.
@@ -225,8 +228,12 @@ def prepare_judge(run_id: str, task_id: str) -> None:
 
     template = (PROMPTS_DIR / "rubric_criterion.txt").read_text()
     task_desc = recorder.records[criteria[0]["id"]]["task_description"]
-    judge_dir = run_dir / "judge"
-    judge_dir.mkdir(exist_ok=True)
+    # The judge works in its own directory outside the run, so nothing from the
+    # agent's run (brief, command log, scratch files) is within its reach.
+    judge_dir = JUDGE_ROOT / hashlib.sha256(run_id.encode()).hexdigest()[:12]
+    judge_dir.mkdir(parents=True, exist_ok=True)
+    (run_dir / "judge").mkdir(exist_ok=True)
+    (run_dir / "judge" / "location.json").write_text(json.dumps({"judge_dir": str(judge_dir)}))
     bundle = f"""# Harvey LAB judge bundle — {run_id}
 
 You are the judge. For EACH criterion below, apply the official LAB per-criterion
@@ -251,6 +258,7 @@ to {{"reasoning": "...", "verdict": "pass" | "fail"}}. All {len(criteria)} ids m
 """ + "\n\n".join(f"<<<{k}>>>\n{v}\n<<<END {k}>>>" for k, v in outputs.items()) + \
         "\n\n## Criteria\n\n" + "\n".join(lines)
     (judge_dir / "bundle.md").write_text(bundle)
+    shutil.copy(judge_dir / "bundle.md", run_dir / "judge" / "bundle.md")
     print(json.dumps({"bundle": str(judge_dir / "bundle.md"), "responses": str(judge_dir / "responses.json"),
                       "criteria": len(criteria), "distinct_outputs": len(outputs),
                       "bundle_chars": len(bundle)}, indent=2))
@@ -258,6 +266,8 @@ to {{"reasoning": "...", "verdict": "pass" | "fail"}}. All {len(criteria)} ids m
 
 def finalize(run_id: str, task_id: str, judge_label: str) -> None:
     run_dir = _run_dir(run_id)
+    judge_dir = Path(json.loads((run_dir / "judge" / "location.json").read_text())["judge_dir"])
+    shutil.copy(judge_dir / "responses.json", run_dir / "judge" / "responses.json")
     responses = json.loads((run_dir / "judge" / "responses.json").read_text())
     judge = FileJudge(_criteria(task_id), judge_label, responses)
     scores = evaluate_run(run_id=run_id, task=task_id, judge=judge, parallel=1)
