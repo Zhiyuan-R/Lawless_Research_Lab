@@ -900,6 +900,103 @@
    "pilot": false
   },
   {
+   "task": "tax/draft-tax-structure-memorandum",
+   "area": "tax",
+   "title": "Draft Tax Structure Memorandum for PE Acquisition of S-Corporation Target",
+   "work_type": "draft",
+   "run_id": "tax/draft-tax-structure-memorandum/claude-code-session/20261015-121515",
+   "n_criteria": 61,
+   "n_passed": 46,
+   "all_pass": false,
+   "failed": [
+    {
+     "id": "C-008",
+     "title": "Recommends 338(h)(10) election as optimal structure",
+     "reasoning": "Memo recommends a pre-closing F reorganization plus LLC interest purchase, expressly not the 338(h)(10) election."
+    },
+    {
+     "id": "C-009",
+     "title": "Identifies LIFO recapture tax under Section 1363(d) triggered by 338(h)(10)",
+     "reasoning": "Memo states Section 1363(d) LIFO recapture does not apply to a 338(h)(10) deemed sale; it does not identify a corporate-level LIFO recapture tax."
+    },
+    {
+     "id": "C-010",
+     "title": "Quantifies federal LIFO recapture tax as approximately $2.478 million",
+     "reasoning": "Memo expressly rejects the $2.478M federal LIFO recapture tax ('There is no $2.478 federal ... tax')."
+    },
+    {
+     "id": "C-011",
+     "title": "Notes LIFO recapture is a corporate-level tax, not passed to shareholders",
+     "reasoning": "Memo says the LIFO reserve is ordinary income passing through to shareholders under 1366, not a corporate-level tax."
+    },
+    {
+     "id": "C-017",
+     "title": "Quantifies total Section 197 intangibles in the range of $216M-$221M",
+     "reasoning": "Memo quantifies Section 197 intangibles at about $279.2M (only cites $220.6M as the PPA figure it rejects), outside the $216M-$221M range."
+    },
+    {
+     "id": "C-018",
+     "title": "Calculates annual Section 197 amortization of approximately $14.7 million",
+     "reasoning": "Memo's annual Section 197 amortization is about $18.6M, outside the $14.4M-$14.8M range; $14.7M appears only as the rejected PPA figure."
+    },
+    {
+     "id": "C-019",
+     "title": "Calculates annual federal tax shield from Section 197 amortization",
+     "reasoning": "No annual federal tax shield from Section 197 amortization (~$3.0-3.1M at 21%) is computed; the memo gives only PV figures and first-year cash tax savings."
+    },
+    {
+     "id": "C-021",
+     "title": "Identifies EBITDA-to-EBIT transition for ATI computation",
+     "reasoning": "Memo says ATI has been EBIT-based since 2022 and that the DD's EBITDA-for-2025 statement is wrong, so it does not identify a 2025 EBITDA to 2026 EBIT transition."
+    },
+    {
+     "id": "C-022",
+     "title": "Quantifies 163(j) disallowance for 2025 (EBITDA basis) as approximately $5.945M",
+     "reasoning": "No 2025 EBITDA-basis disallowance of ~$5.945M is computed."
+    },
+    {
+     "id": "C-023",
+     "title": "Quantifies 163(j) disallowance for 2026+ (EBIT basis) as approximately $8.435M",
+     "reasoning": "No 2026+ EBIT-basis disallowance of ~$8.435M is computed; the only comparable figure (~$8.9M) is a year-1, no-step-up scenario on $19.3M of interest."
+    },
+    {
+     "id": "C-027",
+     "title": "Identifies buyer-seller tension on non-compete agreement allocation",
+     "reasoning": "Memo says the buyer gains nothing from the non-compete allocation (same 15-year amortization), so it denies the buyer-benefit side of the tension the criterion requires."
+    },
+    {
+     "id": "C-031",
+     "title": "Computes total deemed sale gain of approximately $250.8 million",
+     "reasoning": "Memo computes inside gain of ~$314.8M and calls $250.8M an error, so it does not compute ~$250.8M."
+    },
+    {
+     "id": "C-037",
+     "title": "Applies combined federal capital gains rate of 23.8% for sellers",
+     "reasoning": "Memo applies 20% LTCG with no NIIT for Gerald, Patricia and David (NIIT only for Sarah), not 23.8% across all sellers."
+    },
+    {
+     "id": "C-057",
+     "title": "Identifies implied goodwill of approximately $98.6 million (or ~$103.1M with assembled workforce)",
+     "reasoning": "Memo's residual goodwill is $161.7M; $103.1M is mentioned only as the PPA figure it rejects, so the goodwill figure is off by more than $10M."
+    },
+    {
+     "id": "C-060",
+     "title": "Identifies that state-level LIFO recapture taxes also apply",
+     "reasoning": "Memo says no state-level LIFO recapture tax applies ('or $0.198-$0.708 Michigan'); it rejects state-level LIFO taxes."
+    }
+   ],
+   "n_docs": 8,
+   "docs_read": 8,
+   "commands": 30,
+   "minutes": 22.2,
+   "deliverables": [
+    "tax-structure-memorandum.docx"
+   ],
+   "audit_agent_clean": true,
+   "audit_judge_clean": true,
+   "pilot": false
+  },
+  {
    "task": "trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement",
    "area": "trusts-estates-private-client",
    "title": "Draft Grantor Retained Annuity Trust (GRAT) Agreement for Biotech Executive's Private Company Shares",
@@ -964,20 +1061,16 @@
   {
    "area": "diligence",
    "reason": "every task has 2,600-4,000 documents and 400-1,100 criteria"
-  },
-  {
-   "task": "tax/draft-tax-structure-memorandum",
-   "reason": "agent_running"
   }
  ],
  "totals": {
-  "n_tasks": 25,
+  "n_tasks": 26,
   "all_pass": 3,
-  "criteria": 1256,
-  "criteria_passed": 1175,
-  "pooled_pass_rate": 0.9355,
-  "mean_task_pass_rate": 0.93,
-  "audits_clean": 25
+  "criteria": 1317,
+  "criteria_passed": 1221,
+  "pooled_pass_rate": 0.9271,
+  "mean_task_pass_rate": 0.9232,
+  "audits_clean": 26
  },
  "judge_agreement": {
   "criteria_compared": 455,

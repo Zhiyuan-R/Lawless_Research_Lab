@@ -40,13 +40,13 @@
 body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.7; }
 .wrap { max-width: 920px; margin: 0 auto; padding-block: 40px 64px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
-  display: grid; gap: 44px; }
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 44px; }
 h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
 h1 { font-size: clamp(26px, 5vw, 38px); font-weight: 900; line-height: 1.25; }
 h2 { font-size: 22px; font-weight: 600; }
 h3 { margin: 0; font-size: 16px; }
 p { margin: 0; }
-section { display: grid; gap: 16px; min-width: 0; }
+section { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; min-width: 0; }
 .eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--muted); font-weight: 500; }
 .lede { color: var(--muted); max-width: 64ch; }
 .mono { font-family: var(--mono); font-size: 12.5px; }
@@ -150,7 +150,7 @@ section { display: grid; gap: 16px; min-width: 0; }
 
   <section aria-labelledby="plot-h">
     <h2 id="plot-h">每个任务的标准通过率</h2>
-    <p class="lede">横轴从 80% 开始。全部标准都通过才算 all-pass，图中用对勾标出。悬停或点按圆点可看具体数字，下方总表里能看到每个任务没过的标准。</p>
+    <p class="lede" id="plot-lede">横轴不从 0 开始。全部标准都通过才算 all-pass，图中用对勾标出。悬停或点按圆点可看具体数字，下方总表里能看到每个任务没过的标准。</p>
     <div class="card">
       <div class="chart" id="dotplot"></div>
       <div class="legend"><span><i style="background:var(--series)"></i>批量任务</span><span><i style="border:2px solid var(--series);background:var(--sheet)"></i>之前单独跑的并购任务</span><span style="color:var(--good-ink);font-weight:700">✓ 全部通过</span></div>
@@ -227,9 +227,9 @@ const hideTip = () => { tip.hidden = true; };
 (function () {
   const rows = [...D.tasks].sort((a, b) => pct(b.p, b.n) - pct(a.p, a.n) || b.n - a.n);
   const W = 860, L = 250, R = 70, top = 28, rowH = 24, H = top + rows.length * rowH + 14;
-  const x0 = 80, x1 = 100, X = v => L + (v - x0) / (x1 - x0) * (W - L - R);
+  const x0 = Math.floor(Math.min(...rows.map(t => pct(t.p, t.n))) / 5) * 5, x1 = 100, X = v => L + (v - x0) / (x1 - x0) * (W - L - R);
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="每个任务的标准通过率点图">`;
-  for (let v = 80; v <= 100; v += 5) {
+  for (let v = x0; v <= 100; v += 5) {
     s += `<line class="gl" x1="${X(v)}" x2="${X(v)}" y1="${top - 8}" y2="${H - 10}"/>`;
     s += `<text class="tick" x="${X(v)}" y="${top - 14}" text-anchor="middle">${v}%</text>`;
   }
@@ -244,6 +244,7 @@ const hideTip = () => { tip.hidden = true; };
   });
   s += `</svg>`;
   $("dotplot").innerHTML = s;
+  $("plot-lede").firstChild.textContent = `横轴从 ${x0}% 开始。`;
   $("dotplot").querySelectorAll(".hit").forEach(el => {
     const t = D.tasks[+el.dataset.i];
     const html = `<b>${fmt(pct(t.p, t.n))}</b> · ${t.p}/${t.n} 条<br>${esc(t.area)}：${esc(t.name)}${t.all_pass ? "<br>✓ 全部通过" : `<br>未通过 ${t.n - t.p} 条`}`;
