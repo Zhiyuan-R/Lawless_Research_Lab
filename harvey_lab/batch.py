@@ -6,6 +6,7 @@ State lives in harvey_lab/batch_state.json so the batch survives restarts.
   batch.py agent-done <task> <transcript>   finish agent, audit it, build the judge bundle
   batch.py judge-done <task> <transcript>   audit judge, finalize scores + report
   batch.py fail <task> <reason>         mark a task failed (kept in the summary)
+  batch.py set <task> <key> <value>     record e.g. the agent_id / judge_id
   batch.py status                       one line per task
 """
 
@@ -84,6 +85,10 @@ def main() -> None:
     elif cmd == "fail":
         task, reason = rest
         state[task].update(status="failed", reason=reason)
+        save(state)
+    elif cmd == "set":
+        task, key, value = rest
+        state[task][key] = value
         save(state)
     elif cmd == "status":
         for k, v in state.items():
