@@ -1,0 +1,245 @@
+<title>Harvey LAB 测评成绩单</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a single reading column styled like a diligence file — verdict up top, then a 50-cell rubric strip, then the misses, then every criterion. */
+:root {
+  --paper: #f6f7f5;
+  --sheet: #ffffff;
+  --ink: #1d2422;
+  --muted: #5d6965;
+  --rule: #dfe3e0;
+  --accent: #23565a;
+  --pass: #2f7d4f;
+  --pass-bg: #e6f2ea;
+  --fail: #b23a3a;
+  --fail-bg: #f8e7e5;
+  --warn: #9a6a12;
+  --warn-bg: #f6eed9;
+  --display: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121716; --sheet: #1a2120; --ink: #e4ebe8; --muted: #9aa8a3; --rule: #2c3634;
+    --accent: #7fc4c4; --pass: #6cc790; --pass-bg: #1d3426; --fail: #f08a84; --fail-bg: #3a2120;
+    --warn: #e2b562; --warn-bg: #3a2f17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121716; --sheet: #1a2120; --ink: #e4ebe8; --muted: #9aa8a3; --rule: #2c3634;
+  --accent: #7fc4c4; --pass: #6cc790; --pass-bg: #1d3426; --fail: #f08a84; --fail-bg: #3a2120;
+  --warn: #e2b562; --warn-bg: #3a2f17; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.7; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 40px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(26px, 5vw, 36px); font-weight: 900; line-height: 1.25; }
+h2 { font-size: 21px; font-weight: 600; }
+p { margin: 0; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--muted); font-weight: 500; }
+.mono { font-family: var(--mono); font-size: 13px; }
+section { display: grid; gap: 16px; }
+
+/* Verdict */
+.head { display: grid; gap: 12px; }
+.lede { color: var(--muted); max-width: 62ch; }
+.verdict { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 24px;
+  display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+.score { font-family: var(--display); font-weight: 900; font-size: clamp(48px, 11vw, 72px); line-height: 1; font-variant-numeric: tabular-nums; }
+.score small { font-size: .4em; color: var(--muted); font-weight: 600; }
+.verdict-text { display: grid; gap: 8px; min-width: 0; }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 999px; width: fit-content; }
+.pill.fail { color: var(--fail); background: var(--fail-bg); }
+.pill.pass { color: var(--pass); background: var(--pass-bg); }
+.pill.warn { color: var(--warn); background: var(--warn-bg); }
+@media (max-width: 520px) { .verdict { grid-template-columns: 1fr; gap: 12px; } }
+
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.fact { background: var(--sheet); padding: 14px 16px; display: grid; gap: 2px; }
+.fact b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 13px; color: var(--muted); }
+@media (max-width: 640px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+
+/* Rubric strip */
+.strip { display: grid; grid-template-columns: repeat(25, 1fr); gap: 4px; }
+.cell { aspect-ratio: 1; max-width: 100%; border-radius: 3px; border: 0; padding: 0; cursor: pointer; background: var(--pass); opacity: .85; }
+.cell.fail { background: var(--fail); opacity: 1; }
+.cell.lenient { background: var(--warn); opacity: 1; }
+.cell:hover, .cell:focus-visible { opacity: 1; outline: 2px solid var(--ink); outline-offset: 1px; }
+@media (max-width: 520px) { .strip { grid-template-columns: repeat(10, 1fr); } }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+/* Misses */
+.misses { display: grid; gap: 12px; }
+.miss { background: var(--sheet); border: 1px solid var(--rule); border-left: 3px solid var(--fail); border-radius: 4px; padding: 14px 16px; display: grid; gap: 4px; }
+.miss header { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+.miss header strong { font-weight: 700; }
+.miss p { color: var(--muted); }
+
+/* Criteria list */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: inherit; font-size: 14px; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--sheet); }
+.filters button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.list { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+.row { border-top: 1px solid var(--rule); }
+.row:first-child { border-top: 0; }
+.row summary { list-style: none; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; align-items: baseline; }
+.row summary::-webkit-details-marker { display: none; }
+.row summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.row .t { min-width: 0; }
+.row .cat { font-size: 12px; color: var(--muted); margin-right: 8px; }
+.row .why { padding: 0 16px 14px 84px; color: var(--muted); font-size: 14px; display: grid; gap: 6px; }
+.row .why .en { font-size: 13px; }
+.row.flash summary { background: var(--warn-bg); }
+@media (max-width: 520px) { .row summary { grid-template-columns: 48px 1fr; } .row summary .pill { grid-column: 2; } .row .why { padding-left: 16px; } }
+
+/* How it ran */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.step { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+.step .eyebrow { color: var(--accent); }
+.step p { color: var(--muted); font-size: 14px; }
+@media (max-width: 640px) { .steps { grid-template-columns: 1fr; } }
+.note { font-size: 14px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { .row.flash summary { transition: background .6s; } }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow">HARVEY LEGAL AGENT BENCHMARK · v1.2.0 · 2026-10-15</div>
+    <h1>并购尽调：数据室 red flag 审查</h1>
+    <p class="lede">Claude 扮演买方律师，审阅一家环境服务公司的 13 份数据室文件，交出一份 red flag 备忘录和一张问题追踪表。专家写的 50 条标准逐条判定 pass / fail。</p>
+  </header>
+
+  <section aria-label="总成绩">
+    <div class="verdict">
+      <div class="score">45<small> / 50</small></div>
+      <div class="verdict-text">
+        <span class="pill fail">all-pass：未通过</span>
+        <p>50 条标准过了 45 条（90%）。LAB 的主指标要求全部标准都通过，漏掉一条就算失败，所以按官方口径这个任务记 0 分。</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>13 / 13</b><span>文件全部读过</span></div>
+      <div class="fact"><b>35</b><span>备忘录列出的 red flag</span></div>
+      <div class="fact"><b>53</b><span>沙箱中执行的命令</span></div>
+      <div class="fact"><b>约 20 分钟</b><span>agent 用时</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="strip-h">
+    <h2 id="strip-h">50 条标准一览</h2>
+    <div class="strip" id="strip"></div>
+    <div class="legend">
+      <span><i style="background:var(--pass)"></i>通过 40</span>
+      <span><i style="background:var(--warn)"></i>通过，但判得偏宽松 5</span>
+      <span><i style="background:var(--fail)"></i>未通过 5</span>
+      <span>点任意一格，跳到对应的标准</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="miss-h">
+    <h2 id="miss-h">没过的 5 条</h2>
+    <div class="misses" id="misses"></div>
+  </section>
+
+  <section aria-labelledby="all-h">
+    <h2 id="all-h">全部标准</h2>
+    <div class="filters" role="group" aria-label="筛选">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">全部 50</button>
+      <button type="button" id="f-fail" data-f="fail" aria-pressed="false">未通过 5</button>
+      <button type="button" id="f-lenient" data-f="lenient" aria-pressed="false">宽松通过 5</button>
+      <button type="button" id="f-pass" data-f="pass" aria-pressed="false">通过 45</button>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">这次是怎么跑的</h2>
+    <div class="steps">
+      <div class="step"><span class="eyebrow">第 1 步 · 做题</span><b>Claude 子 agent</b><p>在 Harvey 官方的断网沙箱里工作，只能看到 13 份案卷文件，看不到评分标准。所有命令都留了日志。</p></div>
+      <div class="step"><span class="eyebrow">第 2 步 · 判卷</span><b>另一个独立的 Claude 子 agent</b><p>用 Harvey 官方的逐条评分 prompt，对每条标准单独判 pass 或 fail，并写明理由。</p></div>
+      <div class="step"><span class="eyebrow">第 3 步 · 计分</span><b>Harvey 官方代码</b><p>评分汇总、all-pass 计算和 scores.json 都由官方代码完成。整个过程只用本会话额度，不用任何 API key。</p></div>
+    </div>
+    <div class="note">
+      <p>官方标准是 Sonnet 4.6 和 GPT-5.5 两个裁判。这次的裁判是本会话的 Claude，所以分数不能和 Harvey 公布的成绩直接比较，适合内部对比和找问题。</p>
+      <p>做题和判卷用的是同一个模型，裁判有可能偏向自家模型。黄色的 5 条是裁判自己标出来的宽松判定，按最严格的读法可能会改判为未通过。</p>
+      <p class="mono">run: corporate-ma/review-data-room-red-flag-review/claude-code-session/20261015-065804</p>
+    </div>
+  </section>
+</div>
+
+<script>
+const DATA = [{"id": "C-001", "verdict": "pass", "title": "ISSUE_001: Identifies $1.0M EBITDA discrepancy between CIM and QofE", "reasoning": "FIN-01 states CIM $22.8M vs QoE bridge $18.4M + $5.4M add-backs = $23.8M, with an unexplained $1.0M difference.", "cat": "财务", "zh": "发现 CIM 与 QoE 之间 $1.0M 的 EBITDA 差额"}, {"id": "C-002", "verdict": "pass", "title": "ISSUE_001: Cross-references CIM and QofE as conflicting sources", "reasoning": "FIN-01 and the inconsistency table cite the CIM (s.II, s.VI.A-B) and the QoE Data Request Response (EBITDA Bridge tab) as the conflicting sources.", "cat": "财务", "zh": "把 CIM 和 QoE 作为相互矛盾的来源交叉核对"}, {"id": "C-003", "verdict": "pass", "title": "ISSUE_001: Recommends reconciliation before reliance on valuation multiple", "reasoning": "Recommends not finalizing price until a reconciled EBITDA bridge tied to the GL is delivered and the price is re-based on verified EBITDA.", "cat": "财务", "zh": "建议先对账，再依赖估值倍数"}, {"id": "C-004", "verdict": "pass", "title": "ISSUE_002: Identifies untransferred Utah permit UTH-0441", "reasoning": "ENV-04 says UTH-0441 remains in Pinnacle Waste Solutions, LLC's name, with the transfer pending since the March 2022 acquisition.", "cat": "许可证", "zh": "发现犹他州许可证 UTH-0441 未过户"}, {"id": "C-005", "verdict": "pass", "title": "ISSUE_002: Flags regulatory violation risk under Utah rules", "reasoning": "Notes that Utah rules require Division approval of ownership/operational-control changes and flags enforcement exposure and possible suspension for operating without a permit in the operator's name.", "cat": "许可证", "zh": "指出违反犹他州规定的监管风险"}, {"id": "C-006", "verdict": "pass", "title": "ISSUE_002: Connects Pinnacle subsidiary status to permit issue", "reasoning": "ENV-04 and CORP-02 tie the untransferred permit to Pinnacle being a dormant subsidiary (citing ORG s.2, s.4.3).", "cat": "许可证", "zh": "把许可证问题和 Pinnacle 子公司的身份联系起来"}, {"id": "C-007", "verdict": "pass", "title": "ISSUE_003: Flags staleness of 2019 Phase II ESA", "reasoning": "ENV-01 notes the June 2019 Phase II and that no recommended follow-up has been done in more than five years.", "cat": "环境", "zh": "指出 2019 年 Phase II ESA 已过时"}, {"id": "C-008", "verdict": "pass", "title": "ISSUE_003: Notes potential understatement of remediation costs", "reasoning": "Notes the estimate is in 2019 dollars, applies an illustrative escalation, lists excluded cost categories, and says only $2.2M of the $3.2M accrual relates to Grand Junction.", "cat": "环境", "zh": "指出修复成本可能被低估"}, {"id": "C-009", "verdict": "pass", "title": "ISSUE_003: Recommends current Phase II ESA as closing condition", "reasoning": "Recommends an updated Phase I/II with off-site wells and vapor-intrusion testing before signing, and lists it among closing conditions and pre-signing deliverables.", "cat": "环境", "zh": "建议把新的 Phase II ESA 列为交割条件"}, {"id": "C-010", "verdict": "pass", "title": "ISSUE_004: Identifies DOE contract customer concentration risk", "reasoning": "REV-01 flags DOE at 19.2% of revenue, the $45.0M ceiling and management's $12.3M remaining (possibly ~$6.8M), with the ceiling running out in 2025.", "cat": "客户集中", "zh": "识别 DOE 合同带来的客户集中风险"}, {"id": "C-011", "verdict": "pass", "title": "ISSUE_004: Discusses Anti-Assignment Act or novation risk", "reasoning": "The consents table calls for a 'novation analysis (FAR 42.12)' for the DOE contract, alongside the H-12 notice and a possible CO acknowledgment; the Anti-Assignment Act is not named, but novation risk is raised.", "cat": "客户集中", "zh": "讨论 Anti-Assignment Act / 合同更替（novation）风险"}, {"id": "C-012", "verdict": "pass", "title": "ISSUE_005: Identifies pollution liability insurance gap for Grand Junction", "reasoning": "ENV-01 and INS-01 say the PLL excludes gradual pollution at owned facilities, leaving the Grand Junction contamination uninsured.", "cat": "保险", "zh": "发现 Grand Junction 的污染责任保险缺口"}, {"id": "C-013", "verdict": "pass", "title": "ISSUE_005: Cross-references insurance policy with Phase II ESA", "reasoning": "INS-01 cites both INS s.4/5/8 and ESA s.4.3/8.1, and ENV-01 cross-references the ESA with INS s.4 to establish the gap.", "cat": "保险", "zh": "把保险单和 Phase II ESA 交叉核对"}, {"id": "C-014", "verdict": "pass", "title": "ISSUE_005: Notes implications for indemnification structure", "reasoning": "Recommends a special environmental indemnity, a dedicated escrow, a site pollution policy and a new PLL program with a seller-paid tail.", "cat": "保险", "zh": "说明对赔偿结构的影响"}, {"id": "C-015", "verdict": "pass", "title": "ISSUE_006: Identifies CDPHE penalty exposure disparity ($450K vs $1.16M)", "reasoning": "ENV-02 cites Docket CDPHE-HW-2024-0093, 12 vs 31 days, and $450K vs $1,162,500 at $37,500/day.", "cat": "环境", "zh": "识别 CDPHE 罚款敞口差异（$450K vs $1.16M）"}, {"id": "C-016", "verdict": "pass", "title": "ISSUE_006: Notes CDPHE penalties not reserved or included in adjustments", "reasoning": "Says nothing is accrued for CDPHE, lists the penalty among items not captured by the LOI price mechanics, and attributes the $1.2M add-back to the Harper/Clearwater matters.", "cat": "环境", "zh": "指出 CDPHE 罚款既没计提，也没列入调整项"}, {"id": "C-017", "verdict": "pass", "title": "ISSUE_007: Identifies Salt Lake City lease assignment/change-of-control issue", "reasoning": "RE-01 and CORP-02 say Pinnacle remains the SLC tenant, the lease's change-of-control clause requires consent, the 2022 change of control was never consented, and the landlord Wasatch Industrial Properties needs to consent.", "cat": "租约", "zh": "发现盐湖城租约的转让 / 控制权变更问题"}, {"id": "C-018", "verdict": "pass", "title": "ISSUE_007: Connects lease issue with permit transfer issue for SLC", "reasoning": "RE-01 and ENV-04 cross-reference each other, and CORP-02 states Pinnacle remains both the SLC permittee and the SLC tenant.", "cat": "租约", "zh": "把盐湖城租约问题和许可证问题联系起来"}, {"id": "C-019", "verdict": "pass", "title": "ISSUE_008: Identifies omitted NLRB election petition", "reasoning": "EMP-02 identifies the Nov 4, 2024 Teamsters petition covering 62 technicians at Grand Junction and Casper, disclosed only in a footnote and contrary to the CIM's 'entirely non-unionized' statement.", "cat": "劳动", "zh": "发现被遗漏的 NLRB 工会选举申请"}, {"id": "C-020", "verdict": "pass", "title": "ISSUE_008: Discusses implications of potential unionization", "reasoning": "Discusses bargaining obligations, ULP risk, integration and compensation constraints, labor cost increases and work-stoppage risk.", "cat": "劳动", "zh": "讨论可能成立工会带来的影响"}, {"id": "C-021", "verdict": "pass", "title": "ISSUE_009: Identifies deferred maintenance capex concern", "reasoning": "FIN-07 says the $4.0M-$4.5M normalized capex is understated, given an average fleet age of 8.2 years against a 7-year life and a $9.8M replacement backlog.", "cat": "资本开支", "zh": "识别推迟维护的资本开支隐患"}, {"id": "C-022", "verdict": "pass", "title": "ISSUE_009: Quantifies deferred capex impact on free cash flow", "reasoning": "Quantifies ~$3.3M a year of catch-up capex on top of run-rate, with a $3.3M-$9.8M deferred-capex exposure.", "cat": "资本开支", "zh": "量化推迟的资本开支对自由现金流的影响"}, {"id": "C-023", "verdict": "pass", "title": "ISSUE_010: Identifies ERISA risk from 401(k) match suspension", "reasoning": "EMP-04 links the January-June 2023 suspension of the safe harbor match to the safe harbor rules (Treas. Reg. 1.401(k)-3(n)), ADP/ACP testing and loss of safe harbor status.", "cat": "员工福利", "zh": "识别 401(k) 暂停配比带来的 ERISA 风险"}, {"id": "C-024", "verdict": "pass", "title": "ISSUE_010: Notes potential consequences of safe harbor violation", "reasoning": "Notes EPCRS corrective contributions (~$0.55M) and plan qualification risk.", "cat": "员工福利", "zh": "说明违反 safe harbor 的后果"}, {"id": "C-025", "verdict": "pass", "title": "ISSUE_011: Identifies change-of-control severance totaling $3,775,000", "reasoning": "Total of $3.775M across five executives: Calloways at $1,312,500 each, plus $1.15M for Engel, Dillon and Oakes (which equals 425K+375K+350K).", "cat": "高管", "zh": "识别合计 $3,775,000 的控制权变更遣散费"}, {"id": "C-026", "verdict": "pass", "title": "ISSUE_011: Flags LOI transaction expense definition may not capture CoC severance", "reasoning": "EMP-01 says the LOI Transaction Expenses definition covers payroll taxes but not the severance, and recommends defining it to include all CoC payments.", "cat": "高管", "zh": "指出 LOI 的交易费用定义可能没涵盖这笔遣散费"}, {"id": "C-027", "verdict": "pass", "title": "ISSUE_012: Identifies mandatory prepayment of $38.7M upon change of control", "reasoning": "DEBT-01 identifies prepayment of all Obligations within 5 business days on change of control, with ~$38.7M owed to HPNB.", "cat": "债务", "zh": "识别控制权变更时须提前偿还的 $38.7M"}, {"id": "C-028", "verdict": "pass", "title": "ISSUE_012: Identifies 1% prepayment premium of $263,000 on term loan", "reasoning": "Identifies the 1.00% term-loan premium through January 16, 2026 = $263,000 on $26.3M (credit agreement dated January 17, 2023).", "cat": "债务", "zh": "识别定期贷款 1% 的提前还款溢价 $263,000"}, {"id": "C-029", "verdict": "pass", "title": "ISSUE_012: Flags LOI net debt definition may omit prepayment premium", "reasoning": "Flags the premium as not captured by the LOI price mechanics as drafted, and recommends the Net Debt/Indebtedness definition expressly include it.", "cat": "债务", "zh": "指出 LOI 的净债务定义可能漏掉这笔溢价"}, {"id": "C-030", "verdict": "fail", "title": "ISSUE_013: Scrutinizes $1.8M asbestos abatement wind-down add-back", "reasoning": "The $1.8M asbestos add-back is expressly 'accepted in base case' and 'accepted as non-recurring'. The memo does not call it the largest adjustment or question whether it is truly one-time; it only flags tail liabilities separately.", "cat": "财务", "zh": "质疑 $1.8M 石棉清理 add-back"}, {"id": "C-031", "verdict": "pass", "title": "ISSUE_013: Notes long-tail asbestos liability risk", "reasoning": "ENV-05 identifies long-tail asbestos exposure from the 2012-2023 abatement work and recommends a specific asbestos indemnity outside the cap with extended survival.", "cat": "环境", "zh": "指出石棉的长尾责任风险"}, {"id": "C-032", "verdict": "fail", "title": "DISTRACTOR_001: Does not flag Wyoming permit as a red flag", "reasoning": "ENV-03 rates the Wyoming permit expiration a HIGH red flag, questions whether the renewal was timely, and recommends a closing condition and Wyoming counsel.", "cat": "干扰项", "zh": "不把怀俄明州许可证当作 red flag"}, {"id": "C-033", "verdict": "pass", "title": "DISTRACTOR_002: Does not flag Consolidated Mining TFC clause as red flag", "reasoning": "The Consolidated Mining 60-day clause is not a standalone red flag; it appears only within the REV-03 customer concentration discussion.", "cat": "干扰项", "zh": "不把 Consolidated Mining 的便利终止条款当作 red flag"}, {"id": "C-034", "verdict": "pass", "title": "DISTRACTOR_003: Does not flag RidgeTrack IP as a material red flag", "reasoning": "RidgeTrack copyright registration is not flagged; IP-01 is Medium and concerns ownership and licensed components.", "cat": "干扰项", "zh": "不把 RidgeTrack 知识产权当作重大 red flag"}, {"id": "C-035", "verdict": "pass", "title": "DISTRACTOR_004: Does not flag Grand Junction appraisal age as red flag", "reasoning": "The 2022 Grand Junction appraisal is not flagged anywhere.", "cat": "干扰项", "zh": "不把 Grand Junction 评估报告的年头当作 red flag"}, {"id": "C-036", "verdict": "pass", "title": "Executive summary includes top 5 critical findings", "reasoning": "The executive summary lists seven critical issues plus a table of critical and high-severity flags.", "cat": "结构", "zh": "执行摘要列出前 5 项关键问题"}, {"id": "C-037", "verdict": "pass", "title": "Memo organized by required risk categories", "reasoning": "Organized by category: Financial, Revenue/Customers, Environmental, Insurance, Debt, Real Property, Employment, Litigation, and others.", "cat": "结构", "zh": "备忘录按要求的风险类别组织"}, {"id": "C-038", "verdict": "pass", "title": "Each red flag includes severity assessment", "reasoning": "Every red flag carries a Critical/High/Medium/Low rating.", "cat": "结构", "zh": "每个 red flag 都有严重度评级"}, {"id": "C-039", "verdict": "pass", "title": "Each red flag cites specific source document(s)", "reasoning": "Every red flag has a Sources line citing specific data room documents.", "cat": "结构", "zh": "每个 red flag 都注明具体来源文件"}, {"id": "C-040", "verdict": "pass", "title": "Each red flag includes recommended next steps", "reasoning": "Every red flag has a Recommendation paragraph.", "cat": "结构", "zh": "每个 red flag 都给出下一步建议"}, {"id": "C-041", "verdict": "fail", "title": "Memo includes non-issue / cleared items section", "reasoning": "No section identifies items that look concerning but are cleared or standard.", "cat": "结构", "zh": "有一节列出“已排除 / 属正常”的事项"}, {"id": "C-042", "verdict": "pass", "title": "Red flag tracker spreadsheet is produced", "reasoning": "red-flag-tracker.xlsx was produced.", "cat": "追踪表", "zh": "交付了 red flag 追踪表"}, {"id": "C-043", "verdict": "pass", "title": "Tracker includes required column structure", "reasoning": "Columns include ID, Category, Issue/Key Findings, Severity, Est. Exposure, Source Documents, Recommended Action and Status.", "cat": "追踪表", "zh": "追踪表的列结构符合要求"}, {"id": "C-044", "verdict": "pass", "title": "Tracker entries are consistent with memo findings", "reasoning": "The tracker has all 35 memo red flags, covering the planted issues.", "cat": "追踪表", "zh": "追踪表和备忘录的结论一致"}, {"id": "C-045", "verdict": "fail", "title": "Memo addressed to correct parties for investment committee", "reasoning": "Addressed to Naomi Vance and Sycamore (Elaine Whitford) from Thornfield, but makes no reference to the January 24, 2025 investment committee meeting.", "cat": "格式", "zh": "收件人正确，面向投资委员会"}, {"id": "C-046", "verdict": "fail", "title": "Correct identification of top customer concentration figures", "reasoning": "States top-10 at 67% and DOE at 19.2%, but never gives Consolidated Mining's 11.4% ($14.5M) or DOE's $24.4M.", "cat": "准确性", "zh": "前几大客户的集中度数字正确"}, {"id": "C-047", "verdict": "pass", "title": "Correct total debt figure in net debt discussion", "reasoning": "States ~$38.7M owed to HPNB and the $26.3M term loan; the total is correct (the revolver breakdown is not stated).", "cat": "准确性", "zh": "净债务讨论中的总债务数字正确"}, {"id": "C-048", "verdict": "pass", "title": "Correct EBITDA add-back itemization", "reasoning": "The QoE table itemizes 1,200 + 950 + 650 + 800 + 1,800 = 5.4M of add-backs to reach 23,800.", "cat": "准确性", "zh": "EBITDA add-back 逐项列示正确"}, {"id": "C-049", "verdict": "pass", "title": "Holdback structure noted for indemnification context", "reasoning": "Notes the 10% holdback ($18.2M-$20.5M), 18-month general and 6-year environmental/tax survival, and compares the quantified exposure to the holdback.", "cat": "准确性", "zh": "结合赔偿说明了 holdback 安排"}, {"id": "C-050", "verdict": "pass", "title": "Ramirez personal injury lawsuit identified", "reasoning": "Identifies Ramirez (D. Wyo.) seeking $4.8M with a reservation of rights, though the case number and filing date are not given.", "cat": "诉讼", "zh": "识别 Ramirez 人身伤害诉讼"}];
+const MISS_ZH = {
+  "C-030": "备忘录在基础情形里直接接受了 $1.8M 石棉清理 add-back，当作一次性项目。它既没指出这是最大的一笔调整，也没质疑它是否真的不会再发生。",
+  "C-032": "这是故意埋的干扰项：怀俄明州许可证其实没问题。备忘录却把它列成 HIGH 风险，还建议设交割条件、请当地律师。",
+  "C-041": "备忘录缺少一节“看起来有问题、核实后已排除或属于常规”的事项清单。",
+  "C-045": "收件人写对了，但通篇没提 2025 年 1 月 24 日的投资委员会会议。",
+  "C-046": "写了前十大客户合计 67%、DOE 占 19.2%，但漏了 Consolidated Mining 占 11.4%（$14.5M），也没给出 DOE 的 $24.4M。"
+};
+const LENIENT_ZH = {
+  "C-010": "DOE 风险和合同上限的问题都写到了，但没有出现 $24.4M 这个数字。",
+  "C-011": "提到了合同更替（FAR 42.12），但没点名 Anti-Assignment Act。",
+  "C-016": "写了 CDPHE 罚款没有计提，但没明确说它也不在 EBITDA 调整表里。",
+  "C-047": "总债务 $38.7M 写对了，但没给出 $12.4M 循环贷款的拆分。",
+  "C-050": "识别出了 Ramirez 案（D. Wyo.，$4.8M），但没写案号和起诉日期。"
+};
+const status = c => c.verdict === "fail" ? "fail" : (LENIENT_ZH[c.id] ? "lenient" : "pass");
+const label = { pass: "通过", lenient: "宽松通过", fail: "未通过" };
+const pillClass = { pass: "pass", lenient: "warn", fail: "fail" };
+const esc = s => s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+
+const strip = document.getElementById("strip");
+const list = document.getElementById("list");
+const misses = document.getElementById("misses");
+
+DATA.forEach(c => {
+  const s = status(c);
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "cell " + (s === "pass" ? "" : s);
+  b.title = `${c.id} ${c.zh} · ${label[s]}`;
+  b.setAttribute("aria-label", b.title);
+  b.addEventListener("click", () => openRow(c.id));
+  strip.appendChild(b);
+
+  const d = document.createElement("details");
+  d.className = "row"; d.id = "row-" + c.id; d.dataset.s = s;
+  const note = MISS_ZH[c.id] || LENIENT_ZH[c.id];
+  d.innerHTML = `<summary><span class="mono">${c.id}</span><span class="t"><span class="cat">${esc(c.cat)}</span>${esc(c.zh)}</span><span class="pill ${pillClass[s]}">${label[s]}</span></summary>
+    <div class="why">${note ? `<p>${esc(note)}</p>` : ""}<p class="en">裁判原文：${esc(c.reasoning)}</p><p class="en">英文标准：${esc(c.title)}</p></div>`;
+  list.appendChild(d);
+
+  if (s === "fail") {
+    const m = document.createElement("article");
+    m.className = "miss";
+    m.innerHTML = `<header><span class="mono">${c.id}</span><strong>${esc(c.zh)}</strong><span class="cat">${esc(c.cat)}</span></header><p>${esc(MISS_ZH[c.id])}</p>`;
+    misses.appendChild(m);
+  }
+});
+
+function setFilter(f) {
+  document.querySelectorAll(".filters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  document.querySelectorAll(".row").forEach(r => {
+    const s = r.dataset.s;
+    r.hidden = !(f === "all" || s === f || (f === "pass" && s === "lenient"));
+  });
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => setFilter(b.dataset.f)));
+
+function openRow(id) {
+  setFilter("all");
+  const r = document.getElementById("row-" + id);
+  r.open = true;
+  r.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+  r.classList.add("flash");
+  setTimeout(() => r.classList.remove("flash"), 1200);
+}
+</script>
