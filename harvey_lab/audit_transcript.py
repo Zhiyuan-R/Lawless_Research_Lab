@@ -22,7 +22,9 @@ HERE = Path(__file__).resolve().parent
 SBX = str(HERE / "sbx.sh")
 
 
-def tool_calls(transcript: Path):
+def tool_calls(transcript: Path, seen: set):
+    """Yield tool calls in order; `seen` accumulates text of earlier tool results, so a
+    read of a harness spill file is allowed only if the harness pointed this agent to it."""
     for line in transcript.read_text().splitlines():
         try:
             event = json.loads(line)
@@ -33,6 +35,8 @@ def tool_calls(transcript: Path):
             for block in content:
                 if block.get("type") == "tool_use":
                     yield block["name"], block.get("input", {})
+                elif block.get("type") == "tool_result":
+                    seen.add(json.dumps(block.get("content")))
 
 
 FORBIDDEN_HINT = re.compile(r"task\.json|harvey-labs/tasks")
@@ -74,7 +78,8 @@ def audit(role: str, transcript: Path, run_dir: Path) -> dict:
         elif role == "judge" and p.startswith(str(judge_root)) and not p.startswith(str(home)):
             violations.append(f"{how}: another judge dir {p}")
 
-    for name, args in tool_calls(transcript):
+    seen: set[str] = set()
+    for name, args in tool_calls(transcript, seen):
         counts[name] = counts.get(name, 0) + 1
         if name in WEB_TOOLS or name.startswith("mcp__"):
             violations.append(f"{name}: network/external tool used")
@@ -86,7 +91,8 @@ def audit(role: str, transcript: Path, run_dir: Path) -> dict:
         if name in ("Read", "Grep", "Glob"):
             target = args.get("file_path") or args.get("path") or args.get("pattern", "")
             check_path(target, name)
-            if target not in allowed_reads and target not in written:
+            spill = "/tool-results/" in target and any(target in t for t in seen)
+            if target not in allowed_reads and target not in written and not spill:
                 violations.append(f"{name} outside allowed files: {target}")
         elif name in ("Write", "Edit", "NotebookEdit"):
             target = args.get("file_path", "")
