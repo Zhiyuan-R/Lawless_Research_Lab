@@ -39,6 +39,19 @@ EOF
 harvey_lab/run_task.sh anthropic/claude-sonnet-4-6 corporate-ma/review-data-room-red-flag-review
 ```
 
+### 会话模式：用 Claude Code 自身额度跑，不需要 API key
+
+`session_runner.py` 把官方流程中调用 API 的两处换成了 Claude Code 子 agent。沙箱、system prompt、skill 手册、评分标准、评分代码和报告生成都沿用官方代码：
+
+1. `harvey_lab/session.sh prepare-agent <task>`：启动官方 podman 沙箱。沙箱断网，`documents/` 以只读方式挂载，容器里看不到 `task.json`。同时生成 `AGENT_BRIEF.md`，内容是官方 system prompt、skill 手册和任务指令。
+2. **agent 子 agent** 读这份 brief，所有命令都通过 `harvey_lab/sbx.sh <run_dir> '<cmd>'` 在沙箱里执行。每条命令都会记到 `commands.jsonl`，交付物写进 `/workspace/output`。
+3. `harvey_lab/session.sh finish-agent <run_id>`：关闭容器，写入 `config.json` 和 `metrics.json`。文档覆盖率根据命令日志统计；token 数在会话模式下拿不到，记为 0。
+4. `harvey_lab/session.sh prepare-judge <run_id> <task>`：用官方 `score_rubric()` 记录每条标准本该发给裁判的交付物文本，生成 `judge/bundle.md`。
+5. **judge 子 agent**（和 agent 不是同一个，互相独立）逐条按官方 `rubric_criterion` prompt 判 pass/fail，结果写到 `judge/responses.json`。
+6. `harvey_lab/session.sh finalize <run_id> <task>`：用官方 `evaluate_run()` 写出 `scores.json`，再生成 `report.html`。
+
+这种模式下，裁判是本会话的 Claude，不是标准的 Sonnet 4.6 + GPT-5.5 双裁判，所以分数标记为 `claude-code-session-judge`，**不能和官方公布的分数直接比较**，只适合内部对比和找问题。
+
 ### 浏览任务
 
 ```bash
