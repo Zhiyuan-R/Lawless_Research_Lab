@@ -91,8 +91,11 @@ def audit(role: str, transcript: Path, run_dir: Path) -> dict:
         if name in ("Read", "Grep", "Glob"):
             target = args.get("file_path") or args.get("path") or args.get("pattern", "")
             check_path(target, name)
-            spill = "/tool-results/" in target and any(target in t for t in seen)
-            if target not in allowed_reads and target not in written and not spill:
+            # Harness-owned output files (oversized tool output, background-command
+            # logs) are fine when the harness handed this same agent that exact path.
+            harness_file = (("/tool-results/" in target or ("/tmp/claude-0/" in target and "/tasks/b" in target))
+                            and any(target in t for t in seen))
+            if target not in allowed_reads and target not in written and not harness_file:
                 violations.append(f"{name} outside allowed files: {target}")
         elif name in ("Write", "Edit", "NotebookEdit"):
             target = args.get("file_path", "")
