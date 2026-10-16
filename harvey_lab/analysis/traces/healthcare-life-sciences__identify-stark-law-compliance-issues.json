@@ -1,0 +1,593 @@
+{
+ "task": "healthcare-life-sciences/identify-stark-law-compliance-issues",
+ "status": "done",
+ "n_criteria": 53,
+ "n_passed": 43,
+ "outputs": [
+  "stark-law-issues-memorandum.docx"
+ ],
+ "transcript": "/tmp/claude-0/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tasks/a650cdcd299b56145.output",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344",
+ "documents": [
+  "buckeye-operating-agreement-excerpts.docx",
+  "clearview-lease-agreement.docx",
+  "compensation-plan-update-memo.docx",
+  "compliance-committee-email-chain.eml",
+  "compliance-hotline-log-2023.xlsx",
+  "compliance-program-manual.docx",
+  "hale-qui-tam-complaint-excerpts.docx",
+  "internal-audit-memo-march-2022.docx",
+  "lakeshore-fmv-appraisal-summary.docx",
+  "operating-agreement-excerpts.docx",
+  "physician-compensation-summary-2023.xlsx",
+  "pinnacle-courier-invoices.xlsx",
+  "pinnacle-lease-agreement.docx",
+  "stein-medical-director-agreement.docx",
+  "wellford-employment-agreement.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Read",
+   "out_chars": 22957,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344/AGENT_BRIEF.md"
+  },
+  {
+   "i": 1,
+   "tool": "Bash",
+   "out_chars": 3467,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "/workspace:\ntotal 20\ndrwxr-xr-x 5 root root 4096 Oct 15 11:53 .\ndr-xr-xr-x 1 root root 4096 Oct 15 11:53 ..\ndrwxr-xr-x 2 root root 4096 Oct 15 06:33 documents\ndrwxr-xr-x 2 root root 4096 Oct 15 11:53 output\ndrwxr-xr-x 5 root root 4096 Oct 1",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'ls -la /workspace /workspace/documents /workspace/output; for f in /workspace/documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 926,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " 23867 /workspace/txt/buckeye-operating-agreement-excerpts.docx.txt\n 30749 /workspace/txt/clearview-lease-agreement.docx.txt\n 15876 /workspace/txt/compensation-plan-update-memo.docx.txt\n  5588 /workspace/txt/compliance-committee-email-chain",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'mkdir -p /workspace/txt; cd /workspace/documents; for f in *.docx; do parse-doc docx \"$f\" > /workspace/txt/$f.txt; done; for f in *.xlsx; do parse-doc xlsx \"$f\" > /workspace/txt/$f.txt; done; cp *.eml /workspace/txt/; wc -c /workspace/txt/*'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 24744,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "From: Patricia Langford <plangford@greenfieldhealth.com>\nTo: Dr. Raymond K. Stein, M.D. <rstein@greenfieldhealth.com>\nCc: Alan Cromdale Consulting <amercer@greenfieldhealth.com>, Dr. Priya Narayan,\n M.D. <pnarayan@greenfieldhealth.com>\nDate",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/compliance-committee-email-chain.eml; cat /workspace/txt/internal-audit-memo-march-2022.docx.txt'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 15865,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**GREENFIELD HEALTH PARTNERS, LLC** 2800 Riverside Medical Plaza, Suite 400 Columbus, OH 43215\n\n**INTERNAL MEMORANDUM**\n\n**TO:** All Employed Physicians, Greenfield Health Partners, LLC\n\n**FROM: Dr. Raymond K. Stein, M.D., Managing Member &",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/compensation-plan-update-memo.docx.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 2141,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (30.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bednfd809.txt\n\nPreview (first 2KB):\n**[EMPLOYMENT AGREEMENT]{.under",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/wellford-employment-agreement.docx.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Read",
+   "out_chars": 32301,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[EMPLOYMENT AGREEMENT]{.underline}**\n2\t\n3\tThis Employment Agreement (this \\\"Agreement\\\") is entered into as of January 15, 2022 (the \\\"Effective Date\\\"), by and between Greenfield Health Partners, LLC, an Ohio limited liability company ",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bednfd809.txt"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 22579,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**MEDICAL DIRECTOR AGREEMENT**\n\nBetween\n\n**Buckeye Surgical Center, LLC**\n\nand\n\n**Raymond K. Stein, M.D.**\n\nEffective as of August 22, 2016\n\nThis Medical Director Agreement (this \\\"**Agreement**\\\") is entered into as of August 22, 2016 (the",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/stein-medical-director-agreement.docx.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 23858,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**AMENDED AND RESTATED OPERATING AGREEMENT**\n\n**OF**\n\n**BUCKEYE SURGICAL CENTER, LLC**\n\nan Ohio Limited Liability Company\n\nEffective as of August 22, 2016\n\nThe following constitutes selected excerpts from the Operating Agreement. Sections n",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/buckeye-operating-agreement-excerpts.docx.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 24997,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[AMENDED AND RESTATED OPERATING AGREEMENT]{.underline}**\n\n**[OF]{.underline}**\n\n**[GREENFIELD HEALTH PARTNERS, LLC]{.underline}**\n\nan Ohio Limited Liability Company\n\n**Effective Date: January 1, 2020**\n\nEXCERPTS --- Selected provisions re",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'head -c 25000 /workspace/txt/operating-agreement-excerpts.docx.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 22886,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "established by the Compensation Committee based on specialty-specific MGMA benchmarks. Productivity bonus rates (dollars per wRVU above the threshold) shall be set by the Compensation Committee and shall be consistent with fair market value",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'tail -c +25001 /workspace/txt/operating-agreement-excerpts.docx.txt'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 2074,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (30KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b6to3qtfc.txt\n\nPreview (first 2KB):\n**[COMMERCIAL LEASE AGREEMENT]{.u",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/clearview-lease-agreement.docx.txt'"
+  },
+  {
+   "i": 12,
+   "tool": "Read",
+   "out_chars": 31696,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[COMMERCIAL LEASE AGREEMENT]{.underline}**\n2\t\n3\t**Suite 210, Riverside Medical Plaza**\n4\t\n5\t**Effective as of January 1, 2021**\n6\t\n7\tThis COMMERCIAL LEASE AGREEMENT (this \\\"Lease\\\") is entered into as of January 1, 2021 (the \\\"Effective",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b6to3qtfc.txt"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 27995,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[COMMERCIAL LEASE AGREEMENT]{.underline}**\n\n**2800 Riverside Medical Plaza** **Columbus, Ohio 43215**\n\nThis Commercial Lease Agreement (this \\\"Lease\\\") is entered into as of March 1, 2022 (the \\\"Effective Date\\\"), by and between **GREENFI",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/pinnacle-lease-agreement.docx.txt > /workspace/p.txt; head -c 28000 /workspace/p.txt'"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 3152,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "tive Officer, has the authority to execute this Lease and to bind Tenant to the terms hereof.\n\n*\\[Signature Page Follows\\]*\n\n**IN WITNESS WHEREOF**, the parties have executed this Commercial Lease Agreement as of the date first written abov",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'tail -c +28001 /workspace/p.txt'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 1978,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (32.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b4rt6o3av.txt\n\nPreview (first 2KB):\n**FAIR MARKET VALUE APPRAISAL -",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/lakeshore-fmv-appraisal-summary.docx.txt'"
+  },
+  {
+   "i": 16,
+   "tool": "Read",
+   "out_chars": 34295,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**FAIR MARKET VALUE APPRAISAL --- SUMMARY REPORT**\n2\t\n3\t**Medical Office Space**\n4\t\n5\t**Riverside Medical Plaza** **2800 Riverside Medical Plaza** **Columbus, OH 43215**\n6\t\n7\tPrepared for:\n8\t\n9\t**Greenfield Health Partners, LLC** 2800 Riv",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b4rt6o3av.txt"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 12932,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "=== Sheet: Courier Service Tracking ===\n               Month          Service Period                                                                                                      Service Description  Number of Pickups  Locations Serv",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cat /workspace/txt/pinnacle-courier-invoices.xlsx.txt'"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 13056,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "===  Hotline Log 2023 A1:N18\nReport No. | Date Received | Reporting Method | Reporter Identity | Category | Summary of Report | Investigator | Investigation Start Date | Investigation Close Date | Investigation Notes / Findings | Status | C",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && python3 -c \"\nimport openpyxl\nwb=openpyxl.load_workbook(\\\"documents/compliance-hotline-log-2023.xlsx\\\",data_only=True)\nfor ws in wb:\n  print(\\\"=== \\\",ws.title,ws.dimensions)\n  for r in ws.iter_rows(values_only=True):\n    if any(c is not None for c in r): print(\\\" | \\\".join(\\\"\\\" if c is None else str(c) for c in r))\n\"'"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 21595,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "21672 /workspace/comp.txt\n===  Compensation Detail A1:P97\nRow #|Physician Name|Specialty|Status (Member/Employed/IC)|Ownership % (Greenfield)|Ownership % (Buckeye Surgical Center)|Compensation Committee (Y/N)|Base Salary|Quality Bonus|Produ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && python3 -c \"\nimport openpyxl\nwb=openpyxl.load_workbook(\\\"documents/physician-compensation-summary-2023.xlsx\\\",data_only=True)\nfor ws in wb:\n  print(\\\"=== \\\",ws.title,ws.dimensions)\n  for r in ws.iter_rows(values_only=True):\n    if any(c is not None for c in r): print(\\\"|\\\".join(\\\"\\\" if c is None else str(c) for c in r))\n\" > /workspace/comp.txt; wc -c /workspace/"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 122,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 10, in <module>\nIndexError: list index out of range",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && python3 -c \"\nimport openpyxl,re\nwb=openpyxl.load_workbook(\\\"documents/physician-compensation-summary-2023.xlsx\\\",data_only=True)\nws=wb[\\\"Compensation Detail\\\"]\nrows=[r for r in ws.iter_rows(min_row=2,values_only=True) if isinstance(r[0],int)]\ndef m(x):\n  if x is None: return 0\n  if isinstance(x,(int,float)): return x\n  return float(str(x).replace(\\\"\\$\\\",\\\"\\\").re"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 6644,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "87 ('1', 'Stein, Raymond K., M.D.', 'Orthopedic Surgery', 'Member', '4.2%', '25.0%', 'Y (Chair)', '$847,000')\n1 Stein, Raymond K., M.D. Orthopedic Surgery Member 4.2 25.0 ['QB>25%: 25.4%', 'PD/own=38571']\n2 Narayan, Priya, M.D. Cardiology M",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && cat > an.py <<'\"'\"'EOF'\"'\"'\nimport openpyxl,collections\nwb=openpyxl.load_workbook(\"documents/physician-compensation-summary-2023.xlsx\",data_only=True)\nws=wb[\"Compensation Detail\"]\nrows=[r for r in ws.iter_rows(min_row=2,values_only=True) if r[0] is not None and str(r[0]).strip().isdigit()]\nprint(len(rows), repr(rows[0][:8]))\ndef m(x):\n  if x is None: return 0\n  "
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 28918,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[UNITED STATES DISTRICT COURT]{.underline}**\n\n**[FOR THE SOUTHERN DISTRICT OF OHIO]{.underline}**\n\n**[EASTERN DIVISION]{.underline}**\n\n\\&nbsp;\n\n  --------------------------------------------------------------------------------------------",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'head -c 29000 /workspace/txt/hale-qui-tam-complaint-excerpts.docx.txt'"
+  },
+  {
+   "i": 23,
+   "tool": "Bash",
+   "out_chars": 7919,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "llocates a portion of those distributions to individual physicians based on each physician\\'s referral volume through the 0.5% referral credit. The compensation received by the individual referring physician thus varies directly and proport",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'tail -c +29001 /workspace/txt/hale-qui-tam-complaint-excerpts.docx.txt'"
+  },
+  {
+   "i": 24,
+   "tool": "Bash",
+   "out_chars": 28962,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**GREENFIELD HEALTH PARTNERS, LLC**\n\n**COMPLIANCE PROGRAM MANUAL**\n\nAdopted: April 15, 2021\n\n\\&nbsp;\n\nGreenfield Health Partners, LLC An Ohio Limited Liability Company\n\nEIN: 31-4527893\n\nPrincipal Office: 2800 Riverside Medical Plaza, Suite ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'head -c 29000 /workspace/txt/compliance-program-manual.docx.txt'"
+  },
+  {
+   "i": 25,
+   "tool": "Bash",
+   "out_chars": 28967,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ians or other healthcare providers.\n\n**3.2.3 Rental of Office Space Exception (42 C.F.R. \u00a7 411.357(a))**\n\nThe rental of office space exception permits a compensation arrangement consisting of a lease of office space where the following cond",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'head -c 58000 /workspace/txt/compliance-program-manual.docx.txt | tail -c +29001'"
+  },
+  {
+   "i": 26,
+   "tool": "Bash",
+   "out_chars": 27847,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": ", email, direct communication), whether the report was anonymous or identified, and a summary of the reported concern.\n\n**Step 2: Preliminary Assessment.** The CCO shall conduct a preliminary assessment to determine the nature and severity ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'tail -c +58001 /workspace/txt/compliance-program-manual.docx.txt'"
+  },
+  {
+   "i": 27,
+   "tool": "Bash",
+   "out_chars": 1448,
+   "is_error": false,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "== buckeye-operating-agreement-excerpts.docx\nbash: line 1: unzip: command not found\n== clearview-lease-agreement.docx\nbash: line 1: unzip: command not found\n== compensation-plan-update-memo.docx\nbash: line 1: unzip: command not found\n== com",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace/documents; for f in *.docx; do echo \"== $f\"; unzip -l \"$f\" | awk \"{print \\$4}\" | grep -E \"comments|header|footer|footnotes\" ; done; python3 -c \"\nimport openpyxl\nfor f in [\\\"compliance-hotline-log-2023.xlsx\\\",\\\"pinnacle-courier-invoices.xlsx\\\",\\\"physician-compensation-summary-2023.xlsx\\\"]:\n  wb=openpyxl.load_workbook(f)\n  for ws in wb:\n    cm=[(c.coordinate,c.commen"
+  },
+  {
+   "i": 28,
+   "tool": "Bash",
+   "out_chars": 881,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "buckeye-operating-agreement-excerpts.docx ['word/footer1.xml', 'word/header1.xml']\nclearview-lease-agreement.docx ['word/footer1.xml', 'word/header1.xml']\ncompensation-plan-update-memo.docx ['word/footer1.xml', 'word/header1.xml']\ncomplianc",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace/documents; python3 -c \"\nimport zipfile,glob\nfor f in sorted(glob.glob(\\\"*.docx\\\")):\n  n=[x for x in zipfile.ZipFile(f).namelist() if any(k in x for k in (\\\"comments\\\",\\\"header\\\",\\\"footer\\\",\\\"footnotes\\\"))]\n  print(f,n)\n\"; python3 -c \"import docx; print(docx.__version__ if hasattr(docx,\\\"__version__\\\") else \\\"ok\\\")\"; which pandoc soffice'"
+  },
+  {
+   "i": 29,
+   "tool": "Bash",
+   "out_chars": 2864,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "buckeye-operating-agreement-excerpts.docx word/header1.xml | Buckeye Surgical Center, LLC \u2014 Amended and Restated Operating Agreement (Excerpts) \u2014 CONFIDENTIAL\nbuckeye-operating-agreement-excerpts.docx word/footer1.xml | Page 1  of  1\nclearv",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace/documents; python3 -c \"\nimport zipfile,glob,re\nfor f in sorted(glob.glob(\\\"*.docx\\\")):\n  z=zipfile.ZipFile(f)\n  for p in (\\\"word/header1.xml\\\",\\\"word/footer1.xml\\\"):\n    t=\\\" \\\".join(re.findall(r\\\"<w:t[^>]*>([^<]*)</w:t>\\\",z.read(p).decode()))\n    print(f,p,\\\"|\\\",t)\n\"'"
+  },
+  {
+   "i": 30,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/lib.py <<'EOF'\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\nimport re\n\ndoc = Document()\nsec = doc.sections[0]\nsec.left_margin = sec.right_margin = Inches(1)\nsec.top_margin = sec.botto"
+  },
+  {
+   "i": 31,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part1.py <<'EOF'\nt = doc.add_paragraph(); t.alignment = WD_ALIGN_PARAGRAPH.CENTER\nr = t.add_run('MEMORANDUM'); r.bold = True; r.font.size = Pt(16)\nt2 = doc.add_paragraph(); t2.alignment = WD_ALIGN_PARAGRAPH.CENTER\nr = t2.add_run('Stark Law Compliance Review of Greenfield Health Partners, LLC: Issues, Exposure, and Remediation'); r.bold = True; r.font.size = Pt(1"
+  },
+  {
+   "i": 32,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part2.py <<'EOF'\nH('IV. Governing Legal Framework (Summary)', 1)\nP('**Stark Law.** Absent an applicable exception, a physician may not refer a Medicare patient for DHS to an entity with which the physician (or an immediate family member) has a financial relationship. The entity may not bill Medicare for DHS furnished on a prohibited referral (42 U.S.C. \u00a7 1395nn("
+  },
+  {
+   "i": 33,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part3.py <<'EOF'\n# ---------------- ISSUE 3\nH('Issue 3 \u2014 Pinnacle Reference Laboratory Lease: Below FMV, Stale and Misdescribed Appraisal (High)', 2)\nH('Facts', 3)\nB('**Space and term.** Suite 105, 1,800 sf, March 1, 2022 to February 28, 2025. The lease has no renewal or holdover provision.')\nB('**Rent.** Base rent is **$22.00/sf ($39,600/yr)**, fixed with no es"
+  },
+  {
+   "i": 34,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part4.py <<'EOF'\n# ---------------- ISSUE 6\nH('Issue 6 \u2014 Dr. Stein\u2019s Buckeye Medical Director Agreement (High)', 2)\nH('Facts', 3)\nB('**Terms.** The agreement is dated August 22, 2016, the same day Buckeye was formed. It pays **$120,000 per year** ($10,000 per month) for a **minimum of 8 hours per month (96 hours per year)** (\u00a7\u00a7 3.2, 4.1). That is **$1,250 per co"
+  },
+  {
+   "i": 35,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part5.py <<'EOF'\n# ---------------- ISSUE 10\nH('Issue 10 \u2014 Physician Compensation Governance, FMV Support and Self-Dealing (Medium)', 2)\nH('Facts', 3)\nB('**Committee composition.** The Compensation Committee is Dr. Stein (chair), Dr. Narayan and the CFO. It sets **member** base salaries (60th percentile MGMA) and quality bonuses, including its own members\u2019 pay. "
+  },
+  {
+   "i": 36,
+   "tool": "Bash",
+   "out_chars": 62,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: output/stark-law-issues-memorandum.docx valid\nexit=0",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part6.py <<'EOF'\nH('Additional Observations', 2)\nB('**Wellford agreement and other employment agreements.** The Wellford agreement expired January 14, 2024 and does not renew automatically (\u00a7 3.1). The 2023 compensation data list him as employed. If employment continued, the employment exception has no writing requirement, but the compensation terms in force mus"
+  },
+  {
+   "i": 37,
+   "tool": "Bash",
+   "out_chars": 7844,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "12528 /tmp/m.txt\n**MEMORANDUM**\n\n**Stark Law Compliance Review of Greenfield Health Partners, LLC: Issues, Exposure, and Remediation**\n\n  ----------------------------------- ------------------------------------------------------------------",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && parse-doc docx output/stark-law-issues-memorandum.docx > /tmp/m.txt; wc -w /tmp/m.txt; head -c 3000 /tmp/m.txt; grep -n \"\\*\\*\" /tmp/m.txt | head; ls -la output'"
+  },
+  {
+   "i": 38,
+   "tool": "Bash",
+   "out_chars": 104,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "part1.py:73\npart2.py:77\npart3.py:72\npart4.py:87\npart5.py:55\npart6.py:106\npays employed physicians 50 per",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && grep -c \"\\$\" part1.py part2.py part3.py part4.py part5.py part6.py; grep -o \"pays employed physicians [^ ]* per\" part1.py'"
+  },
+  {
+   "i": 39,
+   "tool": "Bash",
+   "out_chars": 36,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "13\npays employed physicians $150 per",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part1.py <<'EOF'\nt = doc.add_paragraph(); t.alignment = WD_ALIGN_PARAGRAPH.CENTER\nr = t.add_run('MEMORANDUM'); r.bold = True; r.font.size = Pt(16)\nt2 = doc.add_paragraph(); t2.alignment = WD_ALIGN_PARAGRAPH.CENTER\nr = t2.add_run('Stark Law Compliance Review of Greenfield Health Partners, LLC: Issues, Exposure, and Remediation'); r.bold = True; r.font.size = Pt(1"
+  },
+  {
+   "i": 40,
+   "tool": "Bash",
+   "out_chars": 1,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "6",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part2.py <<'EOF'\nH('IV. Governing Legal Framework (Summary)', 1)\nP('**Stark Law.** Absent an applicable exception, a physician may not refer a Medicare patient for DHS to an entity with which the physician (or an immediate family member) has a financial relationship. The entity may not bill Medicare for DHS furnished on a prohibited referral (42 U.S.C. \u00a7 1395nn("
+  },
+  {
+   "i": 41,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "10",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part3.py <<'EOF'\nH('Issue 3 \u2014 Pinnacle Reference Laboratory Lease: Below FMV, Stale and Misdescribed Appraisal (High)', 2)\nH('Facts', 3)\nB('**Space and term.** Suite 105, 1,800 sf, March 1, 2022 to February 28, 2025. The lease has no renewal or holdover provision.')\nB('**Rent.** Base rent is **\\$22.00/sf (\\$39,600/yr)**, fixed with no escalation (\u00a7\u00a7 3.1, 3.3). T"
+  },
+  {
+   "i": 42,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "11",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part4.py <<'EOF'\nH('Issue 6 \u2014 Dr. Stein\u2019s Buckeye Medical Director Agreement (High)', 2)\nH('Facts', 3)\nB('**Terms.** The agreement is dated August 22, 2016, the same day Buckeye was formed. It pays **\\$120,000 per year** (\\$10,000 per month) for a **minimum of 8 hours per month (96 hours per year)** (\u00a7\u00a7 3.2, 4.1). That is **\\$1,250 per contracted hour**.')\nB('**"
+  },
+  {
+   "i": 43,
+   "tool": "Bash",
+   "out_chars": 1,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "7",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part5.py <<'EOF'\nH('Issue 10 \u2014 Physician Compensation Governance, FMV Support and Self-Dealing (Medium)', 2)\nH('Facts', 3)\nB('**Committee composition.** The Compensation Committee is Dr. Stein (chair), Dr. Narayan and the CFO. It sets **member** base salaries (60th percentile MGMA) and quality bonuses, including its own members\u2019 pay. Its decisions require only i"
+  },
+  {
+   "i": 44,
+   "tool": "Bash",
+   "out_chars": 70,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: output/stark-law-issues-memorandum.docx valid\n12528 m.txt\n62",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cat > /workspace/part6.py <<'EOF'\nH('Additional Observations', 2)\nB('**Wellford agreement and other employment agreements.** The Wellford agreement expired January 14, 2024 and does not renew automatically (\u00a7 3.1). The 2023 compensation data list him as employed. If employment continued, the employment exception has no writing requirement, but the compensation terms in force mus"
+  },
+  {
+   "i": 45,
+   "tool": "Bash",
+   "out_chars": 1749,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "      7 $150\n      7 $120,000\n      5 $32\n      5 $28\n      5 $18\n      4 $90,000\n      4 $50,400\n      4 $22\n      4 $1,260,000\n      3 $44,800\n      3 $4,200\n      3 $30\n      3 $1,250\n      2 $960,000\n      2 $57,600\n      2 $54,000\n    ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && grep -oE \"\\\\\\$[0-9][0-9,.]*[A-Za-z]*\" m.txt | sort | uniq -c | sort -rn | head -60; grep -n \"Issue 6\\|Issue 9 \\|holdover rent\" m.txt | head'"
+  },
+  {
+   "i": 46,
+   "tool": "Bash",
+   "out_chars": 246,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nbash: line 8: warning: here-document at line 1 delimited by end-of-file (wanted `EOF')\n  File \"<stdin>\", line 6\n    s=s.replace(\"\"\"def N(t):\n                ^\nSyntaxError: unterminated triple-quoted string literal (detected at l",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && python3 - <<'\"'\"'EOF'\"'\"'\ns=open(\"lib.py\").read()\ns=s.replace(\"\"\"def H(t, l=1): return doc.add_heading(t, level=l)\"\"\",\"\"\"_ctr=[0]\ndef H(t, l=1):\n    _ctr[0]=0\n    return doc.add_heading(t, level=l)\"\"\")\ns=s.replace(\"\"\"def N(t):\n    p = doc.add_paragraph(style='List Number'); return rich(p, t)\"\"\",\"\"\"def N(t):\n    _ctr[0]+=1\n    p = doc.add_paragraph()\n    p.paragr"
+  },
+  {
+   "i": 47,
+   "tool": "Bash",
+   "out_chars": 75,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "patched\nsaved\nOK: output/stark-law-issues-memorandum.docx valid\n12627 m.txt",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 \"cd /workspace && cat > fix.py <<'EOF'\ns = open('lib.py').read()\na = 'def H(t, l=1): return doc.add_heading(t, level=l)'\nb = '_ctr = [0]\\ndef H(t, l=1):\\n    _ctr[0] = 0\\n    return doc.add_heading(t, level=l)'\nc = \\\"def N(t):\\n    p = doc.add_paragraph(style='List Number'); return rich(p, t)\\\"\nd = \\\"def N(t):\\n    _ctr[0] += 1\\n    p = doc.add_paragraph()\\n    p.paragraph_format"
+  },
+  {
+   "i": 48,
+   "tool": "Bash",
+   "out_chars": 1991,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "3:**Stark Law Compliance Review of Greenfield Health Partners, LLC: Issues, Exposure, and Remediation**\n229:### Remediation\n275:### Remediation\n### Remediation\n\n> 1\\. By Compensation Committee action under OA \u00a7 7.5(c) (\"sole discretion to .",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/identify-stark-law-compliance-issues/claude-code-session/20261015-115344 'cd /workspace && grep -n \"Remediation\" m.txt | head -3; sed -n \"/### Remediation/,+8p\" m.txt | head -20; ls -la output'"
+  },
+  {
+   "i": 49,
+   "tool": "SubagentHandback",
+   "out_chars": 61,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"success\":true,\"message\":\"Report delivered to your caller.\"}",
+   "cmd": "{\"message\": \"I've written the Stark Law issues memorandum: `/workspace/output/stark-law-issues-memorandum.docx`, about 12,600 words. The docx validator passed and it reads back cleanly with `parse-doc`. I read all 15 source documents in full, including the docx headers and footers and every spreadsh"
+  }
+ ],
+ "final_message": "Dollar amounts are now correct. One more fix: python-docx's \"List Number\" style keeps counting across sections, so I'll switch to numbering that restarts under each heading.",
+ "failed": [
+  {
+   "id": "C-005",
+   "title": "ISSUE_002: Identifies ClearView lease as below fair market value",
+   "verdict": "fail",
+   "reasoning": "Memo concludes ClearView rent is likely defensible on a gross-equivalent basis (~$30/sf) rather than identifying it as significantly below FMV."
+  },
+  {
+   "id": "C-009",
+   "title": "ISSUE_002: States FMV requirement of rental exception is not satisfied",
+   "verdict": "fail",
+   "reasoning": "Memo states ClearView FMV is likely satisfied under 411.357(a), not that the FMV requirement fails."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_006: Identifies Dr. Stein's medical director compensation as above FMV",
+   "verdict": "fail",
+   "reasoning": "Flags $1,250/hr rate as high but never cites the MGMA $85,000-$105,000 benchmark range."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_006: Cites personal services/management contracts exception",
+   "verdict": "fail",
+   "reasoning": "Memo analyzes the MDA under AKS 1001.952(d) and says Stark risk is secondary; it does not apply the 411.357(d) personal services exception to it."
+  },
+  {
+   "id": "C-022",
+   "title": "ISSUE_007: Estimates imaging revenue exposure (~$2.61M)",
+   "verdict": "fail",
+   "reasoning": "Notes ~30% of imaging reads but gives no dollar exposure estimate (~$2.61M)."
+  },
+  {
+   "id": "C-024",
+   "title": "ISSUE_008: Notes writing requirement for Stark exceptions",
+   "verdict": "fail",
+   "reasoning": "Memo states the employment exception has no writing requirement, contrary to the criterion."
+  },
+  {
+   "id": "C-026",
+   "title": "ISSUE_009: Estimates lab services exposure at unsupervised satellites (~$1.9M)",
+   "verdict": "fail",
+   "reasoning": "Satellite lab volume explicitly 'not quantified'; no ~$1.9M estimate."
+  },
+  {
+   "id": "C-031",
+   "title": "ISSUE_010: Identifies absence of self-disclosure protocol",
+   "verdict": "fail",
+   "reasoning": "Does not identify that the compliance plan lacks a Stark self-disclosure/refund protocol."
+  },
+  {
+   "id": "C-043",
+   "title": "Memorandum identifies total estimated Medicare exposure (~$30M)",
+   "verdict": "fail",
+   "reasoning": "Memo expressly declines to provide an aggregate exposure estimate; no ~$30M figure."
+  },
+  {
+   "id": "C-046",
+   "title": "Memorandum recommends executing a written agreement with Dr. Wellford",
+   "verdict": "fail",
+   "reasoning": "Notes Wellford expiry but does not recommend executing a new written agreement with him; only a general inventory."
+  }
+ ]
+}

@@ -1,0 +1,401 @@
+{
+ "task": "bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization",
+ "status": "judge_running",
+ "n_criteria": 40,
+ "n_passed": null,
+ "outputs": [
+  "plan-deviation-report.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_fa47102d-dc9/agent-af96c7ed7f385414e.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261016-024711",
+ "documents": [
+  "clearview-valuation-summary.docx",
+  "committee-counsel-transmittal.eml",
+  "committee-redlined-plan.docx",
+  "debtors-proposed-plan.docx",
+  "disclosure-statement-excerpts.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 471,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329\", \"brief\": \"/home/user/Lawless_Research_La",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23039,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 1357,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 312\ndrwxr-xr-x 2 root root  4096 Oct 15 06:32 .\ndrwxr-xr-x 5 root root  4096 Oct 15 23:13 ..\n-rw-r--r-- 1 root root 58070 Oct 15 06:32 clearview-valuation-summary.docx\n-rw-r--r-- 1 root root 16792 Oct 15 06:32 committee-cou",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'ls -la documents output skills; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 425,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 2\n 54315 /workspace/txt/clearview-valuation-summary.txt\n113126 /workspace/txt/committee-redlined-plan.txt\n134438 /workspace/txt/debtors-proposed-plan.txt\n 70791 /workspace/txt/disclosure-statement-excerpts.txt\n372670 total\nbash: l",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'mkdir -p /workspace/txt; for f in clearview-valuation-summary debtors-proposed-plan committee-redlined-plan disclosure-statement-excerpts; do parse-doc docx documents/$f.docx > /workspace/txt/$f.txt; done; wc -c /workspace/txt/*; cd /tmp; mkdir -p rl; cd rl; unzip -o -q /workspace/documents/committee-redlined-plan.docx; grep -c \"<w:ins \" word/documen"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 17744,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "committee-redlined-plan 68 0 0 ['[Content_Types].xml', '_rels/.rels', 'docProps/core.xml', 'docProps/app.xml', 'word/document.xml', 'word/_rels/document.xml.rels', 'word/styles.xml', 'word/stylesWithEffects.xml', 'word/settings.xml', 'word/",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 -c \"\nimport zipfile,re\nfor f in [\\\"committee-redlined-plan\\\",\\\"debtors-proposed-plan\\\"]:\n  x=zipfile.ZipFile(\\\"documents/\\\"+f+\\\".docx\\\").read(\\\"word/document.xml\\\").decode()\n  print(f, x.count(\\\"<w:ins \\\"), x.count(\\\"<w:del \\\"), x.count(\\\"commentReference\\\"), zipfile.ZipFile(\\\"documents/\\\"+f+\\\".docx\\\").namelist())\n\"; cat documents/committee-c"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 1912,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (43.9KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bgqrqg2gm.txt\n\nPreview (first 2KB):\nUNITED STATES BANKRUPTCY COURT ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'head -c 45000 /workspace/txt/debtors-proposed-plan.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Read",
+   "out_chars": 46253,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tUNITED STATES BANKRUPTCY COURT FOR THE DISTRICT OF OREGON\n2\t\n3\tIn re:\n4\t\n5\t**CASCADIA TIMBER HOLDINGS, INC.,** a Delaware corporation, EIN 93-1247856,\n6\t\n7\tDebtor.\n8\t\n9\tCase No. 25-30412-MLE\n10\t\n11\tChapter 11\n12\t\n13\tHon. Margaret L. Eriks",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bgqrqg2gm.txt"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 2029,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (44KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b4n71hdsi.txt\n\nPreview (first 2KB):\n134415 44955\n(LVL) manufacturing ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cd /workspace/txt; python3 - <<EOF\nt=open(\"debtors-proposed-plan.txt\").read()\ni=t.find(\"(LVL) manufacturing plant\")\nopen(\"orig2.txt\",\"w\").write(t[i:i+45000]); open(\"orig3.txt\",\"w\").write(t[i+45000:])\nprint(len(t), i)\nEOF\ncat orig2.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Read",
+   "out_chars": 46225,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t134415 44955\n2\t(LVL) manufacturing plant in Eugene, Oregon, located at 3880 West 11th Avenue, Eugene, OR 97402; and\n3\t>\n4\t> \\(e\\) Corporate headquarters at 1200 SW Morrison Street, Suite 1600, Portland, OR 97205.\n5\t\n6\t**Section 5.2 --- So",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b4n71hdsi.txt"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 2093,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (43KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b351afl2k.txt\n\nPreview (first 2KB):\n**Section 11.2 --- Best Interests",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cd /workspace/txt; t=$(cat orig2.txt | wc -c); python3 -c \"\nt=open(\\\"/workspace/txt/debtors-proposed-plan.txt\\\").read(); i=t.find(\\\"**Section 11.2 --- Best Interests Test**\\\"); print(t[i:i+44000])\"'"
+  },
+  {
+   "i": 10,
+   "tool": "Read",
+   "out_chars": 45553,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**Section 11.2 --- Best Interests Test**\n2\t\n3\tThe Debtor submits that each holder of a Claim in an Impaired Class will receive under this Plan at least as much as such holder would receive in a hypothetical Chapter 7 liquidation of the De",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b351afl2k.txt"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 795,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\n3\\. The Debtor reserves the right to amend this Exhibit C at any time prior to the Confirmation Date, with appropriate notice to affected counterparties.\n\n4\\. The aggregate estimated cure cost for all assumed contracts is approx",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 -c \"\nt=open(\\\"/workspace/txt/debtors-proposed-plan.txt\\\").read(); i=t.find(\\\"3\\\\\\\\. The Debtor reserves the right to amend thi\\\"); print(t[i:])\"; cat > /workspace/ins.py <<EOF\nimport zipfile,re\nfrom lxml import etree\nW=\"{http://schemas.openxmlformats.org/wordprocessingml/2006/main}\"\nx=zipfile.ZipFile(\"/workspace/documents/committee-redlined-p"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 22041,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "[1] Author 2024-01-01T00:00:00Z :: INS: new text\n   PARA: \u2022  Insertions are shown as: **new text**\n[2] Author 2024-01-01T00:00:00Z :: INS: , including, without limitation, Claims arising under Sections 503(b) and 507(a)(2) of the Bankruptcy",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat > /workspace/ins.py <<\"EOF\"\nimport zipfile,re\nfrom lxml import etree\nW=\"{http://schemas.openxmlformats.org/wordprocessingml/2006/main}\"\nx=zipfile.ZipFile(\"/workspace/documents/committee-redlined-plan.docx\").read(\"word/document.xml\")\nroot=etree.fromstring(x)\nn=0\nfor p in root.iter(W+\"p\"):\n    ins=p.findall(\".//\"+W+\"ins\")\n    if not ins: continue\n "
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 2219,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (39.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bg4ldh62l.txt\n\nPreview (first 2KB):\n**[IN THE UNITED STATES BANKRUP",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'head -c 40000 /workspace/txt/committee-redlined-plan.txt'"
+  },
+  {
+   "i": 14,
+   "tool": "Read",
+   "out_chars": 40988,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[IN THE UNITED STATES BANKRUPTCY COURT]{.underline}**\n2\t\n3\t**[FOR THE DISTRICT OF OREGON]{.underline}**\n4\t\n5\t**Case No. 25-30412-MLE** **Chapter 11**\n6\t\n7\t**Hon. Margaret L. Eriksson**\n8\t\n9\t**[SECOND AMENDED PLAN OF REORGANIZATION OF CA",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bg4ldh62l.txt"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 1901,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (39.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/beda8jls2.txt\n\nPreview (first 2KB):\n39662\n(b\\) *Anniversary Distrib",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 -c \"\nt=open(\\\"/workspace/txt/committee-redlined-plan.txt\\\").read(); i=t.find(\\\"(b\\\\\\\\) *Anniversary Distribution.*\\\"); print(i); print(t[i:i+40000])\"'"
+  },
+  {
+   "i": 16,
+   "tool": "Read",
+   "out_chars": 40751,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t39662\n2\t(b\\) *Anniversary Distribution.* On the first anniversary of the Effective Date, the Distribution Agent shall distribute to each holder of an Allowed General Unsecured Claim its Pro Rata share of \\~\\~\\$9,350,000\\~\\~ \\*\\*\\$7,000,00",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/beda8jls2.txt"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2180,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (33.5KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b4yasm5hc.txt\n\nPreview (first 2KB):\n78811 113071\n**[Section 10.3 --",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 -c \"\nt=open(\\\"/workspace/txt/committee-redlined-plan.txt\\\").read(); i=t.find(\\\"**[Section 10.3 --- Discharge]\\\"); print(i, len(t)); print(t[i:])\"'"
+  },
+  {
+   "i": 18,
+   "tool": "Read",
+   "out_chars": 35862,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t78811 113071\n2\t**[Section 10.3 --- Discharge]{.underline}**\n3\t\n4\tPursuant to Section 1141(d)(1) of the Bankruptcy Code, except as otherwise provided in this Plan, the distributions, rights, and treatment that are provided in this Plan sha",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b4yasm5hc.txt"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 2118,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (53KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b75oflgc6.txt\n\nPreview (first 2KB):\n**[SUMMARY VALUATION REPORT]{.und",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat /workspace/txt/clearview-valuation-summary.txt'"
+  },
+  {
+   "i": 20,
+   "tool": "Read",
+   "out_chars": 56112,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[SUMMARY VALUATION REPORT]{.underline}**\n2\t\n3\t**Clearview Valuation Services, LLC**\n4\t\n5\t700 NE Multnomah Street, Suite 800 Portland, OR 97232\n6\t\n7\t**Valuation of Cascadia Timber Holdings, Inc.**\n8\t\n9\tPrepared in Connection with Case No",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b75oflgc6.txt"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 2192,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (35.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/blo6gmq0p.txt\n\nPreview (first 2KB):\nUNITED STATES BANKRUPTCY COURT ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'head -c 36000 /workspace/txt/disclosure-statement-excerpts.txt'"
+  },
+  {
+   "i": 22,
+   "tool": "Read",
+   "out_chars": 36871,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tUNITED STATES BANKRUPTCY COURT DISTRICT OF OREGON\n2\t\n3\tIn re:\n4\t\n5\t**CASCADIA TIMBER HOLDINGS, INC.,**\n6\t\n7\tEIN: 93-1247856,\n8\t\n9\tDebtor.\n10\t\n11\tCase No. 25-30412-MLE\n12\t\n13\tChapter 11\n14\t\n15\tHon. Margaret L. Eriksson\n16\t\n17\t**[DISCLOSURE",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/blo6gmq0p.txt"
+  },
+  {
+   "i": 23,
+   "tool": "Bash",
+   "out_chars": 1520,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (34.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bw5rxq685.txt\n\nPreview (first 2KB):\n35847 70761\nThe identities of t",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 -c \"\nt=open(\\\"/workspace/txt/disclosure-statement-excerpts.txt\\\").read(); i=t.find(\\\"The identities of the proposed directors will be disclosed\\\"); print(i,len(t)); print(t[i:])\"'"
+  },
+  {
+   "i": 24,
+   "tool": "Read",
+   "out_chars": 35875,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t35847 70761\n2\tThe identities of the proposed directors will be disclosed in the Plan Supplement to be filed no later than ten (10) days prior to the Confirmation Hearing. The New Board shall have the authority and responsibility to manage",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bw5rxq685.txt"
+  },
+  {
+   "i": 25,
+   "tool": "Bash",
+   "out_chars": 1633,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "committee-redlined-plan ncoding='UTF-8' standalone='yes'?>\n<cp:coreProperties xmlns:cp=\"http://schemas.openxmlformats.org/package/2006/metadata/core-properties\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:dcterms=\"http://purl.org/dc/t",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 - <<\"EOF\"\nimport zipfile,re\nfor f in [\"committee-redlined-plan\",\"debtors-proposed-plan\"]:\n    z=zipfile.ZipFile(\"/workspace/documents/\"+f+\".docx\")\n    print(f, z.read(\"docProps/core.xml\").decode()[-700:])\n    x=z.read(\"word/document.xml\").decode()\n    print(\"strike:\",x.count(\"<w:strike\"), \"dstrike\", x.count(\"dstrike\"), \"tilde\", x.count(\"~~\"))"
+  },
+  {
+   "i": 26,
+   "tool": "Bash",
+   "out_chars": 362,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "0.1497326203208556 0.1516951871657754 0.18181818181818182 0.18983957219251338 0.20053475935828877 0.3668 112299.46524064172 37433.1550802139 1961.4973262032086\n0.54005400540054 72.31949999999999 107.31949999999999 1.129678947368421 1.084 1.",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'python3 -c \"\nprint(28/187, 28.367/187, 34/187, 35.5/187, 37.5/187, 7*0.0524, 21/187*1e6, 7/187*1e6, 7/187*1e6*0.0524)\nprint(60/111.1, 146.1*0.495, 146.1*0.495+35, (146.1*0.495+35)/95, 102.98/95, 115.355/95, 127.73/95)\nprint(0.5*412.5+0.25*392.5+0.25*402.5, 0.5*390+0.25*365+0.25*392, 0.5*435+0.25*420+0.25*413, 60/143.6, 143.6*0.55)\nprint(146.1-95, 68-"
+  },
+  {
+   "i": 27,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/lib.py <<\"EOF\"\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.section import WD_ORIENT\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\nNAVY = RGBColor(0x"
+  },
+  {
+   "i": 28,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat > /workspace/build/part1.py <<\"EOF\"\nfrom lib import *\n\ndef build_part1(d):\n    para(d,\"PRIVILEGED & CONFIDENTIAL \u2014 ATTORNEY WORK PRODUCT \u2014 PREPARED IN CONNECTION WITH SETTLEMENT NEGOTIATIONS (FRE 408)\", bold=True, size=8.5, align=\"center\", after=2)\n    para(d,\"WHITFIELD & CRANE LLP\", bold=True, size=13, align=\"center\", after=0)\n    para(d,\"PLAN D"
+  },
+  {
+   "i": 29,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat > /workspace/build/part2.py <<\"EOF\"\nfrom lib import *\n\ndef issue(d, title, filed, proposal, characterization, analysis, risk, response):\n    d.add_heading(title, level=2)\n    table(d, [\"\",\"\"], [\n        [\"Filed plan\", filed],\n        [\"Committee markup\", proposal],\n        [\"Transmittal / comment says\", characterization],\n        [\"Risk to Debtor"
+  },
+  {
+   "i": 30,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat > /workspace/build/part3.py <<\"EOF\"\nfrom lib import *\nfrom part2 import issue\n\ndef build_part3(d):\n    issue(d,\"D. Non-consensual third-party releases (Plan \u00a7 10.4(c) [redline \u00a7 8.2(b)])\",\n      \"\u00a7 10.4(c), labeled \u201cNon-Consensual Third-Party Release\u201d: binds all holders whether or not they vote to accept, unless they opt out on the Ballot or by a"
+  },
+  {
+   "i": 31,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat > /workspace/build/part4.py <<\"EOF\"\nfrom lib import *\nfrom part2 import issue\n\ndef build_part4(d):\n    issue(d,\"J. Executory contract rejection standard (Plan \u00a7 8.2 [redline \u00a7 7.2])\",\n      \"Rejection subject to the business judgment standard (e.g., PacWest Industrial Services maintenance agreement, $1.8M/yr, replaceable at lower cost).\",\n      \""
+  },
+  {
+   "i": 32,
+   "tool": "Bash",
+   "out_chars": 65,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/plan-deviation-report.docx valid\nrc=0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cat > /workspace/build/part5.py <<\"EOF\"\nfrom lib import *\n\nROWS = [\n [\"1\",\"\u00a7 1.1 Reorganized Debtor\",\"\u00a7 1.1\",\"Adds \u201cReorganized Company\u201d as an alternative term\",\"Cosmetic\",\"Drafting hazard (dual defined terms)\",\"LOW\",\"Reject\"],\n [\"2\",\"\u00a7 1.1 Administrative Claim\",\"\u00a7 1.1\",\"Adds \u00a7\u00a7 503(b)/507(a)(2) cross-reference\",\"Cosmetic\",\"Redundant (already in the "
+  },
+  {
+   "i": 33,
+   "tool": "Bash",
+   "out_chars": 5218,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "126055 /tmp/out.txt\n**PRIVILEGED & CONFIDENTIAL --- ATTORNEY WORK PRODUCT --- PREPARED IN CONNECTION WITH SETTLEMENT NEGOTIATIONS (FRE 408)**\n\n**WHITFIELD & CRANE LLP**\n\n**PLAN DEVIATION REPORT**\n\n  ------------- ---------------------------",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'parse-doc docx /workspace/output/plan-deviation-report.docx > /tmp/out.txt; wc -c /tmp/out.txt; head -c 3000 /tmp/out.txt; echo; echo ....; grep -n \"Appendix A\" /tmp/out.txt | head; tail -c 1500 /tmp/out.txt; ls -la /workspace/output'"
+  },
+  {
+   "i": 34,
+   "tool": "Bash",
+   "out_chars": 5027,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/plan-deviation-report.docx valid\n**PRIVILEGED & CONFIDENTIAL --- ATTORNEY WORK PRODUCT --- PREPARED IN CONNECTION WITH SETTLEMENT NEGOTIATIONS (FRE 408)**\n\n**WHITFIELD & CRANE LLP**\n\n**PLAN DEVIATION REPORT**\n\n  ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cd /workspace/build && python3 - <<\"EOF\"\ns=open(\"lib.py\").read()\ns=s.replace(\"\"\"    d.add_paragraph().paragraph_format.space_after=Pt(2)\n    return t\"\"\",\"\"\"    if all(h==\"\" for h in header):\n        t._tbl.remove(t.rows[0]._tr)\n        for row in t.rows:\n            shade(row.cells[0],\"E8EEF5\")\n    d.add_paragraph().paragraph_format.space_after=Pt(2)"
+  },
+  {
+   "i": 35,
+   "tool": "Bash",
+   "out_chars": 2042,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "18:        \"**The markup is not a redline of the filed plan.** Its \u201cunchanged\u201d base text differs from the April 28 plan on dozens of points, and none of those differences is tracked or mentioned in the email (Section III). Examples: a Janua",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cd /workspace/build && grep -n \"u201c\\*\\*\" part*.py | head; sed -i \"s#(literal \\\\\\\\u201c~~\\\\\\\\u201d/\\\\\\\\u201c\\*\\*\\\\\\\\u201d characters)#(literal tilde and asterisk characters typed into the text)#\" part1.py; grep -n \"literal\" part1.py | head -3; python3 build.py && python3 /workspace/skills/docx/scripts/validate.py /workspace/output/plan-deviation-rep"
+  },
+  {
+   "i": 36,
+   "tool": "Bash",
+   "out_chars": 465,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\nsaved\nOK: /workspace/output/plan-deviation-report.docx valid\n23:1.\u00a0 **The markup is not a redline of the filed plan.** Its \"unchanged\" base text differs from the April 28 plan on dozens of points, and none of those differences is tracked ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'cd /workspace/build && python3 - <<\"EOF\"\ns=open(\"part1.py\").read()\nold=\"(literal \u201c~~\u201d/\u201c**\u201d characters)\"\nprint(s.count(old))\ns=s.replace(old,\"(literal tilde and asterisk characters typed into the text)\")\nopen(\"part1.py\",\"w\").write(s)\nEOF\npython3 build.py && python3 /workspace/skills/docx/scripts/validate.py /workspace/output/plan-deviation-report.docx"
+  },
+  {
+   "i": 37,
+   "tool": "Bash",
+   "out_chars": 2719,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "to re-run its markup as a compare against the filed plan before any language is negotiated.\n17:# I. Executive Summary\n45:# II. Documents Reviewed, Method and Limitations\n63:# III. Threshold Issue: The Markup Is Not Marked Against the Filed ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261015-231329; $S $R 'sed -n 23p /tmp/o.txt | cut -c900-1500; grep -n \"^#\" /tmp/o.txt'"
+  }
+ ],
+ "final_message": "I've written the deviation report as a Word file (`plan-deviation-report.docx`); it opens cleanly and passes the format validator. The main finding is that the Committee marked up a different base text, not the plan filed April 28, 2025, so many material changes are untracked and the cover email understates the markup.\n\nThe report covers four other points:\n- **Feasibility:** a $28M pool paid 75% up front needs $74.5M on the Effective Date against $68M of projected cash, a shortfall of $6.5\u20137.0M.\n- **Equity allocation:** the 41.07% \"correction\" matches our own valuation advisor's math (Clearview), and the Disclosure Statement values Timberline's package at 121% of its claim. Clearview's own weighting also gives a $405.0M midpoint, not $407.5M.\n- **Exhibit C:** the email describes two typos, but the redline makes four changes, including a 40% contract-value cut and a date change that contradicts the filed plan.\n- **Our own papers:** it lists errors in the Debtor's plan and disclosure statement to fix before June 12, plus a 47-item change matrix with a recommended response for each.\n\nFiles in /workspace/output:\n- /workspace/output/plan-deviation-report.docx"
+}

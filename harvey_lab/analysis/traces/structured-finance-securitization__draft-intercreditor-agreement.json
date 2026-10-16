@@ -1,0 +1,277 @@
+{
+ "task": "structured-finance-securitization/draft-intercreditor-agreement",
+ "status": "done",
+ "n_criteria": 64,
+ "n_passed": 58,
+ "outputs": [
+  "intercreditor-agreement.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_50c1e39f-8a4/agent-af3b3fd6d445eabd5.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613",
+ "documents": [
+  "first-lien-credit-agreement-excerpts.docx",
+  "partner-drafting-instructions.eml",
+  "second-lien-credit-agreement-excerpts.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 441,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_lab/ve",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'structured-finance-securitization/draft-intercreditor-agreement'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23023,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 665,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 136\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:36 ..\n-rw-r--r-- 1 root root 53803 Oct 15 06:33 first-lien-credit-agreement-excerpts.docx\n-rw-r--r-- 1 root root 18197 Oct 15 06:33 part",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'ls -la documents output; ls; wc -c documents/*'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 71,
+   "is_error": true,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "Exit code 2\nusage: /usr/local/bin/parse-doc {docx|pdf|pptx|xlsx} <path>",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'parse-doc documents/partner-drafting-instructions.eml'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 18192,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "From: Garrett Whitmore <gwhitmore@akm-law.com>\nTo: Dana Reeves <dreeves@akm-law.com>\nDate: Fri, 11 Oct 2024 06:47:00 -0000\nSubject: Re: CTS Acquisition \u2014 Intercreditor Agreement Drafting Instructions\n (Ridgeline/Pinnacle \u2014 First Lien / Seco",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat documents/partner-drafting-instructions.eml'"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 77,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "  395 47291 /workspace/fl.txt\n  303 33620 /workspace/sl.txt\n  698 80911 total",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'parse-doc docx documents/first-lien-credit-agreement-excerpts.docx > /workspace/fl.txt; parse-doc docx documents/second-lien-credit-agreement-excerpts.docx > /workspace/sl.txt; wc -l -c /workspace/fl.txt /workspace/sl.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 1615,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (46.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bou5ma73l.txt\n\nPreview (first 2KB):\n**[FIRST LIEN CREDIT AGREEMENT]",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat /workspace/fl.txt'"
+  },
+  {
+   "i": 7,
+   "tool": "Read",
+   "out_chars": 48767,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[FIRST LIEN CREDIT AGREEMENT]{.underline}**\n2\t\n3\tdated as of October 15, 2024\n4\t\n5\tamong\n6\t\n7\t**CONSOLIDATED THERMAL SYSTEMS, INC.,** a Delaware corporation, as Borrower,\n8\t\n9\t**CTS ACQUISITION HOLDINGS, LLC,** a Delaware limited liabil",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bou5ma73l.txt"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 2016,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (32.8KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bb1br8hr2.txt\n\nPreview (first 2KB):\n**[EXCERPTS FROM SECOND LIEN CR",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat /workspace/sl.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Read",
+   "out_chars": 34718,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[EXCERPTS FROM SECOND LIEN CREDIT AGREEMENT]{.underline}**\n2\t\n3\tdated as of\n4\t\n5\t**October 15, 2024**\n6\t\n7\tamong\n8\t\n9\t**CONSOLIDATED THERMAL SYSTEMS, INC.** as Borrower,\n10\t\n11\t**CTS ACQUISITION HOLDINGS, LLC** as Holdings,\n12\t\n13\t**THE",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bb1br8hr2.txt"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 178,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py\n2032-01-14 2031-07-16 2032-07-16 Saturday Tuesday",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'python3 -c \"import docx;print(docx.__version__)\"; ls skills/docx/scripts; python3 -c \"import datetime as d;print(d.date(2031,10,15)+d.timedelta(91), d.date(2031,10,15)-d.timedelta(91), d.date(2032,10,15)-d.timedelta(91), d.date(2024,10,12).strftime(\\\"%A\\\"), d.date(2024,10,15).strftime(\\\"%A\\\"))\"'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 31,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(Bash completed with no output)",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/t.txt; cat /workspace/t.txt' <<'EOF'\nLender's \"test\" $HOME\nEOF"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 4,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "done",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/build.py <<\"EOF\"\nimport re, sys, glob\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH, WD_COLOR_INDEX, WD_BREAK\nfrom docx.enum.section import WD_SECTION\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nst = doc.styl"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/c1.txt <<\"EOF\"\nT: ASHFORD, KEENE & MORROW LLP\nC: **PRIVILEGED & CONFIDENTIAL \u2014 ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT**\nT: CLOSING ISSUES MEMORANDUM\nPL: **TO:** Garrett Whitmore, Partner, Finance & Restructuring\nPL: **FROM:** Dana Reeves\nPL: **DATE:** October 12, 2024\nPL: **RE:** CTS Acquisition \u2014 First Lien/Second Lien Intercr"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/c2.txt <<\"EOF\"\nC: AKM Draft 10/12/2024 \u2014 Privileged & Confidential \u2014 Subject to FRE 408 and Equivalent State Rules\nT: FIRST LIEN/SECOND LIEN INTERCREDITOR AGREEMENT\nC: dated as of October 15, 2024\nC: among\nC: **PINNACLE CREDIT ADVISORS LLC,**\nC: as First Lien Administrative Agent and First Lien Collateral Agent,\nC: **TRIDENT CAPITAL MARKETS L"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/c3.txt <<\"EOF\"\nH1: ARTICLE II \u2014 LIEN PRIORITIES\nS: 2.1|Relative Priorities|Notwithstanding (a) the date, time, order, manner or method of grant, creation, attachment or perfection of any Liens securing the Second Lien Obligations granted on the Collateral or of any Liens securing the First Lien Obligations granted on the Collateral, (b) any p"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/c4.txt <<\"EOF\"\nH1: ARTICLE V \u2014 RELEASES; AMENDMENTS; REFINANCING\nS: 5.1|Automatic Release of Second Lien Liens and Guarantees|(a) If, at any time, (i) any Collateral is sold, transferred or otherwise disposed of, or any First Lien Lien on any Collateral is released, or any Guarantor is released from its guarantee of the First Lien Obligations"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/c5.txt <<\"EOF\"\nH1: ARTICLE VI \u2014 INSOLVENCY PROCEEDINGS\nS: 6.1|DIP Financing; Use of Cash Collateral|(a) Until the Discharge of First Lien Obligations has occurred, if any Grantor shall be subject to any Insolvency Proceeding and the First Lien Agent shall desire to permit the use of cash collateral (as such term is defined in Section 363(a) o"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/c6.txt <<\"EOF\"\nH1: ARTICLE IX \u2014 MISCELLANEOUS\nS: 9.1|Conflicts|In the event of any conflict between the provisions of this Agreement and the provisions of any First Lien Document or any Second Lien Document, the provisions of this Agreement shall govern and control. The parties acknowledge that Section 8.02(c) of the First Lien Credit Agreeme"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 8,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "fixed\nok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cat > /workspace/build/fix.py <<\"EOF\"\nimport re\ndef ed(fn, pairs):\n    p = \"/workspace/build/\" + fn; s = open(p, encoding=\"utf-8\").read()\n    for a, b in pairs:\n        n = s.count(a)\n        if n == 0: raise SystemExit(\"missing in %s: %s\" % (fn, a[:60]))\n        s = s.replace(a, b)\n    open(p, \"w\", encoding=\"utf-8\").write(s)\ned(\"c2.txt\", [\n (\"under any Credit Docu"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 1985,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OK: output/intercreditor-agreement.docx valid\nrc=0\n23447 out.txt\n29\ndefined ['1.1', '1.2', '2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '3.1', '3.2', '3.3', '3.4', '3.5', '4.1', '4.2', '4.3', '4.4', '5.1', '5.2', '5.3', '5.4', '5.5', '6.1', '6",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cd /workspace; python3 skills/docx/scripts/validate.py output/intercreditor-agreement.docx; echo rc=$?; parse-doc docx output/intercreditor-agreement.docx > /workspace/out.txt; wc -w out.txt; grep -c \"AKM Note\" out.txt; python3 - <<\"EOF\"\nimport re\ns=open(\"/workspace/out.txt\").read()\nheads=set(re.findall(r\"Section (\\d\\.\\d+)\\s+\\S\", s))\ndefined=set(m for m in re.finda"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 8623,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "25:- **Second Lien maturity floor date is wrong in the Second Lien Credit Agreement (and in the instructions).** Ninety-one days *after* the First Lien maturity of October 15, 2031 is **January 14, 2032**, not July 16, 2031 (July 16, 2031 i",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/draft-intercreditor-agreement/claude-code-session/20261016-033613; $S $R 'cd /workspace; grep -n \"January 14, 2032\\|DIP Cap\\|Section 5.3  \\|Section 7.2\" out.txt | head; sed -n \"/Section 4.2/,+3p\" out.txt | head -c 1200; ls -la output'"
+  }
+ ],
+ "final_message": "I've drafted the first-lien-favorable intercreditor agreement, with a closing issues memo up front and 29 highlighted \"[AKM Note: \u2026]\" brackets flagging conflicts. It holds all four points Caldwell Reed raised: 180-day standstill, DIP cap of outstanding first lien obligations plus $30M, adequate protection limited to junior replacement liens and junior superpriority claims, and the broad plan-voting restriction.\n\nI did not have the Meridian Industrial Partners 2023 precedent. The draft follows standard first lien/second lien architecture, so the refinancing section especially should be compared against Meridian before it goes out. The file passes the docx validator and parses back cleanly.\n\nIssues the memo flags as needing action before Monday's circulation:\n\n- **Second lien maturity floor date is wrong.** 91 days after October 15, 2031 is January 14, 2032; July 16, 2031 (in both the second lien credit agreement \u00a79.18(j) and the partner's instructions) is 91 days *before*. The draft uses January 14, 2032; the second lien credit agreement should be corrected.\n- **DIP cap conflict.** Second lien credit agreement \u00a79.18(b) caps it at outstanding *principal* plus $30M, which is Trident's position. The draft follows the instructions; \u00a79.18(b) should be conformed.\n- **Leverage test definitions differ.** The second lien agreement's version of the ratio has no $25M cap on netting cash, a different definition of unrestricted cash and EBITDA frozen at closing. The draft uses the first lien definitions as instructed. Separately, 4.50x does not restrict anything at closing: first lien leverage is about 3.48x gross, or 3.20x net.\n- **Barring new first lien collateral conflicts with our own documents.** It clashes with the after-acquired property provisions and with first lien credit agreement \u00a76.12(b)\u2013(c). The draft narrows the restriction.\n- **No headroom on first lien commitments.** The restriction as instructed has no cushion; the draft carves out protective advances and capitalized interest and brackets a cushion for the partner to decide.\n- **Purchase price.** Trident's own \u00a79.18(g) prices the option at the full first lien obligations, including the 1% prepayment premium. That is better for us than the instructions' \"par plus interest plus fees,\" so the draft uses it.\n- **Parties.** Both agents sign in both capacities (administrative and collateral agent), and the four subsidiary guarantors are bracketed in as acknowledging parties. The instructions named only the collateral agents, Borrower and Holdings, so this needs the partner's and Thornburg's sign-off.\n\nThe memo's conflicts table covers further items, including:\n- undefined \"Payment Default\" and \"Bankruptcy Event of Default\" cross-references;\n- unlimited standstill restarts;\n- the standstill triggering only on a first lien notice;\n- second lien automatic acceleration on bankruptcy;\n- mixed notional and exposure caps on hedging;\n- the baseline for the 200 bps margin cap;\n- enforceability of the plan-v",
+ "failed": [
+  {
+   "id": "C-004",
+   "title": "ISSUE_002: Identifies revolver and term loan priority/pari passu question",
+   "verdict": "fail",
+   "reasoning": "Neither the memo nor the draft flags whether the $55M revolver ranks ahead of or pari passu with the $310M term loan; the waterfall just defers to the FL CA ordering."
+  },
+  {
+   "id": "C-008",
+   "title": "ISSUE_004: Flags risk of automatic release enabling uptier/Serta-style transactions",
+   "verdict": "fail",
+   "reasoning": "Nothing flags the risk that the automatic release could enable uptier, Serta-style or non-pro-rata transactions."
+  },
+  {
+   "id": "C-009",
+   "title": "ISSUE_004: Considers anti-Serta protections for automatic release",
+   "verdict": "fail",
+   "reasoning": "There are no anti-uptier protections (non-affiliate sale, ratable benefit) and no reference to Serta or Boardriders; the only proviso covers releases on a payoff/discharge."
+  },
+  {
+   "id": "C-012",
+   "title": "ISSUE_006: Flags enforceability risk of complete adequate protection cash payment waiver",
+   "verdict": "fail",
+   "reasoning": "The adequate protection cash waiver in 6.3(c) is drafted 'without hedging', and no note flags enforceability risk under Sections 361/363(e)/364 or cites authority."
+  },
+  {
+   "id": "C-013",
+   "title": "ISSUE_006: Recommends savings clause or limitation rather than complete waiver",
+   "verdict": "fail",
+   "reasoning": "No savings clause or softening is drafted or recommended for the adequate protection waiver; the enforceability backstop in 6.5(d) covers plan voting only."
+  },
+  {
+   "id": "C-020",
+   "title": "ISSUE_010: Notes second lien does not include hedging/cash management",
+   "verdict": "fail",
+   "reasoning": "No note says the Second Lien Obligations exclude hedging or cash management; the related note concerns the SL CA's definition of First Lien Obligations instead."
+  }
+ ]
+}

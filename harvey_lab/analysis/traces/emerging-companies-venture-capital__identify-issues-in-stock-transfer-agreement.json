@@ -1,0 +1,239 @@
+{
+ "task": "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement",
+ "status": "done",
+ "n_criteria": 41,
+ "n_passed": 39,
+ "outputs": [
+  "issue-memorandum.docx"
+ ],
+ "transcript": "/tmp/claude-0/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tasks/a1a307e8969ebaf0b.output",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121",
+ "documents": [
+  "409a-valuation-summary.docx",
+  "cap-table-summary.xlsx",
+  "certificate-of-incorporation.docx",
+  "company-bylaws.docx",
+  "company-rofr-waiver.docx",
+  "rofr-co-sale-agreement.docx",
+  "rofr-transfer-notice.docx",
+  "stock-transfer-agreement.docx",
+  "verdana-rofr-waiver.eml"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Read",
+   "out_chars": 23002,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121/AGENT_BRIEF.md"
+  },
+  {
+   "i": 1,
+   "tool": "Bash",
+   "out_chars": 1985,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 364\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 15 11:31 ..\n-rw-r--r-- 1 root root 44623 Oct 15 06:33 409a-valuation-summary.docx\n-rw-r--r-- 1 root root 13135 Oct 15 06:33 cap-table-summary.",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'ls -la documents output skills; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 461,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " 16323 /workspace/txt/409a-valuation-summary.docx.txt\n 43569 /workspace/txt/cap.txt\n 51536 /workspace/txt/certificate-of-incorporation.docx.txt\n 45468 /workspace/txt/company-bylaws.docx.txt\n  3272 /workspace/txt/company-rofr-waiver.docx.txt",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'mkdir -p /workspace/txt; cd documents; for f in *.docx; do parse-doc docx $f > /workspace/txt/$f.txt; done; parse-doc xlsx cap-table-summary.xlsx > /workspace/txt/cap.txt; cp verdana-rofr-waiver.eml /workspace/txt/; wc -c /workspace/txt/*'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 2030,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (45.3KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bpfyy9dwq.txt\n\nPreview (first 2KB):\n**[STOCK TRANSFER AGREEMENT]{.u",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'cat /workspace/txt/stock-transfer-agreement.docx.txt'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 22200,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "WHEREAS**, the Seller acquired the Shares pursuant to a restricted stock purchase agreement dated April 1, 2020 (the \\\"**Restricted Stock Purchase Agreement**\\\"), and timely filed an election under Section 83(b) of the Internal Revenue Code",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'head -c 24000 /workspace/txt/stock-transfer-agreement.docx.txt | tail -c 22200'"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 22435,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ng the 425,000 Shares, duly endorsed for transfer to the Buyer or accompanied by irrevocable stock powers duly executed in blank by the Seller, in the form attached hereto as Exhibit A, with medallion signature guarantees if reasonably requ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'tail -c +24000 /workspace/txt/stock-transfer-agreement.docx.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 20000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[RIGHT OF FIRST REFUSAL AND CO-SALE AGREEMENT]{.underline}**\n\n**MERIDIAN BOLT TECHNOLOGIES, INC.**\n\na Delaware corporation\n\nthe \\\"Key Holders\\\" listed on Exhibit A\n\nand\n\nthe \\\"Investors\\\" listed on Exhibit B\n\nDated as of August 22, 2022\n\n",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'head -c 20000 /workspace/txt/rofr-co-sale-agreement.docx.txt'"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 19702,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "s of this Agreement as though such Affiliate were the transferring Investor;\n>\n> \\(c\\) any transfer approved by the affirmative vote or written consent of (i) the Board (including the affirmative vote or written consent of a majority of the",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'tail -c +20000 /workspace/txt/rofr-co-sale-agreement.docx.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 11757,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "Marcus Hale 811 Ridgecrest Lane Austin, TX 78703\n\nDecember 20, 2024\n\nSecretary Meridian Bolt Technologies, Inc. 2200 Castlegate Boulevard, Suite 400 Austin, TX 78746\n\n**Re: Transfer Notice Pursuant to Section 2 of the Right of First Refusal",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'cat /workspace/txt/rofr-transfer-notice.docx.txt /workspace/txt/company-rofr-waiver.docx.txt /workspace/txt/verdana-rofr-waiver.eml'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 26000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[AMENDED AND RESTATED]{.underline}**\n\n**[CERTIFICATE OF INCORPORATION]{.underline}**\n\n**[OF]{.underline}**\n\n**[MERIDIAN BOLT TECHNOLOGIES, INC.]{.underline}**\n\n(a Delaware corporation)\n\nMeridian Bolt Technologies, Inc., a corporation orga",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'head -c 26000 /workspace/txt/certificate-of-incorporation.docx.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 25522,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ibuted among the holders of shares of Common Stock, pro rata based on the number of shares held by each such holder.\n\n\\(d\\) **No Preemptive Rights.** No holder of shares of Common Stock shall be entitled, as a matter of right, to subscribe ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'tail -c +26000 /workspace/txt/certificate-of-incorporation.docx.txt'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 23000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[AMENDED AND RESTATED BYLAWS OF MERIDIAN BOLT TECHNOLOGIES, INC.]{.underline}**\n\nA Delaware Corporation\n\nOriginally adopted: March 14, 2019 Amended and Restated effective as of August 22, 2022\n\nThese Amended and Restated Bylaws of Meridia",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'head -c 23000 /workspace/txt/company-bylaws.docx.txt'"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 22468,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "cated, properly endorsed or accompanied by a stock power duly executed, together with such proof of the authenticity of signatures and such other evidence of authority as the Corporation or its transfer agent may reasonably require. In the ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'tail -c +23000 /workspace/txt/company-bylaws.docx.txt'"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 11109,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "=== Sheet: Header Information ===\n Field Value\n Company: Meridian Bolt Technologies, Inc.\n State of Incorporation: Delaware\n Date of Incorporation: March 14, 2019\n EIN: 84-3291057\n Address: 2200 Castlegate Boulevard, Suite 400, Austin, TX 7",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'sed -e \"s/  */ /g\" /workspace/txt/cap.txt'"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 16315,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[Section 409A Valuation --- Executive Summary]{.underline}**\n\n**[Fair Market Value Determination of Common Stock]{.underline}**\n\n**Meridian Bolt Technologies, Inc.**\n\nValuation Date: June 15, 2024\n\nPrepared by: Winterhaven Colton & Associ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'cat /workspace/txt/409a-valuation-summary.docx.txt'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 969,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OPT-001 2021-06-15 250000 39 203125 250000 MISMATCH\nOPT-002 2021-09-01 200000 37 154166 200000 MISMATCH\nOPT-003 2022-03-01 150000 31 96875 150000 MISMATCH\nOPT-004 2022-10-15 100000 23 47916 50000 MISMATCH\nOPT-005 2023-02-01 120000 20 50000 ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 'python3 - <<EOF\nfrom datetime import date\ng=[(\"OPT-001\",date(2021,6,15),250000,250000),(\"OPT-002\",date(2021,9,1),200000,200000),(\"OPT-003\",date(2022,3,1),150000,150000),(\"OPT-004\",date(2022,10,15),100000,50000),(\"OPT-005\",date(2023,2,1),120000,50000),(\"OPT-006\",date(2023,8,1),80000,23333),(\"OPT-007\",date(2024,1,15),150000,0),(\"OPT-008\",date(2024,7,1),175000,0),("
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 5,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok 19",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 \"cat > /workspace/gen.py <<'EOF'\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nsec = doc.sections[0]\nsec.left_margin = sec.right_margin = Inches(1)\nsec.top_margin = se"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 9826,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\n1\nok 19\nOK: output/issue-memorandum.docx valid\n**PRIVILEGED & CONFIDENTIAL --- ATTORNEY WORK PRODUCT**\n\n**ISSUES MEMORANDUM**\n\n**Secondary Sale of 425,000 Shares of Common Stock of Meridian Bolt Technologies, Inc. by Marcus Hale to Verdan",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 \"cd /workspace && sed -i 's/Closing Action Plan (Part V)/Closing Action Plan (Part VI)/; s/Fong, Hale and Dominguez\\\\\\\\\\\\\\\\ ok//; s/2021 Equity Incentive Plan. See Part VI./2021 Equity Incentive Plan. See Part VII./' gen.py && grep -c 'Part VI)' gen.py; grep -c 'See Part VII' gen.py; python3 gen.py && python3 skills/docx/scripts/validate.py output/issue-memorandu"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 208,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok 19\nOK: output/issue-memorandum.docx valid\n3\ntotal 68\ndrwxr-xr-x 2 root root  4096 Oct 15 11:39 .\ndrwxr-xr-x 6 root root  4096 Oct 15 11:39 ..\n-rw-r--r-- 1 root root 60340 Oct 15 11:39 issue-memorandum.docx",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement/claude-code-session/20261015-113121 \"cd /workspace && sed -i 's/consider moving the Closing to on or after April 1, 2025/consider moving the Closing to on or after April 2, 2025 (more than five years after the April 1, 2020 acquisition)/' gen.py && python3 gen.py && python3 skills/docx/scripts/validate.py output/issue-memorandum.docx && parse-doc docx output/issue-memorandum.docx | grep -c 'April 2"
+  },
+  {
+   "i": 19,
+   "tool": "SubagentHandback",
+   "out_chars": 61,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"success\":true,\"message\":\"Report delivered to your caller.\"}",
+   "cmd": "{\"message\": \"I've written the issue memorandum, `issue-memorandum.docx` (about 9,000 words). It passes the docx validator, and I parsed it back to confirm it opens.\\n\\nThe core conclusion is that the deal should not close on the January 24, 2025 date as drafted. The charter, bylaws and ROFR agreemen"
+  }
+ ],
+ "final_message": "Now I'll write the memo generator.",
+ "failed": [
+  {
+   "id": "C-003",
+   "title": "ISSUE_001: Explains risk of untimely ROFR waiver",
+   "verdict": "fail",
+   "reasoning": "Memo calls the late waiver 'harmless' (Company deemed to decline) and does not explain risk of deemed exercise or invalidation of the waiver."
+  },
+  {
+   "id": "C-038",
+   "title": "ISSUE_001 severity rated critical or high",
+   "verdict": "fail",
+   "reasoning": "The Company waiver timing issue (Issue 10) is rated Medium, not critical or high."
+  }
+ ]
+}

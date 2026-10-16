@@ -1,0 +1,250 @@
+{
+ "task": "energy-natural-resources/extract-permit-conditions-from-regulatory-approval",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "compliance-tracking-matrix.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33685ea2-456/agent-a3ef9deebae8526dd.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261016-024301",
+ "documents": [
+  "faa-determination-no-hazard.docx",
+  "project-timeline-memo.docx",
+  "tdeq-environmental-compliance-order.docx",
+  "tpuc-cpcn-order.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 465,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253\", \"brief\": \"/home/user/Lawless_Research_Lab/h",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'energy-natural-resources/extract-permit-conditions-from-regulatory-approval'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23053,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 925,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 216\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 15 23:12 ..\n-rw-r--r-- 1 root root 46744 Oct 15 06:33 faa-determination-no-hazard.docx\n-rw-r--r-- 1 root root 47664 Oct 15 06:33 project-timel",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 201,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "23031 /workspace/txt/faa-determination-no-hazard.txt\n21933 /workspace/txt/project-timeline-memo.txt\n42048 /workspace/txt/tdeq-environmental-compliance-order.txt\n66518 /workspace/txt/tpuc-cpcn-order.txt",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'mkdir -p /workspace/txt; for f in documents/*.docx; do b=$(basename $f .docx); parse-doc docx \"$f\" > /workspace/txt/$b.txt; wc -c /workspace/txt/$b.txt; done'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 21904,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**PRIVILEGED AND CONFIDENTIAL --- ATTORNEY-CLIENT COMMUNICATION --- PREPARED AT THE DIRECTION OF COUNSEL**\n\n**CLEARWATER ENERGY HOLDINGS LLC** **INTERNAL MEMORANDUM**\n\n**TO:** Priya Venkataraman, General Counsel, Clearwater Energy Holdings ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'cat /workspace/txt/project-timeline-memo.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 2168,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (33.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/buphvghkk.txt\n\nPreview (first 2KB):\n**[STATE OF TALMADGE]{.underlin",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'head -c 34000 /workspace/txt/tpuc-cpcn-order.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 18497,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "aff:**\n\n> James Orland, Senior Staff Analyst, Talmadge Public Utilities Commission, 1400 Capitol Plaza, Suite 600, Ashford, Talmadge 73402.\n\n**For Frank and Dorothy Pullman (Intervenors):**\n\n> Thomas Wakefield, Wakefield & Greer LLP, 210 Ma",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'head -c 20000 /workspace/txt/tpuc-cpcn-order.txt | tail -c 18500'"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 22098,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ign with no in-stream piers, to minimize permanent alteration of the stream channel. The TDEQ\\'s recommended mitigation measures will be memorialized in a separate Environmental Compliance Order (ECO No. ENV-2024-1192).\n\n13\\. The Applicant ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'head -c 42000 /workspace/txt/tpuc-cpcn-order.txt | tail -c 22100'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 24509,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "on for the Applicant\\'s on-site construction manager, and a copy of the fully executed Interconnection Agreement with Midplains Transmission Co.\n\nFor purposes of this Order, \\\"Commercial Operation Date\\\" or \\\"COD\\\" means the date on which t",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'tail -c +42001 /workspace/txt/tpuc-cpcn-order.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 20987,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[STATE OF TALMADGE]{.underline}**\n\n**[TALMADGE DEPARTMENT OF ENVIRONMENTAL QUALITY]{.underline}**\n\n**[ENVIRONMENTAL COMPLIANCE ORDER]{.underline}**\n\n**ECO No. ENV-2024-1192**\n\n**In the Matter of:**\n\nApplication of Clearwater Energy Holdin",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'head -c 21000 /workspace/txt/tdeq-environmental-compliance-order.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 21044,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "tain a minimum horizontal setback of fifty (50) feet from the delineated boundary of all wetlands on or adjacent to the Project site, except at the authorized Willow Creek crossing point specified in Condition 3. Wetland boundaries shall be",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'tail -c +21001 /workspace/txt/tdeq-environmental-compliance-order.txt'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 23021,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**UNITED STATES DEPARTMENT OF TRANSPORTATION** **FEDERAL AVIATION ADMINISTRATION**\n\nSouthwest Regional Office Obstruction Evaluation Group 3100 Aerospace Boulevard Fort Worth, TX 76137\n\n**DETERMINATION OF NO HAZARD TO AIR NAVIGATION**\n\nAero",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'cat /workspace/txt/faa-determination-no-hazard.txt'"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 136,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\n2025-01-16 2025-02-15 2024-11-17 2026-02-17\n2024-12-03 2025-01-02 2025-01-14 2027-05-30 2026-09-02\nSaturday Sunday Sunday Thursday",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'python3 -c \"import docx;print(docx.__version__)\"; python3 - <<EOF\nfrom datetime import date,timedelta\nd=date(2024,10,18)\nprint(d+timedelta(90), d+timedelta(120), d+timedelta(30), date(2026,4,18)-timedelta(60))\nprint(date(2025,2,1)-timedelta(60), date(2025,2,1)-timedelta(30), date(2024,11,15)+timedelta(60), date(2026,12,1)+timedelta(180), date(2026,12,1)"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 420,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 2\n/bin/bash: eval: line 107: syntax error near unexpected token `('\n/bin/bash: eval: line 107: ` \"Condition 3 requires the notice to the TPUC to be given at least 60 days before the start of construction and to include (a) the ant",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/data1.py <<'\"'\"'EOF'\"'\"'\n# Critical issues: (no, severity, title, sources, problem, timeline_conflict, action, deadline)\nCRIT = [\n(\"1\",\"CRITICAL\",\"Interconnection Agreement not executed; CPCN deadline of January 16, 2025 at risk\",\n \"CPCN Cond. 5; Cond. 3(d); CPCN Discussion \u00a7 V.D; Memo \u00a7\u00a7 2, 7, 8\",\n \"C"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 130,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nbash: line 1: /workspace/build/t.txt: No such file or directory\ncat: /workspace/build/t.txt: No such file or directory",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; printf \"hello it's\\n\" | $S $R 'cat > /workspace/build/t.txt; cat /workspace/build/t.txt'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 31,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(Bash completed with no output)",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; printf \"hello it's\\n\" | $S $R 'mkdir -p /workspace/build; cat > /workspace/build/t.txt; cat /workspace/build/t.txt'"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "15",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/data1.py <<\"EOF\"\n# Critical issues: (no, severity, title, sources, problem, timeline_conflict, action, deadline)\nCRIT = [\n(\"1\",\"CRITICAL\",\"Interconnection Agreement not executed; CPCN deadline of January 16, 2025 at risk\",\n \"CPCN Cond. 5; Cond. 3(d); CPCN Discussion \u00a7 V.D; Memo \u00a7\u00a7 2, 7, 8\",\n \"CPCN Cond"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'cat > /workspace/build/data2.py <<\"EOF\"\nCRIT2 = [\n(\"16\",\"MEDIUM\",\"Gen-tie road crossing permits: a gating item missing from the schedule\",\"CPCN Cond. 16; FAA Cond. 8\",\n \"All road crossing permits for CR-118 and CR-204 (Harmon County and the Talmadge DOT, as applicable) must be obtained, and copies filed with the TPUC, before gen-tie line construction be"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'cat > /workspace/build/data3.py <<\"EOF\"\nTDEQ = [\n(\"E-1\",\"Cond. 1\",\"Comply with all environmental laws. Obtain any other required permits, approvals or authorizations (e.g., U.S. Army Corps of Engineers, U.S. Fish & Wildlife Service, Talmadge Corporation Commission, Harmon County).\",\"Ongoing\",\"Before the relevant activity\",\"Memo lists no USACE or USFWS d"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 253,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nTraceback (most recent call last):\n  File \"/workspace/build/build.py\", line 95, in <module>\n    head, rest = t.split(\". \",1); rich(p, [(head+\". \",True),(rest,False)])\n    ^^^^^^^^^^\nValueError: not enough values to unpack (expec",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'cat > /workspace/build/build.py <<\"EOF\"\nimport sys\nsys.path.insert(0,\"/workspace/build\")\nfrom data1 import CRIT\nfrom data2 import CRIT2, TPUC\nfrom data3 import TDEQ, FAA, XREF\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.section import WD_ORIENT\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table i"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 300,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\ntotal 80\ndrwxr-xr-x 2 root root  4096 Oct 15 23:22 .\ndrwxr-xr-x 7 root root  4096 Oct 15 23:17 ..\n-rw-r--r-- 1 root root 69918 Oct 15 23:22 compliance-tracking-matrix.docx\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\n",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'cd /workspace/build && python3 - <<\"EOF\"\ns=open(\"build.py\").read()\ns=s.replace(\"head, rest = t.split(\\\". \\\",1); rich(p, [(head+\\\". \\\",True),(rest,False)])\",\"head, rest = t.split(\\\"|\\\",1); rich(p, [(head,True),(rest,False)])\")\nreps={\n\"Interconnection Agreement (CPCN Cond. 5). Execution\":\"Interconnection Agreement (CPCN Cond. 5).| Execution\",\n\"Pre-constru"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 3100,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OK: /workspace/output/compliance-tracking-matrix.docx valid\nrc=0\n226696 /workspace/build/out.txt\n**PRIVILEGED AND CONFIDENTIAL --- ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT**\n\n**DRAFT FOR DISCUSSION --- NOT FOR DISTRIBUTION TO F",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'python3 /workspace/skills/docx/scripts/validate.py /workspace/output/compliance-tracking-matrix.docx; echo rc=$?; parse-doc docx /workspace/output/compliance-tracking-matrix.docx > /workspace/build/out.txt; wc -c /workspace/build/out.txt; head -c 3000 /workspace/build/out.txt; grep -c \"\" /workspace/build/out.txt'"
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 660,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "17:# I. Executive Summary\n35:# II. Critical Issues\n249:## Additional Issues (Medium / Low)\n273:# III. Cross-Reference of Memo Milestones to Permit Conditions\n347:# IV. Compliance Tracking Matrix\n351:## A. TPUC CPCN --- Docket No. PUC-2024-0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261015-231253; $S $R 'grep -n \"^#\" /workspace/build/out.txt; grep -c \"T-2[0-9]\\|E-1[0-9]\\|F-[0-9]\" /workspace/build/out.txt'"
+  }
+ ],
+ "final_message": "I built the compliance tracking matrix with a critical issues section. It passed the docx validator and reads back cleanly with parse-doc; the main finding is that the November 12, 2024 construction schedule is not compliant as drafted.\n\n**Biggest conflicts with the schedule:**\n- **Interconnection Agreement:** the CPCN requires it to be signed by January 16, 2025, or the CPCN can be revoked. The construction memo only targets \"early Q1 2025\".\n- **60-day notice to the utilities commission:** it must attach the signed Interconnection Agreement, so a notice filed November 15, 2024 without it does not support a January 15, 2025 start.\n- **Two different definitions of Commercial Operation Date:** the CPCN uses first delivery to the grid, likely July\u2013November 2026. The construction memo dates the decommissioning bond, the first community fund payment and the avian reports from December 1, 2026, so some may fall due earlier.\n- **Battery fire-safety certification:** it is required before any battery component is energized. The construction memo energizes components in Q1 2026 but certifies in May 2026, and omits the emergency response plan.\n- **Biological surveys and other state pre-construction approvals:** neither the 30-day advance submission of survey results nor the other approvals fit the schedule.\n\nThe document also covers the bond amount conflict ($18.5M in the condition versus $19.2M in the findings), noise measured at the property line rather than the residence, and the FAA deadlines of March 27, 2026 and 2027, which cannot be extended. It also covers the February 15, 2025 glare study deadline, inconsistent airport data in the FAA record, possible transfer approvals triggered by the financing, and the Willow Creek work zone.\n\n**Contents:** 15 ranked critical issues and 9 lesser ones, a milestone cross-reference and a matrix of 57 obligations (26 utilities commission, 22 environmental, 9 FAA). It closes with a conflicts table, a 90-day action calendar and stated assumptions.\n\n**Limitations:** the Harmon County Special Use Permit was not among the documents, so its conditions are not in the matrix and are flagged as an open item.\n\nFiles in /workspace/output:\n- /workspace/output/compliance-tracking-matrix.docx"
+}

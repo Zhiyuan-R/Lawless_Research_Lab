@@ -1,0 +1,270 @@
+{
+ "task": "employment-labor/compare-employee-handbook-against-state-requirements",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "compliance-gap-analysis.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_50c1e39f-8a4/agent-ac683931e6b5d4d5e.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126",
+ "documents": [
+  "colorado-requirements-checklist.docx",
+  "kowalski-transmittal-email.eml",
+  "oakridge-employee-census.xlsx",
+  "oakridge-employee-handbook.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 453,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'employment-labor/compare-employee-handbook-against-state-requirements'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23018,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 941,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 164\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:21 ..\n-rw-r--r-- 1 root root 62879 Oct 15 06:33 colorado-requirements-checklist.docx\n-rw-r--r-- 1 root root  7713 Oct 15 06:33 kowalski-",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 7790,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " 12944 notes/census.txt\n 69318 notes/check.txt\n101801 notes/hb.txt\n184063 total\nFrom: Denise Kowalski <dkowalski@oakridgeseniorliving.com>\nTo: Caitlin Reeves <creeves@briarstonelyle.com>\nCc: Margaret \"Meg\" Tyburn <mtyburn@oakridgeseniorlivi",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'mkdir -p /workspace/notes; parse-doc docx documents/colorado-requirements-checklist.docx > notes/check.txt; parse-doc docx documents/oakridge-employee-handbook.docx > notes/hb.txt; parse-doc xlsx documents/oakridge-employee-census.xlsx > notes/census.txt; wc -c notes/*; cat documents/kowalski-transmittal-email.eml'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 12854,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "=== Sheet: Cover ===\n                   Field                                                                                                                                                                       Value\n                 Compa",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cat notes/census.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 1865,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (34.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/blk1qzral.txt\n\nPreview (first 2KB):\n**[COLORADO EMPLOYMENT LAW REQU",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'head -c 35000 notes/check.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Read",
+   "out_chars": 35747,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[COLORADO EMPLOYMENT LAW REQUIREMENTS CHECKLIST]{.underline}**\n2\t\n3\t**Prepared for the Oakridge Senior Living, Inc. Employee Handbook Compliance Review**\n4\t\n5\t**Prepared by:**\n6\t\n7\t**BRIARSTONE & LYLE LLP** 1700 Stout Street, Suite 1450",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/blk1qzral.txt"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 2046,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (29.4KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bfaky4btq.txt\n\nPreview (first 2KB):\nUnder the worksharing agreement",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'python3 -c \"\ns=open(\\\"notes/check.txt\\\").read(); i=s.find(\\\"Under the worksharing agreement\\\"); print(s[i:i+30000])\"'"
+  },
+  {
+   "i": 8,
+   "tool": "Read",
+   "out_chars": 30705,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tUnder the worksharing agreement between the CCRD and the EEOC, a charge filed with one agency is generally deemed to be cross-filed with the other, ensuring dual coverage. However, the employee handbook should reference **both** the CCRD ",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bfaky4btq.txt"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 29582,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "CADA Charge Filing Deadline                                       300 days from alleged discriminatory act                             C.R.S. \u00a7 24-34-402\n  ------------------------------------------------------------------------------------",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'python3 -c \"\ns=open(\\\"notes/check.txt\\\").read(); i=s.find(\\\"CADA Charge Filing Deadline\\\"); print(s[i:])\"; echo ======; head -c 25000 notes/hb.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 26000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**Meal Breaks.** Employees working shifts of more than six (6) hours will be provided a thirty (30) minute unpaid meal break. During the meal break, employees will be relieved of all duties. If an employee is required to remain on duty duri",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'python3 -c \"\ns=open(\\\"notes/hb.txt\\\").read(); i=s.find(\\\"**Meal Breaks.**\\\"); print(s[i:i+26000])\"'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 26000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "Employees who require voting leave should notify their supervisor prior to election day. The Company may specify the time during the workday when the employee may take voting leave, provided the employee is given sufficient time to travel t",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'python3 -c \"\ns=open(\\\"notes/hb.txt\\\").read(); i=s.find(\\\"Employees who require voting leave\\\"); print(s[i:i+26000])\"'"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 25292,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "25287\nEmployees who violate this policy may be subject to disciplinary action, up to and including termination. All Company technology and data must be returned to the Company upon separation from employment.\n\n**[Section 11: Progressive Dis",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'python3 -c \"\ns=open(\\\"notes/hb.txt\\\").read(); i=s.find(\\\"Employees who violate this policy may be subject to disciplinary action, up to and in\\\"); print(len(s)-i); print(s[i:i+28000])\"'"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 5677,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "== Cover A1:B12\n('Field', 'Value')\n('Company', 'Oakridge Senior Living, Inc.')\n('Headquarters', '4501 Ponderosa Ridge Drive, Suite 200, Colorado Springs, CO 80918')\n('Report Date', 'April 30, 2025')\n('Prepared By', 'Pinnacle Payroll Service",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'python3 - <<EOF\nimport openpyxl\nwb=openpyxl.load_workbook(\"documents/oakridge-employee-census.xlsx\")\nfor ws in wb:\n  print(\"==\",ws.title, ws.dimensions)\n  for r in ws.iter_rows(values_only=True):\n    if any(c is not None for c in r): print(r)\n  # comments\n  for row in ws.iter_rows():\n    for c in row:\n      if c.comment: print(\"COMMENT\",c.coordinate,c.comment"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 31,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(Bash completed with no output)",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; printf \"it's a test\\n\" | $S $R 'cat > /workspace/notes/t.txt; cat /workspace/notes/t.txt'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'mkdir -p /workspace/build; cat > /workspace/build/p1.py <<\"EOF\"\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.enum.section import WD_ORIENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nsec = doc.sec"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cat > /workspace/build/p2.py <<\"EOF\"\n# ---------------- Title block ----------------\npara(\"BRIARSTONE & LYLE LLP\", bold=True, size=13, align=WD_ALIGN_PARAGRAPH.CENTER, color=\"1F3A5F\", after=0)\npara(\"1700 Stout Street, Suite 1450 | Denver, Colorado 80202 | (303) 555-4200\", size=9, align=WD_ALIGN_PARAGRAPH.CENTER, after=10)\npara(\"MEMORANDUM \u2014 COMPLIANCE GAP ANA"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cat > /workspace/build/p3a.py <<\"EOF\"\nF = []\ndef f(id, sev, title, hb, req, gap, pop, fix, act=False, lang=None):\n    F.append(dict(id=id, sev=sev, title=title, hb=hb, req=req, gap=gap, pop=pop, fix=fix, act=act, lang=lang))\n\nf(\"C-1\", \"Critical\", \"Stated minimum wage is below the Colorado minimum; Denver pay practice appears to violate the Denver minimum wage"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cat > /workspace/build/p3b.py <<\"EOF\"\nf(\"H-1\", \"High\", \"No Colorado FAMLI policy or notice; FMLA treated as the exclusive family/medical leave program\",\n  \"\u00a7 9 (FMLA only); \u00a7 4.6 (required deductions list omits the FAMLI premium); \u00a7 7 (no FAMLI cross-reference)\",\n  \"Paid Family and Medical Leave Insurance Act, C.R.S. \u00a7 8-13.3-501 et seq. (benefits since Jan. "
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cat > /workspace/build/p3c.py <<\"EOF\"\nf(\"M-1\", \"Medium\", \"Salaried non-exempt pay and regular-rate rules not described\",\n  \"\u00a7 2.2 (salaried non-exempt employees \u201cremain eligible for overtime\u201d); \u00a7 4.3; \u00a7 4.5 (timekeeping)\",\n  \"COMPS Order #39, Rule 1.8: a non-exempt employee\u2019s salary is presumed to compensate no more than 40 hours per week; Colorado does not p"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 1093,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "438:    (\"Bottom line\", \"The handbook is **not ready for August 1 distribution in its current form.** We identified **{} gaps**: **{} Critical, {} High, {} Medium and {} Low.**\".format(len(F), *[sum(1 for x in F if x[\"sev\"]==s) for s in (\"C",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cat > /workspace/build/p4.py <<\"EOF\"\ndoc.add_heading(\"3. Scope, Method and Severity Scale\", level=1)\npara(\"We read the handbook in full (Sections 1\u201314 and the Appendix A acknowledgment), the census (Cover, Headcount by Facility, Compensation by Classification and Salary Band Summary tabs), the firm\u2019s checklist and the transmittal. Each handbook provision was "
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 3243,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OK: output/compliance-gap-analysis.docx valid\nrc=0\n331421 notes/out.txt\n**BRIARSTONE & LYLE LLP**\n\n1700 Stout Street, Suite 1450 \\| Denver, Colorado 80202 \\| (303) 555-4200\n\n**MEMORANDUM --- COMPLIANCE GAP ANALYSIS**\n\n*Oakridge Senior Livin",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cd /workspace; python3 skills/docx/scripts/validate.py output/compliance-gap-analysis.docx; echo rc=$?; parse-doc docx output/compliance-gap-analysis.docx > notes/out.txt; wc -c notes/out.txt; head -c 3000 notes/out.txt; grep -c \"C-9\" notes/out.txt; ls -la output'"
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 1503,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "39\nPRIVILEGED & CONFIDENTIAL \u2014 ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\nQ3. Does the 2019 restrictive covenant \nlanguage (Section 12) still hold up?\nNo. The 2022 amendments to C.R.S. \u00a7 8-2-\n113 render the non-compete void for a",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cd /workspace/notes && timeout 120 soffice --headless --convert-to pdf ../output/compliance-gap-analysis.docx >/dev/null 2>&1; python3 -c \"\nimport pypdf;r=pypdf.PdfReader(\\\"compliance-gap-analysis.pdf\\\");print(len(r.pages));print(r.pages[3].extract_text()[:1500])\" 2>&1 | head -40'"
+  },
+  {
+   "i": 23,
+   "tool": "Bash",
+   "out_chars": 1313,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "3\nsaved /workspace/output/compliance-gap-analysis.docx 35 {'Critical': 10, 'High': 11, 'Medium': 9, 'Low': 5}\n29\nPRIVILEGED & CONFIDENTIAL \u2014 ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n$50,000; Pueblo $48,500; Grand Junction $49,0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cd /workspace/build && python3 - <<\"EOF\"\ns = open(\"build.py\").read()\nhelper = \"\"\"\ndef set_widths(t, widths):\n    t.autofit = False\n    tblPr = t._tbl.tblPr\n    lay = OxmlElement(\"w:tblLayout\"); lay.set(qn(\"w:type\"), \"fixed\"); tblPr.append(lay)\n    for i, w in enumerate(widths):\n        t.columns[i].width = Inches(w)\n        for c in t.columns[i].cells:\n      "
+  },
+  {
+   "i": 24,
+   "tool": "Bash",
+   "out_chars": 77,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OK: output/compliance-gap-analysis.docx valid\n28\ncompliance-gap-analysis.docx",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/compare-employee-handbook-against-state-requirements/claude-code-session/20261016-032126; $S $R 'cd /workspace; python3 skills/docx/scripts/validate.py output/compliance-gap-analysis.docx; parse-doc docx output/compliance-gap-analysis.docx | grep -c \"Critical\"; ls output'"
+  }
+ ],
+ "final_message": "I wrote the compliance gap analysis, a 29-page memo, as a .docx; it passes validation and I read it back with parse-doc. It finds 35 gaps (10 Critical, 11 High, 9 Medium, 5 Low), each with a severity rating, the affected employee count from the census, and a recommended fix, plus direct answers to the four questions in the client's email, an \"act now\" roadmap to the August 1 date, and corrections to the firm's own Colorado checklist.\n\nFiles in /workspace/output:\n- compliance-gap-analysis.docx"
+}

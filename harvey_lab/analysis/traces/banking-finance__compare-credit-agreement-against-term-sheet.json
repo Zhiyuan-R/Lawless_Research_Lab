@@ -1,0 +1,289 @@
+{
+ "task": "banking-finance/compare-credit-agreement-against-term-sheet",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "deviation-report.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_6de8e73d-735/agent-a868f81d89381dc43.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261016-022600",
+ "documents": [
+  "draft-credit-agreement.docx",
+  "executed-term-sheet.docx",
+  "lender-counsel-transmittal.eml"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 433,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'banking-finance/compare-credit-agreement-against-term-sheet'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 22968,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 980,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 184\ndrwxr-xr-x 2 root root   4096 Oct 15 06:32 .\ndrwxr-xr-x 5 root root   4096 Oct 15 22:55 ..\n-rw-r--r-- 1 root root 104715 Oct 15 06:32 draft-credit-agreement.docx\n-rw-r--r-- 1 root root  63783 Oct 15 06:32 executed-term-",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'ls -la documents output skills; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 6340,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "211138 work/ca.txt\n 79584 work/ts.txt\n290722 total\nFrom: Philip Granville <pgranville@caldwellstrauss.com>\nTo: Rebecca Thayer <rthayer@hargrovepl.com>\nCc: Daniel Ochoa <dochoa@hargrovepl.com>; Katherine Fulton <katherine.fulton@ridgelinenat",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'mkdir -p /workspace/work; parse-doc docx documents/draft-credit-agreement.docx > work/ca.txt; parse-doc docx documents/executed-term-sheet.docx > work/ts.txt; wc -c work/*.txt; cat documents/lender-counsel-transmittal.eml'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2008,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (39.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bwpmoiyk7.txt\n\nPreview (first 2KB):\n**[SUMMARY OF PROPOSED TERMS AN",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'head -c 40000 work/ts.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Read",
+   "out_chars": 41328,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[SUMMARY OF PROPOSED TERMS AND CONDITIONS]{.underline}**\n2\t\n3\t**[SENIOR SECURED CREDIT FACILITIES]{.underline}**\n4\t\n5\t**EXECUTED --- March 14, 2025**\n6\t\n7\t*Confidential --- For Discussion Purposes Only*\n8\t\n9\tIn connection with the acqui",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bwpmoiyk7.txt"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 2209,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (38.8KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b8sy8flx8.txt\n\nPreview (first 2KB):\ndefinitive Credit Agreement).\n\n",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'tail -c +39900 work/ts.txt'"
+  },
+  {
+   "i": 7,
+   "tool": "Read",
+   "out_chars": 41209,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tdefinitive Credit Agreement).\n2\t\n3\t**Section 9.4 --- Capital Expenditures**\n4\t\n5\tThe Borrower and its subsidiaries shall not make or commit to make capital expenditures in any fiscal year in excess of \\$12,000,000 (\\$12.0 million) (the \\\"",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b8sy8flx8.txt"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 2073,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (37.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bqa7njmou.txt\n\nPreview (first 2KB):\n1601 ca.txt\ncap_00\ncap_01\ncap_0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cd work; wc -l ca.txt; split -b 38000 -d ca.txt cap_; ls cap_*; cat cap_00'"
+  },
+  {
+   "i": 9,
+   "tool": "Read",
+   "out_chars": 38945,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t1601 ca.txt\n2\tcap_00\n3\tcap_01\n4\tcap_02\n5\tcap_03\n6\tcap_04\n7\tcap_05\n8\t**[CREDIT AGREEMENT]{.underline}**\n9\t\n10\t**dated as of May 30, 2025**\n11\t\n12\t**among**\n13\t\n14\t**CASCADE ENVIRONMENTAL SOLUTIONS, INC.,** *as Borrower,*\n15\t\n16\t**CASCADE H",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bqa7njmou.txt"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 2095,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (37.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bgqrremrm.txt\n\nPreview (first 2KB):\n, forward rate transactions, co",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat work/cap_01'"
+  },
+  {
+   "i": 11,
+   "tool": "Read",
+   "out_chars": 38792,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t, forward rate transactions, commodity swaps, commodity options, forward commodity contracts, equity or equity index swaps or options, bond or bond price or bond index swaps or options, interest rate options, foreign exchange transactions",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bgqrremrm.txt"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 31,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(Bash completed with no output)",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat work/cap_02' > /dev/null; echo"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 1809,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (37.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b7n9ed3om.txt\n\nPreview (first 2KB):\nower for execution and delivery",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat work/cap_02'"
+  },
+  {
+   "i": 14,
+   "tool": "Read",
+   "out_chars": 38824,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tower for execution and delivery to such Lender one or more promissory notes payable to the order of such Lender in the applicable principal amount.\n2\t\n3\t**[Section 2.12 --- Payments Generally]{.underline}**\n4\t\n5\t\\(a\\) All payments to be m",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b7n9ed3om.txt"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 1541,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (37.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b8s101afs.txt\n\nPreview (first 2KB):\nactions necessary to perfect su",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat work/cap_03'"
+  },
+  {
+   "i": 16,
+   "tool": "Read",
+   "out_chars": 39128,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tactions necessary to perfect such security interests have been duly made or taken (or will be made or taken within the time periods specified in Section 5.12 with respect to post-closing items).\n2\t\n3\t**[ARTICLE V --- AFFIRMATIVE COVENANTS",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b8s101afs.txt"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2060,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (37.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bio43ju7u.txt\n\nPreview (first 2KB):\n incurred by the Administrative",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat work/cap_04'"
+  },
+  {
+   "i": 18,
+   "tool": "Read",
+   "out_chars": 38880,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t incurred by the Administrative Agent in its capacity as such, except to the extent caused by the Administrative Agent\\'s own gross negligence or willful misconduct.\n2\t\n3\t**[Section 9.04 --- Reliance by Administrative Agent]{.underline}**",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bio43ju7u.txt"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 27991,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "., as Administrative Agent, Lead Arranger, and Bookrunner\n\nBy: **\\_\\_\\_\\_\\_\\_\\_\\_**\n\nName: Katherine Fulton\n\nTitle: Managing Director\n\nDate: **\\_\\_\\_\\_\\_\\_\\_\\_**\n\n**LENDERS:**\n\nRIDGELINE NATIONAL BANK, N.A., as a Lender\n\nBy: **\\_\\_\\_\\_\\_\\_\\",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat work/cap_05; echo; echo ====; grep -n -i -E \"cure|Total Credit Exposure|Eligible Assignee|Disqualified|Approved Fund|Specified Rep|SunGard|certain funds|Subordinated Indebtedness\\\"|Capital Lease Obligation\\\"|Investment\\\"\" work/ca.txt | cut -c1-300'"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 2624,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "59:deral Funds Rate in effect on such day plus 0.50%, and (c) SOFR for a one-month Interest Period in effect on such day plus 1.00%. Any change in the Base Rate due to a change i\n85:the Pledge Agreement, each Security Agreement, each IP Sec",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'grep -n -i -o -E \".{80}(65%|immaterial|excluded subsid|foreign subsid|2,500,000|Mortgage\\b|Unrestricted Subsid|5-1401|reasonable request of the Administrative|going concern|Interest Period).{80}\" work/ca.txt | head -40; grep -c \"\" work/ca.txt; ls /workspace/skills/docx/scripts; python3 -c \"import docx; print(docx.__version__)\"'"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 1470,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\n49:is Controlled by or is under common Control with the Person specified. \\\"Control\\\" means the possession, directly or indirectly, \n279:utation of periods of time from a specified date to a later specified date, the word \\\"from\\\" means \\",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'grep -n -i -c -E \"dollar-for-dollar|2,000,000\" work/ca.txt; grep -n -o -i -E \".{60}(2,000,000|dollar-for-dollar|carry|prorat|non-recurring|Specified|unanimous|Sponsor).{60}\" work/ca.txt'"
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'mkdir -p /workspace/work && cat > /workspace/work/content.py << \"PYEOF\"\n# -*- coding: utf-8 -*-\n# Content for deviation report\n\nITEMS = [\n# (id, tier, title, ca_ref, ts_ref, term_sheet, draft, impact, recommendation)\n(\"C-1\",\"Critical\",\"No \u201cSunGard\u201d / certain-funds limited conditionality; closing conditions expanded\",\n \"\u00a73.01 (esp. (e), (f), (g), (q), (r)); lead-in to \u00a7"
+  },
+  {
+   "i": 23,
+   "tool": "Bash",
+   "out_chars": 19,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "42 12\nTrue True\n354",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cd /workspace/work && python3 -c \"import content as c; print(len(c.ITEMS), len(c.FAVORABLE)); print(all(len(i)==9 for i in c.ITEMS), all(len(i)==7 for i in c.FAVORABLE))\"; grep -c \"\" content.py'"
+  },
+  {
+   "i": 24,
+   "tool": "Bash",
+   "out_chars": 60,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/deviation-report.docx valid\nrc=0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cat > /workspace/work/build.py << \"PYEOF\"\n# -*- coding: utf-8 -*-\nimport sys\nsys.path.insert(0, \"/workspace/work\")\nfrom content import ITEMS, FAVORABLE\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches, Cm\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.enum.section import WD_ORIENT\nfrom docx.o"
+  },
+  {
+   "i": 25,
+   "tool": "Bash",
+   "out_chars": 3194,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "185793 /workspace/work/out.txt\n**PRIVILEGED & CONFIDENTIAL --- ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT**\n\n*Subject to the confidentiality provisions of the executed Term Sheet --- not for distribution beyond the deal team*\n\n**",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'parse-doc docx /workspace/output/deviation-report.docx > /workspace/work/out.txt; wc -c /workspace/work/out.txt; head -c 3000 /workspace/work/out.txt; grep -c \"C-1\\b\" /workspace/work/out.txt; ls -la /workspace/output'"
+  },
+  {
+   "i": 26,
+   "tool": "Bash",
+   "out_chars": 4500,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "fixed\nsaved\nOK: /workspace/output/deviation-report.docx valid\n39:- **Sponsor economics and control (C-8, C-10, H-1).** There is no general Restricted Payment basket. Tax distributions are blocked during any Default. The management fee is cu",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261015-225518; $S $R 'cd /workspace/work && cat > fix.py << \"PYEOF\"\nimport io\np=\"/workspace/work/content.py\"; s=io.open(p,encoding=\"utf-8\").read()\nreps=[\n(\" Remove \u00a77.10 from the no-cure list in \u00a78.01(b) (it is not in Article 11 of the Term Sheet).\", \" Expect resistance to adding a cure period, because TS \u00a712(c) treats all negative covenant breaches as no-cure. Instead, ask that a CapEx ove"
+  }
+ ],
+ "final_message": "I built the deviation report. It finds 42 deviations that need borrower action, ranked 10 Critical, 13 High, 13 Medium and 6 Low, plus 12 departures from the term sheet that favor the borrower and that the report recommends not raising.\n\nThe Critical items are:\n- **No limited-conditionality closing:** the draft has no certain-funds (\"SunGard\") clause, so lenders could refuse to fund over breaches the term sheet would not allow.\n- **Equity cure removed:** any financial covenant miss is an immediate default with no cure right.\n- **Delayed draw term loan narrowed:** availability is cut from 18 to 12 months, and draws are limited to three of at least $10M (the term sheet allows unlimited draws of at least $5M).\n- **SOFR floor raised:** it goes from 0.75% to 1.00%, and the rate is defined as overnight SOFR rather than Term SOFR.\n- **Cash netting cap cut:** the cap falls from $15M to $10M, so closing leverage rises from 4.01x to 4.11x.\n- **EBITDA add-backs narrowed:** the definition used for every covenant and test is smaller.\n- **Distributions restricted:** there is no general dividend basket, and tax distributions are blocked during any default.\n- **Cross-default:** default on other debt now triggers a default here without that debt being accelerated.\n- **New key-person trigger:** David Whitmore's departure becomes a Change of Control.\n\nEach item sets out the term sheet position, the draft provision, the impact on the borrower and a recommended markup position. The report also rebuts the lender counsel's cover email point by point and closes with negotiation steps and the facts we still need from the client.\n\nThree judgement calls you should check:\n- **Leverage step-downs:** the draft starts each one quarter later than the term sheet, which helps the borrower. The report says not to raise it and to hold it as a trade if the lenders correct it.\n- **Capex cure:** I had first recommended adding a cure period for the capex covenant. I dropped that because the term sheet treats all negative covenant breaches as no-cure.\n- **Assumed facts:** the report lists the lender draft's $3.7M a year default-interest cost and the fee letter's date and parties as points to confirm with the client. It was not given the acquisition agreement, the fee letter or the security documents.\n\nThe file opens, passes the docx validator and reads back cleanly.\n\nFiles are in /workspace/output:\n- deviation-report.docx"
+}

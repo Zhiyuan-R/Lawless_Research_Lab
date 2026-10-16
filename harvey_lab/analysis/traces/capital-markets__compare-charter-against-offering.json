@@ -1,0 +1,239 @@
+{
+ "task": "capital-markets/compare-charter-against-offering",
+ "status": "done",
+ "n_criteria": 43,
+ "n_passed": 35,
+ "outputs": [
+  "charter-offering-deviation-report.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_e47ccc06-651/agent-a247c5abf6bee9491.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437",
+ "documents": [
+  "charter-fourth-amended.docx",
+  "preliminary-prospectus.docx",
+  "underwriting-agreement.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 411,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-lab",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'capital-markets/compare-charter-against-offering'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 22996,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 732,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 184\ndrwxr-xr-x 2 root root  4096 Oct 15 06:32 .\ndrwxr-xr-x 5 root root  4096 Oct 16 02:44 ..\n-rw-r--r-- 1 root root 48451 Oct 15 06:32 charter-fourth-amended.docx\n-rw-r--r-- 1 root root 67553 Oct 15 06:32 preliminary-prospe",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 140,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "41143 /workspace/txt/charter-fourth-amended.md\n87035 /workspace/txt/preliminary-prospectus.md\n62669 /workspace/txt/underwriting-agreement.md",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'mkdir -p /workspace/txt; for f in charter-fourth-amended preliminary-prospectus underwriting-agreement; do parse-doc docx documents/$f.docx > /workspace/txt/$f.md; wc -c /workspace/txt/$f.md; done'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2100,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (40.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/br1pg6nu4.txt\n\nPreview (first 2KB):\n**[FOURTH AMENDED AND RESTATED ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'cat /workspace/txt/charter-fourth-amended.md'"
+  },
+  {
+   "i": 5,
+   "tool": "Read",
+   "out_chars": 41944,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[FOURTH AMENDED AND RESTATED CERTIFICATE OF INCORPORATION]{.underline}**\n2\t\n3\t**[OF]{.underline}**\n4\t\n5\t**[ATHERTON BIOMEDICAL, INC.]{.underline}**\n6\t\n7\t(a Delaware corporation)\n8\t\n9\tAtherton Biomedical, Inc., a corporation organized an",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/br1pg6nu4.txt"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 2204,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (85KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bbdhtx6xs.txt\n\nPreview (first 2KB):\n**[Cover Page / Header]{.underlin",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'cat /workspace/txt/preliminary-prospectus.md'"
+  },
+  {
+   "i": 7,
+   "tool": "Read",
+   "out_chars": 74184,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[Cover Page / Header]{.underline}**\n2\t\n3\t**SUBJECT TO COMPLETION, DATED JANUARY 3, 2025**\n4\t\n5\tThe information in this preliminary prospectus is not complete and may be changed. These securities may not be sold until the registration st",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bbdhtx6xs.txt"
+  },
+  {
+   "i": 8,
+   "tool": "Read",
+   "out_chars": 15436,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "584\t\n585\tSubject to the terms and conditions of the underwriting agreement, each underwriter has severally agreed to purchase from us and the selling stockholders the number of shares of common stock set forth opposite its name below:\n586\t\n",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bbdhtx6xs.txt"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 2161,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (61.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/buejw3vja.txt\n\nPreview (first 2KB):\n**[UNDERWRITING AGREEMENT]{.und",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'cat /workspace/txt/underwriting-agreement.md'"
+  },
+  {
+   "i": 10,
+   "tool": "Read",
+   "out_chars": 65035,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[UNDERWRITING AGREEMENT]{.underline}**\n2\t\n3\t**Atherton Biomedical, Inc.**\n4\t\n5\t**11,500,000 Shares of Common Stock**\n6\t\n7\t**(Par Value \\$0.001 Per Share)**\n8\t\n9\tJanuary 6, 2025\n10\t\n11\tThis Underwriting Agreement (this \\\"Agreement\\\") is ",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/buejw3vja.txt"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 360,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py\n26650000\n4.0 5.0 6.0\n12300000.0 49512500.0 59500000.0 121312500.0\n371227650 260428500 5.121504424778761 13.8784",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'python3 -c \"import docx;print(docx.__version__ if hasattr(docx,\\\"__version__\\\") else \\\"ok\\\")\"; ls skills/docx/scripts; python3 -c \"\nprint(8200000+11650000+6800000)\nprint(32800000/8200000, 58250000/11650000, 40800000/6800000)\nprint(8200000*1.5, 11650000*4.25, 6800000*8.75, 8200000*1.5+11650000*4.25+6800000*8.75)\nprint(220233650+151002500-8500, 109426000+151002500, 260428500/508500"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 310,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nTraceback (most recent call last):\n  File \"/workspace/build/gen.py\", line 172, in <module>\n    finding(\"F-5\",\"Critical\",\"Current Charter governance provisions conflict with UA \u00a76(j) and the Prospectus anti-takeover description\",",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/gen.py <<'\"'\"'PYEOF'\"'\"'\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.section import WD_ORIENT\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nst = doc.styles[\"Norm"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 663,
+   "is_error": false,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Traceback (most recent call last):\n  File \"<stdin>\", line 3, in <module>\nAssertionError\nTraceback (most recent call last):\n  File \"/workspace/build/gen.py\", line 172, in <module>\n    finding(\"F-5\",\"Critical\",\"Current Charter governance prov",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'cd /workspace/build && python3 - <<'\"'\"'EOF'\"'\"'\np=\"gen.py\"; s=open(p).read()\nold=\"\\\"The Prospectus is forward-looking (\\\\u201cwill provide\\\\u201d), so this is acceptable **only if** the IPO Charter is approved and filed before closing. Until then the Prospectus describes provisions that do not exist. Track\"\nassert old in s\ns=s.replace(old,\"\\\"The Prospectus is forward-looking (\\\\"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 295,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "175: \"The Prospectus is forward-looking (\u201cwill provide\u201d), so this is acceptable **only if** the IPO Charter is approved and filed before closing. Until then the Prospectus describes provisions that do not exist. Track each \u00a76(j) item on the",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'grep -n \"forward-looking (\" /workspace/build/gen.py | cut -c1-300'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 6911,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: output/charter-offering-deviation-report.docx valid\nrc=0\n**PRIVILEGED & CONFIDENTIAL \\| ATTORNEY WORK PRODUCT \\| PREPARED AT THE DIRECTION OF COUNSEL**\n\n**DEVIATION REPORT**\n\n**Charter / Underwriting Agreement / Preliminary Prospe",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'cd /workspace/build && python3 - <<'\"'\"'EOF'\"'\"'\np=\"gen.py\"; s=open(p).read()\nold=\"provisions that do not exist. Track each\"\nassert s.count(old)==1\ns=s.replace(old,\"provisions that do not exist, and the UA \u00a76(j) closing condition is unsatisfied. Failure to file the IPO Charter by January 17, 2025 gives the Representative a termination right (UA \u00a78(e)).\\\",\\n \\\"Track each\")\nassert "
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2447,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: output/charter-offering-deviation-report.docx valid\n- **Preferred Stock over-designation (F-1).** Charter \u00a74.1(b) authorizes 25,000,000 shares of Preferred Stock, but \u00a7\u00a74.4(a), 4.5(a) and 4.6(a) designate 26,650,000 shares (8,200,",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-charter-against-offering/claude-code-session/20261016-024437; $S $R 'cd /workspace/build && python3 - <<'\"'\"'EOF'\"'\"'\np=\"gen.py\"; s=open(p).read()\nfor a,b in [(\"math (F-6, F-7, F-8)\",\"math (F-6, F-8)\"),(\"**Lock-up (F-10 to F-12).**\",\"**Lock-up (F-7, F-12, F-13).**\"),(\"approvals (F-13, F-14).**\",\"approvals (F-10, F-11).**\")]:\n    assert s.count(a)==1, a; s=s.replace(a,b)\nopen(p,\"w\").write(s)\nEOF\ncd /workspace && python3 build/gen.py && python3 skil"
+  }
+ ],
+ "final_message": "The deviation report is finished: it finds 36 conflicts and omissions (7 Critical, 10 High, 11 Medium, 8 Low), and the file passes validation and opens and reads back correctly. The biggest are Preferred Stock designated beyond what the charter authorizes (26.65M vs 25M), an over-allotment option of 1.5M shares in the prospectus vs 1.725M in the underwriting agreement, a capitalization rep that counts options as outstanding shares, an Exhibit A that is the old pre-IPO charter, dilution figures that don't tie to the capitalization table, and a lock-up form that runs from the wrong date.\n\nFiles in /workspace/output:\n- /workspace/output/charter-offering-deviation-report.docx",
+ "failed": [
+  {
+   "id": "C-007",
+   "title": "ISSUE_002: Rates preferred stock authorization mismatch as High severity",
+   "verdict": "fail",
+   "reasoning": "Preferred authorization mismatch is rated Critical (matrix item (i), F-5), not High."
+  },
+  {
+   "id": "C-014",
+   "title": "ISSUE_005: Notes distinction between DGCL default rule and express requirement",
+   "verdict": "fail",
+   "reasoning": "Report only says DGCL \u00a7141(k) default is removal with or without cause; it does not address the classified-board for-cause default or explain why express language is still needed."
+  },
+  {
+   "id": "C-015",
+   "title": "ISSUE_005: Rates director removal standard omission as High severity",
+   "verdict": "fail",
+   "reasoning": "Removal standard rated Critical in matrix (iv), not High."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_007: Rates supermajority amendment threshold as High severity",
+   "verdict": "fail",
+   "reasoning": "Supermajority item rated Critical in matrix (viii), not High."
+  },
+  {
+   "id": "C-023",
+   "title": "ISSUE_008: Rates missing classified board as High severity",
+   "verdict": "fail",
+   "reasoning": "Classified board rated Critical in matrix (iii), not High."
+  },
+  {
+   "id": "C-029",
+   "title": "ISSUE_010: Rates cumulative voting omission as Medium severity",
+   "verdict": "fail",
+   "reasoning": "Cumulative voting rated High, not Medium."
+  },
+  {
+   "id": "C-032",
+   "title": "ISSUE_011: Rates over-allotment discrepancy as Medium severity",
+   "verdict": "fail",
+   "reasoning": "Over-allotment discrepancy rated Critical, not Medium."
+  },
+  {
+   "id": "C-035",
+   "title": "ISSUE_012: Rates lock-up period discrepancy as High severity",
+   "verdict": "fail",
+   "reasoning": "Lock-up trigger discrepancy rated Critical, not High."
+  }
+ ]
+}

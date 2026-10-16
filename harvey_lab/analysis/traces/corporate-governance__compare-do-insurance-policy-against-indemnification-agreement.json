@@ -1,0 +1,278 @@
+{
+ "task": "corporate-governance/compare-do-insurance-policy-against-indemnification-agreement",
+ "status": "done",
+ "n_criteria": 39,
+ "n_passed": 33,
+ "outputs": [
+  "gap-analysis-memo.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_d6ae82ed-ab6/agent-afdbc4d9ac419c83d.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308",
+ "documents": [
+  "do-policy-rsi-2025.docx",
+  "fenwick-indemnification-agreement.docx",
+  "greystone-coverage-summary.docx",
+  "marchetti-engagement-email.eml"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 479,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308\", \"brief\": \"/home/user/Lawless_Researc",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'corporate-governance/compare-do-insurance-policy-against-indemnification-agreement'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 933,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 188\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:03 ..\n-rw-r--r-- 1 root root 57854 Oct 15 06:33 do-policy-rsi-2025.docx\n-rw-r--r-- 1 root root 53135 Oct 15 06:33 fenwick-indemnificatio",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 12962,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "From: Helena Marchetti <hmarchetti@fenwickbio.com>\nTo: Nathaniel Reeves <nreeves@harcourtnash.com>\nDate: Mon, 07 Apr 2025 09:14:00 -0000\nSubject: Re: Engagement \u2014 D&O Policy / Indemnification Agreement Gap Analysis\nContent-Type: text/plain;",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cat documents/marchetti-engagement-email.eml; for f in documents/*.docx; do parse-doc docx \"$f\" > /workspace/$(basename $f .docx).txt; wc -c /workspace/$(basename $f .docx).txt; done'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2099,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (33.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bn4xewo7z.txt\n\nPreview (first 2KB):\n**[RIDGEMONT SPECIALTY INSURANC",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'head -c 34000 /workspace/do-policy-rsi-2025.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Read",
+   "out_chars": 35152,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[RIDGEMONT SPECIALTY INSURANCE CO.]{.underline}**\n2\t\n3\t**[DIRECTORS AND OFFICERS LIABILITY INSURANCE POLICY]{.underline}**\n4\t\n5\t**Policy No. RSI-DO-2025-07741**\n6\t\n7\tThis Policy is a claims-made policy. Coverage is limited to Claims fir",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bn4xewo7z.txt"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 17000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(a\\) any Wrongful Act occurring prior to the Continuity Date set forth in Item 3 of the Declarations (August 15, 2016); or\n>\n> \\(b\\) any facts, circumstances, situations, transactions, or events of which any Insured Person had knowledge pri",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'tail -c +33900 /workspace/do-policy-rsi-2025.txt | head -c 17000'"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 16542,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ainst any Insured Person, except to the extent that such Insured Person\\'s conduct has been established by a final, non-appealable adjudication in a court of competent jurisdiction to fall within the Conduct Exclusion set forth in Section 5",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'tail -c +50850 /workspace/do-policy-rsi-2025.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 26000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[INDEMNIFICATION AGREEMENT]{.underline}**\n\n**by and between**\n\n**FENWICK BIOSCIENCES, INC.**\n\n**and**\n\n**\\[INDEMNITEE NAME\\]**\n\nDated as of \\[**\\_\\_**\\], 2025\n\nForm Approved: March 15, 2025\n\n**INDEMNIFICATION AGREEMENT**\n\nThis Indemnifica",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'head -c 26000 /workspace/fenwick-indemnification-agreement.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 25787,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "nsent of the Company, which consent shall not be unreasonably withheld, conditioned, or delayed. The Company shall be deemed to have consented to a proposed settlement if the Company has not provided a written response to the Indemnitee\\'s ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'tail -c +25950 /workspace/fenwick-indemnification-agreement.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 19999,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**GREYSTONE BROKERAGE PARTNERS** 600 Third Avenue, 14th Floor New York, NY 10016\n\n**[Directors & Officers Liability Insurance]{.underline}**\n\n**[Coverage Summary and Placement Memorandum]{.underline}**\n\nCONFIDENTIAL --- PREPARED FOR THE EXC",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'head -c 20000 /workspace/greystone-coverage-summary.txt'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 18293,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "bility provision that provides significant protection to outside directors and non-executive officers.\n\n**5.4 Insured vs. Insured Exclusion**\n\nThe policy excludes coverage for Claims brought by or on behalf of the Company (or any insured pe",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'tail -c +19950 /workspace/greystone-coverage-summary.txt'"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 128,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; printf \"it's ok\\n\" | $S $R 'cat > /workspace/t.txt; cat /workspace/t.txt; python3 -c \"import docx; print(docx.__version__ if hasattr(docx,\\\"__version__\\\") else 1)\"; ls /workspace/skills/docx/scripts'"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/lib.py << \"EOF\"\nimport re\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nsec = doc.sections[0]\nsec."
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cat > /workspace/build/p1.py << \"EOF\"\np = P(\"**PRIVILEGED AND CONFIDENTIAL**\", align=\"c\", size=12)\nP(\"**ATTORNEY-CLIENT COMMUNICATION \u2014 ATTORNEY WORK PRODUCT**\", align=\"c\")\nP(\"Prepared by outside counsel at the request of the General Counsel for the purpose of rendering legal advice to Ferndale BioSciences, Inc. and its Board of Directors (Nomina"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cat > /workspace/build/p2.py << \"EOF\"\nH1(\"IV. Detailed Gap Analysis \u2014 Tail Coverage and Change of Control\")\nP(\"These are the two issues raised by Ms. Liu-Dorsey\u2019s counsel. We address them first and in detail because, as you note, every incoming director will eventually be a former director relying on these protections.\", align=\"j\")\n\nH2(\"Gap 1 \u2014 N"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cat > /workspace/build/p3.py << \"EOF\"\nH2(\"Gap 7 \u2014 Limits, Retention and Erosion (High)\")\nP(\"**Policy.** $25,000,000 Side A dedicated; $25,000,000 Side B/C combined; defense costs erode all limits; $1,000,000 retention per Claim for Sides B and C; all limits are aggregates for the Policy Period and any Discovery Period (Decl. Items 4\u20135; \u00a7\u00a7 1\u20133, 10"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cat > /workspace/build/p4.py << \"EOF\"\nH1(\"VII. The Incoming Independent Directors\u2019 Perspective \u2014 Personal Exposure\")\nP(\"The matrix below summarizes, for the principal claim types, whether an independent director would be protected (a) while the Company is solvent and willing to pay and (b) when it is not (insolvency, refusal, adverse Company, pos"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 7,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "0\nsaved",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cat > /workspace/build/p5.py << \"EOF\"\ndoc.add_page_break()\nH1(\"Appendix A \u2014 Provision-by-Provision Comparison\")\nT([\n [\"Topic\", \"Indemnification Agreement\", \"D&O Policy\", \"Assessment\"],\n [\"Parties / insured entity\", \"Fenwick BioSciences, Inc. (preamble)\", \"Ferndale BioSciences, Inc. (Decl. Item 1; \u00a7 4.6); insurer shown as both Ridgemont and Oakval"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 15433,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OK: output/gap-analysis-memo.docx valid\nrc=0\n12540\n**PRIVILEGED AND CONFIDENTIAL**\n\n**ATTORNEY-CLIENT COMMUNICATION --- ATTORNEY WORK PRODUCT**\n\n*Prepared by outside counsel at the request of the General Counsel for the purpose of rendering",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cd /workspace && python3 skills/docx/scripts/validate.py output/gap-analysis-memo.docx; echo rc=$?; parse-doc docx output/gap-analysis-memo.docx | wc -w; parse-doc docx output/gap-analysis-memo.docx | head -60'"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 2779,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/gap-analysis-memo.docx valid\n23:# I. Executive Summary\n61:# II. Documents Reviewed and Threshold Issues\n63:## A. Documents\n75:## B. Threshold Document-Integrity Issues (Fix Before Execution)\n91:# III. How the Two",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cd /workspace/build && python3 - << \"EOF\"\ns = open(\"p1.py\").read()\nm = {\"1\":\"Gaps 1\u20132\",\"2\":\"Gap 3\",\"3\":\"Gap 4\",\"4\":\"Gap 5\",\"5\":\"Gap 6\",\"6\":\"Gap 7\",\"7\":\"Gap 8\",\"8\":\"Gap 9\",\"9\":\"Gap 10\",\"10\":\"\u00a7 II.B\"}\nfor k in [\"10\",\"9\",\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\"]:\n    old = \" [\\\"%s\\\", \\\"\" % k\n    assert s.count(old) == 1, k\n    s = s.replace(old, \" [\\\"%s\\\", \\"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 81,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/gap-analysis-memo.docx valid\n1\ngap-analysis-memo.docx",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-do-insurance-policy-against-indemnification-agreement/claude-code-session/20261016-030308; $S $R 'cd /workspace/build && sed -i \"s/By October 2, 2025/By October 3, 2025/\" p4.py && cat lib.py p1.py p2.py p3.py p4.py p5.py > gen.py && python3 gen.py && python3 /workspace/skills/docx/scripts/validate.py /workspace/output/gap-analysis-memo.docx && parse-doc docx /workspace/output/gap-analysis-memo.docx | grep -c \"October 3, 2025\"; ls /workspace/o"
+  }
+ ],
+ "final_message": "I finished the privileged gap-analysis memo for the General Counsel, about 12,500 words; it passed the docx validator and parse-doc reads it back. It covers 16 gaps and finds the Side A coverage strong, with the critical gaps at the change-of-control tail, the insured-vs-insured exclusion and the biotech-specific exclusions. The policy and broker summary also name the company and the insurer inconsistently.\n\nFiles in /workspace/output:\n- /workspace/output/gap-analysis-memo.docx",
+ "failed": [
+  {
+   "id": "C-013",
+   "title": "ISSUE_006: Analyzes asymmetry scenarios between the two standards",
+   "verdict": "fail",
+   "reasoning": "Memo does not analyze divergent outcomes, such as denial of indemnification under the good-faith determination while D&O coverage continues, or the reverse; Gap 11 only addresses venue and lead-in."
+  },
+  {
+   "id": "C-016",
+   "title": "ISSUE_008: Identifies contribution cap under indemnification agreement",
+   "verdict": "fail",
+   "reasoning": "Gap 15 identifies the \u00a710 12-month compensation cap but does not discuss how it interacts with D&O policy limits."
+  },
+  {
+   "id": "C-017",
+   "title": "ISSUE_008: Analyzes exposure when insurance limits are exhausted",
+   "verdict": "fail",
+   "reasoning": "Gap 7 notes that indemnification becomes an uninsured Company cost after exhaustion, but it does not analyze a claim exceeding the $50M capacity in terms of the contribution provision, the Indemnitee cap and unlimited Company exposure."
+  },
+  {
+   "id": "C-018",
+   "title": "ISSUE_009: Identifies subrogation conflict between policy and agreement",
+   "verdict": "fail",
+   "reasoning": "Memo treats subrogation as 'Aligned' and does not identify a potential circular subrogation conflict between Policy \u00a712.2 and Agreement \u00a713."
+  },
+  {
+   "id": "C-019",
+   "title": "ISSUE_009: Explains circular subrogation practical implications",
+   "verdict": "fail",
+   "reasoning": "No analysis of the practical implications of circular subrogation is provided."
+  },
+  {
+   "id": "C-021",
+   "title": "ISSUE_010: References ERISA \u00a7 410(a) or explains why ERISA claims create unique D&O coverage gaps",
+   "verdict": "fail",
+   "reasoning": "No reference to ERISA \u00a7410(a) or to ERISA limits on indemnification; the memo only notes this Policy's exclusion and recommends a fiduciary policy, without explaining why ERISA claims are a distinctive gap."
+  }
+ ]
+}

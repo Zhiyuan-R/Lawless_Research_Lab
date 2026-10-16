@@ -1,0 +1,200 @@
+{
+ "task": "employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "restrictive-covenant-summary-memo.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_d6ae82ed-ab6/agent-a5c792d1a7f55dce1.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421",
+ "documents": [
+  "employment-agreement-manheim-2021.docx",
+  "first-amendment-manheim-2023.docx",
+  "rsu-award-agreement-manheim-2022.docx",
+  "whitford-instruction-email.eml"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 489,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421\", \"brief\": \"/home/user/Lawless_Re",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23041,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 965,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 168\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:34 ..\n-rw-r--r-- 1 root root 53263 Oct 15 06:33 employment-agreement-manheim-2021.docx\n-rw-r--r-- 1 root root 44837 Oct 15 06:33 first-a",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 11120,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "From: Sandra K. Whitford <swhitford@pinnaclebrands.com>\nTo: Claire Atherton <catherton@hargrovetillett.com>\nDate: Mon, 06 Jan 2025 09:17:00 -0000\nSubject:\n Re: Restrictive Covenant Review \u2014 Derek Manheim Termination Assessment\nContent-Type:",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat documents/whitford-instruction-email.eml; for f in documents/*.docx; do parse-doc docx $f > /workspace/$(basename $f .docx).txt; wc -c /workspace/$(basename $f .docx).txt; done'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2064,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (46.5KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bud2xlht6.txt\n\nPreview (first 2KB):\n**[EXECUTIVE EMPLOYMENT AGREEME",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat /workspace/employment-agreement-manheim-2021.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Read",
+   "out_chars": 48837,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[EXECUTIVE EMPLOYMENT AGREEMENT]{.underline}**\n2\t\n3\t**PINNACLE CONSUMER BRANDS, INC.** **and** **DEREK J. MANHEIM**\n4\t\n5\tThis Executive Employment Agreement (this \\\"Agreement\\\") is entered into as of July 22, 2021 (the \\\"Execution Date\\",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bud2xlht6.txt"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 18212,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[FIRST AMENDMENT TO EXECUTIVE EMPLOYMENT AGREEMENT]{.underline}**\n\nThis First Amendment to Executive Employment Agreement (this \\\"**Amendment**\\\") is entered into as of January 18, 2023 (the \\\"**Amendment Effective Date**\\\"), by and betwe",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat /workspace/first-amendment-manheim-2023.txt'"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 2133,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (30.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/by6afsty3.txt\n\nPreview (first 2KB):\n**[PINNACLE CONSUMER BRANDS, IN",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat /workspace/rsu-award-agreement-manheim-2022.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Read",
+   "out_chars": 31524,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[PINNACLE CONSUMER BRANDS, INC.]{.underline}**\n2\t\n3\t**[RESTRICTED STOCK UNIT AWARD AGREEMENT]{.underline}**\n4\t\n5\t**Under the Pinnacle Consumer Brands, Inc. 2019 Omnibus Equity Incentive Plan**\n6\t\n7\t**Effective as of March 1, 2022 (the \\",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/by6afsty3.txt"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 396,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "2023-03-01 Wednesday\n2024-03-01 Friday\n2025-03-01 Saturday\n2026-03-01 Sunday\n2025-02-14 Friday\n2025-02-28 Friday\n2025-09-01 Monday\n2023-08-14 Monday\n117123.28767123289 40993.150684931505 53746.57534246575 80619.86301369863 61489.72602739726",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'python3 -c \"\nimport datetime as d\nfor s in [\\\"2023-03-01\\\",\\\"2024-03-01\\\",\\\"2025-03-01\\\",\\\"2026-03-01\\\",\\\"2025-02-14\\\",\\\"2025-02-28\\\",\\\"2025-09-01\\\",\\\"2023-08-14\\\"]:\n  print(s, d.date.fromisoformat(s).strftime(\\\"%A\\\"))\nprint(475000/365*90, 332500*45/365, 332500*59/365, 332500*1.5*59/365, 332500*1.5*45/365, 7000*15.10, 14000*15.10, 21000*15.1"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/lib.py << \"EOF\"\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nsec = doc.sections[0]\nsec.left_"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat > /workspace/build/part1.py << \"EOF\"\nfrom lib import *\n\nP(\"PRIVILEGED AND CONFIDENTIAL \u2014 ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\", bold=True, align=\"c\", size=9.5)\nP(\"Prepared at the request of counsel in anticipation of potential litigation\", italic=True, align=\"c\", size=9)\nP(\"HARGROVE & TILLETT\", bold=True, align=\"c\", size"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat > /workspace/build/part2.py << \"EOF\"\nfrom lib import *\n\nH(\"IV. Covenant-by-Covenant Extraction \u2014 Employment Agreement (as Amended)\", 1)\nP(\"Dates below assume a termination date of February 28, 2025. Every EA covenant applies \u201cfor any reason, whether voluntary or involuntary and whether with or without Cause,\u201d so each is triggered by the "
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat > /workspace/build/part3.py << \"EOF\"\nfrom lib import *\n\nH(\"V. RSU Award Agreement \u2014 Extraction and Comparison with the Employment Agreement\", 1)\nH(\"A. RSU Covenants and Remedies\", 2)\nKV(\"1. Non-Competition \u2014 RSU \u00a7 6.2 (definitions \u00a7\u00a7 4.1(c), 4.1(i))\", [\n [\"Type\", \"Non-competition (equity-based)\"],\n [\"Duration\", \"During employment + \u201cRest"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat > /workspace/build/part4.py << \"EOF\"\nfrom lib import *\n\nH(\"VI. Financial Analysis\", 1)\nH(\"A. RSU Forfeiture and Clawback (Termination Without Cause, February 2025; $15.10 proxy price)\", 2)\nT([\n [\"Tranche\", \"RSUs\", \"Vesting Date\", \"Status at Feb. 14 or Feb. 28, 2025 termination\", \"Within 18-month Clawback Period?\", \"Value at $15.10\"],\n [\""
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 77,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/restrictive-covenant-summary-memo.docx valid\nrc=0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'cat > /workspace/build/part5.py << \"EOF\"\nfrom lib import *\n\nH(\"VIII. Enforceability Risks, Drafting Gaps and Ambiguities\", 1)\nH(\"A. Consideration for the First Amendment (Your First Concern)\", 2)\nP(\"North Carolina enforces a non-compete only if it is (1) in writing, (2) part of an employment contract, (3) based on valuable consideration, (4)"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 3276,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "10757 /workspace/check.txt\n**PRIVILEGED AND CONFIDENTIAL --- ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT**\n\n*Prepared at the request of counsel in anticipation of potential litigation*\n\n**HARGROVE & TILLETT**\n\n**MEMORANDUM**\n\n  --",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'parse-doc docx /workspace/output/restrictive-covenant-summary-memo.docx > /workspace/check.txt; wc -w /workspace/check.txt; head -c 3000 /workspace/check.txt; grep -c \"\\*\\*\" /workspace/check.txt; grep -n \"Appendix\" /workspace/check.txt | head; ls -la /workspace/output'"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 4,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "0 24",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement/claude-code-session/20261016-033421; $S $R 'python3 -c \"\nimport docx\nd=docx.Document(\\\"/workspace/output/restrictive-covenant-summary-memo.docx\\\")\ntxt=[p.text for p in d.paragraphs]+[c.text for t in d.tables for r in t.rows for c in r.cells]\nprint(sum(\\\"**\\\" in x for x in txt), len(d.tables))\n\"'"
+  }
+ ],
+ "final_message": "I wrote the restrictive covenant memo for the Manheim matter (about 10,700 words, 24 tables). It passes `validate.py` and opens cleanly when parsed back. It pulls every covenant, clawback and forfeiture term out of the three documents, with side-by-side comparisons of what the First Amendment changed and where the RSU agreement conflicts with the employment agreement. Its main conclusions are that the Amendment's section numbers don't match the 2021 agreement (so its edits may not have taken effect), its consideration is likely inadequate under North Carolina law, garden leave gives no severance offset when the Company starts the termination, and the RSU clawback reaches only the March 1, 2024 tranche (about $105,700 at $15.10) and only until September 1, 2025.\n\nFiles in /workspace/output:\n- /workspace/output/restrictive-covenant-summary-memo.docx"
+}

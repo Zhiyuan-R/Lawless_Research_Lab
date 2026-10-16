@@ -1,0 +1,329 @@
+{
+ "task": "capital-markets/compare-registration-statement-against-prior-filings",
+ "status": "judge_running",
+ "n_criteria": 37,
+ "n_passed": null,
+ "outputs": [
+  "s3-deviation-report.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_853290c9-4b4/agent-a5757a246ec474c3f.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261016-022601",
+ "documents": [
+  "draft-s3-registration-statement.docx",
+  "pinnacle-10k-fy2024.docx",
+  "pinnacle-s1-ipo-registration.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 451,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_l",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'capital-markets/compare-registration-statement-against-prior-filings'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 22950,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 999,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 232\ndrwxr-xr-x 2 root root  4096 Oct 15 06:32 .\ndrwxr-xr-x 5 root root  4096 Oct 15 22:55 ..\n-rw-r--r-- 1 root root 61402 Oct 15 06:32 draft-s3-registration-statement.docx\n-rw-r--r-- 1 root root 79296 Oct 15 06:32 pinnacle-",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'ls -la documents output skills; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 124,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "70850 txt/draft-s3-registration-statement.txt\n125056 txt/pinnacle-10k-fy2024.txt\n142305 txt/pinnacle-s1-ipo-registration.txt",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'mkdir -p /workspace/txt; for f in documents/*.docx; do b=$(basename $f .docx); parse-doc docx \"$f\" > txt/$b.txt; wc -c txt/$b.txt; done'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2135,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (69.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b8i67mx2k.txt\n\nPreview (first 2KB):\nAs filed with the Securities an",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'cat txt/draft-s3-registration-statement.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 23988,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "As filed with the Securities and Exchange Commission on \\[\u25cf\\], 2025\n\nRegistration No. 333-\\[\u25cf\\]\n\n**UNITED STATES** **SECURITIES AND EXCHANGE COMMISSION** **Washington, D.C. 20549**\n\n**FORM S-3**\n\n**REGISTRATION STATEMENT** **UNDER** **THE S",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 24000 txt/draft-s3-registration-statement.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 23970,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " business strategy and plans for future operations;\n>\n> \u2022 our ability to attract and retain customers;\n>\n> \u2022 our ability to develop and commercialize new products and features;\n>\n> \u2022 anticipated trends and challenges in our industry and the",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 48000 txt/draft-s3-registration-statement.txt | tail -c 24000'"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 22833,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "istrict of Texas (Case No. 6:24-cv-00387), alleging that certain features of our CRM workflow automation products infringe two patents held by Veritech. The complaint seeks damages of approximately \\$57.0 million, as well as injunctive reli",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'tail -c +48001 txt/draft-s3-registration-statement.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 2193,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (31.3KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bg715aatc.txt\n\nPreview (first 2KB):\n**UNITED STATES** **SECURITIES ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 32000 txt/pinnacle-10k-fy2024.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 74,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "103457 pinnacle-10k-fy2024.c.txt\n124815 pinnacle-s1-ipo-registration.c.txt",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'cd txt; for f in pinnacle-10k-fy2024 pinnacle-s1-ipo-registration; do sed -E \"s/^ *-{5,}.*$//\" $f.txt | sed -E \"s/ {3,}/ | /g\" | grep -v \"^\\s*$\" > $f.c.txt; wc -c $f.c.txt; done'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 21961,
+   "is_error": false,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "**UNITED STATES** **SECURITIES AND EXCHANGE COMMISSION** **Washington, D.C. 20549**\n**FORM 10-K**\n**ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934**\n**For the fiscal year ended December 31, 2024**\nOR\n**",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 22000 txt/pinnacle-10k-fy2024.c.txt'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 21992,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " reporting requirements of the Securities Exchange Act of 1934, the Sarbanes-Oxley Act of 2002, the rules and regulations of the SEC (including the cybersecurity disclosure rules that became effective in December 2023), and the listing stan",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 44000 txt/pinnacle-10k-fy2024.c.txt | tail -c 22000'"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 21979,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "cted at least annually.\n>\n> \u2022 *Enterprise Risk Management Integration.* Cybersecurity risk is identified as one of the Company\\'s top enterprise risks and is assessed and managed through our broader enterprise risk management framework, whi",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 66000 txt/pinnacle-10k-fy2024.c.txt | tail -c 22000'"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 22000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "date of grant for RSUs.\n**Income Taxes.** We account for income taxes using the asset and liability method, recognizing deferred tax assets and liabilities for the expected future tax consequences of temporary differences between the financ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 88000 txt/pinnacle-10k-fy2024.c.txt | tail -c 22000'"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 15440,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "8 | Chairman and Chief Executive Officer | Founder (2014)\n  Jennifer Tsao-Park | 42 | Chief Financial Officer | March 6, 2023\n  Daniel K. Moretti | 46 | General Counsel and Corporate Secretary | January 15, 2024\n  Dr. Priya Venkatesh | 39 |",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'tail -c +88001 txt/pinnacle-10k-fy2024.c.txt'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 22000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[Cover Page --- Registration Statement on Form S-1]{.underline}**\nAs filed with the Securities and Exchange Commission on September 10, 2021\nRegistration No. 333-XXXXXX\nCIK No. 0001847293\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION\nW",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 22000 txt/pinnacle-s1-ipo-registration.c.txt'"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 21987,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": ", power outages, telecommunications failures, or other events. We may not be able to detect or mitigate all such problems before they result in service degradation or outage.\n**If we fail to maintain and enhance our brand, our ability to at",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 44000 txt/pinnacle-s1-ipo-registration.c.txt | tail -c 22000'"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 22000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**As of December 31, 2020** | **As of June 30, 2021**\n  Cash and cash equivalents | \\$17.6M | \\$38.5M | \\$42.8M\n  Total assets | \\$428.9M | \\$543.2M | \\$598.4M\n  Total debt | \\$65.0M | \\$85.0M | \\$85.0M\n  Preferred stock | \\$104.7M | \\$125.",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 66000 txt/pinnacle-s1-ipo-registration.c.txt | tail -c 22000'"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 23980,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " principal executive offices are located at 8200 Congress Avenue, Suite 400, Austin, Texas 78701, where we lease approximately 95,000 square feet of office space under a lease that expires in December 2026. We use this facility for executiv",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'head -c 90000 txt/pinnacle-s1-ipo-registration.c.txt | tail -c 24000'"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 1898,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (34KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bzgi1lr49.txt\n\nPreview (first 2KB):\nzed in the United States or under",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'tail -c +90001 txt/pinnacle-s1-ipo-registration.c.txt'"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 16970,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "zed in the United States or under the laws of the United States, any state thereof, or the District of Columbia;\n>\n> \u2022an estate the income of which is subject to U.S. federal income tax regardless of its source; or\n>\n> \u2022a trust if it is sub",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'tail -c +90001 txt/pinnacle-s1-ipo-registration.c.txt | head -c 17000'"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 17798,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "*Amount**\n  Total current liabilities | \\$95.4M\n  Bridge credit facility | \\$85.0M\n  Other long-term liabilities | \\$50.1M\n  Total liabilities | \\$230.5M\n  Preferred stock (Series A, B, C) | \\$125.4M\n  Common stock | \\$0.1M\n  Additional pai",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'tail -c +107001 txt/pinnacle-s1-ipo-registration.c.txt'"
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 3831,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py\ntxt/pinnacle-10k-fy2024.c.txt:477:**William Hsueheh** --- *Independent Director*, Age 58, Class I Director (ter",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'python3 -c \"import docx; print(docx.__version__ if hasattr(docx,\\\"__version__\\\") else \\\"ok\\\")\"; ls skills/docx/scripts; grep -n \"Hsu\\|Hsueheh\" txt/*.c.txt txt/draft-s3-registration-statement.txt | head -30'"
+  },
+  {
+   "i": 23,
+   "tool": "Bash",
+   "out_chars": 266,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 2\n/bin/bash: eval: line 254: syntax error near unexpected token `('\n/bin/bash: eval: line 254: ` \"Confirm the current main number with the company and conform all instances in the S-3 (cover, Principal Offices, Incorporation by Re",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'mkdir -p /workspace/work && cat > /workspace/work/data.py <<'\"'\"'EOF'\"'\"'\n# Findings data for S-3 deviation report\n# Each: id, sev, cat, section, s3, source, issue, action\nF = []\ndef add(i, sev, cat, sec, s3, src, issue, action):\n    F.append(dict(id=i, sev=sev, cat=cat, sec=sec, s3=s3, src=src, issue=issue, action=action))\n\n# ---------------- A. Eligibility, cover page, "
+  },
+  {
+   "i": 24,
+   "tool": "Bash",
+   "out_chars": 128,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nbash: line 1: /workspace/work/t.txt: No such file or directory\ncat: /workspace/work/t.txt: No such file or directory",
+   "cmd": "printf \"hello 'quoted' (x)\\n\" | /home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'cat > /workspace/work/t.txt; cat /workspace/work/t.txt'"
+  },
+  {
+   "i": 25,
+   "tool": "Bash",
+   "out_chars": 31,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(Bash completed with no output)",
+   "cmd": "printf \"hello 'quoted' (x)\\n\" | /home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'mkdir -p /workspace/work; cat > /workspace/work/t.txt; cat /workspace/work/t.txt'"
+  },
+  {
+   "i": 26,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "41",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'mkdir -p /workspace/work && cat > /workspace/work/data.py <<\"EOF\"\n# Findings data for S-3 deviation report\nF = []\ndef add(i, sev, cat, sec, s3, src, issue, action):\n    F.append(dict(id=i, sev=sev, cat=cat, sec=sec, s3=s3, src=src, issue=issue, action=action))\n\nadd(\"A-1\",\"Critical\",\"SEC comment risk / Eligibility\",\"Incorporation by Reference (item 1); Form S-3 General Ins"
+  },
+  {
+   "i": 27,
+   "tool": "Bash",
+   "out_chars": 211,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nTraceback (most recent call last):\n  File \"/workspace/work/build.py\", line 215, in <module>\n    r = h.add_run(f\"{f[id]}  {SHORT[f[id]]}  \")\n                     ~^^^^\nKeyError: <built-in function id>",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'cat > /workspace/work/build.py <<\"EOF\"\nimport sys\nsys.path.insert(0, \"/workspace/work\")\nfrom data import F\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.section import WD_ORIENT\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\n"
+  },
+  {
+   "i": 28,
+   "tool": "Bash",
+   "out_chars": 652,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "215:    r = h.add_run(f\"{f[id]}  {SHORT[f[id]]}  \")\n216:    r2 = h.add_run(f\"[{f[sev]} \u2014 {f[cat]}]\"); r2.font.color.rgb = RGBColor.from_string(SEVCOLOR[f[\"sev\"]])\n        doc.add_heading(groups[g], level=2); cur = g\n    h = doc.add_heading(",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'cd /workspace/work && grep -n \"f\\[id\\]\\|f\\[sev\\]\\|f\\[cat\\]\" build.py; sed -i -e \"s/f\\[id\\]/f[\\\"id\\\"]/g\" -e \"s/f\\[sev\\]/f[\\\"sev\\\"]/g\" -e \"s/f\\[cat\\]/f[\\\"cat\\\"]/g\" build.py && sed -n 213,218p build.py && python3 build.py'"
+  },
+  {
+   "i": 29,
+   "tool": "Bash",
+   "out_chars": 6092,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "data.py:2\nbuild.py:2\nsaved\nOK: /workspace/output/s3-deviation-report.docx valid\nrc=0\n**PINNACLE SOFTWARE HOLDINGS, INC.**\n\n**Draft Form S-3 (Automatic Shelf) --- Deviation Report Against FY2024 Form 10-K and 2021 Form S-1**\n\n  -------------",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'cd /workspace/work && sed -i \"s/(see Part 4)/(see Section 5)/\" data.py && sed -i \"s/Part 4 lists a further 14/Section 5 lists a further 14/\" build.py && grep -c \"Section 5\" data.py build.py && python3 build.py && python3 /workspace/skills/docx/scripts/validate.py /workspace/output/s3-deviation-report.docx; echo rc=$?; parse-doc docx /workspace/output/s3-deviation-report.d"
+  },
+  {
+   "i": 30,
+   "tool": "Bash",
+   "out_chars": 3574,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "17:# 1. Executive Summary\n23:### Gating issues (resolve before any further drafting)\n37:### Structural recommendation\n41:# 2. Scope, Method and Severity Scale\n57:# 3. Summary Deviation Table\n145:# 4. Detailed Findings\n149:## A. Cover Page, ",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261015-225511 'parse-doc docx /workspace/output/s3-deviation-report.docx | grep -n \"^#\\|A-1 \\|G-7 \" | head -40; ls -la /workspace/output'"
+  }
+ ],
+ "final_message": "I wrote the deviation report (s3-deviation-report.docx). It finds the draft S-3 is not fileable: 41 deviations, 13 of them critical, and 14 more inconsistencies inside the 10-K and S-1 themselves. Much of the draft was copied from the 2021 S-1 and never updated: officers, board, financing, litigation, business and properties. The biggest question is eligibility: the draft says the 10-K was filed March 3, 2025, but it is signed and audited March 28, 2025. For a large accelerated filer that would be late, which would cost S-3/WKSI and automatic-shelf status. The file opens and passes the docx validator.\n\nFiles in /workspace/output:\n- /workspace/output/s3-deviation-report.docx"
+}

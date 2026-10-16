@@ -1,0 +1,186 @@
+{
+ "task": "bankruptcy-restructuring/draft-final-decree-motion",
+ "status": "done",
+ "n_criteria": 59,
+ "n_passed": 57,
+ "outputs": [
+  "motion-for-final-decree.docx",
+  "proposed-order-final-decree.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_434f45ee-e45/agent-a58b1552268224aae.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017",
+ "documents": [
+  "confirmation-order-excerpts.docx",
+  "confirmed-plan-summary.docx",
+  "docket-summary.docx",
+  "plan-admin-final-report.docx",
+  "ust-guidelines-region18.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 415,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-l",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'bankruptcy-restructuring/draft-final-decree-motion'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 22981,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 1319,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 268\ndrwxr-xr-x 2 root root  4096 Oct 15 06:32 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:40 ..\n-rw-r--r-- 1 root root 49206 Oct 15 06:32 confirmation-order-excerpts.docx\n-rw-r--r-- 1 root root 59402 Oct 15 06:32 confirmed-pla",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'ls -la documents output skills; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 2227,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (97.8KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bpw3hzmbk.txt\n\nPreview (first 2KB):\n=========== documents/confirmat",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'for f in documents/confirmation-order-excerpts.docx documents/confirmed-plan-summary.docx; do echo \"=========== $f\"; parse-doc docx \"$f\"; done'"
+  },
+  {
+   "i": 4,
+   "tool": "Read",
+   "out_chars": 59446,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t=========== documents/confirmation-order-excerpts.docx\n2\t**KEY EXCERPTS FROM THE ORDER CONFIRMING THE SECOND AMENDED JOINT CHAPTER 11 PLAN OF REORGANIZATION OF CASCADIA TIMBER HOLDINGS, INC.**\n3\t\n4\tThe following are excerpts from the Conf",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bpw3hzmbk.txt"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 2174,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (85KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bjx6mkpfx.txt\n\nPreview (first 2KB):\n=========== documents/docket-summ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'for f in documents/docket-summary.docx documents/plan-admin-final-report.docx documents/ust-guidelines-region18.docx; do echo \"=========== $f\"; parse-doc docx \"$f\"; done'"
+  },
+  {
+   "i": 6,
+   "tool": "Read",
+   "out_chars": 43411,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "417\t\n418\tAll Allowed Administrative Claims are paid in full in cash on the Effective Date or as soon as reasonably practicable thereafter, or upon such other terms as may be agreed between the holder of such Administrative Claim and the Reo",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bpw3hzmbk.txt"
+  },
+  {
+   "i": 7,
+   "tool": "Read",
+   "out_chars": 89650,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t=========== documents/docket-summary.docx\n2\t**[DOCKET SUMMARY SHEET]{.underline}**\n3\t\n4\t**UNITED STATES BANKRUPTCY COURT FOR THE DISTRICT OF OREGON PORTLAND DIVISION**\n5\t\n6\t**In re**\n7\t\n8\t**CASCADIA TIMBER HOLDINGS, INC.,**\n9\t\n10\t*Debtor.",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bjx6mkpfx.txt"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 128,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'python3 -c \"import docx; print(docx.__version__)\"; ls skills/docx/scripts'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/lib.py <<'\"'\"'EOF'\"'\"'\nimport re\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\nTOK = re.compile(r\"(\\*\\*.+?\\*\\*|__.+?__|\\*.+?\\*)\")\n\ndef ne"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 5,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'cat > /workspace/build/motion.py <<\"EOF\"\nimport sys\nsys.path.insert(0, \"/workspace/build\")\nfrom lib import *\n\nd = new_doc()\nn = [0]\ndef N(text):\n    n[0] += 1\n    return para(d, f\"{n[0]}.\\t\" + text, indent=0.5)\n\n# ---------------- DRAFTING NOTES (NOT FOR FILING) ----------------\npara(d, \"**PRIVILEGED & CONFIDENTIAL \u2014 ATTORNEY WORK PRODUCT**\", align=\"center\", indent=0, spacing=1"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 342,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: motion-for-final-decree.docx valid\nrc=0\nOK: proposed-order-final-decree.docx valid\nrc=0\ntotal 112\ndrwxr-xr-x 2 root root  4096 Oct 16 03:47 .\ndrwxr-xr-x 6 root root  4096 Oct 16 03:43 ..\n-rw-r--r-- 1 root root 59040 Oct 16 03:46 m",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'cat > /workspace/build/order.py <<\"EOF\"\nimport sys\nsys.path.insert(0, \"/workspace/build\")\nfrom lib import *\n\nd = new_doc()\nn = [0]\ndef N(text):\n    n[0] += 1\n    return para(d, f\"{n[0]}.\\t\" + text, indent=0.5)\n\npara(d, \"**EXHIBIT 1 \u2014 PROPOSED FINAL DECREE**\", align=\"center\", indent=0, spacing=1.0, after=12)\ncaption(d, [\"**[PROPOSED] FINAL DECREE AND**\", \"**ORDER (I) GRANTING RE"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 20132,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: /workspace/output/motion-for-final-decree.docx valid\n| EIN 93-1284756,                     | **REORGANIZED DEBTOR'S MOTION**                        |\n|                                     |                                         ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'cd /workspace/build && python3 - <<\"EOF\"\np=\"motion.py\"; s=open(p).read()\nold=\"Satisfaction of the Plan\u2019s condition that the Confirmation Order become a Final Order was a condition to the Effective Date, which occurred on December 1, 2023 [Dkt. No. 420].\"\nnew=\"Indeed, the Confirmation Order\u2019s becoming a Final Order was itself a condition precedent to the Effective Date (Plan Art"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 6207,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "9:TOK = re.compile(r\"(\\*\\*.+?\\*\\*|\\*[^*\\s][^*]*?\\*)\")\nsaved\nsaved\nOK: /workspace/output/motion-for-final-decree.docx valid\nOK: /workspace/output/proposed-order-final-decree.docx valid\n/tmp/m.txt:1\n/tmp/o.txt:0\n 8651 /tmp/m.txt\n 1903 /tmp/o.",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'cd /workspace/build && python3 - <<\"EOF\"\ns=open(\"lib.py\").read()\ns=s.replace(\"TOK = re.compile(r\\\"(\\\\*\\\\*.+?\\\\*\\\\*|__.+?__|\\\\*.+?\\\\*)\\\")\",\"TOK = re.compile(r\\\"(\\\\*\\\\*.+?\\\\*\\\\*|\\\\*[^*\\\\s][^*]*?\\\\*)\\\")\")\nopen(\"lib.py\",\"w\").write(s)\nm=open(\"motion.py\").read()\nold=\"and obtained final allowance and payment of the estate professionals\u2019 fees.\"\nassert old in m\nm=m.replace(old,\"and obta"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 317,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "415:> [\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_]{.underline}\ntotal 112\ndrwxr-xr-x 2 root root  4096 Oct 16 03:47 .\ndrwxr-xr-x 6 root root  4096 Oct 16 03:43 ..\n-rw-r--r-- 1 root root 58920 Oct 16 03:47 motion-for-final-decree.do",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/draft-final-decree-motion/claude-code-session/20261016-034017; $S $R 'grep -n \"underline\" /tmp/m.txt; rm -f /tmp/m.txt /tmp/o.txt; ls -la /workspace/output'"
+  }
+ ],
+ "final_message": "I drafted both documents, but the case can't honestly be certified as \"fully administered\" yet. So the motion asks for a conditional final decree: the case closes only after a set of closing conditions are met and certified to the U.S. Trustee, and the proposed order matches that. Both files open and pass the docx validation script.\n\nFiles in /workspace/output:\n- /workspace/output/motion-for-final-decree.docx\n- /workspace/output/proposed-order-final-decree.docx\n\n**Why it has to be conditional.** On the current record several items are still open:\n- **Pacific Rim settlement:** the $525,000 settlement motion (Dkt. 498) isn't heard until Feb. 20, 2025. The adversary proceeding is still pending and the proceeds haven't been paid out to Class 4.\n- **U.S. Trustee fees:** the Q1 2025 fee (about $10,400) hasn't been paid, and a fee will also be due for the quarter the case closes.\n- **January 2025 operating report:** not yet filed; it's due Feb. 20, 2025.\n- **Plan Administrator report:** the Final Status Report (Dkt. 501) needs a supplement. It's dated Jan. 31 but reports Feb. 3 and Feb. 5 events as already done, and it doesn't cover the Pacific Rim money.\n\nThe proposed order lists these as closing conditions. The Reorganized Debtor files a certification once they're met, the U.S. Trustee gets 14 days to object, and an outside date triggers a status report. It also keeps the discharge and injunctions in force, preserves the Court's retained jurisdiction and reopening under \u00a7 350(b), and lets Plan Administrator fees after closing be paid without court approval.\n\n**What the motion contains.** It tracks the Region 18 U.S. Trustee guidelines: background, the legal standard, an argument on each factor, and the seven required certifications. It also has a reconciliation of the distributions (Exhibit A), a Plan Administrator support block and a certificate of service.\n\n**Drafter's notes.** The motion opens with a page of notes to you, marked privileged, which must be removed before filing. The main points:\n- **IRS Claim No. 14 doesn't add up.** Five \"annual\" payments supposedly finished Aug. 15, 2024, and the notice of payment (Dkt. 464) was filed three days before that date. The figures total only the $1,287,450 face amount with no interest: 5 \u00d7 $214,575 = $1,072,875, against the full claim. I described the payments factually and made written IRS confirmation a closing condition.\n- **Our firm's final fee application isn't on the docket.** The summary calls the $4.85M \"final,\" but the docket shows only an interim application (Dkt. 440) and an interim order (Dkt. 450).\n- **Plan Administrator pay needs court approval.** Confirmation Order \u00b6 H requires approval of its pay for work before the decree, which conflicts with the plan summary. Only an interim application through Mar. 31, 2024 has been approved.\n- **The source documents contradict each other on docket numbers and facts.**\n  - The Plan is cited as Dkt. 398, 387 and 268.\n  - The disclosure statement, commi",
+ "failed": [
+  {
+   "id": "C-025",
+   "title": "ISSUE_004: Correctly represents IRS claim paid in full",
+   "verdict": "fail",
+   "reasoning": "Motion does not state the IRS claim was paid in full with statutory interest under the Plan and \u00a7 1129(a)(9)(C); it says payments aggregated $1,287,450 and makes IRS confirmation of full satisfaction an open Closing Condition."
+  },
+  {
+   "id": "C-049",
+   "title": "Proposed order includes judge signature block",
+   "verdict": "fail",
+   "reasoning": "Proposed order ends with ### and a 'Presented by' counsel block; no judge signature line or date line."
+  }
+ ]
+}

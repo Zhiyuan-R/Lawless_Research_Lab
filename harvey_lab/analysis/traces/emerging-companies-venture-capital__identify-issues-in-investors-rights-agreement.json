@@ -1,0 +1,251 @@
+{
+ "task": "emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "ira-issue-memorandum.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_c2893686-478/agent-a5f74883e26287c1d.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307",
+ "documents": [
+  "draft-series-b-ira.docx",
+  "forstner-review-request.eml",
+  "restated-certificate-of-incorporation.docx",
+  "series-a-ira-executed.docx",
+  "series-b-term-sheet.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 475,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307\", \"brief\": \"/home/user/Lawless_Research_",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23003,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 1092,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 240\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:13 ..\n-rw-r--r-- 1 root root 59323 Oct 15 06:33 draft-series-b-ira.docx\n-rw-r--r-- 1 root root  7923 Oct 15 06:33 forstner-review-reques",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 8134,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " 67886 /workspace/txt/draft-series-b-ira.txt\n 48012 /workspace/txt/restated-certificate-of-incorporation.txt\n 64217 /workspace/txt/series-a-ira-executed.txt\n 42688 /workspace/txt/series-b-term-sheet.txt\n222803 total\nFrom: Diana Forstner <df",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'mkdir -p /workspace/txt; for f in draft-series-b-ira restated-certificate-of-incorporation series-a-ira-executed series-b-term-sheet; do parse-doc docx documents/$f.docx > /workspace/txt/$f.txt; done; wc -c /workspace/txt/*; cat documents/forstner-review-request.eml'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2116,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (41.7KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/byl8pjp1c.txt\n\nPreview (first 2KB):\n**[SERIES B PREFERRED STOCK FIN",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'cat /workspace/txt/series-b-term-sheet.txt'"
+  },
+  {
+   "i": 5,
+   "tool": "Read",
+   "out_chars": 44166,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t**[SERIES B PREFERRED STOCK FINANCING]{.underline}**\n2\t\n3\t**[TERM SHEET]{.underline}**\n4\t\n5\t**CONFIDENTIAL**\n6\t\n7\tJanuary 15, 2025\n8\t\n9\tThis Term Sheet summarizes the principal terms of the Series B Preferred Stock financing of Luminos Bi",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/byl8pjp1c.txt"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 24000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[INVESTORS\\' RIGHTS AGREEMENT]{.underline}**\n\n\\[*\\_*\\_\\], 2025\n\nASHWORTH DOYLE LLP DRAFT --- February 10, 2025\n\n**[INVESTORS\\' RIGHTS AGREEMENT]{.underline}**\n\nThis Investors\\' Rights Agreement (this \\\"Agreement\\\") is made and entered int",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'head -c 24000 /workspace/txt/draft-series-b-ira.txt'"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 24000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " if any, who controls such Holder or underwriter within the meaning of the Securities Act or the Exchange Act, against any and all Damages arising out of or based upon any untrue statement or alleged untrue statement of a material fact cont",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'head -c 48000 /workspace/txt/draft-series-b-ira.txt | tail -c 24000'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 19885,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "urities, cash, or otherwise. The Company may impose stop-transfer instructions and may require each Founder to execute and deliver such lock-up agreements or related instruments as may be reasonably requested by the managing underwriter to ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'tail -c +48001 /workspace/txt/draft-series-b-ira.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 22000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[INVESTORS\\' RIGHTS AGREEMENT]{.underline}**\n\nDated as of March 22, 2023\n\namong\n\n**LUMINOS BIOSCIENCES, INC.** a Delaware corporation\n\nand\n\n**THE INVESTORS LISTED ON EXHIBIT A HERETO**\n\n**[INVESTORS\\' RIGHTS AGREEMENT]{.underline}**\n\nThis",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'head -c 22000 /workspace/txt/series-a-ira-executed.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 22000,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": " any stop order issued or threatened by the SEC with respect to any Registration Statement or any suspension of the qualification of the Registrable Securities for sale in any jurisdiction, and take all reasonable actions to prevent the iss",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'head -c 44000 /workspace/txt/series-a-ira-executed.txt | tail -c 22000'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 20216,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "tion with commercial credit arrangements, equipment financing, or leasing transactions approved by the Board of Directors; and\n>\n> \\(f\\) shares of capital stock issued in connection with the IPO.\n\n**Section 4.4 --- Termination.**\n\nThe right",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'tail -c +44001 /workspace/txt/series-a-ira-executed.txt'"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 24987,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**[AMENDED AND RESTATED CERTIFICATE OF INCORPORATION]{.underline}**\n\n**[OF]{.underline}**\n\n**[LUMINOS BIOSCIENCES, INC.]{.underline}**\n\n*(a Delaware corporation)*\n\nLuminos Biosciences, Inc., a corporation organized and existing under and by",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'head -c 25000 /workspace/txt/restated-certificate-of-incorporation.txt'"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 23011,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "rsion or exchange of such Convertible Securities shall be deemed to be Additional Shares of Common Stock issued as of the date of issuance of such Options or Convertible Securities, at a price per share equal to the quotient obtained by div",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'tail -c +25001 /workspace/txt/restated-certificate-of-incorporation.txt'"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 128,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1.2.0\naccept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'python3 -c \"import docx; print(docx.__version__ if hasattr(docx,\\\"__version__\\\") else \\\"ok\\\")\"; ls skills/docx/scripts'"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 1496,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 2\n/bin/bash: eval: line 362: syntax error near unexpected token `('\n/bin/bash: eval: line 362: `   \"Massachusetts law. Both Founders live and work in Massachusetts. The Massachusetts Noncompetition Agreement Act (M.G.L. c. 149, \u00a72",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/content.py <<'\"'\"'EOF'\"'\"'\n# -*- coding: utf-8 -*-\nISSUES = []\ndef I(**k): ISSUES.append(k)\n\n# ---------------- CRITICAL ----------------\nI(id=\"C-1\", pr=\"Critical\", title=\"Founder non-competition and non-solicitation covenants\",\n  sec=\"\u00a77.4(a)-(c); see also \u00a7\u00a78.1, 8.2 (survival), 9.4-9.5 (Delaware"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 148,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nbash: line 1: /workspace/build/stdin_test.txt: No such file or directory\ncat: /workspace/build/stdin_test.txt: No such file or directory",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; echo \"hello it's stdin\" | $S $R 'cat > /workspace/build/stdin_test.txt; cat /workspace/build/stdin_test.txt'"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 31,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "(Bash completed with no output)",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; echo \"hello it's stdin\" | $S $R 'mkdir -p /workspace/build; cat > /workspace/build/stdin_test.txt; cat /workspace/build/stdin_test.txt'"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "31",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'cat > /workspace/build/content.py <<\\EOF\n# -*- coding: utf-8 -*-\nISSUES = []\ndef I(**k): ISSUES.append(k)\n\nI(id=\"C-1\", pr=\"Critical\", title=\"Founder non-competition and non-solicitation covenants\",\n  sec=\"\u00a77.4(a)\u2013(c); see also \u00a7\u00a78.1, 8.2 (survival), 9.4\u20139.5 (Delaware law and forum), 9.12 (specific performance)\",\n  src=\"Term Sheet \u00a75.3; Series A IRA"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 53,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved\nOK: output/ira-issue-memorandum.docx valid\nrc=0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'cat > /workspace/build/build.py <<\\EOF\n# -*- coding: utf-8 -*-\nimport sys\nsys.path.insert(0, \"/workspace/build\")\nfrom content import ISSUES, CHARTER, PROCESS\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\n"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 9005,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "112412 /workspace/build/out.txt\n**WHITFIELD & CRANE LLP**\n\n1 International Place, Suite 3500 \u00b7 Boston, MA 02110\n\n**PRIVILEGED & CONFIDENTIAL \u00b7 ATTORNEY-CLIENT COMMUNICATION \u00b7 ATTORNEY WORK PRODUCT**\n\n**MEMORANDUM**\n\n  ----------------------",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'parse-doc docx output/ira-issue-memorandum.docx > /workspace/build/out.txt; wc -c /workspace/build/out.txt; head -c 9000 /workspace/build/out.txt; grep -c \"\" /workspace/build/out.txt'"
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 6431,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "No. | Priority | Draft IRA \u00a7 | Issue | Benchmark | Recommended Position (summary)\nC-1 | Critical | \u00a77.4(a)\u2013(c) | Founder non-competition and non-solicitation covenants | Term Sheet \u00a75.3; Series A IRA (Key Holder signature page); Massachuset",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'python3 - <<\\EOF\nfrom docx import Document\nd=Document(\"/workspace/output/ira-issue-memorandum.docx\")\nt=d.tables[2]\nfor r in t.rows[:40]:\n    print(\" | \".join(c.text[:70] for c in r.cells))\nprint(len(d.paragraphs), len(d.tables))\nEOF'"
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 4324,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1 2\nsaved\nOK: output/ira-issue-memorandum.docx valid\n35:- **C-5** Termination provision: wrong triggers, wrong threshold, survival of non-compete, and an internal defect that wipes out registration rights at the IPO (\u00a7\u00a78.1--8.2).\n100:  **C-",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement/claude-code-session/20261016-031307; $S $R 'cat > /workspace/build/summ.py <<\\EOF\n# -*- coding: utf-8 -*-\nSEC = {\"C-1\":\"\u00a77.4; \u00a7\u00a78.1\u20138.2\",\"C-2\":\"\u00a76.2 (\u00a7\u00a72.11, 6.1)\",\"C-3\":\"\u00a7\u00a75.1\u20135.3\",\"C-4\":\"\u00a76.7\",\"C-5\":\"\u00a7\u00a78.1\u20138.2\",\"C-6\":\"\u00a7\u00a71.12, 3.5\",\"C-7\":\"\u00a74.5\",\"C-8\":\"\u00a73.3\",\"C-9\":\"\u00a73.1(f)\",\"C-10\":\"\u00a76.5\",\n\"S-1\":\"\u00a72.1\",\"S-2\":\"\u00a72.4\",\"S-3\":\"\u00a7\u00a72.11, 6.1\",\"S-4\":\"\u00a73.1(c)\u2013(e)\",\"S-5\":\"\u00a73.2(a)\",\"S-6\":\"\u00a73.2(b)\",\"S-7\":"
+  }
+ ],
+ "final_message": "I prepared the prioritized issues memorandum on the draft Series B Investors' Rights Agreement (IRA). It identifies 31 issues: 10 Critical, 13 Significant and 8 Minor. The file passed the docx validation script and parses back correctly.\n\n**Critical issues:**\n- **Founder non-compete:** a new founder non-compete and non-solicit (\u00a77.4), which the term sheet expressly excludes and which conflicts with the Massachusetts non-compete statute (M.G.L. c. 149, \u00a724L).\n- **Founder lock-up:** a 270-day lock-up for the founders only (\u00a76.2); the term sheet requires a uniform 180 days.\n- **Drag-along:** it can be triggered by the Preferred alone (\u00a75); the term sheet also requires Common approval.\n- **Board composition:** \u00a76.7 conflicts with the term sheet and the charter.\n- **Termination:**\n  - It drops the sale-of-company trigger.\n  - It raises the consent threshold to two-thirds.\n  - It keeps the non-compete alive after termination.\n  - Because the whole agreement ends at the IPO, it also wipes out the registration rights.\n- **Major Investor threshold:** raised to 1,000,000 shares; the term sheet says 500,000. This drops Pinnacle.\n- **Pay-to-play:** a new pay-to-play that strips pro rata and information rights.\n- **Audit rights:** unlimited audits at the Company's expense.\n- **Litigation and IP reporting:** a reporting duty that risks privilege and trade-secret exposure.\n- **Board observer:** no guardrails at all.\n\nThe memo also covers the specific client concerns: founder covenants, Northstar's rights, Company flexibility, QSBS (draft language proposed), and the observer. It also includes a table of conflicts with the charter, a term-sheet checklist, process points and next steps.\n\n**Things to check before the memo goes out:**\n- **Case citations:** the Delaware non-compete cases, *Ryan LLC v. FTC*, and the QSBS rules are cited from my general knowledge, not from the documents. Confirm them before advising the client; the memo's limitations section says this too.\n- **Cap table:** the term sheet's own cap table doesn't add up (founders plus Series A already equal 10.2M against 10M \"fully diluted,\" and the post-money percentages sum to about 101.6%). The memo's share math uses those figures, so the Company should reconcile the cap table before signing.\n- **Northstar timing:** Northstar alone can approve or block the amendment of the Series A IRA. The Series A pro rata notice for this round was due about February 20 for a March 12 closing, unless Northstar waives it.\n\nFiles are in /workspace/output:\n- ira-issue-memorandum.docx"
+}

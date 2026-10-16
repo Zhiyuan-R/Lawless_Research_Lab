@@ -1,0 +1,259 @@
+{
+ "task": "banking-finance/extract-credit-agreement-covenants",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "covenant-extraction-memo.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_d6ae82ed-ab6/agent-a8c3df63675ce4971.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109",
+ "documents": [
+  "compliance-certificate-q3-2024.xlsx",
+  "credit-agreement.docx",
+  "partner-memo-extraction-priorities.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 415,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109\", \"brief\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-l",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'banking-finance/extract-credit-agreement-covenants'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 22962,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 760,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 156\ndrwxr-xr-x 2 root root  4096 Oct 15 06:32 .\ndrwxr-xr-x 5 root root  4096 Oct 16 02:41 ..\n-rw-r--r-- 1 root root 14339 Oct 15 06:32 compliance-certificate-q3-2024.xlsx\n-rw-r--r-- 1 root root 87801 Oct 15 06:32 credit-agr",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 1682,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (49.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b623y24ed.txt\n\nPreview (first 2KB):\nPRIVILEGED AND CONFIDENTIAL ---",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'parse-doc docx documents/partner-memo-extraction-priorities.docx; echo =====; parse-doc xlsx documents/compliance-certificate-q3-2024.xlsx; parse-doc docx documents/credit-agreement.docx > /workspace/ca.txt; wc -c /workspace/ca.txt'"
+  },
+  {
+   "i": 4,
+   "tool": "Read",
+   "out_chars": 51188,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tPRIVILEGED AND CONFIDENTIAL --- ATTORNEY WORK PRODUCT\n2\t\n3\t**[MEMORANDUM]{.underline}**\n4\t\n5\tNovember 8, 2024\n6\t\n7\t**TO:** Philip Montrose, Associate, Whitfield & Crane LLP\n8\t\n9\t**FROM:** Rachel Dominguez, Partner, Whitfield & Crane LLP\n1",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b623y24ed.txt"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 2102,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (39.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bds5sry1d.txt\n\nPreview (first 2KB):\n1549 ca.txt\n**[CREDIT AGREEMENT",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'wc -l ca.txt; head -c 40000 ca.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Read",
+   "out_chars": 41072,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t1549 ca.txt\n2\t**[CREDIT AGREEMENT]{.underline}**\n3\t\n4\tdated as of March 15, 2022,\n5\t\n6\tamong\n7\t\n8\t**VANTAGE INDUSTRIAL SOLUTIONS, INC.,** a Delaware corporation, as Borrower,\n9\t\n10\t**THE GUARANTORS PARTY HERETO,**\n11\t\n12\t**TRIDENT NATIONA",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bds5sry1d.txt"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 2232,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (39.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bnmh5e3c5.txt\n\nPreview (first 2KB):\nsurance or condemnation events ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'head -c 80000 ca.txt | tail -c +39900'"
+  },
+  {
+   "i": 8,
+   "tool": "Read",
+   "out_chars": 41205,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tsurance or condemnation events exceeding \\$5,000,000 in the aggregate during any fiscal year, subject to reinvestment rights on the same terms as clause (i) above.\n2\t\n3\t\\(v\\) All mandatory prepayments of Term Loans pursuant to this Sectio",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bnmh5e3c5.txt"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 2089,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (37.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/betbtyei2.txt\n\nPreview (first 2KB):\n>\n> \\(c\\) Statutory liens of la",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'head -c 118000 ca.txt | tail -c +79900'"
+  },
+  {
+   "i": 10,
+   "tool": "Read",
+   "out_chars": 39377,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t>\n2\t> \\(c\\) Statutory liens of landlords, carriers, warehousemen, mechanics, materialmen, repairmen and other similar liens imposed by law, arising in the ordinary course of business and securing amounts not yet delinquent or being contes",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/betbtyei2.txt"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 1635,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (33.6KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/brlye1l2f.txt\n\nPreview (first 2KB):\nrovisions, the economic effect ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'tail -c +117900 ca.txt'"
+  },
+  {
+   "i": 12,
+   "tool": "Read",
+   "out_chars": 36661,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\trovisions, the economic effect of which comes as close as possible to that of the invalid, illegal or unenforceable provisions.\n2\t\n3\t**Section 10.08 --- Governing Law**\n4\t\n5\tTHIS AGREEMENT AND THE OTHER LOAN DOCUMENTS AND ANY CLAIMS, CONT",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/brlye1l2f.txt"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 2414,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "== Related Parties: 1\n== Base Rate: 5\n== SOFR Loan: 17\n== Working Capital: 2\n== Obligations\\*\\*: 2\n== Capital Lease Obligations\\*\\*: 0\n== Investment\\*\\*: 0\n== Subordinated Indebtedness: 1\n== Borrowing Base: 4\n== LIBOR: 1\n== Benchmark: 1\n== ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'for t in \"Related Parties\" \"Base Rate\" \"SOFR Loan\" \"Working Capital\" \"Obligations\\\\*\\\\*\" \"Capital Lease Obligations\\\\*\\\\*\" \"Investment\\\\*\\\\*\" \"Subordinated Indebtedness\" \"Borrowing Base\" \"LIBOR\" \"Benchmark\" \"floor\" \"Eligible Assignee\" \"Security Agreement\\\\*\\\\*\" \"Environmental Law\" \"ERISA Event\\\\*\\\\*\" \"Credit Extension\\\\*\\\\*\" \"Material Subsidiar\"; do echo \"== $t: $(grep -o -- \"$"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 995,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "## Summary visible A1:B55\n## Leverage Calculations visible A1:D64\n## FCCR Calculation visible A1:H29\n## Covenant Tracking visible A1:Q21\n{}\n['Revolving Credit Facility \u2014 Drawn:', '$35,000,000']\n['Revolving Credit Facility \u2014 Available:', '$6",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'python3 - <<EOF\nimport openpyxl\nwb=openpyxl.load_workbook(\"documents/compliance-certificate-q3-2024.xlsx\")\nfor ws in wb.worksheets:\n    print(\"##\",ws.title,ws.sheet_state,ws.dimensions)\n    for row in ws.iter_rows():\n        for c in row:\n            if c.comment: print(\"COMMENT\",c.coordinate,c.comment.text)\n            if isinstance(c.value,str) and c.value.startswith(\"=\"): pr"
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 2482,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "TNL 3.7393850658857977 SSNL 3.677891654465593 SSNL incl CL 3.7393850658857977 TNL cert num 3.677891654465593\nFCCR 1.2401055408970976 1.2200000051914892\nSSNL EBITDA-only cure 8.99230769230769 rounded 8.875950105994036 dual 6.876470588235293 ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'python3 - <<EOF\nE=68.3; TD=257.95; SS=253.75; cash=2.55\nprint(\"TNL\",(TD-cash)/E, \"SSNL\",(SS-cash)/E, \"SSNL incl CL\",(SS+4.2-cash)/E, \"TNL cert num\",251.2/E)\nprint(\"FCCR\",47/37.9, 47/38.52459)\n# cure amounts\nfor name,num,lvl in [(\"SSNL\",SS-cash,3.25),(\"SSNL_incl\",SS+4.2-cash,3.25)]:\n  print(name,\"EBITDA-only cure\",num/lvl-E, \"rounded\",num/3.2549-E, \"dual\",(num-lvl*E)/(1+lvl), \"d"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/lib.py <<\"EOF\"\nfrom docx import Document\nfrom docx.shared import Pt, Inches, RGBColor\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nsec = doc.sections[0]\nsec.left_margin = sec.right_margin = Inches(1)\n"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'cat > /workspace/build/p1.py <<\"EOF\"\nfrom lib import *\n\np = P(\"**PRIVILEGED AND CONFIDENTIAL \u2014 ATTORNEY WORK PRODUCT \u2014 PREPARED AT THE DIRECTION OF COUNSEL**\"); p.alignment = WD_ALIGN_PARAGRAPH.CENTER\np = P(\"**MEMORANDUM**\"); p.alignment = WD_ALIGN_PARAGRAPH.CENTER\nT([\"\", \"\"], [\n  [\"TO:\", \"Rachel Dominguez, Partner, Whitfield & Crane LLP\"],\n  [\"FROM:\", \"Philip Montrose, Associa"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'cat > /workspace/build/p2.py <<\"EOF\"\nfrom lib import *\n\nH1(\"IV. Priority 2 \u2014 Financial Covenants: Extraction, Recalculation and Headroom\")\nH2(\"A. Financial Maintenance Covenants (\u00a77.11) \u2014 Confirmed\")\nP(\"We confirm the four financial covenants. The full schedules, including all step-downs and step-ups, are as follows:\")\nT([\"Covenant\", \"Test\", \"Levels\"], [\n  [\"(a) Total Net Lever"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'cat > /workspace/build/p3.py <<\"EOF\"\nfrom lib import *\n\nH1(\"V. Priority 3 \u2014 Restricted Payments and Distribution Capacity\")\nH2(\"A. The Covenant (\u00a77.06) \u2014 Full Extraction\")\nP(\"The Borrower may not declare or make any Restricted Payment, which is defined as any dividend or distribution on Equity Interests of the Borrower or any Subsidiary, or any purchase, redemption or retiremen"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 4,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\nok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'cd /workspace/build && sed -i \"s/About Q3 2025 (3.03x) to Q4 2025 (2.87x)/About Q4 2025 (2.87x; still 3.03x at Q3 2025)/; s/About Q1 2029 (16+ quarters)/About Q4 2028 (17 quarters)/\" p3.py && grep -c \"Q4 2028 (17\" p3.py && cat > /workspace/build/p4.py <<\"EOF\"\nfrom lib import *\n\nH1(\"VII. Priority 5 \u2014 Equity Cure Rights (\u00a78.01(e))\")\nT([\"Feature\", \"Provision\", \"Assessment\"], [\n  ["
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 7,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\nsaved",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'cd /workspace/build && sed -i \"s/Each \\$1 of cure reduces SSNL by about 0.04x/Each \\$1M of cure reduces SSNL by about 0.05x at current levels/\" p4.py && grep -c \"0.05x at current\" p4.py && cat > /workspace/build/p5.py <<\"EOF\"\nfrom lib import *\n\nH1(\"XI. Issues and Red Flags \u2014 Consolidated Risk Assessment\")\nT([\"#\", \"Issue\", \"Section(s)\", \"Risk\", \"Significance\", \"Recommended next "
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 6170,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "accept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py\nOK: output/covenant-extraction-memo.docx valid\nrc=0\n12125 /tmp/out.txt\n**PRIVILEGED AND CONFIDENTIAL --- ATTORNEY WOR",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'ls skills/docx/scripts 2>/dev/null; python3 skills/docx/scripts/validate.py output/covenant-extraction-memo.docx; echo rc=$?; parse-doc docx output/covenant-extraction-memo.docx > /tmp/out.txt; wc -w /tmp/out.txt; head -c 3000 /tmp/out.txt; grep -n \"\\*\\*\" /tmp/out.txt | head -5'"
+  },
+  {
+   "i": 23,
+   "tool": "Bash",
+   "out_chars": 897,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "0\n17:# I. Executive Summary\n35:# II. Documents Reviewed, Approach and Key Assumptions\n45:# III. Priority 1 --- Change of Control\n151:# IV. Priority 2 --- Financial Covenants: Extraction, Recalculation and Headroom\n315:# V. Priority 3 --- Re",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109; $S $R 'parse-doc docx output/covenant-extraction-memo.docx > /tmp/out.txt; grep -c \"\\\\\\\\\\*\" /tmp/out.txt; grep -n \"^# \" /tmp/out.txt; ls -la output'"
+  }
+ ],
+ "final_message": "I finished the covenant extraction memo, checked it with the docx validator and opened it again to confirm it reads correctly. The biggest finding is that, by my recalculation, Vantage already breaches the Senior Secured Net Leverage covenant (\u00a77.11(c)) at Q3 2024. The ratio is 3.68x, or 3.74x with secured capital leases included, against a 3.25x maximum; the compliance certificate reports 3.15x. That is a live Event of Default unless an equity cure of about $8.9M\u2013$10.2M is received by about November 29, 2024. Ridgeline's deal triggers a Change of Control, but contrary to the working assumption it is not a \"sacred right\": a waiver needs only the Required Lenders, not unanimous consent. Under the existing facility, Restricted Payments for the $40M holdco debt are blocked, and the memo recommends refinancing at closing.\n\nFiles in /workspace/output:\n- /workspace/output/covenant-extraction-memo.docx"
+}

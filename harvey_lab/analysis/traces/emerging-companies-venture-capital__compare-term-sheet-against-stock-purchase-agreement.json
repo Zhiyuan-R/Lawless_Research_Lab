@@ -1,0 +1,250 @@
+{
+ "task": "emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "term-sheet-spa-deviation-report.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_0318d4ba-e01/agent-afc2a2023cd48e88f.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261016-022600",
+ "documents": [
+  "cap-table.xlsx",
+  "company-counsel-email.eml",
+  "draft-spa.docx",
+  "series-b-term-sheet.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 487,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519\", \"brief\": \"/home/user/Lawless_Res",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 23003,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 843,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 160\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 15 22:55 ..\n-rw-r--r-- 1 root root 10975 Oct 15 06:33 cap-table.xlsx\n-rw-r--r-- 1 root root  5069 Oct 15 06:33 company-counsel-email.eml\n-rw-r",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'ls -la documents output; for f in documents/*; do echo \"== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 2202,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (71.2KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b3bmf6tti.txt\n\nPreview (first 2KB):\nFrom: James Rafferty <jrafferty",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cat documents/company-counsel-email.eml; parse-doc xlsx documents/cap-table.xlsx; parse-doc docx documents/series-b-term-sheet.docx'"
+  },
+  {
+   "i": 4,
+   "tool": "Read",
+   "out_chars": 74694,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tFrom: James Rafferty <jrafferty@whitfieldcrane.com>\n2\tTo: Helen Tsao <htsao@pembertonstone.com>\n3\tCc: Sandra Okonkwo <sokonkwo@whitfieldcrane.com>; Danielle Cho <dcho@kaleidoscoperobotics.com>\n4\tDate: Wed, 12 Feb 2025 04:47:00 -0000\n5\tSub",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b3bmf6tti.txt"
+  },
+  {
+   "i": 5,
+   "tool": "Bash",
+   "out_chars": 2083,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (29.8KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b3tfvvofm.txt\n\nPreview (first 2KB):\n  1065 130265 /workspace/spa.tx",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'parse-doc docx documents/draft-spa.docx > /workspace/spa.txt; wc -l -c /workspace/spa.txt; sed -n 1,250p /workspace/spa.txt'"
+  },
+  {
+   "i": 6,
+   "tool": "Read",
+   "out_chars": 31452,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t  1065 130265 /workspace/spa.txt\n2\t**[SERIES B PREFERRED STOCK PURCHASE AGREEMENT]{.underline}**\n3\t\n4\tby and among\n5\t\n6\t**KALEIDOSCOPE ROBOTICS, INC.**\n7\t\n8\ta Delaware corporation\n9\t\n10\tand\n11\t\n12\t**THE INVESTORS LISTED ON SCHEDULE 1 HERE",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/b3tfvvofm.txt"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 21439,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "No representation or warranty of the Company contained in this Agreement, as qualified by the Disclosure Schedule, and no certificate, statement, or other document furnished or to be furnished to the Investors pursuant hereto, contains or w",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'sed -n 251,480p /workspace/spa.txt'"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 26708,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "Title: Managing Member\n\nDate: **\\_\\_\\_\\_\\_\\_\\_\\_**\n\nRIDGEWAY GROWTH PARTNERS, LP\n\nBy: **\\_\\_\\_\\_\\_\\_\\_\\_**\n\nName: Nathan Delacroix\n\nTitle: General Partner\n\nDate: **\\_\\_\\_\\_\\_\\_\\_\\_**\n\n**[SCHEDULE 1 --- SCHEDULE OF INVESTORS]{.underline}**\n\n",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'sed -n 481,700p /workspace/spa.txt'"
+  },
+  {
+   "i": 9,
+   "tool": "Bash",
+   "out_chars": 29507,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "\\(a\\) To the fullest extent permitted by the DGCL, as the same exists or as may hereafter be amended, a director of the Corporation shall not be personally liable to the Corporation or its stockholders for monetary damages for breach of fid",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'sed -n 701,880p /workspace/spa.txt'"
+  },
+  {
+   "i": 10,
+   "tool": "Bash",
+   "out_chars": 22075,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**Section 1.3 --- Exempted Transfers.** Notwithstanding the foregoing, the following Transfers shall be exempt from the provisions of this Article 1 and Article 2 (each, an \\\"Exempted Transfer\\\"), provided that the transferee agrees in writ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'sed -n 881,1065p /workspace/spa.txt'"
+  },
+  {
+   "i": 11,
+   "tool": "Bash",
+   "out_chars": 926,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "OH 17997977.9294 -2022.0705999992788 4304366.54072409 4304366 17999997.7388 4304347.826086957\nCP 6000101.0034 101.00339999981225 1434788.84690803 1434788 5999996.4584 1434782.6086956523\nRG 4000067.3356 67.33559999987483 956525.8979386867 95",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'python3 - <<EOF\np=4.1818\ninv={\"OH\":(18e6,4303883),\"CP\":(6e6,1434813),\"RG\":(4e6,956542)}\ntot=0\nfor k,(a,s) in inv.items():\n  print(k, s*p, s*p-a, a/p, int(a/p), int(a/p)*p, a/(92e6/22e6))\n  tot+=s*p\nprint(\"tot\",tot, 28e6/p, 28e6/(92e6/22e6), 92e6/22e6)\npost=14.2e6+4.8e6+6695238+6454286\nprint(\"post FD\",post, 4304286/post, 6695238/post, 28e6/120"
+  },
+  {
+   "i": 12,
+   "tool": "Bash",
+   "out_chars": 244,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 2\n/bin/bash: eval: line 608: syntax error near unexpected token `('\n/bin/bash: eval: line 608: ` \"Restore 60% everywhere in 4.6(b). Confirm with Cascade and Ridgeway whether they want a separate disproportionate-treatment consent.",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/content.py <<'\"'\"'EOF'\"'\"'\n# -*- coding: utf-8 -*-\n# Each row: (No., Topic, Term Sheet, Draft (SPA/Exhibit ref + text), Deviation / Concern, Impact on Investors, Severity, Recommended Action)\n\nSECTIONS = []\n\nSECTIONS.append((\"A. Economics, Pricing and Capitalization\", [\n(\"A-1\",\"Price per sha"
+  },
+  {
+   "i": 13,
+   "tool": "Bash",
+   "out_chars": 74,
+   "is_error": false,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "test\nls: cannot access '/workspace/build': No such file or directory\n1.2.0",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cat /dev/null; echo test; ls /workspace/build; python3 -c \"import docx; print(docx.__version__ if hasattr(docx,\\\"__version__\\\") else 1)\"'"
+  },
+  {
+   "i": 14,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'mkdir -p /workspace/build && cat > /workspace/build/c1.py <<\\EOF\nSECTIONS = []\nSECTIONS.append((\"A. Economics, Pricing and Capitalization\", [\n(\"A-1\",\"Price per share / Original Issue Price (words vs. numerals)\",\n \"TS 1.7: $4.1818 per share ($92,000,000 / 22,000,000, rounded to four decimals).\",\n \"SPA Art. 1 (\\\"Original Issue Price\\\") and SPA "
+  },
+  {
+   "i": 15,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cat > /workspace/build/c2.py <<\\EOF\nSECTIONS = []\nSECTIONS.append((\"B. Terms of the Series B Preferred (Exhibit A, Restated Certificate)\", [\n(\"B-1\",\"Liquidation preference: seniority\",\n \"TS 2.2: Series B is paid first, \\\"prior and in preference to\\\" Series A and Common, and is \\\"senior\\\" to Series A. Priority: Series B, then Series A, then Co"
+  },
+  {
+   "i": 16,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cat > /workspace/build/c3.py <<\\EOF\nSECTIONS = []\nSECTIONS.append((\"C. Governance (Exhibit C, Voting Agreement; SPA 7.3)\", [\n(\"C-1\",\"Board size and composition\",\n \"TS 3.1: seven (7) directors: two Series B Directors, one Series A Director, two Common Directors, and two (2) Independent Directors mutually agreed by the Series B Directors and th"
+  },
+  {
+   "i": 17,
+   "tool": "Bash",
+   "out_chars": 2,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "ok",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cat > /workspace/build/c4.py <<\\EOF\nSECTIONS = []\nSECTIONS.append((\"E. Founder Vesting and Acceleration (Exhibit E, Founder Stock Restriction Agreement)\", [\n(\"E-1\",\"Vesting schedule\",\n \"TS 5.1: four-year vesting from the Series B Closing with a one-year cliff. At the first anniversary, 25% of the then-unvested shares vest; the rest vest month"
+  },
+  {
+   "i": 18,
+   "tool": "Bash",
+   "out_chars": 368,
+   "is_error": true,
+   "error_text": true,
+   "spilled": false,
+   "out_head": "Exit code 1\nTraceback (most recent call last):\n  File \"/workspace/build/build.py\", line 165, in <module>\n    allrows = [(n,topic,sev) for (title, items) in SECTIONS for (n,topic,tsv,dr,dev,imp,sev,rec) in items]\n                            ",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cat > /workspace/build/build.py <<\\EOF\nimport sys\nsys.path.insert(0, \"/workspace/build\")\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.section import WD_ORIENT\nfrom docx.enum.table import WD_TABLE_ALIGNMENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import O"
+  },
+  {
+   "i": 19,
+   "tool": "Bash",
+   "out_chars": 748,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "G-8 7\n('TS: the Company\u2019s principal office is 1830 Industrial Parkway, Suite 400, Austin, TX 78745.', 'SPA 9.5 gives Company emails at kaleidoscope-robotics.com, while the transmittal email uses kaleidoscoperobotics.com. Whitfield & Crane i",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cd /workspace/build && python3 -c \"\nimport c1,c2,c3,c4\nfor m in (c1,c2,c3,c4):\n  for t,items in m.SECTIONS:\n    for it in items:\n      if len(it)!=8: print(it[0],len(it)); print(it[2:])\n\"'"
+  },
+  {
+   "i": 20,
+   "tool": "Bash",
+   "out_chars": 116,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved /workspace/output/term-sheet-spa-deviation-report.docx 63 {'Critical': 6, 'High': 19, 'Medium': 26, 'Low': 12}",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cd /workspace/build && python3 - <<\\EOF\ns=open(\"c4.py\").read()\nold=\"remains.\\\",\\n \\\"Clerical errors could make notices defective.\\\",\"\nassert s.count(old)==1\nnew=\"remains.\\\",\\n \\\"The notice addresses do not match the parties\u2019 actual contact details, and the draft is not ready to sign.\\\",\\n \\\"Clerical errors could make notices defective.\\\",\"\ns="
+  },
+  {
+   "i": 21,
+   "tool": "Bash",
+   "out_chars": 8066,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "accept_changes.py\ncomments_add.py\ngenerate_from_md.py\npack.py\nredline.py\nsoffice.py\ntemplate_fill.py\nunpack.py\nvalidate.py\nOK: output/term-sheet-spa-deviation-report.docx valid\nrc=0\n**PEMBERTON STONE LLP**\n\n**PRIVILEGED & CONFIDENTIAL \\| AT",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'ls skills/docx/scripts 2>/dev/null; python3 skills/docx/scripts/validate.py output/term-sheet-spa-deviation-report.docx; echo rc=$?; parse-doc docx output/term-sheet-spa-deviation-report.docx | head -60; parse-doc docx output/term-sheet-spa-deviation-report.docx | wc -w'"
+  },
+  {
+   "i": 22,
+   "tool": "Bash",
+   "out_chars": 2029,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved /workspace/output/term-sheet-spa-deviation-report.docx 63 {'Critical': 6, 'High': 19, 'Medium': 26, 'Low': 12}\nOK: /workspace/output/term-sheet-spa-deviation-report.docx valid\n23:# 1. Executive Summary\n25:Company counsel says the draf",
+   "cmd": "S=/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh; R=/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement/claude-code-session/20261015-225519; $S $R 'cd /workspace/build && python3 - <<\\EOF\ns=open(\"build.py\").read()\nreps=[(\"a few changes favor the investors (Section 6)\",\"a few changes favor the investors (Section 7)\"),\n(\"errors that need to be fixed now (Section 5)\",\"errors that need to be fixed now (Section 6)\"),\n(\"covering the items in Sections 5 and 6 that need\",\"covering the items in S"
+  }
+ ],
+ "final_message": "I've written the deviation report as a Word document. It has 63 findings: 6 critical, 19 high, 26 medium and 12 low. It validates and opens cleanly when parsed back. Despite company counsel's email saying the draft \"reflects the agreed term sheet\", it departs from it on most core economic and control terms.\n\n**Critical**\n- **Pricing and option pool:** the price is based on 22,000,000 shares, which leaves out the 3,454,286 new pool shares. As a result:\n  - true post-money fully-diluted shares are 32,149,524, not 28,695,238;\n  - Series B owns 20.83% instead of 23.33%;\n  - the unallocated pool is 13.39% of post-money, not 15%;\n  - the effective pre-money is about $106.4M, not $92M.\n  \n  This error is in the term sheet itself, so the client needs to decide it first.\n- **Price in words:** \"Four Dollars and Eighteen Cents ($4.1818)\". Words normally control over figures, which would make the price $4.18.\n- **Liquidation preference:** changed from senior to equal ranking with Series A.\n- **Qualified IPO:** lowered from 3x the issue price and $75M to 2x and $50M.\n- **Sale veto:** Series B consent to a sale of the company becomes a price floor rather than a veto.\n- **Board:** reduced from seven seats to six, with one independent director instead of two.\n\n**High (main items)**\n- Series B dividend priority over Series A is removed.\n- Series B participation up to 3x is added, which favors investors but contradicts the term sheet.\n- Protective provisions drop from 60% to a simple majority, the related-party provision is deleted, and the debt threshold doubles from $2M to $4M.\n- The drag-along drops the Common Stock approval and lowers the Preferred threshold from 60% to a majority. Orchard Hill holds about 79% of the Preferred and could trigger it alone.\n- The new-issuance right has no exercise period and no same-terms protection.\n- The company lock-up has become a lock-up on the investors.\n- Founder vesting after the cliff runs 24 months instead of 36, and the double-trigger window is 24 months instead of 12.\n- The SPA's entire-agreement clause wipes out the term sheet's binding exclusivity and confidentiality, and the SPA adds no replacement.\n- Share counts don't match the dollar amounts: 6,695,238 \u00d7 $4.1818 = $27,998,146.27, not $28M.\n- The Series A holders are unclear: the term sheet says Orchard Hill put in $7.5M, but the cap table shows it holding all $12M of Series A.\n\nThe report also:\n- lists the errors in the term sheet and the company cap table; the cap table overstates fully-diluted shares by 1,550,000;\n- lists the deviations that favor the investors, as a separate strategy item;\n- lists missing documents, including the disclosure schedule, the legal opinion form and the spousal consent;\n- sets out next steps ahead of the February 21, 2025 comment deadline.\n\nFiles are in /workspace/output:\n- term-sheet-spa-deviation-report.docx"
+}

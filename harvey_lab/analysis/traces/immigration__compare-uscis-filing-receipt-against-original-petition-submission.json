@@ -1,0 +1,111 @@
+{
+ "task": "immigration/compare-uscis-filing-receipt-against-original-petition-submission",
+ "status": "agent_running",
+ "n_criteria": null,
+ "n_passed": null,
+ "outputs": [
+  "discrepancy-report.docx"
+ ],
+ "transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_50c1e39f-8a4/agent-af3203add125bca20.jsonl",
+ "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235",
+ "documents": [
+  "fedex-shipping-confirmation.docx",
+  "form-g28-notice-of-appearance.docx",
+  "i140-petition-cover-letter.docx",
+  "petition-submission-checklist.xlsx",
+  "uscis-receipt-notice-i797c.docx"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "tool": "Bash",
+   "out_chars": 469,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "{\"run_dir\": \"/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235\", \"brief\": \"/home/user/Lawless_Research_Lab",
+   "cmd": "python3 /home/user/Lawless_Research_Lab/harvey_lab/wf_step.py prepare 'immigration/compare-uscis-filing-receipt-against-original-petition-submission'"
+  },
+  {
+   "i": 1,
+   "tool": "Read",
+   "out_chars": 22994,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\t# Harvey LAB agent brief\n2\t\n3\tYou are the agent under evaluation in the Harvey Legal Agent Benchmark.\n4\t\n5\t## How to act\n6\t\n7\tYour only workspace is a sandbox container. Run every command through:\n8\t\n9\t    /home/user/Lawless_Research_Lab/",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235/AGENT_BRIEF.md"
+  },
+  {
+   "i": 2,
+   "tool": "Bash",
+   "out_chars": 1137,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "documents:\ntotal 188\ndrwxr-xr-x 2 root root  4096 Oct 15 06:33 .\ndrwxr-xr-x 5 root root  4096 Oct 16 03:32 ..\n-rw-r--r-- 1 root root 39398 Oct 15 06:33 fedex-shipping-confirmation.docx\n-rw-r--r-- 1 root root 41487 Oct 15 06:33 form-g28-noti",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235 'ls -la documents output; for f in documents/*; do echo \"=== $f\"; parse-doc \"$f\" | wc -c; done'"
+  },
+  {
+   "i": 3,
+   "tool": "Bash",
+   "out_chars": 16680,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "**Department of Homeland Security** **U.S. Citizenship and Immigration Services**\n\n**I-797C, Notice of Action**\n\nUSCIS Texas Service Center 6046 N Belt Line Road, Irving, TX 75038\n\n**Receipt Number:** SRC-25-901-12478\n\n**Receipt Date:** Mar",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235 'cd documents; parse-doc docx uscis-receipt-notice-i797c.docx; echo =======; parse-doc docx i140-petition-cover-letter.docx'"
+  },
+  {
+   "i": 4,
+   "tool": "Bash",
+   "out_chars": 2191,
+   "is_error": false,
+   "error_text": false,
+   "spilled": true,
+   "out_head": "<persisted-output>\nOutput too large (34.1KB). Full output saved to: /root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bf55417of.txt\n\nPreview (first 2KB):\nDepartment of Homeland Security",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235 'cd documents; parse-doc docx form-g28-notice-of-appearance.docx; echo =======; parse-doc docx fedex-shipping-confirmation.docx; echo ======; parse-doc xlsx petition-submission-checklist.xlsx'"
+  },
+  {
+   "i": 5,
+   "tool": "Read",
+   "out_chars": 36092,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "1\tDepartment of Homeland Security U.S. Citizenship and Immigration Services\n2\t\n3\t**Form G-28, Notice of Entry of Appearance as Attorney or Accredited Representative**\n4\t\n5\tOMB No. 1615-0105 Expires 03/31/2027 Edition Date: 03/18/2024\n6\t\n7\tT",
+   "cmd": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tool-results/bf55417of.txt"
+  },
+  {
+   "i": 6,
+   "tool": "Bash",
+   "out_chars": 2580,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "Document Checklist visible A1:G32\nFee Summary visible A1:H6\nfedex-shipping-confirmation.docx ['[Content_Types].xml', '_rels/.rels', 'docProps/core.xml', 'docProps/app.xml', 'word/document.xml', 'word/_rels/document.xml.rels', 'word/styles.x",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235 'cd documents; python3 - <<EOF\nimport openpyxl,zipfile,re,datetime\nwb=openpyxl.load_workbook(\"petition-submission-checklist.xlsx\")\nfor ws in wb.worksheets:\n  print(ws.title, ws.sheet_state, ws.dimensions)\n  for row in ws.iter_rows():\n    for c in row:\n      if c.comment: print(\"COMMENT\",c.coordinate,c.comment.text)\n      if isinstance(c.value,str) and c.value.star"
+  },
+  {
+   "i": 7,
+   "tool": "Bash",
+   "out_chars": 47,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved /workspace/output/discrepancy-report.docx",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235 'mkdir -p /workspace/scratch && cat > /workspace/scratch/build.py <<\"EOF\"\nfrom docx import Document\nfrom docx.shared import Pt, RGBColor, Inches\nfrom docx.enum.text import WD_ALIGN_PARAGRAPH\nfrom docx.enum.section import WD_ORIENT\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\n\ndoc = Document()\nsec = doc.sections[0]\nsec.left_margin = sec.right_margi"
+  },
+  {
+   "i": 8,
+   "tool": "Bash",
+   "out_chars": 6924,
+   "is_error": false,
+   "error_text": false,
+   "spilled": false,
+   "out_head": "saved /workspace/output/discrepancy-report.docx\nOK: /workspace/output/discrepancy-report.docx valid\nrc=0\n**BRIGHTFIELD & ASSOCIATES LLP**\n\n*PRIVILEGED & CONFIDENTIAL --- ATTORNEY WORK PRODUCT*\n\n**I-797C RECEIPT NOTICE DISCREPANCY REPORT**\n\n",
+   "cmd": "/home/user/Lawless_Research_Lab/harvey_lab/sbx.sh /home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/compare-uscis-filing-receipt-against-original-petition-submission/claude-code-session/20261016-033235 'cd /workspace/scratch && python3 - <<\"EOF\"\np=\"build.py\"; s=open(p).read()\nreps=[(\"3 Critical, 6 High, 10 Medium and 7 Low\",\"3 Critical, 4 High, 11 Medium and 8 Low\"),\n(\"that a correction request has been, or will not be, made, with reasons\",\"whether a correction request will be made, and why\"),\n(\" (45 business days, excluding the Memorial Day holiday)\",\" (45 busi"
+  }
+ ],
+ "final_message": "I wrote and validated the discrepancy report comparing the USCIS receipt notice against the five petition documents; it lists 26 findings (3 critical, 4 high, 11 medium, 8 low).\nThe most serious are the transposed A-Number (receipt A-217-854-903 vs. submission A-217-845-903), the missing $600 Asylum Program Fee (the $3,520 check should have been $4,120), and no sign that USCIS accepted the premium processing request; others include the March 17 vs. March 15 receipt date, the dropped middle name, and the fee and date errors inside the package.\n\nFiles in /workspace/output:\n- /workspace/output/discrepancy-report.docx"
+}
