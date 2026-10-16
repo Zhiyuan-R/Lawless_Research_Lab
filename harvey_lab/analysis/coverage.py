@@ -12,7 +12,7 @@ sys.path.insert(0, str(HERE.parent / "vendor" / "harvey-labs" / "lab_core" / "sa
 import parse_doc as P  # noqa: E402
 
 TASKS = HERE.parent / "vendor" / "harvey-labs" / "tasks"
-norm = lambda s: re.sub(r"[\s|*#_>\-]+", " ", s).strip().lower()  # noqa: E731
+norm = lambda s: re.sub(r"[\s|*#_>\-\\`]+", " ", s).strip().lower()  # noqa: E731
 
 def text_of(p: Path) -> str:
     ext = p.suffix.lower()
@@ -47,9 +47,14 @@ for r in rows[:int(sys.argv[1]) if len(sys.argv)>1 else None]:
     d = TASKS / r["task"] / "documents"
     for p in sorted(d.rglob("*")):
         if not p.is_file(): continue
-        lines = [norm(l) for l in text_of(p).splitlines()]
-        lines = [l for l in lines if len(l) >= 40]
-        hit = sum(l[:200] in seen for l in lines)
+        raw = text_of(p)
+        if p.suffix.lower() in (".xlsx", ".xls"):  # agents often dump sheets with their own code: match cells
+            units = [norm(c) for l in raw.splitlines() for c in l.split("|")]
+            lines = [u for u in units if len(u) >= 8 and u not in ("nan", "none")]
+            hit = sum(u in seen for u in lines)
+        else:  # match a 60-char window from inside the line, robust to markup differences at the edges
+            lines = [l for l in (norm(x) for x in raw.splitlines()) if len(l) >= 40]
+            hit = sum(l[8:68] in seen for l in lines)
         docs[str(p.relative_to(d))] = {"lines": len(lines), "seen": hit, "chars": sum(map(len, lines))}
     tot = sum(v["lines"] for v in docs.values()); hit = sum(v["seen"] for v in docs.values())
     result[r["task"]] = {"coverage": round(hit / tot, 3) if tot else None, "docs": docs}
