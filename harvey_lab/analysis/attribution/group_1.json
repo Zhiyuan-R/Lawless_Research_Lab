@@ -1,0 +1,456 @@
+{
+ "tasks": [
+  {
+   "task": "healthcare-life-sciences/identify-stark-law-compliance-issues",
+   "n_failed": 10,
+   "process": [
+    {
+     "obs": "Converted all 15 docs to text up front (steps 1-2) and read every one in full, re-opening spilled outputs with Read (steps 5-6, 11-12, 15-16); nothing in scope went unread.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Cross-checked the ClearView lease's Exhibit B ($12/sf operating-expense pass-through, step 12) against the appraisal's full-service-gross basis (step 16), and concluded the rent is ~$30/sf gross-equivalent. That is a sound reading, but it moved the memo away from the rubric's 'below FMV' answer on two criteria.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote a ~12,600-word memo in six python-docx parts (steps 30-36), then spent about ten steps (38-47) patching dollar-sign escaping and list numbering, including one heredoc syntax error (step 46). No pass re-checked the substance against the expected issue list.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Chose not to quantify exposure ('Exposure cannot be quantified from the file') even though it had read the relator's >$12M, >$13M and >$30M figures (step 23). That cost the aggregate-exposure criterion.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-005",
+     "title": "ISSUE_002: Identifies ClearView lease as below fair market value",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "clearview-lease-agreement.docx §4.1: \"$18.00 per rentable square foot\" + §4.5/Ex. B: \"Estimated Annual Operating Expenses ... $12.00/sq. ft.\"; lakeshore-fmv-appraisal-summary.docx: \"$28.00 to $32.00 per square foot per year (Full-Service Gross Lease Basis)\"",
+     "seen_step": 12,
+     "deliverable": "Issue 9: \"ClearView's rent is about $30.00/sf ($18.00 base plus about $12.00 in expense pass-throughs) ... likely defensible on FMV\"",
+     "judge_correct": true,
+     "explanation": "The judge applied the criterion as written. But the criterion compares an $18 triple-net base rent with a full-service-gross appraisal. Adding the lease's own $12/sf opex pass-through gives ~$30, inside the $28-32 range. The agent flagged the lease as a Medium issue with a documented gross-equivalent analysis, and on the documents the rubric's premise is doubtful."
+    },
+    {
+     "id": "C-009",
+     "title": "ISSUE_002: States FMV requirement of rental exception is not satisfied",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "Same as C-005 (lease §4.1, §4.5, Ex. B vs. appraisal FSG basis)",
+     "seen_step": 12,
+     "deliverable": "\"If expenses were in fact billed and collected at or near the estimate, the lease is likely defensible on FMV under § 411.357(a)\"",
+     "judge_correct": true,
+     "explanation": "This follows from the same gross-vs-net reconciliation. The agent concluded FMV is probably met, conditional on expenses actually having been collected. The criterion assumes an apples-to-oranges comparison that the documents themselves undercut."
+    },
+    {
+     "id": "C-016",
+     "title": "ISSUE_006: Identifies Dr. Stein's medical director compensation as above FMV",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "stein-medical-director-agreement.docx §§3.2, 4.1: $120,000/yr, 8 hrs/month; the MGMA $85k-$105k ASC medical-director benchmark appears in none of the 15 documents",
+     "seen_step": 7,
+     "deliverable": "Issue 6 (High): \"$1,250 per contracted hour ... an hourly-equivalent rate that appears well above typical administrative medical director benchmarks; no re-benchmarking in eight years\"",
+     "judge_correct": false,
+     "explanation": "The criterion's FAIL condition is 'not flagged as an issue'. The memo flagged it as High and computed $1,250/hr (and $3,000/hr on itemized duties). The judge failed it only for not citing an MGMA range that exists nowhere in the record."
+    },
+    {
+     "id": "C-018",
+     "title": "ISSUE_006: Cites personal services/management contracts exception",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (42 C.F.R. § 411.357(d)); facts in stein-medical-director-agreement.docx",
+     "seen_step": 7,
+     "deliverable": "\"Because Buckeye is an ASC rather than a DHS entity, the agreement is not itself a Stark compensation arrangement ... Stark risk is therefore secondary\"; analyzed under AKS § 1001.952(d)",
+     "judge_correct": true,
+     "explanation": "The agent took a deliberate doctrinal position: ASC facility services are not DHS, so the MDA is at most an indirect compensation arrangement. It therefore applied the AKS personal-services safe harbor instead of the Stark § 411.357(d) exception. The position is defensible but differs from the expert's framing."
+    },
+    {
+     "id": "C-022",
+     "title": "ISSUE_007: Estimates imaging revenue exposure (~$2.61M)",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "internal-audit-memo-march-2022.docx §III: \"The estimated imaging revenue attributable to these 4 radiologists' interpretations was not precisely calculated ... approximately 30% of total imaging volume\"; no $8.7M imaging revenue base appears in any document",
+     "seen_step": 3,
+     "deliverable": "Exposure table: \"IC radiologists | ~30% of imaging reads | Anti-markup and IOASE overpayments\" (no dollar figure)",
+     "judge_correct": true,
+     "explanation": "The judge is literally right that no dollar estimate was given. However, the $8.7M imaging revenue base behind the canonical $2.61M is absent from the record (grep of all docs), so the expected figure could not be derived. The agent said instead that DHS revenue data were missing."
+    },
+    {
+     "id": "C-024",
+     "title": "ISSUE_008: Notes writing requirement for Stark exceptions",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "wellford-employment-agreement.docx §3.1: \"shall expire on January 14, 2024 ... shall not automatically renew\"; law: § 411.357(c) bona fide employment exception has no signed-writing requirement",
+     "seen_step": 6,
+     "deliverable": "\"If employment continued, the employment exception has no writing requirement, but the compensation terms in force must be documented to show FMV\"",
+     "judge_correct": false,
+     "explanation": "The agent's statement is correct: the bona fide employment exception (§ 411.357(c)) does not require a signed writing, unlike § 411.357(d). The criterion asserts the employment exception requires one, and the judge penalized a correct statement of law."
+    },
+    {
+     "id": "C-026",
+     "title": "ISSUE_009: Estimates lab services exposure at unsupervised satellites (~$1.9M)",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "internal-audit-memo-march-2022.docx §III.A (Hilliard/Dublin supervision gap) gives no lab billing figures; no $1.9M figure in any document",
+     "seen_step": 3,
+     "deliverable": "\"Satellite labs | Volume not quantified\"",
+     "judge_correct": true,
+     "explanation": "Literally failed, but the ~$1.9M canonical figure has no basis in the record: no satellite lab revenue appears anywhere. The agent correctly reported that the volume could not be quantified and listed the data needed."
+    },
+    {
+     "id": "C-031",
+     "title": "ISSUE_010: Identifies absence of self-disclosure protocol",
+     "cause": "seen_not_used",
+     "capability": "exhaustiveness",
+     "source": "compliance-program-manual.docx §10.2: \"will consider voluntary self-disclosure ... The Compliance Committee shall evaluate self-disclosure options on a case-by-case basis\" (no SRDP/60-day refund procedure)",
+     "seen_step": 26,
+     "deliverable": "absent as a compliance-program gap. The memo discusses SRDP/SDP/60-day rule options for the current matter (Part VII) but never says the manual lacks a protocol.",
+     "judge_correct": true,
+     "explanation": "The agent read manual §10.2 and wrote a detailed compliance-infrastructure critique (hotline, committee conflicts). It never flagged that §10.2 is only a case-by-case statement with no Stark self-disclosure or refund procedure."
+    },
+    {
+     "id": "C-043",
+     "title": "Memorandum identifies total estimated Medicare exposure (~$30M)",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "hale-qui-tam-complaint-excerpts.docx ¶107: \"total Medicare claims tainted ... exceed $30 million for calendar year 2023\"; ¶46 >$12M; ¶88 >$13M",
+     "seen_step": 23,
+     "deliverable": "\"The relator alleges more than $30 million ... Exposure cannot be quantified from the file\"; the exposure table lists components without a total",
+     "judge_correct": true,
+     "explanation": "The agent saw every component and repeated the relator's $30M allegation. It deliberately declined to give its own aggregate estimate on data-sufficiency grounds, while the expert wanted a working ~$30M aggregate."
+    },
+    {
+     "id": "C-046",
+     "title": "Memorandum recommends executing a written agreement with Dr. Wellford",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "wellford-employment-agreement.docx §3.1 (expired Jan. 14, 2024, no auto-renewal); physician-compensation-summary-2023.xlsx row 53 (still Employed)",
+     "seen_step": 6,
+     "deliverable": "\"the compensation terms in force must be documented ... All 31--35 employment agreements should be inventoried\"",
+     "judge_correct": true,
+     "explanation": "The agent spotted the lapse. Because it correctly read the employment exception as having no writing requirement, it recommended documenting terms and a general inventory rather than promptly executing a new written agreement with Wellford, which is the expert's remediation."
+    }
+   ]
+  },
+  {
+   "task": "banking-finance/draft-intercreditor-agreement",
+   "n_failed": 6,
+   "process": [
+    {
+     "obs": "Read the partner email and both credit agreements in full in byte-range chunks (steps 3-8). No source content was missed.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Drafted strictly to the partner's first-lien-favorable term sheet and reconciled it against the 2L CA (DIP cap, plan voting and maturity conflicts were flagged). It added no doctrinal-risk notes (Serta/uptier, adequate-protection enforceability) the instructions did not prompt.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Built the memo and ICA as three text chunks plus a renderer (steps 10-13; the 'errors' were benign grep exit codes), made one patch pass (step 14), and checked only formatting and maturity-date arithmetic (steps 15-16). The whole run took 17 steps.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-004",
+     "title": "ISSUE_002: Identifies revolver and term loan priority/pari passu question",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "first-lien-credit-agreement-excerpts.docx §2.18: \"Third, ratably to pay (a) all other First Lien Obligations (including Term Loans, Revolving Loans (other than Protective Advances)...\"; partner email §5 waterfall is silent on intra-1L priority",
+     "seen_step": 6,
+     "deliverable": "ICA waterfall defers to First Lien Documents order; Memo Issue 23 notes Protective Advances' super-priority within the 1L waterfall but not term-vs-revolver",
+     "judge_correct": true,
+     "explanation": "The agent saw the 1L CA's ratable waterfall and treated term-vs-revolver priority as an intra-first-lien matter for the First Lien Documents. It never flagged that the partner email leaves the question open, which the expert wanted raised."
+    },
+    {
+     "id": "C-008",
+     "title": "ISSUE_004: Flags risk of automatic release enabling uptier/Serta-style transactions",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "partner-drafting-instructions.eml §8: \"automatically and simultaneously released\"; risk itself is general legal knowledge (Serta/Boardriders liability-management transactions)",
+     "seen_step": 3,
+     "deliverable": "absent; §5.01 releases on any transaction 'permitted under the First Lien Credit Agreement (or consented to by the requisite First Lien Lenders)' with no note",
+     "judge_correct": true,
+     "explanation": "The agent drafted a broad automatic release exactly as instructed and added no note on the market-known liability-management risk that the release could strip second-lien liens in a non-pro-rata uptier."
+    },
+    {
+     "id": "C-009",
+     "title": "ISSUE_004: Considers anti-Serta protections for automatic release",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (Serta Simmons, Boardriders); partner-drafting-instructions.eml §8",
+     "seen_step": 3,
+     "deliverable": "\"provided that, in the case of clause (ii), the Proceeds of such Collateral are applied in accordance with Section 4.04\" (only proceeds condition)",
+     "judge_correct": true,
+     "explanation": "No non-affiliate-sale or ratable-benefit condition was drafted or recommended. This follows from C-008: the risk was never identified, so no protection was considered."
+    },
+    {
+     "id": "C-012",
+     "title": "ISSUE_006: Flags enforceability risk of complete adequate protection cash payment waiver",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "partner-drafting-instructions.eml §6(b): \"No adequate protection in the form of cash payments...\"; enforceability risk is general bankruptcy knowledge (§§ 361, 363(e))",
+     "seen_step": 3,
+     "deliverable": "\"Drafted cleanly per instructions: replacement Liens and junior superpriority claims only; no cash adequate protection...\" (no enforceability caveat)",
+     "judge_correct": true,
+     "explanation": "The agent treated the waiver purely as a negotiation point, consistent with the 2L CA. It did not flag that a court may refuse to enforce a total prospective waiver of adequate protection; it cited Ion Media only for plan voting."
+    },
+    {
+     "id": "C-013",
+     "title": "ISSUE_006: Recommends savings clause or limitation rather than complete waiver",
+     "cause": "judgment",
+     "capability": "drafting_craft",
+     "source": "general legal knowledge; ICA §6.04(c)",
+     "seen_step": 3,
+     "deliverable": "§6.04(c) \"In no event shall the Second Lien Agent ... seek, request or accept adequate protection (i) in the form of any payment of cash\" (flat prohibition)",
+     "judge_correct": true,
+     "explanation": "Having identified no enforceability risk (C-012), the agent drafted a flat prohibition. It added no savings or fallback language (e.g., a 2L right to seek AP if the court requires it, subject to turnover)."
+    },
+    {
+     "id": "C-020",
+     "title": "ISSUE_010: Notes second lien does not include hedging/cash management",
+     "cause": "seen_not_used",
+     "capability": "cross_doc_reconciliation",
+     "source": "second-lien-credit-agreement-excerpts.docx: \"'Second Lien Obligations' means all Obligations ... arising under ... this Agreement and the Second Lien Loan Documents, including all principal, interest, fees, premiums...\" (no hedging/cash management)",
+     "seen_step": 7,
+     "deliverable": "absent; the memo's asymmetry note concerns the 2L CA's definition of First Lien Obligations, not Second Lien Obligations",
+     "judge_correct": true,
+     "explanation": "The agent read the 2L definition (steps 5 and 7) and carefully imported hedging and cash-management obligations into the First Lien Obligations definition. It never noted that the Second Lien side has no counterpart."
+    }
+   ]
+  },
+  {
+   "task": "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement",
+   "n_failed": 4,
+   "process": [
+    {
+     "obs": "Read all five documents in full, including the 73k-char settlement agreement through two Reads of the spilled file (steps 2-8).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Generated the whole memo in one python-docx script at step 10, with one regeneration (step 13) and readback checks limited to rendering and dollar formatting (steps 11-14).",
+     "effect": "harmful"
+    },
+    {
+     "obs": "The analysis is contract-centric: it catalogs every clause and asymmetry thoroughly but gives no dedicated pass on how MTCA statutory features (strict/joint liability, treble damages) interact with the contract triggers and exclusions.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-037",
+     "title": "ISSUE_002b: Illustrates practical impact of asymmetric basket mechanics",
+     "cause": "judgment",
+     "capability": "drafting_craft",
+     "source": "settlement-agreement.docx §8.1(c) $250,000 deductible; §8.2(c) $150,000 threshold \"liable for the full amount of such Losses from the first dollar\"",
+     "seen_step": 3,
+     "deliverable": "\"8.1 $250K true deductible vs. 8.2 $150K tipping threshold (first-dollar) ... Favorable (Cascadia owes less and recovers more)\" (no worked example)",
+     "judge_correct": true,
+     "explanation": "The agent correctly identified both mechanics and their direction but never worked a same-size claim (e.g., $300K: $50K vs. $300K recovery) to show the practical difference."
+    },
+    {
+     "id": "C-044",
+     "title": "ISSUE_007b: Flags unclear boundaries of insurer litigation carve-out",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "settlement-agreement.docx §8.7(c): \"shall not be required to initiate or maintain litigation against its insurer ... shall not require the Indemnified Party to file suit, initiate arbitration, or engage in formal dispute resolution\"",
+     "seen_step": 4,
+     "deliverable": "\"Cascadia to use commercially reasonable efforts to recover; no duty to sue insurer\" (described, not critiqued)",
+     "judge_correct": true,
+     "explanation": "The agent read and summarized §8.7(c) but did not treat its line between 'commercially reasonable efforts' and formal proceedings as ambiguous. Since §8.7(c) fairly expressly excludes suit, arbitration and formal ADR, this is a defensible severity call."
+    },
+    {
+     "id": "C-047",
+     "title": "ISSUE_010: Flags MTCA strict/joint/several liability may undermine 'arising from' triggers",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "settlement-agreement.docx §§8.1/8.2 \"arising from\" triggers; Recital N/§4.4 MTCA joint and several liability; RCW 70A.305.040 (general knowledge)",
+     "seen_step": 3,
+     "deliverable": "\"MTCA liability is strict, joint and several; SA allocation is contractual only\"; coverage gap noted for claims from Puget's historical operations, but not tied to the MTCA attribution problem",
+     "judge_correct": true,
+     "explanation": "The agent knew the MTCA liability standard and listed coverage gaps. It never made the specific link that MTCA claims need no causal attribution to either party, so the 'arising from' triggers may never be met."
+    },
+    {
+     "id": "C-048",
+     "title": "ISSUE_011: Flags punitive/multiplied damages exclusion may conflict with MTCA treble damages",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "settlement-agreement.docx §8.6(c): \"punitive damages, exemplary damages, or multiplied damages of any kind, whether statutory or otherwise\"; MTCA treble damages RCW 70A.305.060 (not in documents)",
+     "seen_step": 4,
+     "deliverable": "\"Punitive / multiplied damages ... Excluded from 8.1/8.2 only (SA 8.6)\" (no MTCA treble-damages connection)",
+     "judge_correct": true,
+     "explanation": "The agent cataloged the §8.6(c) exclusion but did not apply outside knowledge that MTCA authorizes treble damages and penalties, which the 'multiplied damages, statutory or otherwise' wording would sweep out of the indemnity."
+    }
+   ]
+  },
+  {
+   "task": "tax/identify-tax-issues-in-counterpartys-summary-judgment-brief",
+   "n_failed": 3,
+   "process": [
+    {
+     "obs": "Read the 71k-char brief completely by head -c 36000 then awk from line 297 (exactly where the first read ended), and read every declaration and opinion in head/tail halves (steps 4-16). Coverage was complete.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Ran explicit arithmetic checks on the brief's figures (step 17) and caught the $9,530,400 error and that it equals 20% x $47,652,000.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Built a 56-issue memo in four parts (steps 19-24) and spent steps 25-31 fixing cross-reference numbering and markdown escaping. There was no final pass for 'cuts both ways' nuance on the favorable facts.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-007",
+     "title": "ISSUE_003: Notes the $9,530,400 implies ~20% differential, suggesting unstated NIIT assumption or math error",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "govt-summary-judgment-brief.docx n.1: \"The 17% differential ... applied to $47,612,000 yields aggregate federal tax savings of $9,530,400\"; quillen-declaration.docx ¶53: \"plus the 3.8% net investment income tax\"",
+     "seen_step": 5,
+     "deliverable": "\"The Brief's figure equals 20% of $47,652,000, which matches neither the stated base nor the stated rate. Both figures also ignore the 3.8% net investment income tax\"",
+     "judge_correct": false,
+     "explanation": "The memo states the rate that reproduces the figure (20%), identifies it as a math error (wrong base/rate) and mentions NIIT. That meets the PASS text ('~20% differential ... NIIT assumption or a mathematical error'). The NIIT theory is also numerically weak (17% + 3.8% = 20.8%)."
+    },
+    {
+     "id": "C-012",
+     "title": "ISSUE_005: Notes nuance that this contradiction could both help and hurt the government",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "quillen-declaration.docx ¶¶40-41 / ashford-expert-declaration.docx ¶22: Fund V had no realized gains",
+     "seen_step": 13,
+     "deliverable": "\"This is the single best piece of evidence that HCP's entrepreneurial risk was real\" (treated as purely favorable)",
+     "judge_correct": true,
+     "explanation": "The agent correctly caught the misstatement. It treated the zero-gain fact only as proof of real risk and did not acknowledge that the government could recast it as an illusory, never-funded allocation lacking economic substance."
+    },
+    {
+     "id": "C-014",
+     "title": "ISSUE_006: Cites IRC § 7701(o) conjunctive two-prong test requirement",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (§ 7701(o)(1)(A)-(B) conjunctive test)",
+     "seen_step": null,
+     "deliverable": "Cites § 7701(o)(1)(A) objective prong ('Objective prong never analyzed') and (1)(B) purpose prong separately; never says both must be satisfied",
+     "judge_correct": true,
+     "explanation": "The agent used both prongs correctly against the brief (e.g., attacking the missing objective-prong analysis) but never stated the codified test is conjunctive. That is a doctrinal framing omission, not a factual one."
+    }
+   ]
+  },
+  {
+   "task": "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement",
+   "n_failed": 2,
+   "process": [
+    {
+     "obs": "Read every transaction document in full in head/tail chunks (steps 3-14), including the ROFR agreement's deemed-decline clause (step 6).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Applied ROFR §2.1(b) literally: a late waiver is harmless because the Company is deemed to have declined. It redirected the risk to the Company's missed 2-business-day forwarding obligation, a document-grounded call that diverged from the rubric.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote the memo in a single script (step 16) with only two small sed fixes (steps 17-18) before handback.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-003",
+     "title": "ISSUE_001: Explains risk of untimely ROFR waiver",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "rofr-co-sale-agreement.docx §2.1(b): \"If the Company fails to deliver the Company Notice within the Company Notice Period, the Company shall be deemed to have declined to exercise its Right of First Refusal\"",
+     "seen_step": 6,
+     "deliverable": "\"By then the Company was already deemed to have declined under §2.1(b), so the letter is harmless as a waiver. The point that matters is that the Company's obligation to forward the notice to the Investors ... was triggered\"",
+     "judge_correct": true,
+     "explanation": "The criterion wants the late waiver framed as a possible 'deemed exercise' or an invalidating defect. The ROFR agreement says silence is a deemed decline, so the agent's 'harmless' reading follows the contract. It still explained the real downstream risk (forwarding and Investor periods)."
+    },
+    {
+     "id": "C-038",
+     "title": "ISSUE_001 severity rated critical or high",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "rofr-co-sale-agreement.docx §2.1(b) (deemed decline); company-rofr-waiver.docx dated January 6, 2025",
+     "seen_step": 8,
+     "deliverable": "Issue 10 rated Medium",
+     "judge_correct": true,
+     "explanation": "The Medium rating is consistent with the contract's deemed-decline mechanism. The rubric's critical/high expectation rests on a deemed-exercise risk that §2.1(b) forecloses."
+    }
+   ]
+  },
+  {
+   "task": "antitrust-competition/draft-competitor-confidentiality-agreement-review",
+   "n_failed": 2,
+   "process": [
+    {
+     "obs": "Read all five documents in full (steps 3-8); the market overview was split and read in two parts after a spill (steps 5-7).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Took a reasoned contrarian position on the Confidential Information definition: keep it broad for protection and control the exchange through a clean team and use limits. This diverged from the expected 'narrow the definition' fix.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Built the memo in several parts (steps 10-15) with one readback and patch (steps 16-17). The legal-framework section was written from memory and covered Sherman §1 and DOJ/FTC guidance but omitted FTC Act §5.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-003",
+     "title": "Recommends limiting Confidential Information to rCF JV evaluation",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "draft-mutual-nda.docx §2 (broad Confidential Information definition: pricing, customer lists, costs, roadmaps, compensation...)",
+     "seen_step": 3,
+     "deliverable": "\"From a confidentiality standpoint a broad definition is protective ... Recommendation: keep a broad definition\" while narrowing the Transaction to the rCF JV and limiting exchange",
+     "judge_correct": true,
+     "explanation": "The agent deliberately recommended keeping the broad definition and constraining what is exchanged and who may access it. The expert wanted the definition itself narrowed to rCF JV evaluation information; the position is defensible but different."
+    },
+    {
+     "id": "C-038",
+     "title": "References FTC Act Section 5 as applicable legal framework",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (15 U.S.C. § 45); not in documents",
+     "seen_step": null,
+     "deliverable": "absent; the framework cites Sherman Act §1, DOJ/FTC guidance, Clayton Act §4 and Canadian Competition Act",
+     "judge_correct": true,
+     "explanation": "The framework section mentions the FTC as an enforcer but never cites FTC Act §5 (unfair methods of competition) as a governing statute."
+    }
+   ]
+  },
+  {
+   "task": "litigation-dispute-resolution/extract-key-admissions-from-deposition-transcript",
+   "n_failed": 1,
+   "process": [
+    {
+     "obs": "Read both deposition volumes, interrogatories, forensic report and agreements in full using line-range sed reads and Reads of spilled files (steps 3-19).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Built a 60-plus-row admissions table keyed to page/line cites, preferring the strongest version of each admission (commits over 'reviewed').",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Spent several steps on escaping problems with Windows paths (step 24) and backslash checks (steps 31-33) after writing.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-011",
+     "title": "ISSUE_004b: Identifies Yoon's admission of reviewing MillEdge Pro codebase",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "yoon-deposition-vol2.docx (Vol. II ~301): \"A. I reviewed the codebase and flagged some inefficiencies. I wouldn't characterize that as 'development.'\"",
+     "seen_step": 9,
+     "deliverable": "Admission 52: \"Eleven commits under 'dyoon-pag' in September 2024 ...\"; admission 57: continuing access to the MillEdge Pro codebase; Rog 12 contradiction row cites 'architecture review, optimization-engine suggestions, 11 commits'",
+     "judge_correct": false,
+     "explanation": "The memo records Yoon's stronger codebase admission (eleven September 2024 commits to the MillEdge Pro repository) and his access to the codebase. It omits only his softer self-characterization 'reviewed the codebase and flagged inefficiencies'. The judge's FAIL is overly literal, though the exact quote would have been useful for the Rog 12 impeachment."
+    }
+   ]
+  }
+ ]
+}

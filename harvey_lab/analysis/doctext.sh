@@ -7,7 +7,8 @@ SRC="$LAB/tasks/$1/documents"; OUT="$2"; mkdir -p "$OUT"
 cd "$LAB"
 find "$SRC" -type f | while read -r f; do
   rel="${f#$SRC/}"; dst="$OUT/${rel//\//__}.txt"
-  uv run --quiet python lab_core/sandbox/parsers/parse_doc.py "$f" > "$dst" 2>/dev/null \
+  ext="${f##*.}"; ext="${ext,,}"
+  uv run --quiet python lab_core/sandbox/parsers/parse_doc.py "$ext" "$f" > "$dst" 2>/dev/null \
     || uv run --quiet markitdown "$f" > "$dst" 2>/dev/null || cp "$f" "$dst"
 done
 wc -c "$OUT"/* | tail -n +1

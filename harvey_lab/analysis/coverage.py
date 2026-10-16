@@ -38,25 +38,30 @@ def outputs(transcript: str) -> str:
                     chunks.append(x if isinstance(x, str) else "".join(y.get("text", "") for y in x or [] if isinstance(y, dict)))
     return norm("\n".join(chunks))
 
-rows = json.load(open(HERE / "trace_stats.json"))
-result = {}
-for r in rows[:int(sys.argv[1]) if len(sys.argv)>1 else None]:
-    if r["task"].startswith(("firm-knowledge/", "diligence/")): continue  # thousands of docs: retrieval, not reading
-    seen = outputs(r["transcript"])
-    docs = {}
-    d = TASKS / r["task"] / "documents"
-    for p in sorted(d.rglob("*")):
-        if not p.is_file(): continue
-        raw = text_of(p)
-        if p.suffix.lower() in (".xlsx", ".xls"):  # agents often dump sheets with their own code: match cells
-            units = [norm(c) for l in raw.splitlines() for c in l.split("|")]
-            lines = [u for u in units if len(u) >= 8 and u not in ("nan", "none")]
-            hit = sum(u in seen for u in lines)
-        else:  # match a 60-char window from inside the line, robust to markup differences at the edges
-            lines = [l for l in (norm(x) for x in raw.splitlines()) if len(l) >= 40]
-            hit = sum(l[8:68] in seen for l in lines)
-        docs[str(p.relative_to(d))] = {"lines": len(lines), "seen": hit, "chars": sum(map(len, lines))}
-    tot = sum(v["lines"] for v in docs.values()); hit = sum(v["seen"] for v in docs.values())
-    result[r["task"]] = {"coverage": round(hit / tot, 3) if tot else None, "docs": docs}
-    print(f"{result[r['task']]['coverage']}\t{r['task']}", flush=True)
-(HERE / "coverage.json").write_text(json.dumps(result, indent=1))
+def main() -> None:
+    rows = json.load(open(HERE / "trace_stats.json"))
+    result = {}
+    for r in rows[:int(sys.argv[1]) if len(sys.argv)>1 else None]:
+        if r["task"].startswith(("firm-knowledge/", "diligence/")): continue  # thousands of docs: retrieval, not reading
+        seen = outputs(r["transcript"])
+        docs = {}
+        d = TASKS / r["task"] / "documents"
+        for p in sorted(d.rglob("*")):
+            if not p.is_file(): continue
+            raw = text_of(p)
+            if p.suffix.lower() in (".xlsx", ".xls"):  # agents often dump sheets with their own code: match cells
+                units = [norm(c) for l in raw.splitlines() for c in l.split("|")]
+                lines = [u for u in units if len(u) >= 8 and u not in ("nan", "none")]
+                hit = sum(u in seen for u in lines)
+            else:  # match a 60-char window from inside the line, robust to markup differences at the edges
+                lines = [l for l in (norm(x) for x in raw.splitlines()) if len(l) >= 40]
+                hit = sum(l[8:68] in seen for l in lines)
+            docs[str(p.relative_to(d))] = {"lines": len(lines), "seen": hit, "chars": sum(map(len, lines))}
+        tot = sum(v["lines"] for v in docs.values()); hit = sum(v["seen"] for v in docs.values())
+        result[r["task"]] = {"coverage": round(hit / tot, 3) if tot else None, "docs": docs}
+        print(f"{result[r['task']]['coverage']}\t{r['task']}", flush=True)
+    (HERE / "coverage.json").write_text(json.dumps(result, indent=1))
+
+
+if __name__ == "__main__":
+    main()

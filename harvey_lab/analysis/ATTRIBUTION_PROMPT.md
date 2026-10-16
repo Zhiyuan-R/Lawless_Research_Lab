@@ -9,7 +9,7 @@ evidence-driven and skeptical: every classification needs a concrete trace or do
   error/spill flags, first 240 chars of output), the documents list, `run_dir`, `transcript`, the agent's
   final message, and `failed` = the failed criteria (id, title, judge reasoning).
 - Full rubric and assignment: `harvey_lab/vendor/harvey-labs/tasks/<T>/task.json` (instructions, criteria).
-- Source documents as text: run `harvey_lab/analysis/doctext.sh <T> /tmp/attr/<slug>` once, then grep the .txt files.
+- Source documents as text: run `harvey_lab/analysis/doctext.sh <T> /tmp/attr/<slug>` once (fixed: it now passes the file type to the parser), then grep the .txt files.
 - The agent's deliverables as the judge saw them: `<run_dir>/judge/bundle.md`; the files are in `<run_dir>/output/`.
 - What the agent actually SAW: `python3 harvey_lab/analysis/seen.py <transcript> '<regex>'` lists the tool calls
   whose output contained the regex (add `--cmd` to also search the commands). Use distinctive strings from the

@@ -1,0 +1,472 @@
+{
+ "group": "group_1",
+ "tasks": [
+  {
+   "task": "tax/draft-tax-structure-memorandum",
+   "n_failed": 15,
+   "process": [
+    {
+     "obs": "Converted all 8 documents to text at step 2 and read each in full in head/tail chunks (steps 3-18); every rubric fact surfaced in tool output",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Built its own Python models of ADSP/AGUB scenarios and a 15-year buyer PV model (steps 19-20), recomputing step-up figures from scratch instead of adopting the PPA/QoE numbers",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Adopted a 'deal-file premises are wrong' stance and wrote a 10-row corrections table (1363(d), ADSP incl. liabilities, 163(j) EBIT since 2022, NIIT material participation, non-compete amortization). That stance drives 13 of the 15 failures; most corrections are legally defensible but contradict the rubric",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote the ~9,900-word memo in four part-scripts (steps 23-27), validated it and made small patches (steps 28-33). It never re-checked the memo against the figures the parties expected (e.g., the $3.09M annual shield)",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-008",
+     "title": "Recommends 338(h)(10) election as optimal structure",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general structuring judgment; DD/PPA: 'Acquisition Vehicle: TBD (HIS Holdings, LLC or HIS Acquisition Corp.)'",
+     "seen_step": 12,
+     "deliverable": "\"Recommended structure: pre-closing 'F' reorganization followed by a purchase of 100% of the LLC interests (not a Section 338(h)(10) election).\"",
+     "judge_correct": true,
+     "explanation": "The agent chose an F reorganization plus an LLC-interest purchase, which gives the same step-up and avoids 338(h)(10)'s corporate-purchaser and state-conformity limits. This is common market practice and defensible, but it is not the rubric's answer."
+    },
+    {
+     "id": "C-009",
+     "title": "Identifies LIFO recapture tax under Section 1363(d) triggered by 338(h)(10)",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "PPA notes: 'LIFO reserve recapture triggers \u00a7 1363(d) tax'; DD \u00a7V.C; email chain 10/24, 10/29",
+     "seen_step": 6,
+     "deliverable": "\"Section 1363(d) imposes LIFO recapture only when a C corporation becomes an S corporation... It does not apply when an S election terminates or when an S corporation sells (or is deemed to sell) its assets.\"",
+     "judge_correct": true,
+     "explanation": "The agent saw the premise repeated in every document and expressly rejected it. Its reading is the correct statement of \u00a71363(d), which applies only on a C-to-S conversion. The criterion encodes a legal error that runs through the fictional deal file. The judge applied it literally."
+    },
+    {
+     "id": "C-010",
+     "title": "Quantifies federal LIFO recapture tax as approximately $2.478 million",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "PPA Class IV row: '$11,800,000 \u00d7 21% = $2,478,000 federal tax'",
+     "seen_step": 3,
+     "deliverable": "\"There is no $2.478 federal (or $0.198-$0.708 Michigan) corporate-level 'LIFO recapture tax.'\"",
+     "judge_correct": true,
+     "explanation": "Same root cause as C-009. The agent knowingly rejected the 21% corporate-level computation because no corporate-level tax applies to an S corporation's deemed sale. The rubric number rests on an incorrect legal premise."
+    },
+    {
+     "id": "C-011",
+     "title": "Notes LIFO recapture is a corporate-level tax, not passed to shareholders",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "PPA: 'LIFO recapture tax under \u00a7 1363(d) applies at corporate level'",
+     "seen_step": 9,
+     "deliverable": "\"the $11.8 LIFO reserve is ordinary income on the sale of inventory that passes through to the shareholders under Section 1366\"",
+     "judge_correct": true,
+     "explanation": "The agent's pass-through treatment is correct under actual law. The criterion requires the documents' incorrect corporate-level characterization."
+    },
+    {
+     "id": "C-017",
+     "title": "Quantifies total Section 197 intangibles in the range of $216M-$221M",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "PPA Summary: '... + $103.1M (Goodwill incl. Assembled Workforce) = $220,600,000'",
+     "seen_step": 12,
+     "deliverable": "\"Section 197 basis is about $279.2 (about $18.6 of amortization a year), not $220.6.\"",
+     "judge_correct": true,
+     "explanation": "The agent grossed up ADSP/AGUB for about $64M of A/P and accruals (Treas. Reg. \u00a7\u00a71.338-4/-5), which raised the \u00a7197 residual to $279.2M. Including assumed liabilities is technically sound, but the liability figure is itself unreconciled (QoE $64.0M vs CIM $43.7M). The rubric expects the PPA figure."
+    },
+    {
+     "id": "C-018",
+     "title": "Calculates annual Section 197 amortization of approximately $14.7 million",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "QoE \u00a7VII: 'annual amortization deductions of approximately $14,706,667'",
+     "seen_step": 14,
+     "deliverable": "\"Annual \u00a7197 amortization ... $18.6 ... $17.3 ... $14.7\" (the $14.7 column is labelled as the PPA figure it rejects)",
+     "judge_correct": true,
+     "explanation": "This follows from the C-017 AGUB correction. $14.7M appears only as the rejected PPA column, and the base case uses $18.6M."
+    },
+    {
+     "id": "C-019",
+     "title": "Calculates annual federal tax shield from Section 197 amortization",
+     "cause": "judgment",
+     "capability": "verification",
+     "source": "QoE: 'annual federal tax shield of approximately $3,088,400 per year for fifteen years'",
+     "seen_step": 14,
+     "deliverable": "absent (only PV of step-up $31-43M and first-year cash savings)",
+     "judge_correct": true,
+     "explanation": "The agent saw the QoE's $3.09M annual shield but reported only blended-rate PV figures and never stated an annual 21% shield. Even on its own base ($18.6M \u00d7 21% \u2248 $3.9M), the figure would sit outside the rubric's range."
+    },
+    {
+     "id": "C-021",
+     "title": "Identifies EBITDA-to-EBIT transition for ATI computation",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "DD \u00a7VIII.D: 'For tax years beginning in 2025, ATI is calculated on an EBITDA basis. However, beginning in 2026, ATI transitions to an EBIT basis'",
+     "seen_step": 9,
+     "deliverable": "\"ATI has been computed without adding back depreciation and amortization for taxable years beginning after 12/31/2021... The DD report's statement that 2025 ATI is EBITDA-based is incorrect under current law.\"",
+     "judge_correct": true,
+     "explanation": "The memo is dated Nov 2024. On that date ATI had been EBIT-based since 2022, so the agent's correction is right and the DD's 2025-EBITDA/2026-EBIT schedule is not the law. (The 2025 OBBBA later restored EBITDA from 2025 onward, which also contradicts the rubric's 2026 EBIT.)"
+    },
+    {
+     "id": "C-022",
+     "title": "Quantifies 163(j) disallowance for 2025 (EBITDA basis) as approximately $5.945M",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "DD \u00a7VIII.D ($18.5M interest; 2025 EBITDA basis); EBITDA $41.85M (QoE)",
+     "seen_step": 9,
+     "deliverable": "absent (EBITDA-basis ATI modelled only as a PV sensitivity 'if H.R. 7024-type relief is enacted')",
+     "judge_correct": true,
+     "explanation": "This depends on the C-021 premise. The agent treated 2025 EBITDA-based ATI as not the law and so never computed a 2025 disallowance on that basis."
+    },
+    {
+     "id": "C-023",
+     "title": "Quantifies 163(j) disallowance for 2026+ (EBIT basis) as approximately $8.435M",
+     "cause": "judgment",
+     "capability": "quantitative",
+     "source": "DD \u00a7VIII.D: 'Estimated Year 1 interest expense of approximately $18,500,000'",
+     "seen_step": 9,
+     "deliverable": "\"Without a step-up: ATI \u2248 $34.7, the limit is \u2248 $10.4, and \u2248 $8.9 is disallowed\" (on $19.3M interest incl. OID/DIC); with the step-up, ATI \u2248 $0",
+     "judge_correct": true,
+     "explanation": "The agent's model added OID and debt-issuance costs ($19.3M rather than $18.5M) and step-up D&A. That gave $8.9M with no step-up and roughly full disallowance with the step-up, so neither figure falls in the $8.4-8.5M band. These are more complete modelling choices, but no 'simple' figure was given."
+    },
+    {
+     "id": "C-027",
+     "title": "Identifies buyer-seller tension on non-compete agreement allocation",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "PPA: Non-Compete Agreements $8,500,000, '15 years (\u00a7 197); contractual term 5 years'",
+     "seen_step": 12,
+     "deliverable": "\"The buyer amortizes non-compete consideration over 15 years under Section 197, exactly as it does goodwill. The buyer gains nothing from the $8.5 non-compete allocation, while each dollar costs the sellers 17 or more percentage points of extra tax\"",
+     "judge_correct": true,
+     "explanation": "The agent identified the seller-side cost correctly and also correctly noted that \u00a7197(d)(1)(E) gives the buyer no faster amortization, which the PPA itself states. The criterion's 'buyer benefits from faster amortization' premise contradicts both the PPA and the law."
+    },
+    {
+     "id": "C-031",
+     "title": "Computes total deemed sale gain of approximately $250.8 million",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "DD \u00a7IV.A: 'aggregate adjusted tax basis ... $134,200,000, creating a potential basis step-up of $250,800,000'",
+     "seen_step": 6,
+     "deliverable": "\"Step-up = EV $385.0 \u2212 inside basis $134.2 = $250.8\" listed as an error; inside gain \u2248 $314.8",
+     "judge_correct": true,
+     "explanation": "The agent deliberately replaced the documents' $250.8M with $314.8M by adding assumed operating liabilities to ADSP. This is the same defensible but non-rubric correction as C-017."
+    },
+    {
+     "id": "C-037",
+     "title": "Applies combined federal capital gains rate of 23.8% for sellers",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "Email 10/24: '20% federal plus the 3.8% net investment income tax, for a combined 23.8%'; CIM: Sarah 'Passive'; LOI: Gerald CEO, Patricia CFO",
+     "seen_step": 3,
+     "deliverable": "\"Gerald, Patricia and David materially participate ... not net investment income. NIIT applies to Sarah (passive).\"",
+     "judge_correct": true,
+     "explanation": "The agent applied \u00a71411(c)(4) correctly using facts in the CIM and LOI (three active officers, one passive holder). A blanket 23.8% for all four sellers is the less accurate position the rubric demands."
+    },
+    {
+     "id": "C-057",
+     "title": "Identifies implied goodwill of approximately $98.6 million (or ~$103.1M with assembled workforce)",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "PPA Summary: 'Goodwill (Residual) $98,600,000'",
+     "seen_step": 12,
+     "deliverable": "residual goodwill $161.7M; '$103.1' cited only as the PPA figure being corrected",
+     "judge_correct": true,
+     "explanation": "The goodwill residual was inflated by the agent's AGUB gross-up for liabilities (see C-017). The PPA figure was seen and explicitly overridden."
+    },
+    {
+     "id": "C-060",
+     "title": "Identifies that state-level LIFO recapture taxes also apply",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "State matrix col. M 'LIFO Recapture Conformity' (MI: 'Conforms to federal LIFO recapture under IRC 1363(d)'); DD: '28% \u00d7 6% ... $198,240'",
+     "seen_step": 7,
+     "deliverable": "\"There is no $2.478 federal (or $0.198-$0.708 Michigan) corporate-level 'LIFO recapture tax.'\"",
+     "judge_correct": true,
+     "explanation": "This follows from the \u00a71363(d) correction (C-009). Because no federal corporate-level LIFO tax arises, the agent also rejected the state-level analogue, which is consistent with the law but not with the rubric."
+    }
+   ]
+  },
+  {
+   "task": "energy-natural-resources/extract-land-option-agreement-terms",
+   "n_failed": 5,
+   "process": [
+    {
+     "obs": "Parsed all 5 documents to text and read the agreement, playbook, memo, email and comps in full (steps 2-7)",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Framed the extraction table as 'Conforms/Deviation vs Ridgeline Playbook'. Terms that match the developer playbook (abandonment exclusions, Qualified Transferee, fixed-only escalator) were marked 'Conforms' and never analysed as risks",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Generated the memo in 7 python part-files and then rewrote gen2-gen6 wholesale (steps 19-23) to fix '$' escaping, which spent effort on mechanics rather than issue analysis",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Ran date and economics computations (steps 8-9) and an MFN cascade quantification, which produced strong coverage on the critical issues",
+     "effect": "helpful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-059",
+     "title": "ISSUE_003: Abandonment exclusions could prevent trigger from ever activating",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "Agreement \u00a71.1: 'periods during which non-generation is attributable to (i) Force Majeure, (ii) scheduled maintenance or repair, or (iii) curtailment directed by the grid operator ... shall be excluded'",
+     "seen_step": 3,
+     "deliverable": "\"Abandonment: 24 consecutive months of non-generation by all WTGs, excluding force majeure, scheduled maintenance/repair, grid curtailment ... Conforms (more Developer-favorable: whole-project test)\"",
+     "judge_correct": true,
+     "explanation": "The agent extracted the exclusions accurately but judged them conforming because they track the developer playbook verbatim. It never considered that uncapped exclusions could stop the trigger from ever firing, which matters to the landowner and to the enforceability and CUP picture."
+    },
+    {
+     "id": "C-060",
+     "title": "ISSUE_003: Recommends adding cap on abandonment exclusions",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "Agreement \u00a71.1 (as above); Playbook VII.A abandonment definition identical",
+     "seen_step": 3,
+     "deliverable": "absent",
+     "judge_correct": true,
+     "explanation": "No issue was raised, so no cap or outer limit was recommended. This follows from the C-059 calibration."
+    },
+    {
+     "id": "C-065",
+     "title": "ISSUE_006: Qualified Transferee provision undermines consent right",
+     "cause": "seen_not_used",
+     "capability": "risk_calibration",
+     "source": "Playbook VI.A guidance: 'these thresholds are relatively modest by current renewable energy industry standards --- most mid-size and large wind developers, infrastructure funds, yieldcos, and regulated utilities will readily meet both criteria'",
+     "seen_step": 6,
+     "deliverable": "\"Qualified Transferee: Net worth >= $50M (GAAP) and ... >= 200 MW wind; no consent ... Conforms (experience test broader than Playbook)\"",
+     "judge_correct": true,
+     "explanation": "The playbook itself flags that the thresholds are modest and make the consent right largely illusory, and the agent read that passage at step 6. It still marked the provision 'Conforms' and discussed QT only in the lender context."
+    },
+    {
+     "id": "C-067",
+     "title": "ISSUE_007: References Oregon common law disfavoring restraints on alienation",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "general legal knowledge (no source document mentions restraints on alienation); Agreement \u00a721.1 Oregon governing law",
+     "seen_step": null,
+     "deliverable": "\"Transfers by operation of law falling outside 14.4 would technically require Ridgeline's consent in its sole discretion, which a court could view as an unreasonable restraint on alienation\"",
+     "judge_correct": false,
+     "explanation": "The memo does invoke the restraint-on-alienation doctrine as the basis of concern about the \u00a714.4 landowner transfer restriction, in an agreement governed by Oregon law. It omits only the word 'Oregon'. Failing it on that ground is strict; at most this is a minor legal_knowledge gap."
+    },
+    {
+     "id": "C-075",
+     "title": "ISSUE_011: Escalator applies only to fixed payments, not production royalty",
+     "cause": "seen_not_used",
+     "capability": "risk_calibration",
+     "source": "Playbook III.D: 'in years when the production royalty prong exceeds the escalated fixed-payment prong, the landowner receives no benefit from the escalation mechanism'; Comps legend 'Fixed payments only'",
+     "seen_step": 6,
+     "deliverable": "\"2.0% compounding ... on Base Rent, Capacity Payment and Substation Fee; royalty % does not escalate (Sec. 6.6). Conforms (narrower than L001/L003 royalty-floor escalator)\"",
+     "judge_correct": true,
+     "explanation": "The agent saw the playbook note and the comps legend and recorded the fact that the royalty does not escalate. It never spelled out the consequence (no inflation protection in royalty-prong years) or flagged it as an issue."
+    }
+   ]
+  },
+  {
+   "task": "structured-finance-securitization/compare-offering-memorandum-against-indenture",
+   "n_failed": 3,
+   "process": [
+    {
+     "obs": "Parsed both long documents to text and read them completely in roughly 46-50k-char chunks via spill files (steps 4-13); no truncation",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Put all 45 issues in a single content.py data structure with fixed fields (OM / Indenture / Discrepancy / Significance / Correction). The 'Significance' field was often a single phrase (e.g., H-4 'Disclosure completeness')",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote the deliverable at step 15 of 22 and made only text patches afterwards; it did not revisit the severity or impact analysis",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-013",
+     "title": "ISSUE_005: Explains impact of CNL trigger discrepancy",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "Indenture \u00a75.01(d): 'July 2027 and thereafter 6.00%' vs OM: 'July 2027 and thereafter 5.75%'",
+     "seen_step": 12,
+     "deliverable": "\"From July 2027 the Indenture tolerates more losses before tripping the trigger than the OM discloses --- investor-unfavorable and rating-sensitive. Changes to the CNL table post-closing require majority consent...\"",
+     "judge_correct": false,
+     "explanation": "The report does give an impact analysis, and in the correct direction (the governing Indenture trips the turbo later than investors are told). The criterion's fail condition is 'no impact analysis is provided'; the judge required the rubric's specific 'premature turbo' framing."
+    },
+    {
+     "id": "C-027",
+     "title": "ISSUE_012: Quantifies principal balance impact of receivable count error",
+     "cause": "judgment",
+     "capability": "quantitative",
+     "source": "OM pool table: 'Average Loan Balance $22,676'; Indenture: 31,412 Receivables, $712,300,000",
+     "seen_step": 13,
+     "deliverable": "\"212-loan difference (0.7%). The OM's own average loan balance ($22,676) is consistent only with 31,412 loans ($712,300,000 / 31,200 = $22,830).\"",
+     "judge_correct": true,
+     "explanation": "The agent did the arithmetic but concluded that the count, not the balance, is wrong. It never converted the 212-loan gap into dollars (212 \u00d7 $22,676 \u2248 $4.8M) as the rubric requires."
+    },
+    {
+     "id": "C-029",
+     "title": "ISSUE_013: Notes placement agent liability exposure from Rule 144A gap",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "Indenture \u00a714.01(a)(i)-(iii) (reasonable belief / notice of reliance) vs OM abbreviated Rule 144A transfers; general securities law",
+     "seen_step": 13,
+     "deliverable": "\"H-4 Rule 144A conditions and legend [Low] ... Significance: Disclosure completeness.\"",
+     "judge_correct": true,
+     "explanation": "The agent identified the gap but rated it Low and described it as a completeness point. It never tied the missing 144A(d) conditions to the resale safe harbor or to placement-agent liability exposure."
+    }
+   ]
+  },
+  {
+   "task": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement",
+   "n_failed": 2,
+   "process": [
+    {
+     "obs": "Read the playbook (including Section 6 Regulatory Cross-Reference Guide) and the template in full, and extracted tracked changes from the redline XML with a custom script (steps 10-17)",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Organised the report by playbook topic with a deviation register, MSA conflict tables and a section concordance; regulatory analysis was left in narrative per-issue text rather than a matrix",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote the report in 4 parts (steps 20-24) and ran one parse-back check (step 25); it was not checked against the playbook's Step 4 report elements",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-051",
+     "title": "Report includes regulatory cross-reference table referencing HIPAA",
+     "cause": "format_structure",
+     "capability": "drafting_craft",
+     "source": "Playbook Section 6: 'Regulatory Cross-Reference Guide ... maps DPA playbook topics to their applicable regulatory requirements'",
+     "seen_step": 5,
+     "deliverable": "absent as a table; HIPAA discussed in narrative (49 mentions, incl. \u00a74.15 'HIPAA Business Associate Provisions')",
+     "judge_correct": true,
+     "explanation": "The substance is present (HIPAA analysed per deviation), but there is no table mapping deviations to regulations. The playbook supplies such a guide; the instructions did not require a table."
+    },
+    {
+     "id": "C-052",
+     "title": "Report includes regulatory cross-reference table referencing GDPR",
+     "cause": "format_structure",
+     "capability": "drafting_craft",
+     "source": "Playbook Section 6 Regulatory Cross-Reference Guide (GDPR mapping)",
+     "seen_step": 5,
+     "deliverable": "absent as a table; GDPR discussed in narrative (31 mentions)",
+     "judge_correct": true,
+     "explanation": "Same as C-051: GDPR is analysed in prose, but the report has no regulatory cross-reference matrix."
+    }
+   ]
+  },
+  {
+   "task": "white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories",
+   "n_failed": 2,
+   "process": [
+    {
+     "obs": "Read all 14 documents in full, including openpyxl dumps of the three spreadsheets via spill files (steps 2-25)",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Ran custom reconciliation scripts over the tracker and privilege log (steps 23-27) and found many internal count inconsistencies. That made the tracker's reliability the focus instead of the coverage-inflation reading of the same data",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Built the memo across 5 generator files (steps 29-37), then made one large text patch after validation (step 39)",
+     "effect": "helpful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-027",
+     "title": "ISSUE_009: Notes government focus on fee structures as motive evidence",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "Krell memo \u00a710: 'confirm the fee structure, including any success fee, minimum fee, tail provision, or tiered incentive structure'; general prosecutorial practice",
+     "seen_step": 17,
+     "deliverable": "Req. 6 row: \"Whitford personally negotiated Cromdale fee terms (Krell); confirm engagement letter, fee/tail/minimum-fee terms and amendments are produced\" (motive raised only for Req. 14 compensation)",
+     "judge_correct": true,
+     "explanation": "The agent treated the Cromdale fee terms as a completeness item. It never framed success fees tied to deal value as motive evidence the government will scrutinise, although it applied exactly that reasoning to management compensation."
+    },
+    {
+     "id": "C-028",
+     "title": "ISSUE_010: Flags that multi-category tagging may inflate perceived coverage",
+     "cause": "seen_not_used",
+     "capability": "risk_calibration",
+     "source": "Production Tracker NOTES: 'Total Docs Produced by category (15,887) exceeds unique production count (14,872) by 1,015 due to multi-tag overlap. Req 5 (2,847) is largest category with significant overlap to Req 4, 6, 12.'",
+     "seen_step": 11,
+     "deliverable": "\"Category tags on produced docs 15,887 ... 1,015 multi-tagged documents.\"",
+     "judge_correct": true,
+     "explanation": "The agent reproduced the overlap number from the tracker note it read but never drew the inference that per-category counts (Req 5's 2,847) overstate coverage."
+    }
+   ]
+  },
+  {
+   "task": "immigration/identify-h1b-qualification-issues",
+   "n_failed": 1,
+   "process": [
+    {
+     "obs": "Read all 10 documents in three batched parse-doc calls (steps 2-4) and the whole run took only 10 steps",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Wrote the entire memo in a single generator script (step 6) with an issue-only structure (heat map, consistency matrix, 13 issues); no non-issues section was planned",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Its one revision pass (step 8) only renumbered issues; it never checked coverage of what an expert memo usually contains",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-029",
+     "title": "Non-issues section: Identifies at least one non-issue with explanation",
+     "cause": "format_structure",
+     "capability": "drafting_craft",
+     "source": "e.g., LCA/PWD: offered wage $128,000 vs PW $113,734; support letter OPT/cap-gap; credential evaluation 4-year B.Tech equivalency",
+     "seen_step": 2,
+     "deliverable": "absent (consistency matrix marks rows 'Consistent' with no explanation of why apparently problematic items are acceptable; cap-gap raised only as something to confirm)",
+     "judge_correct": true,
+     "explanation": "The memo is built purely as an issue list. It has no section explaining items that look problematic but are fine (e.g., wage above the PW, cap-gap coverage). The instructions did not require one, but the rubric does."
+    }
+   ]
+  },
+  {
+   "task": "intellectual-property/review-inbound-nda-against-company-playbook",
+   "n_failed": 1,
+   "process": [
+    {
+     "obs": "Read the full NDA draft and the full playbook in targeted chunks (steps 3-8), including \u00a72.3 Unacceptable positions",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Inspected docx metadata and comments (steps 9-10) before drafting, then built 21 itemised deviations across 5 item files (steps 12-18)",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Applied the playbook tiers literally to each clause, which gives a correct tier for the oral-marking item that the rubric scores the other way",
+     "effect": "helpful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-045",
+     "title": "Classifies oral marking window as below preferred (not unacceptable)",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "NDA \u00a71.1: 'Failure to provide such written confirmation within the five (5) business day period shall result in such orally or visually disclosed information being deemed non-confidential'; Playbook \u00a72.3 Unacceptable: 'Oral/visual confirmation window of fewer than ten (10) business days if paired with a rigid forfeiture consequence'",
+     "seen_step": 4,
+     "deliverable": "\"H-4 ... 5-business-day written confirmation with automatic forfeiture ... \u00a72 --- Unacceptable (forfeiture) High\"",
+     "judge_correct": true,
+     "explanation": "The draft pairs the 5-day window with automatic forfeiture, which is exactly the combination the playbook lists as Unacceptable. The agent's classification is correct, and the criterion, which says 5 days 'is not listed as explicitly unacceptable', contradicts the documents. The judge applied the flawed criterion literally."
+    }
+   ]
+  }
+ ]
+}

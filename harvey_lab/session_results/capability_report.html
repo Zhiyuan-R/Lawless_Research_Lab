@@ -1,0 +1,171 @@
+<title>LAB 能力诊断</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column, case-file feel — findings as numbered exhibits, data in mono */
+:root{
+  --bg:#f6f7f4; --panel:#ffffff; --fg:#1d2420; --muted:#5d6862; --rule:#d9ddd6;
+  --accent:#2f5d50; --good:#2f7a4f; --warn:#a6651a; --bad:#a63d32; --grey:#8a938d;
+  --display:"Noto Serif SC","Songti SC",serif; --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141917; --panel:#1b2220; --fg:#e4e8e3; --muted:#9aa59f; --rule:#2e3833;
+  --accent:#7fbfa9; --good:#6cc08d; --warn:#e0a35a; --bad:#e3786c; --grey:#7d8781; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --panel:#1b2220; --fg:#e4e8e3; --muted:#9aa59f; --rule:#2e3833;
+  --accent:#7fbfa9; --good:#6cc08d; --warn:#e0a35a; --bad:#e3786c; --grey:#7d8781; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15.5px;line-height:1.7;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:2rem}
+h2{font-size:1.35rem;padding-top:8px;border-top:1px solid var(--rule)}
+h3{font-size:1.05rem}
+p{margin:0}
+section{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.lede{font-size:1.06rem;color:var(--fg)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:12px 14px}
+.stat b{display:block;font-family:var(--mono);font-size:1.45rem;font-weight:500}
+.stat span{font-size:.85rem;color:var(--muted)}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.col{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.col h3{display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.col ul{margin:0;padding-left:1.1em;display:grid;gap:8px}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr) 54px;gap:10px;align-items:center;font-size:.92rem}
+.track{height:14px;background:var(--rule);border-radius:3px;overflow:hidden}
+.fill{height:100%}
+.bar .mono{text-align:right}
+.ex{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--warn);border-radius:4px;padding:12px 16px;display:grid;gap:6px}
+.ex.bad{border-left-color:var(--bad)} .ex.good{border-left-color:var(--good)} .ex.grey{border-left-color:var(--grey)}
+.ex .tag{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.tbl{overflow-x:auto}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:500;color:var(--muted);font-size:.82rem}
+td.n{font-family:var(--mono);text-align:right;white-space:nowrap}
+ol.recs{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.note{font-size:.88rem;color:var(--muted)}
+</style>
+
+<div class="wrap">
+<header style="display:grid;gap:12px">
+  <div class="eyebrow">Harvey LAB v1.2.0 · 会话模式 · 2026-10-16</div>
+  <h1>Claude agent 法律任务能力诊断</h1>
+  <p class="lede">基于 44 个已评分任务、127 条完整 agent trace，以及 113 条未通过标准的逐条归因。一句话结论：<b>读材料和执行流程几乎没有问题，丢分主要在“律师判断”</b>：轻重怎么定、站谁的立场、要不要主动补上材料里没写的法律风险。另外约四分之一的“失败”其实是评分标准本身的问题。</p>
+</header>
+
+<section>
+  <div class="stats">
+    <div class="stat"><b>93.3%</b><span>标准通过率（1,962 / 2,103）</span></div>
+    <div class="stat"><b>8 / 44</b><span>全部通过的任务（all-pass）</span></div>
+    <div class="stat"><b>99.8%</b><span>文档内容实际被读到的比例</span></div>
+    <div class="stat"><b>0 / 113</b><span>因为没读到材料而失败</span></div>
+  </div>
+  <p class="note">“读到比例”的算法：把每份源文件中长度 ≥ 6 个字母的词去重，看有多少出现在 agent 实际看到的工具输出里。整行匹配会受 pandoc 版本和表格格式的影响而低估，所以用词级匹配。</p>
+</section>
+
+<section>
+  <h2>强项与弱项</h2>
+  <div class="verdict">
+    <div class="col">
+      <h3><span class="dot" style="background:var(--good)"></span>强：可以放心交给它</h3>
+      <ul>
+        <li><b>完整阅读</b>：127 个任务里，几乎每份文档都从头读到尾。超长输出被截断后，它会自己分段重读，或者回去打开溢出的文件。</li>
+        <li><b>跨文档对账</b>：主动建“文件之间的差异清单”，比如抓到 DIP 上限冲突、91 天到期日写反、6 份混进来的其他案件文件、对方摘要判决书里一个 $9,530,400 的计算错误。</li>
+        <li><b>解析复杂格式</b>：直接解开 docx 的 XML 读取修订痕迹，连对方没标出来的暗改也能找到（DPA 任务里找到 42 处标记修改和 17 处未标记修改）。</li>
+        <li><b>事实抽取和引用</b>：抽取类任务通过率很高，比如证词任务做了 60 多行带页码和行号的承认事项表。</li>
+        <li><b>大规模检索</b>：firm-knowledge 任务里把约 9,300 个文件全部转成文本，再用 rg 检索并逐个核实，召回很完整。</li>
+        <li><b>按指令交付</b>：文件名、格式、修订模式基本没有出错（113 条失败中 0 条属于没按指令做）。</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3><span class="dot" style="background:var(--bad)"></span>弱：资深律师和它拉开差距的地方</h3>
+      <ul>
+        <li><b>轻重校准</b>（29 条）：自己定一套“阻断交割就是 Critical”的标准，然后把整类问题都升一级；对方有利的条款，只要“符合 playbook”就标成“合规”。</li>
+        <li><b>不主动补充法律知识</b>（27 条）：材料里没写的风险就不提，比如 Serta 式 uptier、充分保护弃权能否执行、MTCA 三倍赔偿、FTC Act §5、Part 744 的兜底审查。</li>
+        <li><b>看到了却没用上</b>（12 条）：playbook 里明写的警示、检查表里的某一行、10-Q 期后事项和股息之间的矛盾，都读到了，交付物里却没有。</li>
+        <li><b>只从委托人视角看</b>：从不站到对方的位置做压力测试，也很少拿外部市场惯例做参照。</li>
+        <li><b>对指令理解过于字面</b>：合伙人说“别加限定”，它就连必要的可执行性提醒也不写了。</li>
+        <li><b>不愿给数字</b>：明明读到了 &gt;$12M、&gt;$30M 的数字，却写“风险无法量化”。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>113 条失败的归因</h2>
+  <p>做法：独立的分析 agent 对照源文件、agent 的完整工具记录（看它是否“看见”某个事实）和交付物，逐条判断原因。覆盖 36 个有失败任务中的 29 个；剩下 7 个任务的 28 条没有归因，本页也没有引用它们。其中一组由两个 agent 各自独立归因了一遍，29 条里有 27 条原因判断一致（93%）。</p>
+  <div class="bars" role="img" aria-label="失败原因分布">
+    <div class="bar"><span>判断与专家不同</span><div class="track"><div class="fill" style="width:61.1%;background:var(--warn)"></div></div><span class="mono">69</span></div>
+    <div class="bar"><span>评分标准或裁判有误</span><div class="track"><div class="fill" style="width:23.9%;background:var(--grey)"></div></div><span class="mono">27</span></div>
+    <div class="bar"><span>看到了但没用</span><div class="track"><div class="fill" style="width:10.6%;background:var(--bad)"></div></div><span class="mono">12</span></div>
+    <div class="bar"><span>结构或格式</span><div class="track"><div class="fill" style="width:4.4%;background:var(--accent)"></div></div><span class="mono">5</span></div>
+    <div class="bar"><span>没读到 / 读错 / 算错 / 违反指令</span><div class="track"><div class="fill" style="width:0%"></div></div><span class="mono">0</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>失败背后的能力</th><th>条数</th><th>典型表现</th></tr></thead>
+    <tbody>
+      <tr><td>风险轻重校准</td><td class="n">31</td><td>把整类问题合成一条 Critical；对方有利的条款标“合规”；COI 项只给“Low（建议性）”</td></tr>
+      <tr><td>材料以外的法律知识</td><td class="n">27</td><td>没有提出专家默认会提的学说、判例风险或市场惯例</td></tr>
+      <tr><td>（无，即标准问题）</td><td class="n">27</td><td>见下一节</td></tr>
+      <tr><td>起草技巧</td><td class="n">9</td><td>缺“非问题”章节、缺监管交叉对照表、拟定裁定没有法官签名栏</td></tr>
+      <tr><td>数字与日期</td><td class="n">8</td><td>按自己的口径重算，结果偏离材料的基准数（大多是有理由的选择）</td></tr>
+      <tr><td>跨文档对账</td><td class="n">7</td><td>冲突发现了，但选错了以哪份文件为准（担保“付款”还是“付款和履约”）</td></tr>
+      <tr><td>阅读回忆 / 穷举</td><td class="n">4</td><td>漏掉清单里的单个条目，比如 §3.01(b) 的 “(i) deposit funds”</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>评分标准本身的问题：约占失败的 24%</h2>
+  <p>27 条失败中，交付物其实已经满足标准，或者标准和文件、法律相矛盾。按这个口径修正后，真实通过率大约是 94.6%，而不是 93.3%。典型情况：</p>
+  <div class="ex grey"><span class="tag">tax/draft-tax-structure-memorandum · 8 条</span><p>标准要求按 §1363(d) 计算 338(h)(10) 下的 LIFO 回收税 $2.478M。agent 正确指出 §1363(d) 只适用于 C 转 S 的时点（这家公司 2000 年已经完成转换），而且 2022 年以后 §163(j) 用的是 EBIT 口径。<b>agent 因为纠正了文件里的错误而被扣分</b>。</p></div>
+  <div class="ex grey"><span class="tag">international-trade-sanctions/draft-export-license-application · C-041</span><p>标准要求把新加坡写成 Country Group A:1。这个错误抄自筛查备忘录；agent 按 EAR 改成了 A:6/B，并说明新加坡不是瓦森纳成员。</p></div>
+  <div class="ex grey"><span class="tag">bankruptcy-restructuring/draft-plan-effective-date-checklist · 4 条</span><p>KERP 相关的 4 条标准依赖“两名高管辞职、KERP 降到 $1.77M”这个事实，但所有文件的 XML 里都搜不到它，按现有材料不可能满足。</p></div>
+  <p class="note">这也说明 LAB 的 all-pass 指标对标注噪声非常敏感：一个任务平均约 48 条标准，只要 1–2 条标准有错，就不可能拿到 all-pass。</p>
+</section>
+
+<section>
+  <h2>trace 里看到的工作方式</h2>
+  <div class="stats">
+    <div class="stat"><b class="mono">22</b><span>工具调用中位数（p90：40）</span></div>
+    <div class="stat"><b class="mono">11 分钟</b><span>每个任务的用时中位数</span></div>
+    <div class="stat"><b class="mono">1 次</b><span>交付物生成次数的中位数</span></div>
+    <div class="stat"><b class="mono">115 / 127</b><span>写完后回读校验过交付物</span></div>
+  </div>
+  <p>几乎所有 trace 都是同一个固定流程：<b>先把全部文档转成文本 → 依次读完 → 把整份交付物写进一个 python-docx 脚本，一次生成（单条命令中位数约 33k 字符）→ 修格式</b>。可以看到三个结构性问题：</p>
+  <div class="ex bad"><span class="tag">缺少“实质复核”这一轮</span><p>写完之后的步骤几乎都花在修 <code>$</code> 转义、列表编号和交叉引用上，几乎没有再对照指令和材料逐条核对轻重和遗漏。前面提到的“看到了却没用”（12 条）和“轻重校准”问题，正是这一轮本来能抓到的。</p></div>
+  <div class="ex bad"><span class="tag">校验只看能不能打开</span><p>firm-knowledge/175 用没加引号的 heredoc 写 response.md，shell 把大部分 <code>$金额</code> 吃掉了，交付物里出现 “0.0M”“~40M” 这样的内容，agent 没有重新读一遍。“能打开、能解析”不等于“内容正确”。</p></div>
+  <div class="ex"><span class="tag">优点和缺点同出一源：敢推翻材料</span><p>在税务、出口管制等任务里，它用自己的法律知识纠正了源文件中真实存在的错误，这是资深律师的特征。但在工资法、最终裁定等任务里，同样的倾向让它推翻了合理的基准数（比如用 $614,350 替换 $485,500，可能重复计算了一项），或者拒绝写出材料已经支持的结论。它在推翻材料时不区分“材料确实错了”和“只是口径不同”。</p></div>
+  <p class="note">trace 里的推理过程（thinking）是加密的，无法分析，所以以上结论来自工具调用、工具输出和交付物，不来自它的“内心独白”。</p>
+</section>
+
+<section>
+  <h2>对模型和 agent 的改进方向</h2>
+  <ol class="recs">
+    <li><b>加一轮复核</b>：写完后对照指令和材料，按“每个问题的轻重、对方会怎么反驳、材料里提到但正文没写的点”逐条复查。这一步成本低，直接针对占失败 70% 以上的判断类问题。</li>
+    <li><b>把轻重标准锚定在外部</b>：先从材料中提取客户或 playbook 给出的重要性门槛，再定档；不要自己发明一套分级。</li>
+    <li><b>默认做对方视角的压力测试，并引入市场惯例</b>：每条“合规”结论都问一次“对方为什么会接受这个条款”。</li>
+    <li><b>主动提示学说层面的风险</b>：针对每个领域准备一份“这一类文书律师默认会查的风险清单”（如 Part 744 兜底、Serta 式 uptier、可执行性），把它当成 skill 而不是靠模型临场回忆。</li>
+    <li><b>推翻材料时要区分两种情况</b>：“材料错了”就明确纠正并说明理由；“只是口径不同”时，同时给出两种口径的数字。</li>
+    <li><b>工程侧</b>：交付物不要用 heredoc 写；校验要比较内容（关键数字是否都在），不只看文件能否打开。</li>
+  </ol>
+</section>
+
+<section>
+  <h2>口径与局限</h2>
+  <ul class="note" style="margin:0;padding-left:1.1em;display:grid;gap:4px">
+    <li>样本：2,010 个任务中有 44 个已评分（覆盖 25 个执业领域，每个领域 1–3 个），另有 83 个只完成了作答、尚未评分，只用于统计工作方式。</li>
+    <li>评分由同一会话中的独立 Claude 子 agent 担任裁判，不是官方的 Sonnet 4.6 + GPT-5.5 双裁判，分数不能和官方榜单直接比较。之前做过的 8 个任务复判中，逐条一致率为 99.3%。</li>
+    <li>归因由 Claude 分析 agent 完成，判定“标准有误”的条目没有经过律师复核。</li>
+    <li>数据与脚本：<span class="mono">harvey_lab/analysis/</span>（trace_stats.json、coverage.json、attribution/*.json）。</li>
+  </ul>
+</section>
+</div>

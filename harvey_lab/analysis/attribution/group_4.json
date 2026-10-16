@@ -1,0 +1,472 @@
+{
+ "tasks": [
+  {
+   "task": "bankruptcy-restructuring/draft-plan-effective-date-checklist",
+   "n_failed": 7,
+   "process": [
+    {
+     "obs": "Converted all 8 documents to text in the sandbox up front (step 2) and read every file in roughly 25-30K-character chunks (steps 3-19), including the whole KERP Order and its participant exhibit.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Computed every deadline from the Plan's Business Day definition, treating Presidents' Day (Feb. 17, 2025) as a holiday. That is defensible, but it moved the board-designation date off the rubric's Feb. 11.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Built the 19-page docx in six script parts (steps 21-28), then validated and re-read the rendered text (steps 29-30). It did no substantive pass for practical risks beyond the Article IX conditions (MIP, D&O approval).",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Ran a cross-document discrepancy log (KERP forfeiture rules, docket numbers, entity name). That shows real reconciliation effort.",
+     "effect": "helpful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-012",
+     "title": "ISSUE_002: Notes imminent February 11, 2025 deadline for board designation",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "second-amended-plan §5.07: \"no later than five (5) Business Days prior to the Effective Date\"; Plan §1.01 \"Business Day\" = not \"a legal holiday on which commercial banks are authorized or required to close in Wilmington, Delaware\"; target ED Feb. 18, 2025 (Status Report)",
+     "seen_step": 5,
+     "deliverable": "\"Mon. Feb. 10, 2025 Board designation deadline --- written notice of designees no later than 5 Business Days before the ED (Feb. 14, 13, 12, 11, 10)\"; flags the Second Lien designee as outstanding",
+     "judge_correct": false,
+     "explanation": "Feb. 17, 2025 was Presidents' Day, a bank holiday, so five Business Days before Feb. 18 is Feb. 10 under the Plan's own definition. The rubric's Feb. 11 counts the holiday as a business day. The agent flagged the deadline as imminent and got the date more accurately, but the judge applied the date literally."
+    },
+    {
+     "id": "C-018",
+     "title": "ISSUE_004: Notes potential approval or notice requirement for D&O tail premium",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "confirmation-order ¶56: \"The Debtor is authorized and directed to obtain ... D&O Tail Coverage ... premium ... estimated at $1,350,000 ... payable ... as an administrative expense\"; no cash management order is among the documents",
+     "seen_step": 10,
+     "deliverable": "D&O Tail row: \"Quote only: Sentinel, 6-year runoff, $15M aggregate limit, $1,350,000 premium. Not bound; premium unpaid.\" No approval or notice concern raised.",
+     "judge_correct": true,
+     "explanation": "The agent saw the premium and the bind status but did not flag a Court-approval or Committee-notice concern. The rubric's premise (a non-ordinary-course item under a cash management order) depends on an order that is not in the record, and CO ¶56 already authorizes the purchase. The miss is a severity call, and the expert's position is arguable."
+    },
+    {
+     "id": "C-023",
+     "title": "ISSUE_007: Identifies MIP term sheet as practical risk",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "effective-date-status-report §K: \"The final MIP term sheet has not yet been agreed upon between the Required Consenting First Lien Lenders and Gerald T. Harwick\"",
+     "seen_step": 11,
+     "deliverable": "Post-ED tracker: \"Promptly after ED  MIP term sheet finalized (RCFLL and Harwick) and filed with the Court\"; MIP is otherwise mentioned only as a share-capacity issue",
+     "judge_correct": true,
+     "explanation": "The agent read and used the fact that the MIP is unagreed, but scheduled it only as a post-emergence task. It never flagged that a CEO/RCFLL disagreement could jeopardize closing cooperation."
+    },
+    {
+     "id": "C-029",
+     "title": "Identifies KERP participant resignations and forfeitures",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "Not in any document. kerp-order Exhibit lists \"Thomas Hadley ... $225,000\" and \"Priya Nair ... $155,000\" as participants, but no document (text, XML parts or email) mentions their resignation; Status Report ¶95 still states \"KERP payments totaling $2,150,000\"",
+     "seen_step": 15,
+     "deliverable": "absent (\"$2,150,000 to 14 participants\"; \"Less any forfeitures\")",
+     "judge_correct": true,
+     "explanation": "The resignation facts the criterion relies on do not exist in the task documents. A grep of every docx/xlsx XML part and the .eml finds Hadley and Nair only in the KERP allocation table. The criterion cannot be satisfied from the record."
+    },
+    {
+     "id": "C-030",
+     "title": "States reduced KERP obligation of $1,770,000",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "Not in any document: no \"1,770,000\" or \"380,000\" anywhere; the Plan §2.05, CO ¶55 and Status Report all state $2,150,000",
+     "seen_step": null,
+     "deliverable": "absent; uses $2,150,000 throughout",
+     "judge_correct": true,
+     "explanation": "This depends on the same missing resignation facts as C-029. The documents uniformly give $2.15M, so the agent's figure matches the record."
+    },
+    {
+     "id": "C-031",
+     "title": "ISSUE_010: Recommends updating cash flow projections for KERP savings",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "Not in any document; it presupposes the undisclosed Hadley/Nair forfeitures",
+     "seen_step": null,
+     "deliverable": "Sources/uses table: \"KERP Payments $2,150,000 ... Less any forfeitures\"",
+     "judge_correct": true,
+     "explanation": "No $380K saving exists in the record, so no recommendation to reflect it could be derived. The agent did note in general terms that forfeitures reduce the amount."
+    },
+    {
+     "id": "C-054",
+     "title": "KERP forfeiture math is correct ($225K + $155K = $380K; $2.15M - $380K = $1.77M)",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "kerp-order Exhibit A allocations ($225,000 / $155,000) are present, but the forfeiture trigger (resignations) is absent from all documents",
+     "seen_step": 15,
+     "deliverable": "absent",
+     "judge_correct": true,
+     "explanation": "The arithmetic criterion rests on resignation facts that are not in the documents. There was nothing for the agent to compute."
+    }
+   ]
+  },
+  {
+   "task": "international-trade-sanctions/draft-export-license-application",
+   "n_failed": 7,
+   "process": [
+    {
+     "obs": "Converted all 8 documents to text (step 2) and read every one in full with cat (steps 3-7). No truncation.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Applied independent EAR knowledge to correct the source documents' errors (A:1 to A:6, MT to RS1, the STA rationale). That knowledge-driven correction cost it the rubric's A:1 criterion.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Organised the memo around document-driven issues (Myanmar red flag, EUC, UVL) and never ran the standard Part 744 checklist (744.21 military end use, WMD catch-alls, AT disposition) for the actual Singapore destination.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote both deliverables in two large scripts (steps 10-11) and patched the narrative once (steps 12-13). It made no pass against a generic BIS-748P narrative checklist.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-009",
+     "title": "ISSUE_004: Addresses Part 744 military end-use analysis",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (15 C.F.R. §744.21); compliance-screening-memo §6: \"Singapore is not listed in Country Group D:1 through D:5, nor in Country Group E:1 or E:2\"",
+     "seen_step": 6,
+     "deliverable": "§744.21 cited only for Burma: \"Burma (Myanmar) was moved to Country Group D:1 and made subject to the military end-use/end-user controls of § 744.21\"",
+     "judge_correct": true,
+     "explanation": "The agent knew the Country Group facts and §744.21, but applied the rule only to the Myanmar red flag. It never ran the routine military end-use check for the Singapore military end user."
+    },
+    {
+     "id": "C-010",
+     "title": "ISSUE_004: Correctly concludes § 744.21 does not apply to Singapore",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "compliance-screening-memo §6: \"Singapore does not appear in any subgroup of Country Group D (D:1 through D:5) or in Country Group E\"",
+     "seen_step": 6,
+     "deliverable": "\"Singapore is in Country Groups A:6 and B and is not in Country Groups D or E\" (no link to §744.21)",
+     "judge_correct": true,
+     "explanation": "The premise is stated correctly, but the deliverable never draws the §744.21 conclusion. The omission is the same as C-009."
+    },
+    {
+     "id": "C-011",
+     "title": "ISSUE_005: Addresses WMD/proliferation catch-all provisions",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (EAR §§744.2-744.6, GP10)",
+     "seen_step": null,
+     "deliverable": "GP10 cited only for the Myanmar re-export inquiry; no affirmative no-WMD-knowledge statement",
+     "judge_correct": true,
+     "explanation": "The deliverable has no proliferation catch-all analysis and no affirmative statement of no WMD knowledge. Given the open Myanmar red flag, the agent may have avoided blanket knowledge certifications, but it did not say so."
+    },
+    {
+     "id": "C-023",
+     "title": "ISSUE_011: Notes BIS IVL typical 24-month validity period",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "compliance-screening-memo §5: D-598712 \"Date Approved: September 14, 2023 ... Expiration Date: September 14, 2025\"; general knowledge §750.7(g)",
+     "seen_step": 3,
+     "deliverable": "Issue 11: future MINDEF option quantities need \"A separate application ... when MINDEF exercises its options\"; D-598712 \"expires September 14, 2025\"; no validity-period discussion",
+     "judge_correct": true,
+     "explanation": "The agent handled follow-on quantities on a quantity/EUC rationale and never considered license duration. Note that the rubric's '24-month typical' premise is outdated: BIS moved the standard IVL validity to 4 years in 2016, so the criterion's legal premise is weak even though the omission is real."
+    },
+    {
+     "id": "C-033",
+     "title": "Narrative: Addresses Anti-Terrorism (AT) reason for control",
+     "cause": "judgment",
+     "capability": "drafting_craft",
+     "source": "draft-application-outline: \"Reasons for Control: National Security (NS), Missile Technology (MT), Anti-Terrorism (AT)\"; general knowledge: AT Column 1 imposes no license requirement for Singapore",
+     "seen_step": 3,
+     "deliverable": "\"Reasons for control. National Security (NS Column 2), Regional Stability (RS Column 1), and Anti-Terrorism (AT Column 1)\"; license required \"under the NS Column 2 and RS Column 1 controls\"",
+     "judge_correct": true,
+     "explanation": "The narrative implies that AT is not license-triggering for Singapore but never says so or explains why AT is no bar to approval."
+    },
+    {
+     "id": "C-034",
+     "title": "Narrative: Addresses Part 744 end-use/end-user concerns",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (EAR Part 744)",
+     "seen_step": null,
+     "deliverable": "Narrative discusses screening and the Myanmar inquiry; no Part 744 end-use rule analysis",
+     "judge_correct": true,
+     "explanation": "The narrative omits the standard statement that neither the §744.21 military end-use rule nor the WMD catch-alls add restrictions for this Singapore end use. The gap is the same as C-009/C-011, carried into the narrative."
+    },
+    {
+     "id": "C-041",
+     "title": "Narrative: Mentions Singapore's Country Group A:1 status",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "compliance-screening-memo §4: \"The Republic of Singapore is classified in Country Group A:1 per Supplement No. 1 to Part 740\" (factually wrong: A:1 = Wassenaar participants; Singapore is A:6/B)",
+     "seen_step": 6,
+     "deliverable": "Memo Issue 4: \"Singapore is not in Country Group A:1 (Wassenaar Arrangement participating states) ... Singapore is in Country Group A:6\"; narrative: \"Singapore is in Country Groups A:6 and B\"",
+     "judge_correct": false,
+     "explanation": "The rubric rewards repeating a source-document error. The agent deliberately corrected it with an explanation, which matches the actual EAR Supplement No. 1 to Part 740 (Singapore is not a Wassenaar participant)."
+    }
+   ]
+  },
+  {
+   "task": "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act",
+   "n_failed": 5,
+   "process": [
+    {
+     "obs": "Every large parse spilled to a file (steps 2, 3, 7, 9, 11, 13), and the agent opened each spill with Read (steps 4-14), so all 8 documents were read in full.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Re-derived the exposure and cost math independently (step 15) and built a discrepancy log. That led it to reject source totals ($485,500) and omit the source's aggregate ($52.45M) in favour of corrected line items.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Took a contrarian position on the safe harbor based on the statute summary's Phase 4 (Oct 1, 2026) timing, against the counsel summary's and workbook's explicit self-reporting recommendation.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Built the memo in four script parts (steps 19-22), then made two formatting fixes after read-back (steps 23-25). There was no final check against an expected board-memo structure such as a risk-rating matrix.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-038",
+     "title": "Identifies WARN Act risk if IC drivers are terminated instead of reclassified",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "general legal knowledge (federal WARN Act); not in documents. ic-agreement §9.3 14-day termination notice is in the record",
+     "seen_step": null,
+     "deliverable": "absent; options discussion mentions \"issuing 14-day IC termination notices (§9.3)\" and a move to third-party carriers, without WARN",
+     "judge_correct": true,
+     "explanation": "The agent analysed driver termination and transition options but did not see that ending 740 relationships, if the drivers are presumed employees, could trigger WARN notice. This is a doctrinal blind spot."
+    },
+    {
+     "id": "C-045",
+     "title": "Reports total theoretical maximum annual penalty exposure ~$52.45M",
+     "cause": "seen_not_used",
+     "capability": "quantitative",
+     "source": "compliance-cost-analysis.xlsx 'Penalty Exposure': \"TOTAL — Maximum Annual Penalty Exposure (Civil Penalties Only) ... $52,452,000\"",
+     "seen_step": 14,
+     "deliverable": "Components given separately: \"Pay stubs --- full year ... $41,834,000\"; \"Wage notices ... $3,218,000\"; \"IC misclassification ... $7,400,000 per year\"; no aggregate",
+     "judge_correct": true,
+     "explanation": "The agent read the workbook total and reproduced every component, but never stated the aggregate maximum exposure the board would expect."
+    },
+    {
+     "id": "C-047",
+     "title": "Reports first-year compliance cost (excl. IC reclassification) ~$485,500",
+     "cause": "judgment",
+     "capability": "cross_doc_reconciliation",
+     "source": "hr-compliance-audit-memo §XII: \"Total (excluding IC reclassification) $485,500\"; workbook: \"$485,500 / $2,800,000 = 17.3%\"; workbook line 3: \"Handbook update is a component of outside counsel engagement (see Line Item 6)\"",
+     "seen_step": 14,
+     "deliverable": "\"The non-driver compliance budget is about $560,000--$615,000, not $485,500\"; reconciled total $614,350",
+     "judge_correct": true,
+     "explanation": "The agent reported that both sources say $485,500, then substituted its own union-of-line-items total. That total likely double-counts the handbook review inside the outside-counsel estimate, as workbook line 3 notes. It is an over-aggressive reconciliation, not a misread."
+    },
+    {
+     "id": "C-052",
+     "title": "Assigns risk severity ratings to identified compliance gaps",
+     "cause": "format_structure",
+     "capability": "drafting_craft",
+     "source": "general practice for board-ready memos; not an explicit instruction",
+     "seen_step": null,
+     "deliverable": "Milestone table uses status labels \"Critical / Due / Track / Statutory\"; gaps are listed in a gap summary and discrepancy log without severity tiers",
+     "judge_correct": true,
+     "explanation": "The gaps are analysed in substance, but the memo never assigns tiered severity ratings to them. The 'Critical' labels attach to timeline rows, not to gaps."
+    },
+    {
+     "id": "C-063",
+     "title": "Recommends utilizing safe harbor if full compliance by Phase 1 or Phase 2 deadlines is not achievable",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "sb-2847-statute-summary Practice Note: \"If Omnicron anticipates difficulty achieving full compliance with Phase 1 or Phase 2 ... proactive self-reporting could eliminate substantial penalty exposure\"; same doc table: \"Section 25-10 Safe Harbor Cure Period 4 October 1, 2026\"",
+     "seen_step": 4,
+     "deliverable": "\"the Company stops treating the statutory safe harbor as a fallback\"; \"It should be decided case by case with counsel, not planned for in advance\"",
+     "judge_correct": true,
+     "explanation": "The agent read the recommendation and deliberately rejected it. It relied on a real tension in the record: the safe harbor is listed as a Phase 4 provision, operative after IDOL enforcement begins. That reasoned contrary position conflicts with the expert's."
+    }
+   ]
+  },
+  {
+   "task": "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement",
+   "n_failed": 4,
+   "process": [
+    {
+     "obs": "Extracted the tracked insertions and deletions directly from the redline's XML (steps 5, 10-12). It also detected untracked changes by comparing against the clean form, a high-value step the rubric mostly rewarded.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Read all four documents in full, opening the spilled outputs with Read (steps 3-17).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "The analysis is anchored almost entirely to 'our form vs. their markup' and the IC memo thresholds. It rarely benchmarks against external market norms (survival, cap percentage) or explains doctrine (knowledge standards).",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Spent its late steps (29-31) on a dollar-sign escaping bug in the generated text rather than on a substantive re-check.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-006",
+     "title": "Analysis: 3-month R&W survival is below market standard",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "sellers-redline §6.2 (survival cut from 12 to 3 months); market range is general legal knowledge",
+     "seen_step": 13,
+     "deliverable": "\"Three months does not cover even one full post-closing operating quarter, tax re-billing, or year-end reconciliation\"; fallback: \"a survival period of no less than 9--12 months\"",
+     "judge_correct": true,
+     "explanation": "The agent criticised the cut functionally and against the form's 12 months, and proposed a 9-12 month floor. It never framed this as the market range for multifamily PSAs. The judge's call is borderline but defensible."
+    },
+    {
+     "id": "C-008",
+     "title": "Analysis: $500K R&W cap is ~0.87% of $57.2M purchase price",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "sellers-redline (new $500,000 aggregate cap); deal-summary-ic-memo: $57,200,000 price; the 2-5% benchmark is general market knowledge",
+     "seen_step": 3,
+     "deliverable": "\"A $500,000 cap is 0.87% of price\"; \"set it at a market-level percentage of price, well above $500,000\"",
+     "judge_correct": true,
+     "explanation": "The percentage is computed correctly, but the agent gave no numeric market benchmark (such as 2-5%). It only gestured at a 'market-level percentage'."
+    },
+    {
+     "id": "C-010",
+     "title": "Analysis: Legal significance of 'actual knowledge without inquiry' vs. 'knowledge'",
+     "cause": "judgment",
+     "capability": "legal_knowledge",
+     "source": "sellers-redline §1 Seller's Knowledge: \"actual knowledge ... without any duty of investigation or inquiry\" vs. form: after reasonable inquiry",
+     "seen_step": 12,
+     "deliverable": "\"The knowledge person is a passive manager ... so the reps would cover almost nothing\"; remedy: \"Restore the Form knowledge definition: actual knowledge ... after reasonable inquiry ... plus deemed knowledge\"",
+     "judge_correct": true,
+     "explanation": "The agent framed the change factually (a passive individual) rather than doctrinally. It never explained that a no-inquiry actual-knowledge standard defeats constructive or imputed knowledge."
+    },
+    {
+     "id": "C-023",
+     "title": "Analysis: Prorations impact on delinquent rents at 93.6% occupancy",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "deal-summary-ic-memo: \"93.6% occupied, with 292 of 312 units leased and approximately 20 units vacant\"",
+     "seen_step": 3,
+     "deliverable": "Prorations issue quantifies the January-rent loss (\"up to about $480,000\") and the lost deposit credits and true-ups; 93.6% is used only in the MAC issue",
+     "judge_correct": true,
+     "explanation": "The agent knew the occupancy figure but analysed the cash-method proration through January rent timing instead of delinquency. It also noted that Seller's version lets Buyer keep post-closing delinquent collections, which partly undercuts the rubric's premise. The criterion's specific link was simply not made."
+    }
+   ]
+  },
+  {
+   "task": "intellectual-property/identify-tech-license-term-sheet-issues",
+   "n_failed": 2,
+   "process": [
+    {
+     "obs": "Read all 7 documents in full (steps 2-6), using Read for the spilled term sheet. A short task with 17 steps.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Ran a quick fee-escalation calculation (step 7) before drafting, then wrote the memo in five parts (steps 9-13) with one targeted fix (step 15).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Analysed each clause from Atherton's commercial-benefit perspective (for example the data licence as an 'asset to protect'). It did not stress-test favourable clauses for compliance downside.",
+     "effect": "harmful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-012",
+     "title": "ISSUE_004: Flags 'irrevocable' data license as problematic",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "kaelen-atherton-term-sheet §8.2: \"Kaelen hereby grants to Atherton a perpetual, irrevocable, worldwide, royalty-free license to ... De-Identified Kaelen Data\"",
+     "seen_step": 3,
+     "deliverable": "\"TS § 8.2 (perpetual, irrevocable ...) is a significant strategic asset ... Kaelen may try to narrow it; we recommend protecting it.\" (also: \"must be supported by BAA and de-identification standard\")",
+     "judge_correct": true,
+     "explanation": "The agent saw the clause and deliberately treated irrevocability as a benefit to Atherton, its client. It flagged de-identification support but did not flag that irrevocability is unusual or could block a compliance-driven revocation. This is a position and severity difference."
+    },
+    {
+     "id": "C-026",
+     "title": "ISSUE_012: Identifies MFL clause metric mismatch (per-image vs. flat fees)",
+     "cause": "seen_not_used",
+     "capability": "cross_doc_reconciliation",
+     "source": "term-sheet §6.8: \"aggregate per-image fees ... more than fifteen percent (15%) lower\" vs. §6.2 \"annual license fee of ... $6,800,000\"; product overview: \"3 active non-exclusive licensees generating combined ARR of $18.4M\"",
+     "seen_step": 3,
+     "deliverable": "\"(ii) 'per-image fees effectively paid' is undefined and requires usage data Kaelen controls\"",
+     "judge_correct": true,
+     "explanation": "The agent read both the per-image MFL trigger and the flat annual fee structure. It noted the undefined term but never connected that both Kaelen and the existing licensees pay flat fees, which makes the per-image comparison a structural mismatch that depends on volume assumptions."
+    }
+   ]
+  },
+  {
+   "task": "bankruptcy-restructuring/draft-final-decree-motion",
+   "n_failed": 2,
+   "process": [
+    {
+     "obs": "Read all 5 documents in full by opening each spilled parse with Read (steps 3-7).",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Cross-checked the IRS payment record and found real internal inconsistencies (installment dates vs. the Aug. 15, 2024 final payment; interest equal to the face amount). It then hedged the motion with a Closing Condition instead of the expected 'paid in full' representation.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Ended the proposed order with the '###' end-of-order convention and a 'Presented by' block, omitting a judge signature and date line. It never checked the order against a standard form.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Wrote the motion and order in single scripts (steps 10-11), then patched text and formatting (steps 12-13). Only about 15 steps in total.",
+     "effect": "helpful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-025",
+     "title": "ISSUE_004: Correctly represents IRS claim paid in full",
+     "cause": "rubric_or_judge_issue",
+     "capability": "none",
+     "source": "plan-admin-final-report §III.E: \"Status: Paid in full\"; docket Dkt. 464: \"Claim paid in full with statutory interest\"; but confirmed-plan-summary: installments \"commencing on the first anniversary of the Effective Date (i.e., December 1, 2024)\" while \"The final installment was paid August 15, 2024\", and 5x$214,575 + $214,575 interest = $1,287,450 (the face amount)",
+     "seen_step": 6,
+     "deliverable": "\"the Reorganized Debtor made installment payments aggregating $1,287,450.00 on account of Claim No. 14, the last of which was made on August 15, 2024 ... Because the installment and interest components reported in the record require reconciliation ... written confirmation from the IRS\"",
+     "judge_correct": false,
+     "explanation": "The motion does say the full claim amount was paid and never calls the claim outstanding, so the FAIL clause as written is not met. The agent withheld 'with statutory interest' because the record is internally impossible: the dates conflict and the interest merely brings payments to the face amount. That hedge is legally prudent, and the rubric's expected representation would be a candor risk."
+    },
+    {
+     "id": "C-049",
+     "title": "Proposed order includes judge signature block",
+     "cause": "format_structure",
+     "capability": "drafting_craft",
+     "source": "general practice (proposed-order form); docket-summary identifies \"Honorable Patricia C. Wellborne\"",
+     "seen_step": 7,
+     "deliverable": "order ends \"###\" followed by \"Presented by:\" counsel block; no judge signature or date line",
+     "judge_correct": true,
+     "explanation": "The agent used the electronic-signature '###' end-of-order convention without a signature or date line for Judge Wellborne. The substance is complete, but the required structural element is missing."
+    }
+   ]
+  },
+  {
+   "task": "environmental-esg/compare-remedial-action-work-plan-against-record-of-decision-requirements",
+   "n_failed": 1,
+   "process": [
+    {
+     "obs": "Its first ROD reads used byte-limited head -c/tail -c windows (steps 4-6). It then split every document into 28K parts and read all of them sequentially (steps 7-20), giving complete coverage of 357K characters.",
+     "effect": "helpful"
+    },
+    {
+     "obs": "Recomputed the CD ¶19 60-day review window itself (step 21) and reported the RAWP's Jan. 28-Mar. 28 window as a date defect, rather than using Mar. 28 as the action deadline.",
+     "effect": "harmful"
+    },
+    {
+     "obs": "Built the memo in seven script parts (steps 23-29), then fixed footer and privilege-legend issues (steps 30-32). Only 1 of the criteria failed.",
+     "effect": "helpful"
+    }
+   ],
+   "failures": [
+    {
+     "id": "C-049",
+     "title": "Notes March 28, 2025 deadline for EPA review comment period",
+     "cause": "judgment",
+     "capability": "risk_calibration",
+     "source": "cag-letter-to-epa.eml: \"the RAWP was submitted to EPA on January 15, 2025, and that the review period runs through March 28, 2025\"; RAWP: \"the EPA review period extends from January 28, 2025 through March 28, 2025\"; CD ¶19 (60-day review)",
+     "seen_step": 4,
+     "deliverable": "\"The RAWP gives the EPA review period as Jan. 28--Mar. 28, 2025. Sixty days from the Jan. 15 submission is March 16, 2025, or March 17 under CD ¶5(d)'s weekend rule ... The date of EPA's receipt should be confirmed.\"",
+     "judge_correct": true,
+     "explanation": "The agent saw and mentioned the Mar. 28 date, but only as an internal date-calculation defect. It never used the review-period end as the clock for its 'promptly withdraw and resubmit' recommendation. This is borderline: the FAIL clause ('not mentioned') is arguably not met."
+    }
+   ]
+  }
+ ]
+}
