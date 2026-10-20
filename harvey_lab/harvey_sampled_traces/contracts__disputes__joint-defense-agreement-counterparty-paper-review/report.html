@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — contracts/disputes/joint-defense-agreement-counterparty-paper-review/claude-code-session/20261016-022601</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>contracts/disputes/joint-defense-agreement-counterparty-paper-review/claude-code-session/20261016-022601</strong> &nbsp;&middot;&nbsp;
+  Task: contracts/disputes/joint-defense-agreement-counterparty-paper-review &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-16
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">1.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">31/31</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">5/5</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-allpass">ALL PASS</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (31 passed, 0 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Withdrawal notice period reduced to 15 calendar days or fewer</span>
+    <span style="font-size:0.8rem;color:#999">C001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Redline §7.1 and §7.2 change withdrawal notice to fifteen (15) calendar days.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Return-or-destroy obligation for withdrawing party modified or deleted</span>
+    <span style="font-size:0.8rem;color:#999">C002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Redline §7.2(b) modifies return-or-destroy to original shared form with carve-outs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Work-product incorporation exception added to withdrawal materials obligation</span>
+    <span style="font-size:0.8rem;color:#999">C003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§7.2(b) provides no obligation to return/destroy JDM reviewed and incorporated into Incorporated Work Product (defined in new §1.8).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Settlement advance notice period reduced to 10 business days or fewer</span>
+    <span style="font-size:0.8rem;color:#999">C004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§9.2 reduces notice to ten (10) business days, triggered by determination to proceed.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Settlement disclosure limited to existence and general nature</span>
+    <span style="font-size:0.8rem;color:#999">C005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§9.2 limits Settlement Notice to existence and general nature, items (a)-(c), and bars disclosure of amount, releases, cooperation terms.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Confidentiality survival period extended to at least 7 years or made indefinite</span>
+    <span style="font-size:0.8rem;color:#999">C006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§8.1 makes confidentiality survival indefinite.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Conflicts waiver carve-out preserving right to assert claims against JDA members in future litigation</span>
+    <span style="font-size:0.8rem;color:#999">C007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">New §11.3 reserves each Party's right to assert claims against other Parties in any present or future proceeding.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Conflicts waiver carve-out specifically includes contribution and indemnity actions</span>
+    <span style="font-size:0.8rem;color:#999">C008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§11.3 expressly lists claims for contribution and contractual or equitable indemnity.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Governing law changed from New York to Illinois</span>
+    <span style="font-size:0.8rem;color:#999">C009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§12.3 changed to Illinois law.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">New inadvertent-disclosure or clawback provision added</span>
+    <span style="font-size:0.8rem;color:#999">C010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">New §3.6 adds inadvertent disclosure and clawback provision.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Clawback provision references FRE 502(d) or provides equivalent contractual mechanism</span>
+    <span style="font-size:0.8rem;color:#999">C011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§3.6(a) requires a joint FRE 502(d) motion and §3.6(b) provides a four-element contractual clawback.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Government-investigation carve-out provision added</span>
+    <span style="font-size:0.8rem;color:#999">C012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">New §4.5 lets any Party withhold materials responsive to any Government Investigation without breach or disclosure of its existence.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Express right to object to or decline information-sharing requests added</span>
+    <span style="font-size:0.8rem;color:#999">C013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">New §4.4 gives an express right to object to and decline information-sharing requests.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Information-sharing objection grounds include work-product, separate-interest privilege, or regulatory sensitivity</span>
+    <span style="font-size:0.8rem;color:#999">C014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">§4.4 grounds: individual work product, separate-interest privilege, and regulatory sensitivity.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Blanket conflicts waiver identified as Prohibited or never-accept term in issues memo</span>
+    <span style="font-size:0.8rem;color:#999">C015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo Issue 8 classifies the blanket conflicts waiver as Prohibited/never-accept under Playbook §6.3.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Blanket conflicts waiver assigned highest or most severe risk rating</span>
+    <span style="font-size:0.8rem;color:#999">C016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 8 is rated Critical, the highest rating in the memo's scale.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Material settlement terms disclosure identified as Prohibited or never-accept term in issues memo</span>
+    <span style="font-size:0.8rem;color:#999">C017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 5 classifies 'all material terms' disclosure as Prohibited/never-accept (§4.4).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Material settlement terms disclosure assigned highest or most severe risk rating</span>
+    <span style="font-size:0.8rem;color:#999">C018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 5 is rated Critical, the highest rating.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Issues memo distinguishes Required, Preferred, and Prohibited playbook classifications</span>
+    <span style="font-size:0.8rem;color:#999">C019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo assigns Required, Preferred, and Prohibited tiers per issue in the summary table and analysis.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cost-sharing allocation flagged as deviation from playbook</span>
+    <span style="font-size:0.8rem;color:#999">C020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 12 flags the fixed 50/16.67 split as a disfavored deviation from the pro rata damages-based, quarterly recalculated standard.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Steering committee composition flagged as deviation from playbook</span>
+    <span style="font-size:0.8rem;color:#999">C021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 14 flags the permanent Kerrigan-Holst seat, single rotating seat and elected seat as disfavored versus equal representation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Dispute resolution clause flagged as deviation from playbook</span>
+    <span style="font-size:0.8rem;color:#999">C022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 15 flags binding JAMS NY arbitration without mediation as disfavored versus mediation then N.D. Ill. litigation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Post-settlement cooperation obligation flagged as deviation from playbook</span>
+    <span style="font-size:0.8rem;color:#999">C023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 16 flags the 18-month commercially-reasonable-efforts cooperation as disfavored versus preservation-only.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Risk ratings assigned to each identified deviation</span>
+    <span style="font-size:0.8rem;color:#999">C024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Every issue in the summary table and detailed analysis carries a risk rating (Critical/High/Medium/Low/Compliant).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recommended position or alternative language provided for each deviation</span>
+    <span style="font-size:0.8rem;color:#999">C025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Each issue includes a Recommended position/redline entry and recommended action in the table.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Reference to Vantage JDA Playbook v4.2 (September 15, 2024) as benchmark</span>
+    <span style="font-size:0.8rem;color:#999">C026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo references Playbook v4.2 as the benchmark and its date September 15, 2024 (Part III.F).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Underlying case name referenced in issues memo</span>
+    <span style="font-size:0.8rem;color:#999">C027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo RE line names In re Industrial Fasteners Antitrust Litigation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Underlying case number referenced in issues memo</span>
+    <span style="font-size:0.8rem;color:#999">C028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo cites No. 1:23-cv-04871.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Underlying court referenced in issues memo</span>
+    <span style="font-size:0.8rem;color:#999">C029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Memo cites N.D. Ill.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Absence of limitation-of-liability clause flagged as missing protection</span>
+    <span style="font-size:0.8rem;color:#999">C030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue 20 flags absence of limitation of liability and proposes new §12.11.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Scope definition addressing government investigations modified in redline</span>
+    <span style="font-size:0.8rem;color:#999">C031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Redline §1.6 adds proviso routing Government Investigations to §4.5 carve-out, and §2.1 adds a caveat that no sharing is required for Government Investigations.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

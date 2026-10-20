@@ -1,0 +1,268 @@
+{
+  "score": 0.0,
+  "max_score": 1.0,
+  "summary": "36/39 criteria passed.  Missed 3 \u2014 task FAIL.",
+  "all_pass": false,
+  "n_criteria": 39,
+  "n_passed": 36,
+  "n_grading_errors": 0,
+  "pandoc_version": "3.11",
+  "criteria_results": [
+    {
+      "id": "C-001",
+      "title": "Identifies fee total reconciliation discrepancy (ISSUE_001)",
+      "verdict": "pass",
+      "reasoning": "C-1 states phase table $1,708,950 vs staffing table $1,825,000 do not reconcile."
+    },
+    {
+      "id": "C-002",
+      "title": "Correctly quantifies fee discrepancy as $116,050",
+      "verdict": "pass",
+      "reasoning": "States $116,050 difference."
+    },
+    {
+      "id": "C-003",
+      "title": "Identifies Croft's rate exceeds OCG partner cap (ISSUE_002)",
+      "verdict": "pass",
+      "reasoning": "A-1: Croft at $850 vs $825 cap."
+    },
+    {
+      "id": "C-004",
+      "title": "Quantifies Croft rate overage at $25/hr over $825 cap",
+      "verdict": "pass",
+      "reasoning": "Quantifies 620 x $25 = $15,500."
+    },
+    {
+      "id": "C-005",
+      "title": "Identifies Okeke's rate exceeds OCG senior associate cap (ISSUE_003)",
+      "verdict": "pass",
+      "reasoning": "A-1: Okeke $575 vs $550 cap."
+    },
+    {
+      "id": "C-006",
+      "title": "Quantifies Okeke rate overage at $25/hr over $550 cap",
+      "verdict": "pass",
+      "reasoning": "Quantifies 980 x $25 = $24,500."
+    },
+    {
+      "id": "C-007",
+      "title": "Identifies Okeke's rate increase exceeds 3% annual cap (ISSUE_013)",
+      "verdict": "pass",
+      "reasoning": "A-2: Okeke increase 4.5%/4.55% exceeds 3%."
+    },
+    {
+      "id": "C-008",
+      "title": "States correct OCG-compliant max rate for Okeke ($566.50)",
+      "verdict": "fail",
+      "reasoning": "Never computes $566.50; gives only the $550 cap as Okeke's maximum."
+    },
+    {
+      "id": "C-009",
+      "title": "Identifies insufficient rate increase notice period (ISSUE_004)",
+      "verdict": "pass",
+      "reasoning": "A-3 identifies Dec 15, 2024 notice, 17 days before the effective date, as untimely."
+    },
+    {
+      "id": "C-010",
+      "title": "Identifies paralegal rate exceeds OCG cap (ISSUE_005)",
+      "verdict": "pass",
+      "reasoning": "Hu at $225 vs $200 paralegal cap."
+    },
+    {
+      "id": "C-011",
+      "title": "Quantifies Hu paralegal rate overage at $25/hr over $200 cap",
+      "verdict": "pass",
+      "reasoning": "Quantifies 740 x $25 = $18,500."
+    },
+    {
+      "id": "C-012",
+      "title": "Identifies inadequate notice for Hu's addition to matter (ISSUE_006)",
+      "verdict": "pass",
+      "reasoning": "B-1: April 25 notice for April 28 start vs 10 business days plus GC approval."
+    },
+    {
+      "id": "C-013",
+      "title": "Identifies e-discovery vendor sole-source violation (ISSUE_007)",
+      "verdict": "pass",
+      "reasoning": "D-1: $285,000 Clearpoint sole-source above $200,000 threshold, no three-vendor bids."
+    },
+    {
+      "id": "C-014",
+      "title": "Identifies expert witness fees exceed pre-approval threshold (ISSUE_008)",
+      "verdict": "pass",
+      "reasoning": "D-2: $175,000 for two experts, each above $75,000, no CV/scope pre-approval package."
+    },
+    {
+      "id": "C-015",
+      "title": "Identifies business class travel without pre-approval (ISSUE_009)",
+      "verdict": "pass",
+      "reasoning": "D-5: business class for Croft violates economy-only rule absent pre-approval."
+    },
+    {
+      "id": "C-016",
+      "title": "Identifies internal copying/printing as non-reimbursable (ISSUE_010)",
+      "verdict": "pass",
+      "reasoning": "D-4: $15,000 internal reproduction non-reimbursable."
+    },
+    {
+      "id": "C-017",
+      "title": "Recommends removal of $15,000 copying/printing from budget",
+      "verdict": "pass",
+      "reasoning": "Recommends deleting the line or budgeting third-party costs only."
+    },
+    {
+      "id": "C-018",
+      "title": "Identifies unauthorized post-trial/appeal reserve (ISSUE_011)",
+      "verdict": "pass",
+      "reasoning": "C-3: L700 $92,000/200 hrs not requested; OCG 5.4 requires written request."
+    },
+    {
+      "id": "C-019",
+      "title": "Identifies Boyd Whitaker as unbudgeted phantom timekeeper (ISSUE_012)",
+      "verdict": "pass",
+      "reasoning": "B-2: Whitaker ~60 hrs on SJ not in staffing totals or fees; unbudgeted cost."
+    },
+    {
+      "id": "C-020",
+      "title": "Notes Whitaker addition would require GC notice under OCGs",
+      "verdict": "pass",
+      "reasoning": "B-2 requires advance GC approval and 10-business-day notice under 4.3."
+    },
+    {
+      "id": "C-021",
+      "title": "Identifies mock trial/jury consulting expense as requiring GC pre-approval",
+      "verdict": "pass",
+      "reasoning": "D-3: $95,000 Silvermark requires advance written GC approval."
+    },
+    {
+      "id": "C-022",
+      "title": "Does NOT flag two-partner limit as violated (DISTRACTOR_005)",
+      "verdict": "pass",
+      "reasoning": "States Whitaker would be within the two-partner ceiling."
+    },
+    {
+      "id": "C-023",
+      "title": "Recommends reducing Croft's rate to $825/hr or obtaining waiver",
+      "verdict": "pass",
+      "reasoning": "Requires Croft restated at no more than $825."
+    },
+    {
+      "id": "C-024",
+      "title": "Recommends reducing Okeke's rate to comply with OCG caps",
+      "verdict": "pass",
+      "reasoning": "Requires Okeke at no more than $550."
+    },
+    {
+      "id": "C-025",
+      "title": "Recommends reducing Hu's rate to $200/hr or obtaining waiver",
+      "verdict": "pass",
+      "reasoning": "Requires Hu at no more than $200."
+    },
+    {
+      "id": "C-026",
+      "title": "Recommends competitive bidding for e-discovery vendor",
+      "verdict": "pass",
+      "reasoning": "Recommends three-vendor competitive bid (or GC-approved sole-source justification)."
+    },
+    {
+      "id": "C-027",
+      "title": "Recommends submitting expert CVs and scope for GC pre-approval",
+      "verdict": "pass",
+      "reasoning": "Requires 7.3(a) packages with CV, scope, fee schedule for GC pre-approval."
+    },
+    {
+      "id": "C-028",
+      "title": "Assigns severity levels to identified issues",
+      "verdict": "pass",
+      "reasoning": "High/Medium/Low severity assigned to each issue."
+    },
+    {
+      "id": "C-029",
+      "title": "Budget inconsistency rated as Critical or High severity",
+      "verdict": "pass",
+      "reasoning": "C-1 reconciliation issue rated High."
+    },
+    {
+      "id": "C-030",
+      "title": "Rate cap violations rated as Critical or High severity",
+      "verdict": "pass",
+      "reasoning": "A-1 rate cap violations rated High."
+    },
+    {
+      "id": "C-031",
+      "title": "Notes at least two compliant budget areas",
+      "verdict": "pass",
+      "reasoning": "Notes staffing ratio 46.7% and diversity 32.7% as compliant, plus UTBMS usage."
+    },
+    {
+      "id": "C-032",
+      "title": "Recommends removal or separate approval for L700 appeal reserve",
+      "verdict": "pass",
+      "reasoning": "Recommends removing L700 in full."
+    },
+    {
+      "id": "C-033",
+      "title": "Cites OCG rate cap provisions specifically",
+      "verdict": "pass",
+      "reasoning": "Cites $825, $550 and $200 caps."
+    },
+    {
+      "id": "C-034",
+      "title": "Cites OCG 60-day notice requirement for rate increases",
+      "verdict": "fail",
+      "reasoning": "Cites a Nov. 1 deadline, not the 60-day advance notice requirement."
+    },
+    {
+      "id": "C-035",
+      "title": "Cites OCG 10-business-day notice requirement for new timekeepers",
+      "verdict": "pass",
+      "reasoning": "Cites 10 business days and notes actual notice was one business day (Fri to Mon), close to the ~2 expected."
+    },
+    {
+      "id": "C-036",
+      "title": "Recommends reconciling the two fee totals before approval",
+      "verdict": "pass",
+      "reasoning": "Requires a single reconciled fee build before the budget can be approved."
+    },
+    {
+      "id": "C-037",
+      "title": "Identifies Croft's rate increase notice also has percentage issue",
+      "verdict": "pass",
+      "reasoning": "Discusses Croft's $849.75 rounded to $850 and notes it is above the $825 cap regardless."
+    },
+    {
+      "id": "C-038",
+      "title": "Recommends obtaining pre-approval for business class travel",
+      "verdict": "pass",
+      "reasoning": "Requires travel restated at economy fares."
+    },
+    {
+      "id": "C-039",
+      "title": "Quantifies expert fee per-expert average as ~$87,500",
+      "verdict": "fail",
+      "reasoning": "Gives individual $90k/$85k figures but never computes the ~$87,500 average."
+    }
+  ],
+  "run_id": "litigation-dispute-resolution/identify-issues-in-matter-budget-proposal/claude-code-session/20261016-032216",
+  "task": "litigation-dispute-resolution/identify-issues-in-matter-budget-proposal",
+  "judge_model": "claude-code-session-judge",
+  "scored_at": "2026-10-16T04:06:45.279742+00:00",
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_clock_seconds": 2569.1
+  },
+  "doc_coverage": {
+    "documents_read": 5,
+    "total_documents": 5,
+    "documents_skipped": 0,
+    "documents_read_list": [
+      "colton-ocg-v4.2.docx",
+      "matter-budget-proposal.docx",
+      "prior-year-budget-actuals.xlsx",
+      "rate-increase-notice.eml",
+      "timekeeper-addition-notice.eml"
+    ],
+    "documents_skipped_list": []
+  }
+}

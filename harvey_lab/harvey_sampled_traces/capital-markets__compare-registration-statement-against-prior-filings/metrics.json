@@ -1,0 +1,30 @@
+{
+  "model": "claude-code-session",
+  "task": "capital-markets/compare-registration-statement-against-prior-filings",
+  "run_id": "capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261016-022601",
+  "turn_count": 20,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "total_tokens": 0,
+  "wall_clock_seconds": 5233.9,
+  "finished_cleanly": true,
+  "finish_reason": "session_agent_stop",
+  "finish_summary": null,
+  "completed_at": "2026-10-16T03:53:21.474877+00:00",
+  "documents_read": 3,
+  "documents_read_list": [
+    "draft-s3-registration-statement.docx",
+    "pinnacle-10k-fy2024.docx",
+    "pinnacle-s1-ipo-registration.docx"
+  ],
+  "total_documents": 3,
+  "documents_skipped": 0,
+  "documents_skipped_list": [],
+  "tool_calls": {
+    "bash": 20
+  },
+  "output_files": [
+    "s3-deviation-report.docx"
+  ],
+  "note": "Token counts are not observable from a session agent and are reported as 0."
+}

@@ -1,0 +1,440 @@
+{
+  "score": 0.0,
+  "max_score": 1.0,
+  "summary": "61/68 criteria passed.  Missed 7 \u2014 task FAIL.",
+  "all_pass": false,
+  "n_criteria": 68,
+  "n_passed": 61,
+  "n_grading_errors": 0,
+  "pandoc_version": "3.11",
+  "criteria_results": [
+    {
+      "id": "C-001",
+      "title": "ISSUE_001: Identifies Total Net Leverage Ratio calculation discrepancy",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-002",
+      "title": "ISSUE_001: Provides explanation of why leverage discrepancy matters",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-003",
+      "title": "ISSUE_001: Recommends next steps for leverage discrepancy",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-004",
+      "title": "ISSUE_002: Identifies cash netting cap in Total Net Leverage definition",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-005",
+      "title": "ISSUE_002: Identifies cash netting cap in Sr. Secured Net Leverage definition",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-006",
+      "title": "ISSUE_002: Flags acquisition-context implication of cash netting caps",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-007",
+      "title": "ISSUE_003: Identifies that Ridgeline is not a Permitted Holder",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-008",
+      "title": "ISSUE_003: Identifies that acquisition triggers Change of Control",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-009",
+      "title": "ISSUE_003: Identifies Change of Control as Event of Default",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-010",
+      "title": "ISSUE_003: Recommends deal structuring options for Change of Control",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-011",
+      "title": "ISSUE_004: Identifies reinvestment period inconsistency",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-012",
+      "title": "ISSUE_004: Provides at least one implication of reinvestment period inconsistency",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-013",
+      "title": "ISSUE_005: Identifies equity cure only increases EBITDA, not reduces debt",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-014",
+      "title": "ISSUE_005: Flags equity cure EBITDA-only mechanic as limiting cure effectiveness",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-015",
+      "title": "ISSUE_006: Identifies borrowing base certificate as inapplicable requirement",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-016",
+      "title": "ISSUE_006: Notes potential technical default from borrowing base certificate",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-017",
+      "title": "ISSUE_007: Identifies pro forma cost savings cap at 15% of pre-adjustment EBITDA",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-018",
+      "title": "ISSUE_007: Notes cost savings add-back limited to Permitted Acquisitions only",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-019",
+      "title": "ISSUE_008: Extracts $20M acquisition consent threshold",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-020",
+      "title": "ISSUE_008: Extracts $75M aggregate acquisition cap",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-021",
+      "title": "ISSUE_008: Flags acquisition constraints on post-acquisition strategy",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-022",
+      "title": "ISSUE_009: Identifies FCCR current headroom of only 0.07x",
+      "verdict": "fail",
+      "reasoning": "Memo recalculates FCCR as 1.24x with 0.09x headroom; it never states the 0.07x headroom (1.22x vs 1.15x) the criterion requires."
+    },
+    {
+      "id": "C-023",
+      "title": "ISSUE_009: Flags approaching FCCR step-up to 1.20x in Q1 2025",
+      "verdict": "fail",
+      "reasoning": "Memo flags the step-up to 1.20x but puts headroom at 0.04x on its recalculated 1.24x, not the ~0.02x (1.22x - 1.20x) the criterion requires."
+    },
+    {
+      "id": "C-024",
+      "title": "ISSUE_010: Identifies equity cure limit of no more than 2 times in any 4 consecutive fiscal quarters",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-025",
+      "title": "ISSUE_010: Identifies equity cure limit of no more than 4 times during the entire term",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-026",
+      "title": "ISSUE_010: Analyzes interaction of cure limits with tight covenant headroom",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-027",
+      "title": "ISSUE_011: Identifies restricted payment leverage test at 3.00x",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-028",
+      "title": "ISSUE_011: Identifies $7,500,000 annual cap on restricted payments",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-029",
+      "title": "ISSUE_011: Flags that no distributions are currently permitted given ~3.7x leverage",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-030",
+      "title": "ISSUE_011: Connects restricted payment constraint to PE sponsor economics",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-031",
+      "title": "ISSUE_012: Addresses SOFR benchmark provisions or identifies potential LIBOR drafting artifacts",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-032",
+      "title": "Correctly identifies current Total Net Leverage Ratio covenant level of 4.00x",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-033",
+      "title": "Correctly identifies next Total Net Leverage Ratio step-down to 3.75x in Q1 2025",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-034",
+      "title": "Extracts Total Net Leverage Ratio step-down schedule beyond Q1 2025",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-035",
+      "title": "Correctly identifies current FCCR covenant level of 1.15x",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-036",
+      "title": "Correctly identifies FCCR step-up to 1.20x from Q1 2025",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-037",
+      "title": "Extracts Senior Secured Net Leverage Ratio covenant level correctly",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-038",
+      "title": "Extracts Minimum Liquidity covenant threshold of $20,000,000",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-039",
+      "title": "Extracts Liquidity definition as unrestricted cash plus available Revolving Credit Facility",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-040",
+      "title": "Correctly reports current Senior Secured Net Leverage headroom",
+      "verdict": "fail",
+      "reasoning": "Memo says SSNLR is 3.68x-3.74x and in breach; it does not report 3.15x with ~0.10x headroom as the criterion requires."
+    },
+    {
+      "id": "C-041",
+      "title": "Correctly reports current Minimum Liquidity compliance",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-042",
+      "title": "Extracts Consolidated EBITDA definition with key add-backs",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-043",
+      "title": "Extracts Change of Control definition correctly",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-044",
+      "title": "Extracts Permitted Holders definition correctly",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-045",
+      "title": "Extracts FCCR numerator components",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-046",
+      "title": "Extracts FCCR denominator (Consolidated Fixed Charges) components",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-047",
+      "title": "Extracts Indebtedness covenant general basket correctly",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-048",
+      "title": "Extracts Restricted Payments Available Amount basket",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-049",
+      "title": "Extracts incremental facility (accordion) amount of $35,000,000",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-050",
+      "title": "Extracts incremental facility pro forma leverage condition of 3.00x",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-051",
+      "title": "Extracts individual and aggregate asset sale disposition thresholds",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-052",
+      "title": "Extracts 100% mandatory prepayment sweep for asset sales exceeding $15M aggregate",
+      "verdict": "fail",
+      "reasoning": "Memo describes a 100% asset-sale prepayment sweep but does not tie it to proceeds exceeding the $15M aggregate threshold."
+    },
+    {
+      "id": "C-053",
+      "title": "Extracts equity cure 10-Business Day contribution deadline",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-054",
+      "title": "Lists reporting requirements with deadlines",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-055",
+      "title": "Identifies sacred rights requiring unanimous lender consent",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-056",
+      "title": "Correctly identifies Term Loan A outstanding balance",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-057",
+      "title": "Correctly identifies Total Funded Debt",
+      "verdict": "fail",
+      "reasoning": "Memo states Total Consolidated Funded Debt as $257.95M (including capital leases), not $253.75M; $253.75M appears only as senior secured debt."
+    },
+    {
+      "id": "C-058",
+      "title": "Notes approaching Total Net Leverage step-down to 3.75x in Q1 2025",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-059",
+      "title": "References credit agreement section numbers for financial covenants",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-060",
+      "title": "Extracts subordinated debt incurrence test at 3.50x",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-061",
+      "title": "Identifies 5 Business Day grace period for interest payment defaults",
+      "verdict": "fail",
+      "reasoning": "The 5 Business Day grace period for interest payment defaults is not mentioned."
+    },
+    {
+      "id": "C-062",
+      "title": "Identifies no grace period for principal payment defaults",
+      "verdict": "fail",
+      "reasoning": "The absence of a grace period for principal payment defaults is not mentioned."
+    },
+    {
+      "id": "C-063",
+      "title": "Identifies Permitted Acquisition pro forma financial covenant compliance requirement",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-064",
+      "title": "Identifies 5 Business Day advance pro forma compliance certificate requirement",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-065",
+      "title": "Identifies investment basket for non-Guarantor Subsidiaries",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-066",
+      "title": "Correctly identifies Term Loan A interest rate structure",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-067",
+      "title": "Correctly identifies Revolving Credit Facility interest rate structure",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    },
+    {
+      "id": "C-068",
+      "title": "Identifies maturity dates for both facilities",
+      "verdict": "pass",
+      "reasoning": "The memo expressly contains the required extraction/analysis (verified against the output text)."
+    }
+  ],
+  "run_id": "corporate-ma/extract-credit-agreement-covenants/claude-code-session/20261016-034158",
+  "task": "corporate-ma/extract-credit-agreement-covenants",
+  "judge_model": "claude-code-session-judge",
+  "scored_at": "2026-10-20T08:23:19.148237+00:00",
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_clock_seconds": 552.4
+  },
+  "doc_coverage": {
+    "documents_read": 3,
+    "total_documents": 3,
+    "documents_skipped": 0,
+    "documents_read_list": [
+      "compliance-certificate-q3-2024.xlsx",
+      "credit-agreement.docx",
+      "partner-memo-extraction-priorities.docx"
+    ],
+    "documents_skipped_list": []
+  }
+}

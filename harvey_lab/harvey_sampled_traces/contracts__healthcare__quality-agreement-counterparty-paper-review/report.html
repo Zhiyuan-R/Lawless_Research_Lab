@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — contracts/healthcare/quality-agreement-counterparty-paper-review/claude-code-session/20261016-031337</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>contracts/healthcare/quality-agreement-counterparty-paper-review/claude-code-session/20261016-031337</strong> &nbsp;&middot;&nbsp;
+  Task: contracts/healthcare/quality-agreement-counterparty-paper-review &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-20
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">1.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">45/45</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">5/5</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-allpass">ALL PASS</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (45 passed, 0 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Change control notice period deviation identified (30 days vs. 90 days mandatory)</span>
+    <span style="font-size:0.8rem;color:#999">C001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #8 states the draft gives 30 days' notice, one-third of the Mandatory 90 days; the fallback table shows 90 calendar days as the opening position.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Change control fallback notice period referenced (60 calendar days)</span>
+    <span style="font-size:0.8rem;color:#999">C002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #8 and the §8.2 table cite the 60-calendar-day fallback, which needs a VP QA written exception.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Change control approval mechanism deviation identified (commercially reasonable efforts vs. prior written approval)</span>
+    <span style="font-size:0.8rem;color:#999">C003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #8 flags the 'commercially reasonable efforts to accommodate comments' notify-and-comment model and recommends Ceritas prior written approval.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Critical deviation notification window deviation identified (72 hours vs. 24 hours)</span>
+    <span style="font-size:0.8rem;color:#999">C004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #11 flags 72 hours from classification against the Mandatory 24 hours from detection.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Major deviation reporting deviation identified (monthly summary vs. 5 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #12 flags that Major deviations go only into the monthly summary, while the Playbook requires 5 business days.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Absence of root-cause analysis timelines in draft flagged</span>
+    <span style="font-size:0.8rem;color:#999">C006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #13 flags that §6.2 sets no RCA or investigation timelines and defers them to Pinnacle SOPs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Playbook RCA deadline for critical deviations cited (15 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #13 cites the Playbook §5.2 requirement of 15 business days for Critical deviations.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Playbook RCA deadline for major deviations cited (30 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #13 cites the Playbook requirement of 30 business days for Major deviations.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">CAPA approval authority deviation identified (Pinnacle retains authority vs. Ceritas sole authority for critical deviations)</span>
+    <span style="font-size:0.8rem;color:#999">C009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #14 flags Pinnacle's sole CAPA approval authority, with Ceritas limited to 'input', against Ceritas approval as a condition precedent for Critical CAPAs.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Batch disposition authority market-split deviation identified</span>
+    <span style="font-size:0.8rem;color:#999">C010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #16 flags EU final disposition with Pinnacle's QP and US disposition with Ceritas, against Ceritas final disposition for all markets.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Raw data turnaround deviation identified (10 vs. 2 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #19 flags 10 business days 'upon reasonable request' against the Playbook's 2 business days.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">APQR submission deadline deviation identified (90 vs. 60 calendar days)</span>
+    <span style="font-size:0.8rem;color:#999">C012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #21 flags the 90-day APQR deadline against the Mandatory 60 days.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Audit frequency cap deviation identified (one per year vs. unlimited)</span>
+    <span style="font-size:0.8rem;color:#999">C013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #23 flags the cap of one routine audit per year against the Mandatory unlimited frequency.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Audit notice period deviation identified (20 vs. 10 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #23 flags 20 business days' notice against the Playbook's 10 business days.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">For-cause audit mutual agreement restriction identified</span>
+    <span style="font-size:0.8rem;color:#999">C015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #24 flags that for-cause audits need Pinnacle's agreement, a de facto veto the Playbook prohibits.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Regulatory inspection notification window deviation identified (5 business days vs. 24 hours)</span>
+    <span style="font-size:0.8rem;color:#999">C016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #27 flags 5-business-day inspection notice against the Mandatory 24 hours.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Missing Ceritas right to participate in or observe regulatory inspections identified</span>
+    <span style="font-size:0.8rem;color:#999">C017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #28 flags that the draft expressly denies Ceritas any right to participate in or observe inspections, against the Mandatory participation right.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recall decision authority deviation identified (joint vs. Ceritas sole authority)</span>
+    <span style="font-size:0.8rem;color:#999">C018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #30 flags joint recall decisions against Ceritas's sole recall and field-alert authority.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Recall cost allocation deviation identified (50/50 unless willful misconduct vs. CDMO bears costs for cGMP/specification/QA failures)</span>
+    <span style="font-size:0.8rem;color:#999">C019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #31 flags the 50/50 split unless willful misconduct against the Playbook rule that the CDMO bears costs of its cGMP, specification or QA failures.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Subcontracting prior written consent requirement deviation identified</span>
+    <span style="font-size:0.8rem;color:#999">C020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issues #32 and #33 flag the pre-approved labs and post-engagement notice of 15 business days against the requirement of prior written consent.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Missing subcontractor Ceritas audit qualification requirement identified</span>
+    <span style="font-size:0.8rem;color:#999">C021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issues #32 and #33 flag that no Ceritas audit qualification is required (and that one is expressly excluded), against the Playbook mandate.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Data integrity provision flagged as limited to 21 CFR Part 11 only</span>
+    <span style="font-size:0.8rem;color:#999">C022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #35 flags that data integrity is limited to Part 11 and ALCOA, with no broader DI program.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Missing reference to FDA Data Integrity Guidance (2018) identified</span>
+    <span style="font-size:0.8rem;color:#999">C023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #35 cites the Playbook requirement for a program consistent with FDA's 2018 data integrity guidance.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Missing reference to MHRA GxP Data Integrity Guidance (2018) identified</span>
+    <span style="font-size:0.8rem;color:#999">C024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #35 cites the MHRA GxP Data Integrity Guidance (2018).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Records retention period deviation identified (7 years vs. 10 years)</span>
+    <span style="font-size:0.8rem;color:#999">C025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #37 flags 7-year retention against the non-negotiable 10 years from batch release (or longer if law requires).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Stability protocol governance deviation identified ('mutually agreed' vs. Ceritas-approved)</span>
+    <span style="font-size:0.8rem;color:#999">C026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #38 flags 'mutually agreed' stability protocols against the Mandatory requirement of Ceritas approval.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Stability results reporting deviation identified (quarterly summaries vs. 5 business days per time-point)</span>
+    <span style="font-size:0.8rem;color:#999">C027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #39 flags quarterly-only reporting against 5 business days per time point.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">QP change advance notice deviation identified (annual list vs. 30 calendar days' advance notice)</span>
+    <span style="font-size:0.8rem;color:#999">C028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #7 flags the annual list with no advance notice against 30 calendar days' prior notice.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Missing Ceritas right to object to QP changes identified</span>
+    <span style="font-size:0.8rem;color:#999">C029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #7 flags that Ceritas has no objection right and treats that right as non-negotiable.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Liability cap of €2,000,000 flagged as a deviation</span>
+    <span style="font-size:0.8rem;color:#999">C030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #41 flags the EUR 2,000,000 per year cap as a Critical deviation.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Playbook mandatory position on uncapped liability for specified categories noted</span>
+    <span style="font-size:0.8rem;color:#999">C031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #41 cites the Playbook §15.1 Mandatory carve-outs for quality/cGMP, regulatory, IP and confidentiality.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Playbook preferred fallback minimum liability cap cited (200% of annual MSA fees)</span>
+    <span style="font-size:0.8rem;color:#999">C032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #41 cites the Preferred cap of at least 200% of annual fees.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Preferred minimum liability cap calculated as $16,800,000 based on Year 1 fees</span>
+    <span style="font-size:0.8rem;color:#999">C033</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #41 states that 200% of annual fees is $16.8M and that Year 1 fees are $8.4M.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Governing law deviation identified (German law vs. New York mandatory / Delaware fallback)</span>
+    <span style="font-size:0.8rem;color:#999">C034</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #48 flags German law against the New York Mandatory position and notes Delaware as the Playbook fallback.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Arbitration seat deviation identified (Frankfurt vs. New York)</span>
+    <span style="font-size:0.8rem;color:#999">C035</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #48 flags ICC arbitration seated in Frankfurt against the required New York seat.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Force majeure scope deviation identified (all obligations excused vs. quality/regulatory carve-out required)</span>
+    <span style="font-size:0.8rem;color:#999">C036</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #42 flags that force majeure relieves all obligations, against the Mandatory carve-out for quality and regulatory obligations.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Missing business-continuity/disaster-recovery plan obligation identified</span>
+    <span style="font-size:0.8rem;color:#999">C037</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #43 flags that the draft has no BCP/DRP obligation, which is Mandatory under Playbook §17.1.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Complete absence of complaint-handling provision or annex identified</span>
+    <span style="font-size:0.8rem;color:#999">C038</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #50 identifies that there are no complaint-handling provisions or Annex D, that the draft disclaims the annex, and that the Playbook mandates it.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Playbook complaint investigation initiation deadline cited (3 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C039</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #50 and the §8.2 table cite investigation initiation within 3 business days under Playbook §18.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Playbook complaint preliminary findings deadline cited (10 business days)</span>
+    <span style="font-size:0.8rem;color:#999">C040</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #50 and the §8.2 table cite preliminary findings within 10 business days.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Term structure deviation identified (5-year fixed term with auto-renewals vs. coterminous with MSA)</span>
+    <span style="font-size:0.8rem;color:#999">C041</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #44 flags the fixed 5-year term with 2-year auto-renewals against the Mandatory coterminous term.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Survival clause scope deviation identified (records only vs. records, recalls, and inspection support)</span>
+    <span style="font-size:0.8rem;color:#999">C042</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #46 flags survival limited to records, against the Mandatory survival of recall, inspection, complaints, DI and records.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Survival period deviation identified (5 years vs. 10 years)</span>
+    <span style="font-size:0.8rem;color:#999">C043</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Issue #46 flags 5-year survival against the non-negotiable 10 years.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Each identified deviation assigned a risk rating per internal methodology</span>
+    <span style="font-size:0.8rem;color:#999">C044</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Every one of the 53 deviations gets SV/IV/LS/PTM/CRS scores and a risk rating under Rubric QA-RB-2024-010.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Tier 1 – Critical Revenue Product classification factored into risk analysis</span>
+    <span style="font-size:0.8rem;color:#999">C045</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The memo explicitly identifies Velorantib as Tier 1 and applies a 1.5 Product-Tier Multiplier to every CRS.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>

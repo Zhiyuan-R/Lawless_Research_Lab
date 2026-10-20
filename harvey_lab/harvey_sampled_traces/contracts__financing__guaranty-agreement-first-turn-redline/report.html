@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Evaluation — contracts/financing/guaranty-agreement-first-turn-redline/claude-code-session/20261016-023956</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         max-width: 960px; margin: 40px auto; padding: 0 24px;
+         color: #1a1a1a; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 0.85rem; margin-bottom: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin-bottom: 40px; }
+  .stat { background: #f5f5f5; border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .value { font-size: 2rem; font-weight: 700; }
+  .stat .label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                  letter-spacing: 0.05em; margin-top: 4px; }
+  h2 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 8px;
+        margin-top: 40px; }
+  details { border: 1px solid #e0e0e0; border-radius: 6px;
+             margin-bottom: 8px; overflow: hidden; }
+  details[open] { border-color: #b0b0b0; }
+  summary { padding: 12px 16px; cursor: pointer; list-style: none;
+             display: flex; align-items: center; gap: 10px;
+             background: #fafafa; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '▶'; font-size: 0.7rem; color: #999;
+                     transition: transform 0.15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .inner { padding: 16px; background: white; border-top: 1px solid #e0e0e0; }
+  .badge { display: inline-block; border-radius: 4px; padding: 2px 8px;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-found    { background: #d4edda; color: #155724; }
+  .badge-missed   { background: #f8d7da; color: #721c24; }
+  .badge-allpass  { background: #1a9850; color: #fff; font-size: 0.85rem; }
+  .badge-missed-any { background: #fdae61; color: #4a2a04; font-size: 0.85rem; }
+  .title { font-weight: 500; flex: 1; }
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 0.75rem; font-weight: 600; color: #666;
+                  text-transform: uppercase; letter-spacing: 0.05em;
+                  margin-bottom: 2px; }
+  .reasoning { background: #f8f9fa; border-left: 3px solid #dee2e6;
+                padding: 10px 12px; font-size: 0.88rem; color: #444;
+                border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>Agent Evaluation Report</h1>
+<div class="meta">
+  Run: <strong>contracts/financing/guaranty-agreement-first-turn-redline/claude-code-session/20261016-023956</strong> &nbsp;&middot;&nbsp;
+  Task: contracts/financing/guaranty-agreement-first-turn-redline &nbsp;&middot;&nbsp;
+  Judge: claude-code-session-judge &nbsp;&middot;&nbsp;
+  Scored: 2026-10-16
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="value">0.00</div><div class="label">Score</div></div>
+  <div class="stat"><div class="value">26/32</div><div class="label">Criteria Passed</div></div>
+  <div class="stat"><div class="value">5/5</div><div class="label">Doc Coverage</div></div>
+  <div class="stat">
+    <div class="value">
+      <span class="badge badge-missed-any">MISSED 6</span>
+    </div>
+    <div class="label">All-pass (every criterion)</div>
+  </div>
+</div>
+
+<h2>Criteria (26 passed, 6 failed)</h2>
+
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Redline restores guaranty scope to cover both 'payment and performance'</span>
+    <span style="font-size:0.8rem;color:#999">C001</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The redline accepts deletion of 'and performance' in Sections 2.1 and 2.2 (WCS-5; cover note items 5-7), leaving a payment-only guaranty with clarifying language about monetary consequences of non-performance.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline retains the 'Excluded Swap Obligations' defined term</span>
+    <span style="font-size:0.8rem;color:#999">C002</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Excluded Swap Obligations definition is retained and expanded in Section 1.1 (WCS-2).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline retains the carve-out from Guaranteed Obligations for swap obligations where the Guarantor is not an eligible contract participant under the CEA</span>
+    <span style="font-size:0.8rem;color:#999">C003</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The CEA/ECP carve-out is accepted in clause (b) and the proviso of Guaranteed Obligations (WCS-3, WCS-4).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects the Guarantor's 90-day termination right for future obligations</span>
+    <span style="font-size:0.8rem;color:#999">C004</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">New Section 5.3's 90-day termination right is deleted and the no-termination language reinstated (WCS-14).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline restores the jury trial waiver in Section 10</span>
+    <span style="font-size:0.8rem;color:#999">C005</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 10.4 Waiver of Jury Trial is reinstated as a mutual waiver (WCS-22).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects the narrowing of reinstatement to payments received from the Guarantor only</span>
+    <span style="font-size:0.8rem;color:#999">C006</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Guarantor-only reinstatement limitation is rejected and original language reinstated (WCS-13).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline restores reinstatement coverage regardless of the source of payment</span>
+    <span style="font-size:0.8rem;color:#999">C007</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 4.1 provides reinstatement regardless of source, including Borrower, collateral proceeds and any other source.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects immediate subrogation and restores subordination of Guarantor's subrogation rights</span>
+    <span style="font-size:0.8rem;color:#999">C008</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Immediate subrogation is rejected and Section 3.6(a)-(c) subordination of subrogation, contribution and reimbursement is reinstated (WCS-12).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Subrogation subordination conditioned on indefeasible payment in full of all Guaranteed Obligations</span>
+    <span style="font-size:0.8rem;color:#999">C009</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.6(a) defers subrogation until all Guaranteed Obligations are indefeasibly paid in full in cash.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Subrogation subordination conditioned on termination of all commitments under the Credit Agreement</span>
+    <span style="font-size:0.8rem;color:#999">C010</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.6(a) also requires that all commitments under the Credit Agreement be irrevocably terminated.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note is from Priya Narayan of Whitfield Crane & Sadler LLP</span>
+    <span style="font-size:0.8rem;color:#999">C011</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note is from Priya Narayan, Whitfield Crane & Sadler LLP.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note is addressed to Thomas Kuo of Marchetti DeLuca LLP</span>
+    <span style="font-size:0.8rem;color:#999">C012</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note is addressed to Thomas Kuo, Marchetti DeLuca LLP.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note copies Marcus Ellingham of Cascadia National Bank</span>
+    <span style="font-size:0.8rem;color:#999">C013</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Marcus R. Ellingham, Cascadia National Bank, N.A. is listed on the cc line.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note copies Diana Chow of Terraverde Group, Inc.</span>
+    <span style="font-size:0.8rem;color:#999">C014</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Diana Chow, Terraverde Group, Inc. is listed on the cc line.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects the five business-day demand grace period before enforceability</span>
+    <span style="font-size:0.8rem;color:#999">C015</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The five-Business-Day demand grace period is rejected and the no-waiting-period language reinstated in Section 2.2 (WCS-6).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline restores the waiver of marshaling (right to require Agent to proceed first against Borrower or collateral)</span>
+    <span style="font-size:0.8rem;color:#999">C016</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.2 Waiver of Right of Marshaling is reinstated, including waiver of proceeding first against Borrower or Collateral (WCS-9).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline restores the waiver of any defense arising from the Agent's election of remedies</span>
+    <span style="font-size:0.8rem;color:#999">C017</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 3.3 Waiver of Election-of-Remedies Defense is reinstated (WCS-10).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Redline rejects the requirement that Guarantor consent is needed for amendments</span>
+    <span style="font-size:0.8rem;color:#999">C018</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The redline counter-proposes and retains a Guarantor written-consent requirement for amendments that increase or add to its obligations (Section 11.1, WCS-24), so a Guarantor consent requirement is retained.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Redline maintains that amendments require only the consent of the Administrative Agent at the direction of the Required Lenders</span>
+    <span style="font-size:0.8rem;color:#999">C019</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Section 11.1 now requires Guarantor consent for certain amendments in addition to the Agent at the direction of Required Lenders, changing the original standard.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline substantively engages with the fraudulent-conveyance savings clause rather than simply deleting it</span>
+    <span style="font-size:0.8rem;color:#999">C020</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The net-worth cap is replaced with a customary fraudulent-transfer savings clause in Section 2.3 (WCS-7).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Redline accepts or proposes a de minimis dollar-threshold carve-out for intercompany-debt subordination</span>
+    <span style="font-size:0.8rem;color:#999">C021</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The redline rejects the $5,000,000 threshold and reinstates full subordination with no de minimis carve-out (WCS-17; Section 8.1).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects limiting intercompany-debt subordination to Event of Default periods only</span>
+    <span style="font-size:0.8rem;color:#999">C022</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Subordination under Section 8.1 continues to apply at all times; Section 8.2 retains payment blockage during Defaults via a Payment Blockage Notice and the Credit-Agreement-permission requirement, and turnover limited to EoD periods is rejected, so the EoD-only limitation is resisted.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Redline restores the waiver of statute-of-limitations defenses in Section 3</span>
+    <span style="font-size:0.8rem;color:#999">C023</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The redline accepts that the New York statute of limitations applies and does not reinstate the blanket statute-of-limitations waiver (WCS-11), only adding accrual/tolling mechanics.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects the exclusion of post-acceleration obligations from Guaranteed Obligations where Guarantor did not receive notice</span>
+    <span style="font-size:0.8rem;color:#999">C024</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">Clause (ii) post-acceleration notice carve-out is rejected and the avoidance-of-doubt sentence reinstated (WCS-4).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Redline rejects conditioning enforceability of the guaranty on delivery of an enforceability opinion from Guarantor's Delaware counsel</span>
+    <span style="font-size:0.8rem;color:#999">C025</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The Delaware opinion condition to effectiveness is not accepted; no change to Recital D or Section 6.4 (WCS-1, WCS-15).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-missed">FAIL</span>
+    <span class="title">Cover note explains the agent's position on guaranty scope (payment and performance)</span>
+    <span style="font-size:0.8rem;color:#999">C026</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note explains accepting deletion of 'performance' rather than maintaining a payment-and-performance guaranty, so it does not explain the required position.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note explains the agent's position on the suretyship waivers</span>
+    <span style="font-size:0.8rem;color:#999">C027</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note gives substantive reasoning on marshaling, election of remedies, and statute of limitations (Term Sheet V(f), Exhibit F, NY GOL 17-103).</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note explains the agent's position on the reinstatement provision</span>
+    <span style="font-size:0.8rem;color:#999">C028</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note explains that clawed-back Borrower or collateral payments never discharged the debt and cites Section 9.05 and Exhibit F.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note explains the agent's position on the Guarantor's proposed termination right</span>
+    <span style="font-size:0.8rem;color:#999">C029</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note explains rejection of the 90-day termination right citing Term Sheet V(b), Exhibit F, Section 9.01(a)(v), and unsupported revolving commitments.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note explains the agent's position on the intercompany-debt subordination provision</span>
+    <span style="font-size:0.8rem;color:#999">C030</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note explains rejection of the $5M threshold and its counter-proposal on the Event of Default limitation with reasoning.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note explains the agent's position on the jury trial waiver</span>
+    <span style="font-size:0.8rem;color:#999">C031</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note explains the jury waiver is required by Term Sheet XII(c) and Exhibit F, mirrors Section 9.15 and is enforceable in New York.</div>
+    </div>
+  </div>
+</details>
+<details>
+  <summary>
+    <span class="badge badge-found">PASS</span>
+    <span class="title">Cover note is organized by section or issue</span>
+    <span style="font-size:0.8rem;color:#999">C032</span>
+  </summary>
+  <div class="inner">
+    <div class="field">
+      <div class="field-label">Judge reasoning</div>
+      <div class="reasoning">The cover note is organized with numbered headings and an item-by-item table keyed to sections.</div>
+    </div>
+  </div>
+</details>
+
+</body>
+</html>
