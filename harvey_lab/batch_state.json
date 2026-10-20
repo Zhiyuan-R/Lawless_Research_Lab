@@ -659,7 +659,7 @@
   "judge_responses": "/tmp/lab-judging/e06ce2204685/responses.json",
   "n_criteria": 84,
   "bundle_chars": 340354,
-  "judge_audit_clean": false,
+  "judge_audit_clean": true,
   "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_629f2871-5ca/agent-a779436b6a2657600.jsonl",
   "n_passed": 82,
   "all_pass": false,
@@ -876,7 +876,7 @@
   "n_grading_errors": 0
  },
  "funds-asset-management/draft-term-sheet-to-lpa-edit": {
-  "status": "judge_running",
+  "status": "done",
   "id": "funds-asset-management/draft-term-sheet-to-lpa-edit",
   "wt": "draft",
   "nd": 2,
@@ -889,7 +889,12 @@
   "judge_bundle": "/tmp/lab-judging/8df343627f11/bundle.md",
   "judge_responses": "/tmp/lab-judging/8df343627f11/responses.json",
   "n_criteria": 113,
-  "bundle_chars": 269780
+  "bundle_chars": 269780,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33188d95-c5d/agent-a0fe7a0f4eb026350.jsonl",
+  "n_passed": 112,
+  "all_pass": false,
+  "n_grading_errors": 0
  },
  "healthcare-life-sciences/extract-key-terms-from-informed-consent-form": {
   "status": "done",
@@ -1018,7 +1023,7 @@
   "n_grading_errors": 0
  },
  "real-estate/extract-psa-key-terms/scenario-02": {
-  "status": "failed",
+  "status": "judge_running",
   "id": "real-estate/extract-psa-key-terms/scenario-02",
   "wt": "analyze",
   "nd": 3,
@@ -1026,8 +1031,12 @@
   "wave": "full",
   "run_id": "real-estate/extract-psa-key-terms/scenario-02/claude-code-session/20261016-023845",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/real-estate/extract-psa-key-terms/scenario-02/claude-code-session/20261016-023845",
-  "reason": "prepare-judge: session.sh prepare-judge failed: Traceback (most recent call last):\n  File \"/home/user/Lawless_Research_Lab/harvey_lab/session_runner.py\", line 301, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/home/user/Lawless_Research_Lab/harvey_lab/session_runner.py\", line 293, in main\n    prepare_judge(a.run_id, a.task)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/home/user/Lawless_Research_Lab/harvey_lab/session_runner.py\", line 224, in prepare_judge\n    rec = recorder.recor",
-  "agent_audit_clean": true
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_434f45ee-e45/agent-aaa93bdb3161f2485.jsonl",
+  "judge_bundle": "/tmp/lab-judging/d6c5abc5fcf0/bundle.md",
+  "judge_responses": "/tmp/lab-judging/d6c5abc5fcf0/responses.json",
+  "n_criteria": 64,
+  "bundle_chars": 360163
  },
  "structured-finance-securitization/extract-key-terms-from-warehouse-credit-facility-term-sheet": {
   "status": "done",
@@ -1479,8 +1488,8 @@
   "wave": "full",
   "run_id": "insurance/compare-reinsurance-treaty-against-underlying-policy/claude-code-session/20261016-025151",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/insurance/compare-reinsurance-treaty-against-underlying-policy/claude-code-session/20261016-025151",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33685ea2-456/agent-a15b86665fa93e64f.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_c2893686-478/agent-a7fbc32b252969e8a.jsonl",
   "judge_bundle": "/tmp/lab-judging/8dd71c21b9af/bundle.md",
   "judge_responses": "/tmp/lab-judging/8dd71c21b9af/responses.json",
   "n_criteria": 39,
@@ -2984,7 +2993,7 @@
   "wave": "full"
  },
  "immigration/extract-eligibility-requirements-from-visa-category-regulations": {
-  "status": "failed",
+  "status": "judge_running",
   "id": "immigration/extract-eligibility-requirements-from-visa-category-regulations",
   "wt": "research",
   "nd": 6,
@@ -2992,8 +3001,12 @@
   "wave": "full",
   "run_id": "immigration/extract-eligibility-requirements-from-visa-category-regulations/claude-code-session/20261016-040830",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/immigration/extract-eligibility-requirements-from-visa-category-regulations/claude-code-session/20261016-040830",
-  "reason": "prepare-judge: Expecting value: line 1 column 3 (char 2)",
-  "agent_audit_clean": true
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_50c1e39f-8a4/agent-a29642139607f7f39.jsonl",
+  "judge_bundle": "/tmp/lab-judging/790ed7bbce6e/bundle.md",
+  "judge_responses": "/tmp/lab-judging/790ed7bbce6e/responses.json",
+  "n_criteria": 48,
+  "bundle_chars": 1231275
  },
  "insurance/draft-reservation-of-rights-letter": {
   "status": "pending",

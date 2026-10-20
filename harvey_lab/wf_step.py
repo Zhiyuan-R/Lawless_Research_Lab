@@ -51,6 +51,13 @@ def session(*args: str) -> str:
     return out.stdout
 
 
+def session_json(*args: str) -> dict:
+    """session.sh output parsed as JSON; the official grader may print warnings first."""
+    out = session(*args)
+    start = out.find("{") if out.startswith("{") else out.find("\n{") + 1
+    return json.loads(out[start:])
+
+
 def find_transcript(marker: str, must_contain: str | None = None) -> str | None:
     """The agent transcript whose opening prompt contains the marker (newest if several)."""
     hits = []
@@ -100,7 +107,7 @@ def prepare(task: str) -> dict:
             return {"skip": True, "reason": f"already {s['status']}"}
         s["status"] = "preparing"
     try:
-        info = json.loads(session("prepare-agent", task))
+        info = session_json("prepare-agent", task)
     except Exception as e:  # noqa: BLE001
         with locked_state() as state:
             state[task].update(status="failed", reason=f"prepare: {e}"[:500])
@@ -123,7 +130,7 @@ def post_agent(task: str) -> dict:
     session("finish-agent", s["run_id"])
     a = audit("agent", transcript, run_dir)
     try:
-        info = json.loads(session("prepare-judge", s["run_id"], task))
+        info = session_json("prepare-judge", s["run_id"], task)
     except Exception as e:  # noqa: BLE001
         with locked_state() as state:
             state[task].update(status="failed", reason=f"prepare-judge: {e}"[:500], agent_audit_clean=a["clean"])

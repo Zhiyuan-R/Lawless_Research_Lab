@@ -225,7 +225,10 @@ def prepare_judge(run_id: str, task_id: str) -> None:
     outputs: dict[str, str] = {}
     lines = []
     for c in criteria:
-        rec = recorder.records[c["id"]]
+        # A task can list the same criterion twice under different ids (identical title and
+        # text); the grader sends both the same output, so they share one record.
+        rec = recorder.records.get(c["id"]) or recorder.records[recorder._criterion_id(
+            {"criterion_title": c["title"], "match_criteria": c["match_criteria"]})]
         key = "OUT-" + hashlib.sha256(rec["agent_output"].encode()).hexdigest()[:8]
         outputs.setdefault(key, rec["agent_output"])
         lines.append(f"### {c['id']}  (Agent's Output: {key})\n**{rec['criterion_title']}**\n\n{rec['match_criteria']}\n")
