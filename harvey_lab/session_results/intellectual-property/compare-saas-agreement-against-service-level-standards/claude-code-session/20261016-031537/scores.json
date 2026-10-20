@@ -1,0 +1,356 @@
+{
+  "score": 1.0,
+  "max_score": 1.0,
+  "summary": "54/54 criteria passed.  ALL-PASS.",
+  "all_pass": true,
+  "n_criteria": 54,
+  "n_passed": 54,
+  "n_grading_errors": 0,
+  "pandoc_version": "3.11",
+  "criteria_results": [
+    {
+      "id": "C-001",
+      "title": "Identifies uptime gap: Agreement 99.5% vs. SLS 99.95%",
+      "verdict": "pass",
+      "reasoning": "A-2 and key metrics table state Agreement 99.5% (efforts-based) vs SLS Tier 1 99.95% guaranteed."
+    },
+    {
+      "id": "C-002",
+      "title": "Explains practical impact of uptime gap in healthcare context",
+      "verdict": "pass",
+      "reasoning": "Quantifies 216 vs 21.6 minutes/month, 43.8 vs 4.4 hrs/year across 11 hospitals and 47 clinics, and ties outages to patient care."
+    },
+    {
+      "id": "C-003",
+      "title": "Identifies scheduled maintenance window inflation (8 hrs/week vs. 4 hrs/month)",
+      "verdict": "pass",
+      "reasoning": "A-4 identifies 8 hrs/week (32-40 hrs/month) excluded maintenance vs SLS cap of 4 hrs/month."
+    },
+    {
+      "id": "C-004",
+      "title": "Notes that maintenance window can mask actual downtime",
+      "verdict": "pass",
+      "reasoning": "A-4 and Appendix A.1 show effective availability could be ~94.1% while SLA is reported as met."
+    },
+    {
+      "id": "C-005",
+      "title": "Identifies Emergency Maintenance exclusion from downtime calculations",
+      "verdict": "pass",
+      "reasoning": "A-5 identifies blanket exclusion of Emergency Maintenance with non-binding 'reasonable efforts' 2-hour notice vs SLS \u00a73.3 inclusion unless force majeure."
+    },
+    {
+      "id": "C-006",
+      "title": "Notes risk of reclassifying outages as emergency maintenance",
+      "verdict": "pass",
+      "reasoning": "A-5 notes Cloudvance could label any outage, including its own defective release, as Emergency Maintenance and report 100% uptime."
+    },
+    {
+      "id": "C-007",
+      "title": "Identifies service credit trigger misalignment (credits start at 99.5% vs. 99.94%)",
+      "verdict": "pass",
+      "reasoning": "B-1 notes credits start only below 99.5% so no credit for months between 99.5% and 99.94%, while SLS credits begin at 99.94%."
+    },
+    {
+      "id": "C-008",
+      "title": "Identifies service credit cap (15%) vs. SLS uncapped requirement",
+      "verdict": "pass",
+      "reasoning": "B-1 identifies 15% ($85,500) monthly cap vs SLS uncapped 10% per 0.1% shortfall."
+    },
+    {
+      "id": "C-009",
+      "title": "Identifies sole-and-exclusive-remedy clause for SLA failures",
+      "verdict": "pass",
+      "reasoning": "B-3 identifies Ex. C \u00a7C.5 sole and exclusive remedy vs SLS \u00a74.3 prohibition; B-4 covers chronic failure (3 in rolling 6 months) actual damages."
+    },
+    {
+      "id": "C-010",
+      "title": "Identifies non-binding nature of incident response times",
+      "verdict": "pass",
+      "reasoning": "C-2 identifies 'commercially reasonable targets... not binding' language vs SLS \u00a75.4 binding commitments with consequences."
+    },
+    {
+      "id": "C-011",
+      "title": "Identifies severity classification mismatch (3-tier vs. 4-tier)",
+      "verdict": "pass",
+      "reasoning": "C-1 identifies three-level Critical/Major/Minor vs SLS four-tier S1-S4 model."
+    },
+    {
+      "id": "C-012",
+      "title": "Identifies slower response/resolution times with specific time comparisons",
+      "verdict": "pass",
+      "reasoning": "C-2 gives specific comparisons: S1 response 2 hrs vs 15 min, resolution 8 vs 4 hrs, etc."
+    },
+    {
+      "id": "C-013",
+      "title": "Identifies missing HITECH Act incorporation in BAA",
+      "verdict": "pass",
+      "reasoning": "D-1 identifies Ex. D cites only HIPAA/45 CFR 160 and 164 with no HITECH incorporation, failing SLS \u00a76.1."
+    },
+    {
+      "id": "C-014",
+      "title": "Explains significance of HITECH Act omission",
+      "verdict": "pass",
+      "reasoning": "D-1 explains significance: direct BA liability, sale-of-PHI prohibition, state AG enforcement, penalties, breach notification."
+    },
+    {
+      "id": "C-015",
+      "title": "Identifies overbroad license grant to Customer Data",
+      "verdict": "pass",
+      "reasoning": "E-2 quotes \u00a76.2 license to modify/create derivative works for providing and improving services vs SLS \u00a77.1 strictly-necessary limit."
+    },
+    {
+      "id": "C-016",
+      "title": "Identifies de-identified data use without opt-out",
+      "verdict": "pass",
+      "reasoning": "E-2 identifies \u00a76.3 de-identified use for product improvement/analytics without consent, no opt-out, vs SLS \u00a76.5 direct benefit and opt-out."
+    },
+    {
+      "id": "C-017",
+      "title": "Identifies insufficient post-termination data retrieval period (30 vs. 90 days)",
+      "verdict": "pass",
+      "reasoning": "E-3 identifies 30-day retrieval vs SLS 90-day minimum."
+    },
+    {
+      "id": "C-018",
+      "title": "Identifies data format gap (commercially standard vs. HL7 FHIR/CSV)",
+      "verdict": "pass",
+      "reasoning": "E-3 identifies 'commercially standard format' vs SLS HL7 FHIR and CSV."
+    },
+    {
+      "id": "C-019",
+      "title": "Identifies missing transition assistance plan",
+      "verdict": "pass",
+      "reasoning": "E-4 identifies no transition assistance vs SLS \u00a77.3 12-month TAP at pre-agreed rates."
+    },
+    {
+      "id": "C-020",
+      "title": "Identifies missing prior written consent for subcontractors handling PHI",
+      "verdict": "pass",
+      "reasoning": "S-1 identifies no prior written consent (post-engagement notice) vs SLS prior consent with objection right, and notes Stratos pre-approved without diligence."
+    },
+    {
+      "id": "C-021",
+      "title": "Identifies missing subcontractor flow-down obligations",
+      "verdict": "pass",
+      "reasoning": "S-2 identifies 'sufficient to enable' standard and no flow-down of SLAs, audit rights, destruction vs SLS 'at least as protective'."
+    },
+    {
+      "id": "C-022",
+      "title": "Identifies missing data hosting location restrictions",
+      "verdict": "pass",
+      "reasoning": "S-3 identifies 'any Stratos U.S. data center' with no schedule by city/state, no 90-day notice and consent."
+    },
+    {
+      "id": "C-023",
+      "title": "Identifies liability cap below SLS minimum ($6.84M vs. higher amount)",
+      "verdict": "pass",
+      "reasoning": "F-1 identifies $6.84M cap vs SLS $15.48M (24 months total fees), shortfall $8.64M."
+    },
+    {
+      "id": "C-024",
+      "title": "Identifies missing carve-outs from consequential damages exclusion",
+      "verdict": "pass",
+      "reasoning": "F-2 identifies no carve-outs and lists data breaches, BAA, IP infringement, gross negligence/willful misconduct."
+    },
+    {
+      "id": "C-025",
+      "title": "Identifies missing cyber liability insurance requirement",
+      "verdict": "pass",
+      "reasoning": "D-6 identifies only 'commercially reasonable insurance' with no minimum vs SLS $10M cyber coverage."
+    },
+    {
+      "id": "C-026",
+      "title": "Identifies missing HITRUST CSF certification requirement",
+      "verdict": "pass",
+      "reasoning": "D-4 identifies SOC 2 only with no HITRUST CSF as required by SLS \u00a76.3(b)."
+    },
+    {
+      "id": "C-027",
+      "title": "Identifies missing annual penetration testing requirement",
+      "verdict": "pass",
+      "reasoning": "D-4 identifies no annual penetration testing requirement."
+    },
+    {
+      "id": "C-028",
+      "title": "Identifies missing requirement to deliver penetration testing reports within 30 days",
+      "verdict": "pass",
+      "reasoning": "D-4 notes SLS requires full pen test report within 30 days and Agreement gives no right to pen test results."
+    },
+    {
+      "id": "C-029",
+      "title": "Identifies vague encryption standards (industry-standard vs. AES-256/TLS 1.2+)",
+      "verdict": "pass",
+      "reasoning": "D-3 identifies 'industry-standard encryption' vs AES-256 at rest and TLS 1.2+."
+    },
+    {
+      "id": "C-030",
+      "title": "Identifies termination cure period gap (60 days vs. 30 days)",
+      "verdict": "pass",
+      "reasoning": "G-1 identifies 60-day cure vs SLS 30 days."
+    },
+    {
+      "id": "C-031",
+      "title": "Identifies convenience termination notice period gap (180 days vs. 90 days)",
+      "verdict": "pass",
+      "reasoning": "G-2 identifies 180 days' notice vs SLS 90 days."
+    },
+    {
+      "id": "C-032",
+      "title": "Identifies convenience termination fee gap (remaining fees vs. no fee)",
+      "verdict": "pass",
+      "reasoning": "G-2 identifies fee equal to unpaid installments for current contract year vs SLS no fee."
+    },
+    {
+      "id": "C-033",
+      "title": "Identifies missing termination right for chronic SLA failure",
+      "verdict": "pass",
+      "reasoning": "B-4 identifies no chronic failure termination right vs SLS 3+ failures in rolling 6 months, no cure and no fee."
+    },
+    {
+      "id": "C-034",
+      "title": "Identifies missing termination right for PHI data breach",
+      "verdict": "pass",
+      "reasoning": "G-3 identifies no data-breach termination right vs SLS \u00a710.4 immediate termination with 10-day conditional cure."
+    },
+    {
+      "id": "C-035",
+      "title": "Identifies audit frequency gap (1/year vs. 2/year)",
+      "verdict": "pass",
+      "reasoning": "H-1 identifies once per year vs SLS at least 2 audits per year."
+    },
+    {
+      "id": "C-036",
+      "title": "Identifies audit notice period gap (60 days vs. 30 days)",
+      "verdict": "pass",
+      "reasoning": "H-1 identifies 60 days' notice vs SLS 30 days' notice."
+    },
+    {
+      "id": "C-037",
+      "title": "Identifies missing physical data center inspection rights",
+      "verdict": "pass",
+      "reasoning": "H-1 notes no physical inspection vs SLS \u00a711.2 physical inspection of data centers."
+    },
+    {
+      "id": "C-038",
+      "title": "Identifies audit limitation allowing SOC 2 report substitution for full audit access",
+      "verdict": "pass",
+      "reasoning": "H-1 identifies \u00a713.2 SOC 2 report substitution satisfying any audit request."
+    },
+    {
+      "id": "C-039",
+      "title": "Identifies governing law mismatch (Texas vs. North Carolina)",
+      "verdict": "pass",
+      "reasoning": "I-1 identifies Texas law vs North Carolina."
+    },
+    {
+      "id": "C-040",
+      "title": "Identifies mandatory arbitration vs. SLS litigation requirement",
+      "verdict": "pass",
+      "reasoning": "I-2 identifies AAA arbitration in Austin vs Mecklenburg County litigation and no mandatory arbitration over $1M."
+    },
+    {
+      "id": "C-041",
+      "title": "Uptime gap rated Critical or High",
+      "verdict": "pass",
+      "reasoning": "A-2 uptime gap rated Critical."
+    },
+    {
+      "id": "C-042",
+      "title": "Overbroad data license gap rated Critical or High",
+      "verdict": "pass",
+      "reasoning": "E-2 data license gap rated Critical."
+    },
+    {
+      "id": "C-043",
+      "title": "Liability cap shortfall rated Critical or High",
+      "verdict": "pass",
+      "reasoning": "F-1 liability cap rated Critical."
+    },
+    {
+      "id": "C-044",
+      "title": "Missing consequential damages carve-outs rated Critical or High",
+      "verdict": "pass",
+      "reasoning": "F-2 missing carve-outs rated Critical."
+    },
+    {
+      "id": "C-045",
+      "title": "Missing HITECH incorporation rated Critical or High",
+      "verdict": "pass",
+      "reasoning": "D-1 HITECH omission rated Critical."
+    },
+    {
+      "id": "C-046",
+      "title": "At least 75% of gaps include specific redline language or negotiation points",
+      "verdict": "pass",
+      "reasoning": "Every Part IV finding includes specific recommended redline language and a negotiation position."
+    },
+    {
+      "id": "C-047",
+      "title": "References specific Agreement sections or exhibit references",
+      "verdict": "pass",
+      "reasoning": "Findings cite specific sections and exhibits (Ex. C \u00a7C.1, \u00a710.2, Ex. D \u00a7D.1, etc.)."
+    },
+    {
+      "id": "C-048",
+      "title": "References specific SLS section numbers or requirements",
+      "verdict": "pass",
+      "reasoning": "Findings cite specific SLS sections (\u00a73.1, \u00a74.3, \u00a76.1, \u00a79.1, etc.)."
+    },
+    {
+      "id": "C-049",
+      "title": "Identifies SLS requirements with no corresponding Agreement provision",
+      "verdict": "pass",
+      "reasoning": "Part V lists requirements on which the Agreement is silent, e.g., HITRUST, pen testing, TAP, data breach termination."
+    },
+    {
+      "id": "C-050",
+      "title": "Notes interconnection between maintenance exclusions and uptime gap",
+      "verdict": "pass",
+      "reasoning": "A-4 and Appendix A.1 combine maintenance exclusions with 99.5% to show ~94.1% effective availability; Executive Summary notes maintenance makes the gap worse."
+    },
+    {
+      "id": "C-051",
+      "title": "Correctly identifies Meridian as the client and Cloudvance as the vendor",
+      "verdict": "pass",
+      "reasoning": "Memo consistently treats Meridian as customer/client and Cloudvance as vendor."
+    },
+    {
+      "id": "C-052",
+      "title": "Notes SLS requirement for 72-hour advance notice of scheduled maintenance",
+      "verdict": "pass",
+      "reasoning": "A-4 and key metrics table note SLS 72 hours' notice vs Agreement 24 hours and Sat/Sun 12-6 AM window."
+    },
+    {
+      "id": "C-053",
+      "title": "Identifies SLS requirement for service credits refundable in cash",
+      "verdict": "pass",
+      "reasoning": "B-2 notes SLS invoice credit or cash refund at Meridian's election vs Agreement 'not redeemable for cash'."
+    },
+    {
+      "id": "C-054",
+      "title": "Notes audit cost allocation gap (Meridian's expense vs. vendor's expense)",
+      "verdict": "pass",
+      "reasoning": "H-1 notes Agreement audits at Customer's sole expense vs SLS vendor reimbursement on material non-compliance."
+    }
+  ],
+  "run_id": "intellectual-property/compare-saas-agreement-against-service-level-standards/claude-code-session/20261016-031537",
+  "task": "intellectual-property/compare-saas-agreement-against-service-level-standards",
+  "judge_model": "claude-code-session-judge",
+  "scored_at": "2026-10-20T08:20:35.439796+00:00",
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_clock_seconds": 682.9
+  },
+  "doc_coverage": {
+    "documents_read": 3,
+    "total_documents": 3,
+    "documents_skipped": 0,
+    "documents_read_list": [
+      "ellison-to-langford-email.eml",
+      "master-saas-agreement.docx",
+      "service-level-standards.docx"
+    ],
+    "documents_skipped_list": []
+  }
+}

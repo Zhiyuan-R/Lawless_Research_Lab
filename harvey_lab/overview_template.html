@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: one reading column, styled like a case file. Verdict first, then the 26-task dot plot, failure patterns, judge reliability, and the full per-task ledger. */
+/* Layout: one reading column, styled like a case file. Verdict first, then the per-task dot plot, failure patterns, judge reliability, and the full per-task ledger. */
 :root {
   --paper: #f6f7f5;
   --sheet: #ffffff;
@@ -139,9 +139,9 @@ section { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; min-w
 
 <div class="wrap">
   <header style="display:grid;gap:12px">
-    <div class="eyebrow">HARVEY LEGAL AGENT BENCHMARK · v1.2.0 · 2026-10-15</div>
-    <h1>Claude 在 26 个法律任务上的表现</h1>
-    <p class="lede">从 Harvey LAB 的 27 个执业领域里各抽一个任务（尽调领域任务过大，未纳入），加上之前跑过的并购任务，共 26 个。每个任务由一个 Claude 子 agent 在断网沙箱里完成，另一个独立的 Claude 子 agent 按专家写的标准逐条判卷。</p>
+    <div class="eyebrow">HARVEY LEGAL AGENT BENCHMARK · v1.2.0 · 2026-10-20</div>
+    <h1>Claude 在 129 个法律任务上的表现</h1>
+    <p class="lede">Harvey LAB 共 2,010 个任务，这里是已经完整跑完并评分的 129 个，覆盖 26 个执业领域（尽调领域任务过大，未纳入）：最早单独跑的并购任务、每个领域各抽一个的 25 个，以及全量运行（中途已暂停）里作答完成的 103 个，其中 83 个是暂停后补判的。每个任务由一个 Claude 子 agent 在断网沙箱里完成，另一个独立的 Claude 子 agent 按专家写的标准逐条判卷。</p>
   </header>
 
   <section aria-label="总览">
@@ -210,7 +210,7 @@ $("stats").innerHTML = `
   <div class="stat"><span class="l">全部标准通过（LAB 主指标）</span><span class="v hero">${T.all_pass}<small> / ${T.n_tasks} 个任务</small></span><span class="l">漏一条就算失败，所以很严</span></div>
   <div class="stat"><span class="l">标准通过率（合并计算）</span><span class="v">${(100*T.pooled_pass_rate).toFixed(1)}%</span><span class="l">${T.criteria_passed.toLocaleString()} / ${T.criteria.toLocaleString()} 条</span></div>
   <div class="stat"><span class="l">通过率 ≥ 95% 的任务</span><span class="v">${ge95}<small> / ${T.n_tasks}</small></span><span class="l">差一两条就 all-pass</span></div>
-  <div class="stat"><span class="l">隔离审计</span><span class="v">${T.audits_clean}<small> / ${T.n_tasks}</small></span><span class="l">全部无越界访问</span></div>`;
+  <div class="stat"><span class="l">隔离审计</span><span class="v">${T.audits_clean}<small> / ${T.n_tasks}</small></span><span class="l">${T.audits_clean === T.n_tasks ? "全部无越界访问" : "1 个任务有一次越界的目录列表（只看到文件夹名，未读文件）"}</span></div>`;
 
 // Tooltip
 const tip = $("tip");
@@ -333,6 +333,6 @@ function openRow(task) {
 
 $("caveats").innerHTML = `
   <p><b>不能和 Harvey 公布的成绩直接比。</b>官方裁判是 Sonnet 4.6 + GPT-5.5 双裁判；这里的裁判是本会话的 Claude。做题和判卷也是同一个模型。</p>
-  <p><b>样本小。</b>26 个任务只占全部 2,010 个任务的 1.3%，每个领域只有一个任务，单个领域的分数主要反映那一道题的难度。</p>
+  <p><b>样本仍然有限。</b>129 个任务约占全部 2,010 个任务的 6.4%，每个领域 3–8 个任务，单个领域的分数仍受个别题目难度影响较大。全量运行的 103 个任务是按领域轮转顺序最先作答的那批，不是专门抽样。</p><p><b>失败归因只覆盖一部分。</b>“未归因”一类是补判阶段新增、尚未逐条分析的失败标准。</p>
   <p><b>会话模式与官方 harness 有差别。</b>官方 agent 只有 7 个工具，按轮次调用 API；这里的 agent 是 Claude Code 子 agent，通过日志脚本在同一个沙箱里执行命令，token 数无法统计。沙箱镜像是基于 Ubuntu 的等价版本（官方镜像在此环境拉不到）。</p>`;
 </script>

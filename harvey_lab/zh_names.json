@@ -1,28 +1,518 @@
 {
- "corporate-ma/review-data-room-red-flag-review": ["并购", "数据室 red flag 审查"],
- "antitrust-competition/identify-issues-in-civil-investigative-demand": ["反垄断", "司法部民事调查令（CID）问题识别"],
- "arbitration-international-dispute-resolution/draft-emergency-arbitrator-application": ["国际仲裁", "起草 ICC 紧急仲裁员申请书"],
- "banking-finance/draft-closing-legal-opinion-for-secured-credit-facility": ["银行融资", "起草担保信贷交割法律意见书"],
- "bankruptcy-restructuring/draft-plan-effective-date-checklist": ["破产重组", "重整计划生效日核对清单"],
- "capital-markets/review-form-10": ["资本市场", "审阅 10-Q 草稿与附件清单"],
- "contracts/banking/account-control-agreement-first-turn-redline/scenario-02": ["合同", "账户控制协议第二轮修订稿"],
- "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act": ["公司治理", "新州工资盗窃法合规时间表"],
- "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement": ["数据隐私", "分析对方对 DPA 的修订"],
- "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement": ["创投", "股权转让协议问题识别"],
- "employment-labor/draft-markup-of-executive-employment-agreement": ["劳动雇佣", "高管雇佣协议修订意见"],
- "energy-natural-resources/extract-land-option-agreement-terms": ["能源", "风电土地期权协议条款提取"],
- "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement": ["环境", "环境和解协议赔偿条款提取"],
- "firm-knowledge/tasks/175": ["律所知识库", "在 9,288 份文件中检索补强收购案"],
- "funds-asset-management/respond-to-lp-comment-letter": ["基金", "回复 LP 对 LPA 的意见函"],
- "healthcare-life-sciences/identify-stark-law-compliance-issues": ["医疗健康", "Stark 法合规问题识别"],
- "immigration/identify-h1b-qualification-issues": ["移民", "H-1B 申请资格问题识别"],
- "insurance/identify-issues-in-coverage-denial-letter": ["保险", "拒赔函问题识别"],
- "intellectual-property/identify-tech-license-term-sheet-issues": ["知识产权", "技术许可条款书问题识别"],
- "international-trade-sanctions/draft-export-license-application": ["贸易制裁", "起草出口许可申请"],
- "litigation-dispute-resolution/extract-key-admissions-from-deposition-transcript": ["诉讼", "从证人证词中提取关键承认"],
- "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement": ["房地产", "分析对方对买卖合同的修订"],
- "structured-finance-securitization/draft-account-control-agreement": ["结构化融资", "起草证券化账户控制协议"],
- "tax/draft-tax-structure-memorandum": ["税务", "起草交易税务结构备忘录"],
- "trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement": ["信托遗产", "起草 GRAT 信托协议"],
- "white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories": ["白领犯罪", "对照传票核查文件出示缺口"]
+ "corporate-ma/review-data-room-red-flag-review": [
+  "并购",
+  "数据室 red flag 审查"
+ ],
+ "antitrust-competition/identify-issues-in-civil-investigative-demand": [
+  "反垄断",
+  "司法部民事调查令（CID）问题识别"
+ ],
+ "arbitration-international-dispute-resolution/draft-emergency-arbitrator-application": [
+  "国际仲裁",
+  "起草 ICC 紧急仲裁员申请书"
+ ],
+ "banking-finance/draft-closing-legal-opinion-for-secured-credit-facility": [
+  "银行融资",
+  "起草担保信贷交割法律意见书"
+ ],
+ "bankruptcy-restructuring/draft-plan-effective-date-checklist": [
+  "破产重组",
+  "重整计划生效日核对清单"
+ ],
+ "capital-markets/review-form-10": [
+  "资本市场",
+  "审阅 10-Q 草稿与附件清单"
+ ],
+ "contracts/banking/account-control-agreement-first-turn-redline/scenario-02": [
+  "合同",
+  "账户控制协议第二轮修订稿"
+ ],
+ "corporate-governance/assess-compliance-timeline-for-new-state-wage-theft-prevention-act": [
+  "公司治理",
+  "新州工资盗窃法合规时间表"
+ ],
+ "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement": [
+  "数据隐私",
+  "分析对方对 DPA 的修订"
+ ],
+ "emerging-companies-venture-capital/identify-issues-in-stock-transfer-agreement": [
+  "创投",
+  "股权转让协议问题识别"
+ ],
+ "employment-labor/draft-markup-of-executive-employment-agreement": [
+  "劳动雇佣",
+  "高管雇佣协议修订意见"
+ ],
+ "energy-natural-resources/extract-land-option-agreement-terms": [
+  "能源",
+  "风电土地期权协议条款提取"
+ ],
+ "environmental-esg/extract-indemnification-terms-from-environmental-settlement-agreement": [
+  "环境",
+  "环境和解协议赔偿条款提取"
+ ],
+ "firm-knowledge/tasks/175": [
+  "律所知识库",
+  "在 9,288 份文件中检索补强收购案"
+ ],
+ "funds-asset-management/respond-to-lp-comment-letter": [
+  "基金",
+  "回复 LP 对 LPA 的意见函"
+ ],
+ "healthcare-life-sciences/identify-stark-law-compliance-issues": [
+  "医疗健康",
+  "Stark 法合规问题识别"
+ ],
+ "immigration/identify-h1b-qualification-issues": [
+  "移民",
+  "H-1B 申请资格问题识别"
+ ],
+ "insurance/identify-issues-in-coverage-denial-letter": [
+  "保险",
+  "拒赔函问题识别"
+ ],
+ "intellectual-property/identify-tech-license-term-sheet-issues": [
+  "知识产权",
+  "技术许可条款书问题识别"
+ ],
+ "international-trade-sanctions/draft-export-license-application": [
+  "贸易制裁",
+  "起草出口许可申请"
+ ],
+ "litigation-dispute-resolution/extract-key-admissions-from-deposition-transcript": [
+  "诉讼",
+  "从证人证词中提取关键承认"
+ ],
+ "real-estate/analyze-counterparty-markup-of-purchase-and-sale-agreement": [
+  "房地产",
+  "分析对方对买卖合同的修订"
+ ],
+ "structured-finance-securitization/draft-account-control-agreement": [
+  "结构化融资",
+  "起草证券化账户控制协议"
+ ],
+ "tax/draft-tax-structure-memorandum": [
+  "税务",
+  "起草交易税务结构备忘录"
+ ],
+ "trusts-estates-private-client/draft-grantor-retained-annuity-trust-agreement": [
+  "信托遗产",
+  "起草 GRAT 信托协议"
+ ],
+ "white-collar-defense-investigations/compare-document-production-set-against-subpoena-request-categories": [
+  "白领犯罪",
+  "对照传票核查文件出示缺口"
+ ],
+ "antitrust-competition/draft-competitor-confidentiality-agreement-review": [
+  "反垄断",
+  "竞争对手保密协议反垄断审查"
+ ],
+ "arbitration-international-dispute-resolution/compare-arbitration-clause-vs-institutional-rules-compliance-audit": [
+  "国际仲裁",
+  "仲裁条款与机构规则合规比对"
+ ],
+ "banking-finance/compare-credit-agreement-against-term-sheet": [
+  "银行融资",
+  "信贷协议与条款清单比对"
+ ],
+ "bankruptcy-restructuring/extract-ballot-tallies-from-voting-report": [
+  "破产重组",
+  "从投票报告提取表决统计"
+ ],
+ "capital-markets/compare-registration-statement-against-prior-filings": [
+  "资本市场",
+  "S-3 注册声明与历史文件比对"
+ ],
+ "contracts/disputes/joint-defense-agreement-counterparty-paper-review": [
+  "合同",
+  "联合抗辩协议对方稿审查"
+ ],
+ "corporate-governance/compare-bylaws-against-best-practices": [
+  "公司治理",
+  "公司章程细则与治理最佳实践比对"
+ ],
+ "corporate-ma/compare-matter-plan-against-engagement-letter": [
+  "并购",
+  "项目计划与委托函比对"
+ ],
+ "data-privacy-cybersecurity/draft-affected-individual-notification-letter": [
+  "数据隐私",
+  "起草医疗数据泄露个人通知函"
+ ],
+ "emerging-companies-venture-capital/compare-term-sheet-against-stock-purchase-agreement": [
+  "创投",
+  "B 轮条款清单与股份购买协议比对"
+ ],
+ "employment-labor/draft-markup-of-settlement-agreement": [
+  "劳动雇佣",
+  "雇佣和解协议修订（雇主方）"
+ ],
+ "energy-natural-resources/compare-power-purchase-agreement-against-term-sheet": [
+  "能源",
+  "风电购电协议与条款清单比对"
+ ],
+ "environmental-esg/identify-issues-in-draft-esg-disclosure": [
+  "环境",
+  "ESG 披露草稿问题识别"
+ ],
+ "firm-knowledge/tasks/012": [
+  "律所知识库",
+  "知识库检索：含弹性担保（springing lien）的融资"
+ ],
+ "funds-asset-management/draft-term-sheet-to-lpa-edit": [
+  "基金",
+  "按 IV 期条款清单修订 III 期 LPA"
+ ],
+ "healthcare-life-sciences/extract-key-terms-from-informed-consent-form": [
+  "医疗健康",
+  "知情同意书关键条款提取"
+ ],
+ "immigration/compare-draft-eb": [
+  "移民",
+  "EB-1A 申请草稿与清单比对"
+ ],
+ "insurance/compare-commercial-property-policy-form-against-state-regulatory-requirements": [
+  "保险",
+  "商业财产保单与科罗拉多监管要求比对"
+ ],
+ "intellectual-property/compare-ip-tech-transactions": [
+  "知识产权",
+  "IP 技术交易条款清单与委托函比对"
+ ],
+ "international-trade-sanctions/compare-mitigation-agreement-against-national-security-terms": [
+  "贸易制裁",
+  "CFIUS 缓解协议与国安条款比对"
+ ],
+ "litigation-dispute-resolution/extract-key-terms-from-counterparty-complaint": [
+  "诉讼",
+  "对方起诉状要点提取"
+ ],
+ "real-estate/extract-psa-key-terms/scenario-02": [
+  "房地产",
+  "商业物业买卖协议要点提取（场景 2）"
+ ],
+ "structured-finance-securitization/extract-key-terms-from-warehouse-credit-facility-term-sheet": [
+  "结构化融资",
+  "仓储信贷条款清单要点提取"
+ ],
+ "tax/extract-assessed-items-from-tax-authority-notice": [
+  "税务",
+  "俄亥俄税务评估通知项目提取"
+ ],
+ "trusts-estates-private-client/compare-final-decree-of-divorce-against-mediated-settlement-agreement": [
+  "信托遗产",
+  "离婚判决与调解协议比对"
+ ],
+ "white-collar-defense-investigations/draft-proffer-agreement": [
+  "白领犯罪",
+  "起草合作证人陈述协议（proffer）"
+ ],
+ "antitrust-competition/draft-motion-to-dismiss-antitrust-claims": [
+  "反垄断",
+  "起草谢尔曼法驳回起诉动议"
+ ],
+ "arbitration-international-dispute-resolution/draft-markup-of-arbitration-agreement": [
+  "国际仲裁",
+  "共同投资仲裁协议修订"
+ ],
+ "banking-finance/extract-credit-agreement-covenants": [
+  "银行融资",
+  "信贷协议契约条款提取（银行融资）"
+ ],
+ "bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization": [
+  "破产重组",
+  "重整计划对方修订稿分析"
+ ],
+ "capital-markets/compare-charter-against-offering": [
+  "资本市场",
+  "IPO 公司章程与发行文件交叉核对"
+ ],
+ "contracts/financing/guaranty-agreement-first-turn-redline": [
+  "合同",
+  "担保协议首轮修订"
+ ],
+ "corporate-governance/review-nda-playbook-review": [
+  "公司治理",
+  "按 playbook 审查 NDA 草稿"
+ ],
+ "corporate-ma/compare-closing-checklist-against-ma-agreement": [
+  "并购",
+  "交割清单与资产购买协议比对"
+ ],
+ "data-privacy-cybersecurity/compare-breach-notification-schedule-against-multi": [
+  "数据隐私",
+  "泄露通知时间表与多法域要求比对"
+ ],
+ "emerging-companies-venture-capital/draft-certificate-of-incorporation": [
+  "创投",
+  "起草 A 轮重述公司注册证书"
+ ],
+ "employment-labor/offer-letter-to-employment-agreement": [
+  "劳动雇佣",
+  "由录用函起草完整雇佣协议"
+ ],
+ "energy-natural-resources/extract-permit-conditions-from-regulatory-approval": [
+  "能源",
+  "许可条件提取为合规跟踪表"
+ ],
+ "environmental-esg/identify-environmental-issues-in-preliminary-assessment-report": [
+  "环境",
+  "初步环境评估报告问题识别"
+ ],
+ "firm-knowledge/tasks/018": [
+  "律所知识库",
+  "知识库检索：弹性担保在信贷中的出现频率"
+ ],
+ "funds-asset-management/compare-side-letter-provisions-against-limited-partnership-agreement": [
+  "基金",
+  "附函条款与 LPA 比对"
+ ],
+ "healthcare-life-sciences/compare-clinical-trial-protocol-against-fda-regulatory-requirements": [
+  "医疗健康",
+  "临床试验方案与 FDA 要求比对"
+ ],
+ "immigration/compare-i": [
+  "移民",
+  "I-9 记录与员工名册比对"
+ ],
+ "insurance/compare-reinsurance-treaty-against-underlying-policy": [
+  "保险",
+  "再保险合约与原保单比对"
+ ],
+ "intellectual-property/extract-filing-dates-from-patent-schedule": [
+  "知识产权",
+  "专利清单申请日提取"
+ ],
+ "international-trade-sanctions/compare-transaction-records-against-sanctioned-parties-list": [
+  "贸易制裁",
+  "交易记录与制裁名单筛查"
+ ],
+ "litigation-dispute-resolution/verify-disbursement-charges-against-billing-guidelines": [
+  "诉讼",
+  "按计费指引核查代垫费用"
+ ],
+ "real-estate/extract-psa-key-terms/scenario-01": [
+  "房地产",
+  "商业物业买卖协议要点提取（场景 1）"
+ ],
+ "structured-finance-securitization/compare-offering-memorandum-against-indenture": [
+  "结构化融资",
+  "汽车贷款 ABS 发行备忘录与契约比对"
+ ],
+ "tax/identify-tax-issues-in-counterpartys-summary-judgment-brief": [
+  "税务",
+  "IRS 简易判决书税务问题识别"
+ ],
+ "trusts-estates-private-client/extract-client-intake-facts/scenario-01": [
+  "信托遗产",
+  "离婚客户登记表事实提取（场景 1）"
+ ],
+ "white-collar-defense-investigations/identify-issues-in-deferred-prosecution-agreement": [
+  "白领犯罪",
+  "暂缓起诉协议草稿问题识别"
+ ],
+ "antitrust-competition/draft-markup-of-proposed-protective-order": [
+  "反垄断",
+  "FTC 保护令修订（HSR 审查）"
+ ],
+ "arbitration-international-dispute-resolution/identify-issues-in-arbitrator-disclosure-statement": [
+  "国际仲裁",
+  "仲裁员披露声明问题识别"
+ ],
+ "banking-finance/draft-intercreditor-agreement": [
+  "银行融资",
+  "起草一二留置权债权人间协议（银行融资）"
+ ],
+ "bankruptcy-restructuring/extract-intercreditor-agreement-key-term-extraction": [
+  "破产重组",
+  "债权人间协议要点提取"
+ ],
+ "capital-markets/draft-markup-of-indenture": [
+  "资本市场",
+  "优先担保票据契约修订"
+ ],
+ "contracts/healthcare/quality-agreement-counterparty-paper-review": [
+  "合同",
+  "质量协议对方稿审查"
+ ],
+ "corporate-governance/compare-do-insurance-policy-against-indemnification-agreement": [
+  "公司治理",
+  "D&O 保单与补偿协议比对"
+ ],
+ "corporate-ma/draft-markup-of-engagement-letter": [
+  "并购",
+  "投行委托函修订"
+ ],
+ "data-privacy-cybersecurity/compare-data-processing-agreement-against-internal-privacy-standards": [
+  "数据隐私",
+  "供应商 DPA 与内部隐私标准比对"
+ ],
+ "emerging-companies-venture-capital/identify-issues-in-investors-rights-agreement": [
+  "创投",
+  "B 轮投资者权利协议问题识别"
+ ],
+ "employment-labor/compare-employee-handbook-against-state-requirements": [
+  "劳动雇佣",
+  "员工手册与科罗拉多劳动法比对"
+ ],
+ "energy-natural-resources/extract-key-terms-from-offtake-agreement": [
+  "能源",
+  "光储项目购售协议要点提取"
+ ],
+ "environmental-esg/draft-markup-of-environmental-litigation-settlement-agreement": [
+  "环境",
+  "环境诉讼和解协议（同意令）修订"
+ ],
+ "firm-knowledge/tasks/061": [
+  "律所知识库",
+  "知识库检索：美式逐单分配瀑布的基金"
+ ],
+ "funds-asset-management/extract-reporting-obligations-from-advisory-agreement": [
+  "基金",
+  "投资顾问协议报告义务提取"
+ ],
+ "healthcare-life-sciences/identify-issues-in-healthcare-merger-agreement": [
+  "医疗健康",
+  "医疗并购协议问题识别"
+ ],
+ "immigration/compare-uscis-filing-receipt-against-original-petition-submission": [
+  "移民",
+  "USCIS 回执与原申请比对"
+ ],
+ "insurance/extract-key-terms-from-reservation-of-rights-letter": [
+  "保险",
+  "保留权利函要点提取"
+ ],
+ "intellectual-property/compare-saas-agreement-against-service-level-standards": [
+  "知识产权",
+  "SaaS 协议服务水平条款差距分析"
+ ],
+ "international-trade-sanctions/compare-entity-details-against-ofac-sanctions-list": [
+  "贸易制裁",
+  "主体信息与 OFAC 名单比对"
+ ],
+ "litigation-dispute-resolution/identify-issues-in-matter-budget-proposal": [
+  "诉讼",
+  "诉讼预算方案问题识别"
+ ],
+ "structured-finance-securitization/draft-intercreditor-agreement": [
+  "结构化融资",
+  "起草一二留置权债权人间协议（结构化融资）"
+ ],
+ "tax/identify-tax-issues-in-irs-closing-agreement": [
+  "税务",
+  "IRS 结案协议税务问题识别"
+ ],
+ "trusts-estates-private-client/extract-client-intake-facts/scenario-02": [
+  "信托遗产",
+  "离婚客户登记表事实提取（场景 2）"
+ ],
+ "white-collar-defense-investigations/identify-inconsistencies-and-vulnerabilities-in-prior-witness-testimony": [
+  "白领犯罪",
+  "证人先前证词矛盾与弱点识别"
+ ],
+ "antitrust-competition/identify-antitrust-issues-in-counterparty-complaint": [
+  "反垄断",
+  "对方起诉状反垄断问题识别"
+ ],
+ "arbitration-international-dispute-resolution/identify-arbitration-agreement-issues": [
+  "国际仲裁",
+  "国际供货协议仲裁条款缺陷识别"
+ ],
+ "banking-finance/identify-issues-in-closing-checklist": [
+  "银行融资",
+  "循环信贷交割清单问题识别"
+ ],
+ "bankruptcy-restructuring/draft-final-decree-motion": [
+  "破产重组",
+  "起草第 11 章结案终局裁定动议"
+ ],
+ "capital-markets/extract-key-terms-from-underwriting-agreement": [
+  "资本市场",
+  "IPO 承销协议要点提取"
+ ],
+ "contracts/commercial-channel-partnerships/co-development-agreement-subsequent-turn-redline": [
+  "合同",
+  "共同开发协议后续轮修订"
+ ],
+ "corporate-governance/draft-action-by-incorporator": [
+  "公司治理",
+  "起草特拉华公司发起人决议"
+ ],
+ "corporate-ma/extract-credit-agreement-covenants": [
+  "并购",
+  "信贷协议契约条款提取（并购尽调）"
+ ],
+ "data-privacy-cybersecurity/compare-data-protection-remediation-plan-against-regulatory-undertaking-commitments": [
+  "数据隐私",
+  "数据保护整改计划与 ICO 承诺比对"
+ ],
+ "employment-labor/extract-restrictive-covenant-terms-from-executive-employment-agreement": [
+  "劳动雇佣",
+  "高管雇佣协议限制性条款提取"
+ ],
+ "environmental-esg/compare-remedial-action-work-plan-against-record-of-decision-requirements": [
+  "环境",
+  "修复工作计划与决定记录（ROD）比对"
+ ],
+ "immigration/identify-deficiencies-and-grounds-for-challenge-in-government-fine-notice": [
+  "移民",
+  "ICE I-9 罚款通知缺陷与抗辩理由"
+ ],
+ "intellectual-property/review-inbound-nda-against-company-playbook": [
+  "知识产权",
+  "按公司 playbook 审查来件 NDA"
+ ],
+ "bankruptcy-restructuring/identify-preference-exposure-analysis": [
+  "破产重组",
+  "第 11 章优先清偿风险报告纠错"
+ ],
+ "energy-natural-resources/compare-site-lease-against-market-terms": [
+  "能源",
+  "光伏场地租约与市场条款比对"
+ ],
+ "insurance/identify-issues-in-reinsurance-treaty": [
+  "保险",
+  "再保险合约问题识别"
+ ],
+ "banking-finance/identify-issues-in-compliance-certificate": [
+  "银行融资",
+  "借款人 Q3 合规证书问题识别"
+ ],
+ "capital-markets/identify-dd-request-list-issues/scenario-01": [
+  "资本市场",
+  "承销商尽调清单问题识别（场景 1）"
+ ],
+ "corporate-governance/summarize-research-cpra-enforcement-priorities": [
+  "公司治理",
+  "CPRA 执法重点研究简报"
+ ],
+ "immigration/extract-eligibility-requirements-from-visa-category-regulations": [
+  "移民",
+  "签证类别资格要求矩阵"
+ ],
+ "intellectual-property/review-enterprise-saas-agreement-against-company-playbook": [
+  "知识产权",
+  "按 playbook 审查企业 SaaS 协议"
+ ],
+ "capital-markets/identify-dd-request-list-issues/scenario-02": [
+  "资本市场",
+  "承销商尽调清单问题识别（场景 2）"
+ ],
+ "data-privacy-cybersecurity/summarize-new-gdpr-enforcement-guidance": [
+  "数据隐私",
+  "GDPR 新执法指引简报"
+ ],
+ "employment-labor/research-wage-and-hour-classification-for-new-job-role": [
+  "劳动雇佣",
+  "新岗位工时工资分类研究"
+ ],
+ "bankruptcy-restructuring/identify-issues-in-dip-credit-agreement": [
+  "破产重组",
+  "DIP 信贷协议问题识别"
+ ],
+ "bankruptcy-restructuring/analyze-counterparty-markup-of-restructuring-support-agreement": [
+  "破产重组",
+  "重组支持协议对方修订稿分析"
+ ]
 }

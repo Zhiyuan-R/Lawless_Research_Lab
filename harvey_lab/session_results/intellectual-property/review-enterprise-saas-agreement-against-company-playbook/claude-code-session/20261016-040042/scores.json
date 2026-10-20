@@ -1,0 +1,398 @@
+{
+  "score": 0.0,
+  "max_score": 1.0,
+  "summary": "59/61 criteria passed.  Missed 2 \u2014 task FAIL.",
+  "all_pass": false,
+  "n_criteria": 61,
+  "n_passed": 59,
+  "n_grading_errors": 0,
+  "pandoc_version": "3.11",
+  "criteria_results": [
+    {
+      "id": "C-001",
+      "title": "ISSUE_001: Identifies liability cap is 6-month fees (not 12-month)",
+      "verdict": "pass",
+      "reasoning": "Identifies the cap as fees actually paid in the six-month period preceding the event."
+    },
+    {
+      "id": "C-002",
+      "title": "ISSUE_001: States playbook requires 2x preceding 12-month fees",
+      "verdict": "pass",
+      "reasoning": "States the Playbook requires a cap of no less than 2x fees paid or payable in the preceding 12 months."
+    },
+    {
+      "id": "C-003",
+      "title": "ISSUE_001: Quantifies liability cap gap ($570K vs $2.28M)",
+      "verdict": "pass",
+      "reasoning": "Quantifies the draft cap at $570,000 against the $2,280,000 Required minimum."
+    },
+    {
+      "id": "C-004",
+      "title": "ISSUE_001: Flags absence of carve-outs from liability cap",
+      "verdict": "pass",
+      "reasoning": "Flags that the draft has no exclusions from the cap and that none of the five Required uncapped categories is carved out."
+    },
+    {
+      "id": "C-005",
+      "title": "ISSUE_001: States playbook requires certain categories to be uncapped",
+      "verdict": "pass",
+      "reasoning": "States the Playbook requires data breach, IP indemnity, confidentiality, gross negligence and BAA obligations to be uncapped."
+    },
+    {
+      "id": "C-006",
+      "title": "ISSUE_002: Flags mutual consequential damages waiver as problematic",
+      "verdict": "pass",
+      "reasoning": "Flags the mutual consequential-damages waiver, which has no carve-outs, as a critical problem."
+    },
+    {
+      "id": "C-007",
+      "title": "ISSUE_002: Explains healthcare-specific consequential damages implications",
+      "verdict": "pass",
+      "reasoning": "Explains the waiver would capture breach-notification, credit-monitoring, forensic and regulatory costs."
+    },
+    {
+      "id": "C-008",
+      "title": "ISSUE_002: Connects consequential damages waiver to low liability cap",
+      "verdict": "pass",
+      "reasoning": "Connects the waiver and the low (possibly ~$0) cap: together they effectively immunize Vaultline from breach harms."
+    },
+    {
+      "id": "C-009",
+      "title": "ISSUE_003: Flags de-identified data definition does not reference HIPAA standards",
+      "verdict": "pass",
+      "reasoning": "Identifies the generic 'does not identify' standard versus HIPAA Safe Harbor and Expert Determination under 164.514."
+    },
+    {
+      "id": "C-010",
+      "title": "ISSUE_003: Flags risk of unauthorized PHI disclosure from vendor's commercial use",
+      "verdict": "pass",
+      "reasoning": "Explains that data not de-identified to the HIPAA standard remains PHI, so its sale would be an impermissible disclosure."
+    },
+    {
+      "id": "C-011",
+      "title": "ISSUE_003: Flags vendor's ownership claim over de-identified data",
+      "verdict": "pass",
+      "reasoning": "Flags Vaultline's ownership of Aggregated De-Identified Data, its use for any lawful purpose including commercial sale, and its benchmark sales."
+    },
+    {
+      "id": "C-012",
+      "title": "ISSUE_004: Flags BAA requires only 'good faith' negotiation within 90 days rather than executed BAA as condition precedent",
+      "verdict": "pass",
+      "reasoning": "Identifies the 'negotiate in good faith within 90 days' language as a deviation from a condition-precedent BAA."
+    },
+    {
+      "id": "C-013",
+      "title": "ISSUE_004: Identifies HIPAA violation risk from PHI transfer before BAA execution",
+      "verdict": "pass",
+      "reasoning": "Notes PHI would flow before the 90-day window closes, a direct HIPAA violation."
+    },
+    {
+      "id": "C-014",
+      "title": "ISSUE_004: Recommends BAA as exhibit and condition precedent",
+      "verdict": "pass",
+      "reasoning": "Recommends attaching Panorama's BAA as Exhibit C and making it a condition precedent to effectiveness and to any PHI transfer."
+    },
+    {
+      "id": "C-015",
+      "title": "ISSUE_005: Identifies breach notification trigger is 'confirmation' not 'discovery'",
+      "verdict": "pass",
+      "reasoning": "Flags the 'confirmation' trigger as making the delay open-ended while Panorama's HIPAA clock runs during the vendor's confirmation period."
+    },
+    {
+      "id": "C-016",
+      "title": "ISSUE_005: Identifies 72 hours vs. playbook 24 hours",
+      "verdict": "pass",
+      "reasoning": "Identifies 72 hours versus the Playbook's 24 hours."
+    },
+    {
+      "id": "C-017",
+      "title": "ISSUE_005: Recommends changing breach notification trigger to 'discovery' or 'reasonable belief'",
+      "verdict": "pass",
+      "reasoning": "Recommends a trigger of discovery or reasonable belief."
+    },
+    {
+      "id": "C-018",
+      "title": "ISSUE_005: Recommends reducing breach notification window to 24 hours",
+      "verdict": "pass",
+      "reasoning": "Recommends 24 hours as the Required minimum, opening at 12 hours."
+    },
+    {
+      "id": "C-019",
+      "title": "ISSUE_006: Identifies vendor-only termination for convenience (customer has no such right)",
+      "verdict": "pass",
+      "reasoning": "Identifies the vendor-only termination for convenience on 180 days with no Customer right."
+    },
+    {
+      "id": "C-020",
+      "title": "ISSUE_006: States playbook requires customer termination for convenience on 90 days' notice",
+      "verdict": "pass",
+      "reasoning": "States the Playbook requires Customer termination for convenience on 90 days' notice."
+    },
+    {
+      "id": "C-021",
+      "title": "ISSUE_006: Flags absence of pro-rata refund mechanism",
+      "verdict": "pass",
+      "reasoning": "Flags that no refund is provided and that the Playbook requires a daily pro-rata refund of prepaid fees."
+    },
+    {
+      "id": "C-022",
+      "title": "ISSUE_007: Identifies change-of-control assignment carve-out",
+      "verdict": "pass",
+      "reasoning": "Identifies the merger/acquisition/asset-sale carve-out versus the Playbook's consent requirement with no change-of-control carve-out."
+    },
+    {
+      "id": "C-023",
+      "title": "ISSUE_007: Connects to Vaultline acquisition target risk",
+      "verdict": "pass",
+      "reasoning": "Cites the HealthTech Weekly acquisition-target report and the risk of assignment to a less creditworthy or competitor-affiliated entity."
+    },
+    {
+      "id": "C-024",
+      "title": "ISSUE_008: Identifies governing law deviation (Texas vs. Minnesota)",
+      "verdict": "pass",
+      "reasoning": "Identifies Texas law and Travis County venue versus Minnesota law and Hennepin County venue."
+    },
+    {
+      "id": "C-025",
+      "title": "ISSUE_009: Identifies SLA uptime deviation (99.5% vs 99.9%)",
+      "verdict": "pass",
+      "reasoning": "Identifies 99.5% versus the Required 99.9%."
+    },
+    {
+      "id": "C-026",
+      "title": "ISSUE_009: Flags 8-hour weekly maintenance exclusion impact",
+      "verdict": "pass",
+      "reasoning": "Flags the 8 hours/week maintenance exclusion as ~34.7 hours/month of excluded downtime, giving ~94.7% effective availability."
+    },
+    {
+      "id": "C-027",
+      "title": "ISSUE_009: Identifies service credit inadequacy",
+      "verdict": "pass",
+      "reasoning": "Identifies credits of 2% per full 1% versus 5% per 0.1%."
+    },
+    {
+      "id": "C-028",
+      "title": "ISSUE_009: Flags credits require affirmative request vs. automatic",
+      "verdict": "pass",
+      "reasoning": "Notes credits are available only on written claim within 15 business days, versus automatic credits."
+    },
+    {
+      "id": "C-029",
+      "title": "ISSUE_010: Identifies price escalation as 'greater of 5% or CPI-U' vs. CPI cap of 3%",
+      "verdict": "pass",
+      "reasoning": "Identifies 'greater of 5% or CPI-U' versus CPI-U capped at 3%."
+    },
+    {
+      "id": "C-030",
+      "title": "ISSUE_010: Quantifies financial impact of escalation difference",
+      "verdict": "pass",
+      "reasoning": "Quantifies the 3-year subscription at $3,593,850 versus $3,420,000 (+$173,850), plus Year 4 figures."
+    },
+    {
+      "id": "C-031",
+      "title": "ISSUE_011: Identifies cyber insurance shortfall ($5M vs $10M)",
+      "verdict": "pass",
+      "reasoning": "Identifies $5M cyber insurance versus the $10M requirement."
+    },
+    {
+      "id": "C-032",
+      "title": "ISSUE_011: Identifies missing technology E&O coverage",
+      "verdict": "pass",
+      "reasoning": "Identifies that Technology E&O coverage is absent entirely."
+    },
+    {
+      "id": "C-033",
+      "title": "ISSUE_012: Identifies IP indemnity carve-outs as problematic",
+      "verdict": "pass",
+      "reasoning": "Flags the combination, modification and Documentation carve-outs against the Playbook's no-carve-out rule for authorized use."
+    },
+    {
+      "id": "C-034",
+      "title": "ISSUE_012: Connects combination carve-out to MedBridge EHR integration",
+      "verdict": "pass",
+      "reasoning": "Explains that the combination carve-out captures the MedBridge EHR integration and makes the indemnity illusory."
+    },
+    {
+      "id": "C-035",
+      "title": "ISSUE_013: Flags no specified format for data return",
+      "verdict": "pass",
+      "reasoning": "States the draft specifies no format; the Playbook requires CSV, JSON, XML or SQL."
+    },
+    {
+      "id": "C-036",
+      "title": "ISSUE_013: Flags 'may' delete vs. mandatory destruction of customer data",
+      "verdict": "pass",
+      "reasoning": "Flags the permissive 'may delete' versus mandatory destruction within 60 days."
+    },
+    {
+      "id": "C-037",
+      "title": "ISSUE_013: Flags absence of destruction certification requirement",
+      "verdict": "pass",
+      "reasoning": "Flags that there is no destruction certification."
+    },
+    {
+      "id": "C-038",
+      "title": "ISSUE_014: Identifies absence of source code escrow provision",
+      "verdict": "pass",
+      "reasoning": "Identifies that the MSA has no escrow provision, which the Playbook requires for vendors with ARR below $100M."
+    },
+    {
+      "id": "C-039",
+      "title": "ISSUE_014: Notes Vaultline ARR below $100M threshold",
+      "verdict": "pass",
+      "reasoning": "Notes ARR of ~$72M is below the $100M threshold."
+    },
+    {
+      "id": "C-040",
+      "title": "ISSUE_014: Connects escrow need to acquisition target risk",
+      "verdict": "pass",
+      "reasoning": "Ties escrow to the acquisition-target profile and the risk of post-acquisition discontinuation."
+    },
+    {
+      "id": "C-041",
+      "title": "ISSUE_015: Flags 'third-party hosting failures' in force majeure as problematic",
+      "verdict": "pass",
+      "reasoning": "Flags the hosting-failure inclusion against the Playbook's 'truly unforeseeable events' standard: the most probable outage (AWS) would be excused and the SLA nullified."
+    },
+    {
+      "id": "C-042",
+      "title": "ISSUE_015: Flags 180-day suspension with no mitigation obligation",
+      "verdict": "fail",
+      "reasoning": "Memo flags the 180-day suspension and the ~7-month exposure, but it states the draft already includes a mitigation obligation that is 'broadly compliant', so it never flags the absence of a mitigation or workaround obligation."
+    },
+    {
+      "id": "C-043",
+      "title": "ISSUE_016: Identifies absence of audit rights",
+      "verdict": "pass",
+      "reasoning": "Identifies that there is no audit right and only 'commercially reasonable' safeguards."
+    },
+    {
+      "id": "C-044",
+      "title": "ISSUE_016: Flags need for SOC 2 Type II reports and audit access",
+      "verdict": "pass",
+      "reasoning": "Recommends SOC 2 Type II reports and Customer audit rights, tied to the Playbook and Ridgecrest."
+    },
+    {
+      "id": "C-045",
+      "title": "ISSUE_017: Flags 5-business-day deemed-acceptance window as inadequate",
+      "verdict": "pass",
+      "reasoning": "Flags 5-business-day deemed acceptance as prohibited for Tier 1 and unworkable for the MedBridge integration."
+    },
+    {
+      "id": "C-046",
+      "title": "ISSUE_017: Flags absence of defined acceptance criteria and test plan",
+      "verdict": "pass",
+      "reasoning": "Flags that there are no acceptance criteria and that 'Documentation' is a vague standard."
+    },
+    {
+      "id": "C-047",
+      "title": "ISSUE_017: Recommends longer UAT period and defined criteria",
+      "verdict": "pass",
+      "reasoning": "Recommends defined acceptance criteria in Exhibit E, a 30/45-day UAT and express written acceptance."
+    },
+    {
+      "id": "C-048",
+      "title": "ISSUE_018: Identifies 120-day auto-renewal notice period vs. 60-day playbook max",
+      "verdict": "pass",
+      "reasoning": "Identifies the 120-day notice as double the 60-day maximum."
+    },
+    {
+      "id": "C-049",
+      "title": "ISSUE_018: Flags operational trap of missed notice window",
+      "verdict": "pass",
+      "reasoning": "Explains the risk of inadvertent renewal at escalated pricing."
+    },
+    {
+      "id": "C-050",
+      "title": "Payment terms deviation identified (15-day vs Net 45)",
+      "verdict": "pass",
+      "reasoning": "Identifies Net 15 and annual prepayment versus Net 45 with no prepayment."
+    },
+    {
+      "id": "C-051",
+      "title": "Issues categorized with priority levels (Critical/High/Medium)",
+      "verdict": "pass",
+      "reasoning": "Assigns tiers P1 Critical through P4 Low."
+    },
+    {
+      "id": "C-052",
+      "title": "BAA issue categorized as Critical priority",
+      "verdict": "pass",
+      "reasoning": "Rates the BAA issue P1 Critical."
+    },
+    {
+      "id": "C-053",
+      "title": "Liability cap issue categorized as Critical or High priority",
+      "verdict": "pass",
+      "reasoning": "Rates the liability cap issue P1 Critical."
+    },
+    {
+      "id": "C-054",
+      "title": "Recommended redline positions provided for at least 10 issues",
+      "verdict": "pass",
+      "reasoning": "Gives specific redline language with numeric terms for 22 issues."
+    },
+    {
+      "id": "C-055",
+      "title": "Memo notes market-standard items that do not require changes",
+      "verdict": "pass",
+      "reasoning": "Section 3.25 lists provisions that meet the Playbook (subprocessor flow-down, base mutual consent to assignment, one-year renewals) and says why."
+    },
+    {
+      "id": "C-056",
+      "title": "Memo references PE sponsor (Ridgecrest) compliance requirements",
+      "verdict": "pass",
+      "reasoning": "References Ridgecrest requirements for SOC 2, the $10M insurance minimum and return/destruction, with a compliance matrix."
+    },
+    {
+      "id": "C-057",
+      "title": "Memo identifies contract as Tier 1 Critical under playbook",
+      "verdict": "pass",
+      "reasoning": "Classifies the agreement as Tier 1 Critical with GC approval required for deviations."
+    },
+    {
+      "id": "C-058",
+      "title": "ISSUE_009: Quantifies downtime difference between 99.5% and 99.9%",
+      "verdict": "fail",
+      "reasoning": "Memo quantifies only the 99.5% allowance (~3.6 hours/month) plus the maintenance exclusion; it never gives the permissible downtime at 99.9%, so the two levels are not compared."
+    },
+    {
+      "id": "C-059",
+      "title": "Data ownership: playbook requires customer owns all customer data",
+      "verdict": "pass",
+      "reasoning": "States the Playbook's Customer ownership/limited-license standard (Issue 21), notes it interacts with the de-identified data issue, and asserts Customer ownership in the Issue 2 redline."
+    },
+    {
+      "id": "C-060",
+      "title": "ISSUE_014: Recommends escrow triggers per playbook",
+      "verdict": "pass",
+      "reasoning": "Recommends release triggers: insolvency, uncured material breach, discontinuation, and support failure."
+    },
+    {
+      "id": "C-061",
+      "title": "ISSUE_015: Flags pandemic/public health emergency in force majeure",
+      "verdict": "pass",
+      "reasoning": "Flags the unqualified pandemic/epidemic force majeure as overly broad and proposes limiting it to events that directly and materially prevent performance."
+    }
+  ],
+  "run_id": "intellectual-property/review-enterprise-saas-agreement-against-company-playbook/claude-code-session/20261016-040042",
+  "task": "intellectual-property/review-enterprise-saas-agreement-against-company-playbook",
+  "judge_model": "claude-code-session-judge",
+  "scored_at": "2026-10-20T08:24:08.532571+00:00",
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_clock_seconds": 599.9
+  },
+  "doc_coverage": {
+    "documents_read": 3,
+    "total_documents": 3,
+    "documents_skipped": 0,
+    "documents_read_list": [
+      "panorama-saas-contracting-playbook.docx",
+      "vaultline-deal-email-chain.eml",
+      "vaultline-master-saas-agreement.docx"
+    ],
+    "documents_skipped_list": []
+  }
+}
