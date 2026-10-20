@@ -143,7 +143,11 @@ def finish_agent(run_id: str, model: str) -> None:
     bulk = any(tok in command_text for tok in ("documents/*", "documents/**", "os.listdir", "iterdir", "glob("))
     read = [d for d in documents if bulk or Path(d).name in command_text]
     started = datetime.fromisoformat(session["started_at"])
-    ended = datetime.now(UTC)
+    # The session may be closed long after the agent stopped (e.g. a paused batch), so the
+    # run ends at its last sandbox command or output write, not at close time.
+    stamps = [datetime.fromisoformat(c["ts"]) for c in commands if c.get("ts")]
+    stamps += [datetime.fromtimestamp(p.stat().st_mtime, UTC) for p in (run_dir / "output").rglob("*") if p.is_file()]
+    ended = max(stamps) if stamps else datetime.now(UTC)
     outputs = sorted(str(p.relative_to(run_dir / "output")) for p in (run_dir / "output").rglob("*") if p.is_file())
 
     config = {

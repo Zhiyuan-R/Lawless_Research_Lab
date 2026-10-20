@@ -52,7 +52,7 @@ def session(*args: str) -> str:
 
 
 def find_transcript(marker: str) -> str | None:
-    """The agent transcript whose opening prompt contains the marker (largest if several)."""
+    """The agent transcript whose opening prompt contains the marker (newest if several)."""
     hits = []
     for root in SESSION_DIRS:
         for p in root.rglob("*.jsonl"):
@@ -72,7 +72,9 @@ def find_transcript(marker: str) -> str | None:
                 continue
             if marker in head:
                 hits.append(p)
-    return str(max(hits, key=lambda p: p.stat().st_size)) if hits else None
+    # Newest wins: a re-run (e.g. a judge restarted after an interruption) reuses the marker.
+    hits = {p.resolve() for p in hits}
+    return str(max(hits, key=lambda p: p.stat().st_mtime)) if hits else None
 
 
 def audit(role: str, transcript: str | None, run_dir: Path) -> dict:
@@ -106,6 +108,10 @@ def prepare(task: str) -> dict:
 
 def post_agent(task: str) -> dict:
     s = read_state()[task]
+    if s["status"] == "judge_running" and s.get("judge_bundle") and Path(s["judge_bundle"]).exists():
+        # Judging was interrupted: the bundle is already built, so hand it out again.
+        return {"bundle": s["judge_bundle"], "responses": s["judge_responses"], "criteria": s["n_criteria"],
+                "bundle_chars": s.get("bundle_chars")}
     if s["status"] != "agent_running":
         return {"error": f"task status is {s['status']}, expected agent_running"}
     run_dir = Path(s["run_dir"])
