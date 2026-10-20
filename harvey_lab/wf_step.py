@@ -51,7 +51,7 @@ def session(*args: str) -> str:
     return out.stdout
 
 
-def find_transcript(marker: str) -> str | None:
+def find_transcript(marker: str, must_contain: str | None = None) -> str | None:
     """The agent transcript whose opening prompt contains the marker (newest if several)."""
     hits = []
     for root in SESSION_DIRS:
@@ -72,8 +72,12 @@ def find_transcript(marker: str) -> str | None:
                 continue
             if marker in head:
                 hits.append(p)
-    # Newest wins: a re-run (e.g. a judge restarted after an interruption) reuses the marker.
     hits = {p.resolve() for p in hits}
+    # A task can have several transcripts with its marker (a run killed by a quota stop, a judge
+    # restarted after an interruption). Keep only those that touched this run's directory.
+    if must_contain:
+        hits = {p for p in hits if must_contain in p.read_text(errors="replace")}
+    # Newest wins among what is left.
     return str(max(hits, key=lambda p: p.stat().st_mtime)) if hits else None
 
 
@@ -115,7 +119,7 @@ def post_agent(task: str) -> dict:
     if s["status"] != "agent_running":
         return {"error": f"task status is {s['status']}, expected agent_running"}
     run_dir = Path(s["run_dir"])
-    transcript = find_transcript("LABRUN-" + "SOLVER::" + task)
+    transcript = find_transcript("LABRUN-" + "SOLVER::" + task, must_contain=str(run_dir))
     session("finish-agent", s["run_id"])
     a = audit("agent", transcript, run_dir)
     try:
@@ -137,7 +141,7 @@ def post_judge(task: str) -> dict:
     if s["status"] != "judge_running":
         return {"error": f"task status is {s['status']}, expected judge_running"}
     run_dir = Path(s["run_dir"])
-    transcript = find_transcript("LABRUN-" + "JUDGE::" + task)
+    transcript = find_transcript("LABRUN-" + "JUDGE::" + task, must_contain=str(Path(s["judge_bundle"]).parent))
     a = audit("judge", transcript, run_dir)
     try:
         session("finalize", s["run_id"], task)

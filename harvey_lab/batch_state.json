@@ -292,7 +292,7 @@
   "run_id": "firm-knowledge/tasks/175/claude-code-session/20261015-114548",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/firm-knowledge/tasks/175/claude-code-session/20261015-114548",
   "agent_id": "ab9671a5c8a303670",
-  "agent_audit_clean": "true",
+  "agent_audit_clean": true,
   "agent_transcript": "/tmp/claude-0/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/tasks/ab9671a5c8a303670.output",
   "judge_bundle": "/tmp/lab-judging/da3c7fa3e34e/bundle.md",
   "judge_responses": "/tmp/lab-judging/da3c7fa3e34e/responses.json",
@@ -624,27 +624,39 @@
   "n_grading_errors": 0
  },
  "banking-finance/compare-credit-agreement-against-term-sheet": {
-  "status": "agent_running",
+  "status": "judge_running",
   "id": "banking-finance/compare-credit-agreement-against-term-sheet",
   "wt": "review",
   "nd": 3,
   "nc": 33,
   "wave": "full",
   "run_id": "banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261016-022600",
-  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261016-022600"
+  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/compare-credit-agreement-against-term-sheet/claude-code-session/20261016-022600",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_50c1e39f-8a4/agent-a028a66faf91483f3.jsonl",
+  "judge_bundle": "/tmp/lab-judging/d38f6b15a21f/bundle.md",
+  "judge_responses": "/tmp/lab-judging/d38f6b15a21f/responses.json",
+  "n_criteria": 33,
+  "bundle_chars": 175184
  },
  "bankruptcy-restructuring/extract-ballot-tallies-from-voting-report": {
-  "status": "agent_running",
+  "status": "judge_running",
   "id": "bankruptcy-restructuring/extract-ballot-tallies-from-voting-report",
   "wt": "analyze",
   "nd": 4,
   "nc": 84,
   "wave": "full",
   "run_id": "bankruptcy-restructuring/extract-ballot-tallies-from-voting-report/claude-code-session/20261016-022601",
-  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/extract-ballot-tallies-from-voting-report/claude-code-session/20261016-022601"
+  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/extract-ballot-tallies-from-voting-report/claude-code-session/20261016-022601",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_434f45ee-e45/agent-ab242586824dd3b30.jsonl",
+  "judge_bundle": "/tmp/lab-judging/e06ce2204685/bundle.md",
+  "judge_responses": "/tmp/lab-judging/e06ce2204685/responses.json",
+  "n_criteria": 84,
+  "bundle_chars": 340354
  },
  "capital-markets/compare-registration-statement-against-prior-filings": {
-  "status": "judge_running",
+  "status": "done",
   "id": "capital-markets/compare-registration-statement-against-prior-filings",
   "wt": "review",
   "nd": 3,
@@ -652,12 +664,17 @@
   "wave": "full",
   "run_id": "capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261016-022601",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/capital-markets/compare-registration-statement-against-prior-filings/claude-code-session/20261016-022601",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_853290c9-4b4/agent-a5757a246ec474c3f.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_d6ae82ed-ab6/agent-a6a89d49f61ecd65a.jsonl",
   "judge_bundle": "/tmp/lab-judging/33ff470033c3/bundle.md",
   "judge_responses": "/tmp/lab-judging/33ff470033c3/responses.json",
   "n_criteria": 37,
-  "bundle_chars": 140490
+  "bundle_chars": 140490,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_da1414b5-05c/agent-a88f3890359a815b6.jsonl",
+  "n_passed": 36,
+  "all_pass": false,
+  "n_grading_errors": 0
  },
  "contracts/disputes/joint-defense-agreement-counterparty-paper-review": {
   "status": "done",
@@ -681,24 +698,36 @@
   "n_grading_errors": 0
  },
  "corporate-governance/compare-bylaws-against-best-practices": {
-  "status": "agent_running",
+  "status": "judge_running",
   "id": "corporate-governance/compare-bylaws-against-best-practices",
   "wt": "analyze",
   "nd": 3,
   "nc": 40,
   "wave": "full",
   "run_id": "corporate-governance/compare-bylaws-against-best-practices/claude-code-session/20261016-022601",
-  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-bylaws-against-best-practices/claude-code-session/20261016-022601"
+  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-governance/compare-bylaws-against-best-practices/claude-code-session/20261016-022601",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_e47ccc06-651/agent-a7bcf6cecc79d535f.jsonl",
+  "judge_bundle": "/tmp/lab-judging/edde778dd6ee/bundle.md",
+  "judge_responses": "/tmp/lab-judging/edde778dd6ee/responses.json",
+  "n_criteria": 40,
+  "bundle_chars": 200415
  },
  "corporate-ma/compare-matter-plan-against-engagement-letter": {
-  "status": "agent_running",
+  "status": "judge_running",
   "id": "corporate-ma/compare-matter-plan-against-engagement-letter",
   "wt": "review",
   "nd": 2,
   "nc": 33,
   "wave": "full",
   "run_id": "corporate-ma/compare-matter-plan-against-engagement-letter/claude-code-session/20261016-022601",
-  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-ma/compare-matter-plan-against-engagement-letter/claude-code-session/20261016-022601"
+  "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/corporate-ma/compare-matter-plan-against-engagement-letter/claude-code-session/20261016-022601",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_c2893686-478/agent-a5ebaabb7474399b3.jsonl",
+  "judge_bundle": "/tmp/lab-judging/a23b8e18cb9c/bundle.md",
+  "judge_responses": "/tmp/lab-judging/a23b8e18cb9c/responses.json",
+  "n_criteria": 33,
+  "bundle_chars": 75123
  },
  "data-privacy-cybersecurity/draft-affected-individual-notification-letter": {
   "status": "done",
@@ -742,7 +771,7 @@
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/employment-labor/draft-markup-of-settlement-agreement/claude-code-session/20261016-022601"
  },
  "energy-natural-resources/compare-power-purchase-agreement-against-term-sheet": {
-  "status": "judge_running",
+  "status": "done",
   "id": "energy-natural-resources/compare-power-purchase-agreement-against-term-sheet",
   "wt": "review",
   "nd": 4,
@@ -750,15 +779,20 @@
   "wave": "full",
   "run_id": "energy-natural-resources/compare-power-purchase-agreement-against-term-sheet/claude-code-session/20261016-022601",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/compare-power-purchase-agreement-against-term-sheet/claude-code-session/20261016-022601",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_fa47102d-dc9/agent-af31ae53a4f72399a.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_4d58ee8d-141/agent-ab74a64b2ab3efef4.jsonl",
   "judge_bundle": "/tmp/lab-judging/ae1ea14ef0d3/bundle.md",
   "judge_responses": "/tmp/lab-judging/ae1ea14ef0d3/responses.json",
   "n_criteria": 43,
-  "bundle_chars": 137886
+  "bundle_chars": 137886,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_629f2871-5ca/agent-af81780bdbd429782.jsonl",
+  "n_passed": 42,
+  "all_pass": false,
+  "n_grading_errors": 0
  },
  "environmental-esg/identify-issues-in-draft-esg-disclosure": {
-  "status": "judge_running",
+  "status": "done",
   "id": "environmental-esg/identify-issues-in-draft-esg-disclosure",
   "wt": "review",
   "nd": 5,
@@ -766,12 +800,17 @@
   "wave": "full",
   "run_id": "environmental-esg/identify-issues-in-draft-esg-disclosure/claude-code-session/20261016-022601",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/environmental-esg/identify-issues-in-draft-esg-disclosure/claude-code-session/20261016-022601",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_678e588a-d54/agent-a71ebd0643fd9332f.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_e47ccc06-651/agent-adfff76884dcb7d74.jsonl",
   "judge_bundle": "/tmp/lab-judging/d0c701f71031/bundle.md",
   "judge_responses": "/tmp/lab-judging/d0c701f71031/responses.json",
   "n_criteria": 38,
-  "bundle_chars": 88718
+  "bundle_chars": 88718,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_f214533d-470/agent-a29bcc4fda869e842.jsonl",
+  "n_passed": 38,
+  "all_pass": true,
+  "n_grading_errors": 0
  },
  "firm-knowledge/tasks/012": {
   "status": "agent_running",
@@ -802,8 +841,8 @@
   "wave": "full",
   "run_id": "healthcare-life-sciences/extract-key-terms-from-informed-consent-form/claude-code-session/20261016-023557",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/healthcare-life-sciences/extract-key-terms-from-informed-consent-form/claude-code-session/20261016-023557",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_0318d4ba-e01/agent-a3e2c5f9e7cc0a6aa.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_434f45ee-e45/agent-a02a1f7e5e9160474.jsonl",
   "judge_bundle": "/tmp/lab-judging/bb86cd625655/bundle.md",
   "judge_responses": "/tmp/lab-judging/bb86cd625655/responses.json",
   "n_criteria": 35,
@@ -835,7 +874,7 @@
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/insurance/compare-commercial-property-policy-form-against-state-regulatory-requirements/claude-code-session/20261016-023511"
  },
  "intellectual-property/compare-ip-tech-transactions": {
-  "status": "judge_running",
+  "status": "done",
   "id": "intellectual-property/compare-ip-tech-transactions",
   "wt": "review",
   "nd": 3,
@@ -848,10 +887,15 @@
   "judge_bundle": "/tmp/lab-judging/82a0f4457fb1/bundle.md",
   "judge_responses": "/tmp/lab-judging/82a0f4457fb1/responses.json",
   "n_criteria": 41,
-  "bundle_chars": 239569
+  "bundle_chars": 239569,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33188d95-c5d/agent-a685c9997edb67538.jsonl",
+  "n_passed": 41,
+  "all_pass": true,
+  "n_grading_errors": 0
  },
  "international-trade-sanctions/compare-mitigation-agreement-against-national-security-terms": {
-  "status": "judge_running",
+  "status": "done",
   "id": "international-trade-sanctions/compare-mitigation-agreement-against-national-security-terms",
   "wt": "analyze",
   "nd": 5,
@@ -864,7 +908,12 @@
   "judge_bundle": "/tmp/lab-judging/70736aba6e0f/bundle.md",
   "judge_responses": "/tmp/lab-judging/70736aba6e0f/responses.json",
   "n_criteria": 38,
-  "bundle_chars": 106533
+  "bundle_chars": 106533,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_da1414b5-05c/agent-afb55c72ab174656b.jsonl",
+  "n_passed": 38,
+  "all_pass": true,
+  "n_grading_errors": 0
  },
  "litigation-dispute-resolution/extract-key-terms-from-counterparty-complaint": {
   "status": "agent_running",
@@ -930,7 +979,7 @@
   "n_grading_errors": 0
  },
  "white-collar-defense-investigations/draft-proffer-agreement": {
-  "status": "judge_running",
+  "status": "done",
   "id": "white-collar-defense-investigations/draft-proffer-agreement",
   "wt": "draft",
   "nd": 5,
@@ -938,12 +987,17 @@
   "wave": "full",
   "run_id": "white-collar-defense-investigations/draft-proffer-agreement/claude-code-session/20261016-023251",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/white-collar-defense-investigations/draft-proffer-agreement/claude-code-session/20261016-023251",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33685ea2-456/agent-ace1bfcb8739fc26c.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_c2893686-478/agent-ae1fb2bdc377824b5.jsonl",
   "judge_bundle": "/tmp/lab-judging/e4734fe4f401/bundle.md",
   "judge_responses": "/tmp/lab-judging/e4734fe4f401/responses.json",
   "n_criteria": 56,
-  "bundle_chars": 138825
+  "bundle_chars": 138825,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_629f2871-5ca/agent-a615f7b9541d01968.jsonl",
+  "n_passed": 55,
+  "all_pass": false,
+  "n_grading_errors": 0
  },
  "antitrust-competition/draft-motion-to-dismiss-antitrust-claims": {
   "status": "agent_running",
@@ -976,7 +1030,7 @@
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/extract-credit-agreement-covenants/claude-code-session/20261016-024109"
  },
  "bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization": {
-  "status": "judge_running",
+  "status": "done",
   "id": "bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization",
   "wt": "analyze",
   "nd": 5,
@@ -984,12 +1038,17 @@
   "wave": "full",
   "run_id": "bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261016-024711",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/bankruptcy-restructuring/analyze-counterparty-markup-of-plan-of-reorganization/claude-code-session/20261016-024711",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_fa47102d-dc9/agent-af96c7ed7f385414e.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_4d58ee8d-141/agent-a7250a1adcab9a5c9.jsonl",
   "judge_bundle": "/tmp/lab-judging/c1535c72edc6/bundle.md",
   "judge_responses": "/tmp/lab-judging/c1535c72edc6/responses.json",
   "n_criteria": 40,
-  "bundle_chars": 165330
+  "bundle_chars": 165330,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_f214533d-470/agent-ad0cfa10a6a427e23.jsonl",
+  "n_passed": 37,
+  "all_pass": false,
+  "n_grading_errors": 0
  },
  "capital-markets/compare-charter-against-offering": {
   "status": "done",
@@ -1094,7 +1153,7 @@
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/energy-natural-resources/extract-permit-conditions-from-regulatory-approval/claude-code-session/20261016-024301"
  },
  "environmental-esg/identify-environmental-issues-in-preliminary-assessment-report": {
-  "status": "judge_running",
+  "status": "done",
   "id": "environmental-esg/identify-environmental-issues-in-preliminary-assessment-report",
   "wt": "analyze",
   "nd": 5,
@@ -1102,12 +1161,17 @@
   "wave": "full",
   "run_id": "environmental-esg/identify-environmental-issues-in-preliminary-assessment-report/claude-code-session/20261016-030216",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/environmental-esg/identify-environmental-issues-in-preliminary-assessment-report/claude-code-session/20261016-030216",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_6de8e73d-735/agent-ae2febd8bcf27e2a7.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_50c1e39f-8a4/agent-a7e29530035da4462.jsonl",
   "judge_bundle": "/tmp/lab-judging/5197a00ba331/bundle.md",
   "judge_responses": "/tmp/lab-judging/5197a00ba331/responses.json",
   "n_criteria": 43,
-  "bundle_chars": 122174
+  "bundle_chars": 122174,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33188d95-c5d/agent-a3db7e546c071e702.jsonl",
+  "n_passed": 39,
+  "all_pass": false,
+  "n_grading_errors": 0
  },
  "firm-knowledge/tasks/018": {
   "status": "agent_running",
@@ -1220,8 +1284,8 @@
   "wave": "full",
   "run_id": "structured-finance-securitization/compare-offering-memorandum-against-indenture/claude-code-session/20261016-030316",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/structured-finance-securitization/compare-offering-memorandum-against-indenture/claude-code-session/20261016-030316",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_678e588a-d54/agent-adc9ea04102410204.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_e47ccc06-651/agent-ad42135aa702dd678.jsonl",
   "judge_bundle": "/tmp/lab-judging/d237c1fff76a/bundle.md",
   "judge_responses": "/tmp/lab-judging/d237c1fff76a/responses.json",
   "n_criteria": 37,
@@ -1302,8 +1366,8 @@
   "wave": "full",
   "run_id": "banking-finance/draft-intercreditor-agreement/claude-code-session/20261016-030327",
   "run_dir": "/home/user/Lawless_Research_Lab/harvey_lab/vendor/harvey-labs/results/banking-finance/draft-intercreditor-agreement/claude-code-session/20261016-030327",
-  "agent_audit_clean": false,
-  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_678e588a-d54/agent-aa3e4674a2caf161d.jsonl",
+  "agent_audit_clean": true,
+  "agent_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_e47ccc06-651/agent-a33054ec0af7fafa9.jsonl",
   "judge_bundle": "/tmp/lab-judging/71dec3f7dbab/bundle.md",
   "judge_responses": "/tmp/lab-judging/71dec3f7dbab/responses.json",
   "n_criteria": 70,
@@ -2119,7 +2183,7 @@
   "wave": "full"
  },
  "capital-markets/identify-dd-request-list-issues/scenario-01": {
-  "status": "judge_running",
+  "status": "done",
   "id": "capital-markets/identify-dd-request-list-issues/scenario-01",
   "wt": "review",
   "nd": 5,
@@ -2132,7 +2196,12 @@
   "judge_bundle": "/tmp/lab-judging/35d163a36c40/bundle.md",
   "judge_responses": "/tmp/lab-judging/35d163a36c40/responses.json",
   "n_criteria": 35,
-  "bundle_chars": 104090
+  "bundle_chars": 104090,
+  "judge_audit_clean": true,
+  "judge_transcript": "/root/.claude/projects/-home-user-Lawless-Research-Lab/e6ee0c2f-0792-5702-ab58-265c3898fc2d/subagents/workflows/wf_33188d95-c5d/agent-ac82d82e409c480f7.jsonl",
+  "n_passed": 35,
+  "all_pass": true,
+  "n_grading_errors": 0
  },
  "contracts/commercial-vendor-customer/non-disclosure-agreement-first-draft": {
   "status": "pending",
